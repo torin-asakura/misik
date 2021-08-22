@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "repository": "git@github.com:torin-asakura/misik.git",
+  "license": "MIT",
+  "devDependencies": {
+    "@atls/actl-cli": "^0.4.48",
+    "@types/node": "14",
+    "@types/react": "^17.0.19"
+  },
+  "workspaces": [
+    "landing/**/*",
+    "ui/**/*"
+  ]
+}
