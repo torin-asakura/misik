@@ -12,6 +12,7 @@ export const GlobalStyles = () => (
         -webkit-font-smoothing: antialiased;
         -webkit-overflow-scrolling: touch;
         height: 100%;
+        scroll-behavior: smooth;
       }
 
       #__next {

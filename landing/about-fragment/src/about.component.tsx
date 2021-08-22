@@ -7,9 +7,9 @@ import { Column } from '@ui/layout'
 import { Row }    from '@ui/layout'
 
 const About: FC = () => (
-  <Box border='1px solid red' width='100%' height='100%' py='80px'>
+  <Box border='1px solid red' width='100%' height='100%'>
     <Column width='100%'>
-      <Layout flexBasis={80} />
+      <Layout flexBasis={160} />
       <Layout flexDirection={['column', 'column', 'row']}>
         <Layout>
           <Box width={['100%', '100%', 480]} height={480} border='1px solid black'>
@@ -49,6 +49,7 @@ const About: FC = () => (
           </Row>
         </Column>
       </Layout>
+      <Layout flexBasis={80} />
     </Column>
   </Box>
 )

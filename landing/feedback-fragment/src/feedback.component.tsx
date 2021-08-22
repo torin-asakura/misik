@@ -4,12 +4,12 @@ import { FC }     from 'react'
 import { Box }    from '@ui/layout'
 import { Layout } from '@ui/layout'
 import { Column } from '@ui/layout'
-import { Row }    from '@ui/layout'
 
 const Feedback: FC = () => (
-  <Box width='100%' height='100%' py='160px' border='1px solid red'>
+  <Box width='100%' height='100%' border='1px solid red'>
     <Layout width='100%' maxWidth={1280}>
       <Column width='100%'>
+        <Layout flexBasis={160} />
         <Layout flexBasis={120} />
         <Layout flexDirection={['column', 'column', 'row']} width='100%' height='100%'>
           <Column width='100%'>
@@ -22,6 +22,7 @@ const Feedback: FC = () => (
             Form
           </Box>
         </Layout>
+        <Layout flexBasis={160} />
       </Column>
     </Layout>
   </Box>

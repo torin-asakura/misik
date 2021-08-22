@@ -7,8 +7,9 @@ import { Column } from '@ui/layout'
 import { Row }    from '@ui/layout'
 
 const WorkFormat: FC = () => (
-  <Box width='100%' height='100%' py='160px' border='1px solid red'>
+  <Box width='100%' height='100%' border='1px solid red'>
     <Column width='100%'>
+      <Layout flexBasis={160} />
       <Layout>
         <Box width={536} height={77} border='1px solid black'>
           Work format
@@ -47,6 +48,7 @@ const WorkFormat: FC = () => (
           <Layout flexBasis={120} />
         </Column>
       </Layout>
+      <Layout flexBasis={160} />
     </Column>
   </Box>
 )

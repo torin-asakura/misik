@@ -1,11 +1,12 @@
 {
   "private": true,
   "repository": "git@github.com:torin-asakura/misik.git",
-  "license": "MIT",
+  "license": "BSD-3-Clause",
   "devDependencies": {
     "@atls/actl-cli": "^0.4.48",
     "@types/node": "14",
-    "@types/react": "^17.0.19"
+    "@types/react": "^17.0.19",
+    "husky": "^7.0.1"
   },
   "workspaces": [
     "landing/**/*",

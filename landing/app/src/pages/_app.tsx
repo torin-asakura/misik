@@ -7,7 +7,7 @@ import { ThemeProvider } from '@ui/theme'
 
 export const withProviders = compose(
   withApollo({
-    uri: 'https://localhost:8080',
+    uri: process.env.WP_ENDPOINT || 'http://localhost:8080',
     onUnauthenticated: () => {},
   }),
   withEmotion({

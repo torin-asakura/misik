@@ -31,6 +31,19 @@ services:
     volumes:
       - db:/var/lib/mysql
 
+  landing:
+    image: node:16-alpine
+    working_dir: /workspace
+    volumes:
+      - ./:/workspace
+    entrypoint: yarn workspace @landing/app dev
+    environment:
+      - WP_ENDPOINT=http://localhost:8080
+    depends_on:
+      - wordpress
+    ports:
+      - 3000:3000
+
 volumes:
   wordpress:
   db:
