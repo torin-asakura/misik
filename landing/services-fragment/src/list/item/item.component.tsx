@@ -6,24 +6,24 @@ import { Box }       from '@ui/layout'
 import { Layout }    from '@ui/layout'
 import { Row }       from '@ui/layout'
 import { Column }    from '@ui/layout'
+import { Image }     from '@ui/image'
 
 import { ItemProps } from './item.interface'
 
-const Item: FC<ItemProps> = ({ reverse = false }) => (
+const Item: FC<ItemProps> = ({ image, title, content, reverse = false }) => (
   <Box width='100%' height={520} border='1px solid black'>
     <Column width='100%'>
-      <Box width='100%' height={1} backgroundColor='black' />
-      <Layout flexBasis={120} />
       <Condition match={!reverse}>
         <Row height='100%'>
           <Layout width='100%'>
             <Box width='100%' height='100%' border='1px solid red'>
-              Image
+              <Image src={image?.link} alt={image?.altText} contain />
             </Box>
           </Layout>
           <Layout width='100%'>
             <Box width='100%' height='100%' border='1px solid green'>
-              Content
+              {title}
+              {content}
             </Box>
           </Layout>
         </Row>
@@ -32,12 +32,13 @@ const Item: FC<ItemProps> = ({ reverse = false }) => (
         <Row height='100%'>
           <Layout width='100%'>
             <Box width='100%' height='100%' border='1px solid green'>
-              Content
+              {title}
+              {content}
             </Box>
           </Layout>
           <Layout width='100%'>
             <Box width='100%' height='100%' border='1px solid red'>
-              Image
+              <Image src={image?.link} alt={image?.altText} contain />
             </Box>
           </Layout>
         </Row>
@@ -45,5 +46,4 @@ const Item: FC<ItemProps> = ({ reverse = false }) => (
     </Column>
   </Box>
 )
-
 export { Item }
