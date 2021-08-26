@@ -111,9 +111,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",
           "packageDependencies": [
             ["@atls/actl-cli", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:0.4.48"],
-            ["@types/node", "npm:14.17.11"],
+            ["@types/node", "npm:16.7.2"],
             ["@types/react", "npm:17.0.19"],
-            ["husky", "npm:7.0.1"]
+            ["husky", "npm:7.0.1"],
+            ["typescript", "patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=d8b4e7"]
           ],
           "linkType": "SOFT",
         }]
@@ -437,28 +438,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:0.4.48", {
-          "packageLocation": "./.yarn/__virtual__/@atls-actl-cli-virtual-ebbd872187/0/cache/@atls-actl-cli-npm-0.4.48-717251db57-96f7f2d73a.zip/node_modules/@atls/actl-cli/",
-          "packageDependencies": [
-            ["@atls/actl-cli", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:0.4.48"],
-            ["@atls/actl-commit", "virtual:42367fa58921f2f219988809c31b23e31b8fb2f13819a8a9ee3a069ba0e2599d909a464efc1a8cc77cd311f3adaf2c8458264a3791a07e3b4b6faa16b0ced616#npm:0.0.42"],
-            ["@atls/actl-format", "npm:0.0.18"],
-            ["@atls/actl-library", "npm:0.0.5"],
-            ["@atls/actl-lint", "virtual:42367fa58921f2f219988809c31b23e31b8fb2f13819a8a9ee3a069ba0e2599d909a464efc1a8cc77cd311f3adaf2c8458264a3791a07e3b4b6faa16b0ced616#npm:0.1.44"],
-            ["@atls/actl-renderer", "npm:0.0.4"],
-            ["@atls/actl-service", "npm:0.0.4"],
-            ["@atls/actl-test", "npm:0.0.31"],
-            ["@atls/actl-typecheck", "npm:0.1.42"],
-            ["@types/typescript", null],
-            ["clipanion", "virtual:67784d4ac742cac8a605f772f0996478a4574e22eaafd7324d14fe894bf6c0c58f1f3afab8659fc26a3846aa9923d455aa1a6ef75a556eca00023a8792f65120#npm:3.0.1"],
-            ["typescript", "patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=d8b4e7"]
-          ],
-          "packagePeers": [
-            "@types/typescript",
-            "typescript"
-          ],
-          "linkType": "HARD",
-        }],
         ["virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:0.4.48", {
           "packageLocation": "./.yarn/__virtual__/@atls-actl-cli-virtual-42367fa589/0/cache/@atls-actl-cli-npm-0.4.48-717251db57-96f7f2d73a.zip/node_modules/@atls/actl-cli/",
           "packageDependencies": [
@@ -473,7 +452,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@atls/actl-typecheck", "npm:0.1.42"],
             ["@types/typescript", null],
             ["clipanion", "virtual:67784d4ac742cac8a605f772f0996478a4574e22eaafd7324d14fe894bf6c0c58f1f3afab8659fc26a3846aa9923d455aa1a6ef75a556eca00023a8792f65120#npm:3.0.1"],
-            ["typescript", null]
+            ["typescript", "patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=d8b4e7"]
           ],
           "packagePeers": [
             "@types/typescript",
@@ -554,7 +533,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["typescript", "patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=d8b4e7"]
           ],
           "packagePeers": [
-            "@types/typescript"
+            "@types/typescript",
+            "typescript"
           ],
           "linkType": "HARD",
         }]
@@ -2695,7 +2675,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@landing/app", "workspace:landing/app"],
             ["@apollo/client", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:3.4.8"],
             ["@apollo/react-ssr", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:4.0.0"],
-            ["@atls/actl-cli", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:0.4.48"],
+            ["@atls/actl-cli", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:0.4.48"],
             ["@atls/next-app-with-apollo", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:0.2.70"],
             ["@atls/next-app-with-emotion", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:0.2.67"],
             ["@atls/next-app-with-helmet", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:0.2.64"],
@@ -2711,7 +2691,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@landing/index-page", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#workspace:landing/index-page"],
             ["@types/events", "npm:3.0.0"],
             ["@types/express", "npm:4.17.13"],
-            ["@types/node", "npm:14.17.11"],
+            ["@types/node", "npm:16.7.2"],
             ["@types/react", "npm:17.0.19"],
             ["@types/react-dom", "npm:17.0.9"],
             ["@types/react-helmet", "npm:6.1.2"],
@@ -3904,17 +3884,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["npm:14.17.11", {
-          "packageLocation": "./.yarn/cache/@types-node-npm-14.17.11-1749a5f307-94192a5f6f.zip/node_modules/@types/node/",
-          "packageDependencies": [
-            ["@types/node", "npm:14.17.11"]
-          ],
-          "linkType": "HARD",
-        }],
         ["npm:16.7.1", {
           "packageLocation": "./.yarn/cache/@types-node-npm-16.7.1-ed9db6a0db-fcf1a2c7b1.zip/node_modules/@types/node/",
           "packageDependencies": [
             ["@types/node", "npm:16.7.1"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:16.7.2", {
+          "packageLocation": "./.yarn/cache/@types-node-npm-16.7.2-f9553f7520-aef77c109e.zip/node_modules/@types/node/",
+          "packageDependencies": [
+            ["@types/node", "npm:16.7.2"]
           ],
           "linkType": "HARD",
         }]
@@ -14661,9 +14641,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["root-workspace-0b6124", "workspace:."],
             ["@atls/actl-cli", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:0.4.48"],
-            ["@types/node", "npm:14.17.11"],
+            ["@types/node", "npm:16.7.2"],
             ["@types/react", "npm:17.0.19"],
-            ["husky", "npm:7.0.1"]
+            ["husky", "npm:7.0.1"],
+            ["typescript", "patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=d8b4e7"]
           ],
           "linkType": "SOFT",
         }]
