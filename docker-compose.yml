@@ -2,24 +2,11 @@ version: '3.8'
 
 services:
   wordpress:
-    image: wordpress
-    restart: always
-    environment:
-      WORDPRESS_DB_HOST: db
-      WORDPRESS_DB_USER: exampleuser
-      WORDPRESS_DB_PASSWORD: examplepass
-      WORDPRESS_DB_NAME: exampledb
-      WORDPRESS_DEBUG: 1
-      WP_ENDPOINT: http://localhost:8080/index.php?graphql
-      BASE_PATH: /wp-content/themes/misik/dist
-    volumes:
-      - wordpress:/var/www/html
-      - ./.ignore/wp-content/plugins/:/var/www/html/wp-content/plugins/
-      - ./.ignore/wp-content/themes/:/var/www/html/wp-content/themes/
-      - ./.ignore/wp-content/uploads/:/var/www/html/wp-content/uploads/
-      - ./.ignore/upload.ini:/usr/local/etc/php/conf.d/uploads.ini
+    image: atlantislab/misik-wp
     ports:
       - 8080:80
+    volumes:
+      - ./wp-content/themes:/var/www/html/wp-content/themes/
     depends_on:
       - db
 
