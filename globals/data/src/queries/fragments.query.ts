@@ -1,0 +1,30 @@
+import { gql } from '@apollo/client'
+
+const GET_FRAGMENTS = gql`
+  query GetFragments {
+    fragments(first: 1000) {
+      nodes {
+        title
+        content
+        featuredImage {
+          node {
+            altText
+            link
+            title
+            mediaType
+          }
+        }
+        language {
+          code
+        }
+        fragmentParams {
+          highlightedText
+          object
+          scope
+        }
+      }
+    }
+  }
+`
+
+export { GET_FRAGMENTS }

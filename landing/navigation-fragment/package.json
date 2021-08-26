@@ -5,6 +5,7 @@
   "peerDependencies": {
     "@emotion/react": "*",
     "@emotion/styled": "*",
+    "@globals/language": "*",
     "react": "*",
     "react-dom": "*",
     "styled-system": "*"
@@ -12,6 +13,7 @@
   "devDependencies": {
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
+    "@globals/language": "workspace:globals/language",
     "@types/styled-system": "^5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

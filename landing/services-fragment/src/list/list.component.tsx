@@ -1,14 +1,28 @@
-import React      from 'react'
-import { FC }     from 'react'
+import React                   from 'react'
+import { FC }                  from 'react'
 
-import { Column } from '@ui/layout'
+import { Box, Column, Layout } from '@ui/layout'
 
-import { Item }   from './item'
+import { Item }                from './item'
+import { ListProps }           from './list.interface'
 
-const List: FC = () => (
+const List: FC<ListProps> = ({ items }) => (
   <Column width='100%'>
-    <Item />
-    <Item reverse />
+    {items.map(({ title, content, featuredImage }, index) => (
+      <>
+        <Column width='100%'>
+          <Layout flexBasis={120} />
+          <Box width='100%' height={1} backgroundColor='black' />
+          <Layout flexBasis={120} />
+          <Item
+            reverse={index % 2 !== 0}
+            title={title}
+            content={content}
+            image={featuredImage.node}
+          />
+        </Column>
+      </>
+    ))}
   </Column>
 )
 

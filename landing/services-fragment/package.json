@@ -5,6 +5,8 @@
   "peerDependencies": {
     "@emotion/react": "*",
     "@emotion/styled": "*",
+    "@globals/data": "*",
+    "@globals/language": "*",
     "react": "*",
     "react-dom": "*",
     "styled-system": "*"
@@ -12,6 +14,8 @@
   "devDependencies": {
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
+    "@globals/data": "workspace:globals/data",
+    "@globals/language": "workspace:globals/language",
     "@types/styled-system": "^5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -19,6 +23,7 @@
   },
   "dependencies": {
     "@ui/condition": "workspace:ui/condition",
+    "@ui/image": "workspace:ui/image",
     "@ui/layout": "workspace:ui/layout"
   }
 }
