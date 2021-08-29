@@ -69,3 +69,7 @@ credentials.json
 # local
 .ini
 .ignore
+
+# Exclude all wp themes except current one
+wp-content/themes
+wp-content/themes/!misik!/
