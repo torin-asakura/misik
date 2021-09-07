@@ -1,11 +1,10 @@
 {
-  "name": "@landing/navigation-fragment",
+  "name": "@ui/logo",
   "version": "0.0.0",
   "main": "src/index.ts",
   "peerDependencies": {
     "@emotion/react": "*",
     "@emotion/styled": "*",
-    "@globals/language": "*",
     "react": "*",
     "react-dom": "*",
     "styled-system": "*"
@@ -13,16 +12,12 @@
   "devDependencies": {
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
-    "@globals/language": "workspace:globals/language",
     "@types/styled-system": "^5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "styled-system": "^5.1.5"
   },
   "dependencies": {
-    "@ui/button": "workspace:ui/button",
-    "@ui/layout": "workspace:ui/layout",
-    "@ui/link": "workspace:ui/link",
-    "@ui/logo": "workspace:ui/logo"
+    "@ui/link": "workspace:ui/link"
   }
 }

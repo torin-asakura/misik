@@ -1,4 +1,4 @@
-const normalizeString = (string) => string.replace(/(<p>|<\/p>)/g, '')
+const normalizeString = (string) => string.replace(/(<p>|<\/p>)/g, '').replace('&#8211;', '-')
 
 const validateField = (field) =>
   typeof field === 'string'
