@@ -1,11 +1,13 @@
 import React             from 'react'
 import { FC }            from 'react'
 
+import { Divider }       from '@ui/divider'
 import { Box }           from '@ui/layout'
 import { Layout }        from '@ui/layout'
 import { Column }        from '@ui/layout'
 import { Row }           from '@ui/layout'
 import { Image }         from '@ui/image'
+import { Text }          from '@ui/text'
 import { useData }       from '@globals/data'
 import { extractObject } from '@globals/data'
 import { useLanguage }   from '@globals/language'
@@ -17,34 +19,31 @@ const About: FC = () => {
   const [language] = useLanguage()
   const partners = usePartners()
 
-  let title: string = ''
+  const title = {
+    text: '',
+    highlighted: '',
+  }
   let content: string = ''
   let imageUrl: string = ''
   let alt: string = ''
 
   if (fragments) {
     const titleObject = extractObject('title', fragments.about[language])
-    title = titleObject?.title
+    title.text = titleObject?.title
+    title.highlighted = titleObject?.fragmentParams.highlightedText
     content = titleObject?.content
-    imageUrl = titleObject?.featuredImage.node.link
-    alt = titleObject?.featuredImage.node.altText
+    imageUrl = titleObject?.featuredImage?.node.sourceUrl
+    alt = titleObject?.featuredImage?.node.altText
   }
 
   return (
-    <Box border='1px solid red' width='100%' height='100%'>
+    <Box width='100%' height='100%'>
+      <Layout flexBasis={[20, 20, 0]} />
       <Column width='100%'>
-        <Layout flexBasis={100} />
-        <Row>
-          <Box width={200} height={220} border='1px solid black' />
-          <Layout flexBasis={80} />
-          <Box width={200} height={220} border='1px solid black' />
-        </Row>
-        <Layout flexBasis={80} />
-        <Box width='100%' height={1} backgroundColor='black' />
         <Layout flexBasis={160} />
         <Layout flexDirection={['column', 'column', 'row']}>
           <Layout>
-            <Box width={['100%', '100%', 480]} height={480} border='1px solid black'>
+            <Box width={['100%', '100%', 480]} height={480}>
               <Image alt={alt} src={imageUrl} contain />
             </Box>
           </Layout>
@@ -52,18 +51,37 @@ const About: FC = () => {
           <Layout maxWidth={620}>
             <Layout>
               <Column width='100%'>
-                <Layout>
-                  <Box width={['100%', '100%', 620]} height={231} border='1px solid black'>
-                    {title}
-                  </Box>
+                <Layout width={['100%', '100%', 620]}>
+                  <Text
+                    display='block'
+                    fontFamily='secondary'
+                    fontSize={['semiBig', 'semiBig', 'semiGiant']}
+                    fontWeight='thin'
+                    color='text.primary'
+                  >
+                    {title.text.replace(title.highlighted, '')}
+                    <Text
+                      display='block'
+                      fontFamily='secondary'
+                      fontSize={['semiBig', 'semiBig', 'semiGiant']}
+                      color='text.accent'
+                      fontWeight='thin'
+                    >
+                      {title.highlighted}
+                    </Text>
+                  </Text>
                 </Layout>
-                <Layout flexBasis={72} />
-                <Box width='100%' height={1} backgroundColor='black' />
+                <Layout flexBasis={[24, 24, 72]} />
+                <Divider />
                 <Layout flexBasis={32} />
-                <Layout>
-                  <Box width={['100%', '100%', 620]} height={145} border='1px solid black'>
+                <Layout width={['100%', '100%', 620]} height={145}>
+                  <Text
+                    fontSize={['tiny', 'tiny', 'regular']}
+                    color='text.secondary'
+                    lineHeight='primary'
+                  >
                     {content}
-                  </Box>
+                  </Text>
                 </Layout>
               </Column>
             </Layout>
@@ -72,22 +90,29 @@ const About: FC = () => {
         <Layout flexBasis={160} />
         <Layout maxWidth={1280}>
           <Column width='100%'>
-            <Box width='100%' height={1} backgroundColor='black' />
+            <Layout flexBasis={[64, 64, 0]} />
+            <Divider />
             <Layout flexBasis={80} />
             <Row alignItems='center'>
               {partners.map(({ featuredImage }) => (
                 <>
                   <Box width={180} height={90} border='1px solid black'>
-                    <Image src={featuredImage.node.link} alt={featuredImage.node.altText} contain />
+                    <Image
+                      src={featuredImage?.node.sourceUrl}
+                      alt={featuredImage?.node.altText}
+                      contain
+                    />
                   </Box>
                   <Layout flexBasis={40} />
                 </>
               ))}
             </Row>
+            <Layout flexBasis={[32, 32, 0]} />
           </Column>
         </Layout>
         <Layout flexBasis={80} />
       </Column>
+      <Layout flexBasis={[20, 20, 0]} />
     </Box>
   )
 }

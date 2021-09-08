@@ -2,7 +2,7 @@ import { createActiveStyles }     from '@atls-ui-parts/link'
 import { createHoverStyles }      from '@atls-ui-parts/link'
 import { createTransitionStyles } from '@atls-ui-parts/link'
 
-export const baseStyles = ({ theme }) => ({ color: theme.colors.text.default })
+export const baseStyles = ({ theme }) => ({ color: theme.colors.text.primary })
 
 export const activeStyles = createActiveStyles({ color: 'press' })
 

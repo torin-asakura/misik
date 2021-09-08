@@ -1,10 +1,13 @@
-import React                   from 'react'
-import { FC }                  from 'react'
+import React         from 'react'
+import { FC }        from 'react'
 
-import { Box, Column, Layout } from '@ui/layout'
+import { Box }       from '@ui/layout'
+import { Column }    from '@ui/layout'
+import { Layout }    from '@ui/layout'
+import { Divider }   from '@ui/divider'
 
-import { Item }                from './item'
-import { ListProps }           from './list.interface'
+import { Item }      from './item'
+import { ListProps } from './list.interface'
 
 const List: FC<ListProps> = ({ items }) => (
   <Column width='100%'>
@@ -12,7 +15,7 @@ const List: FC<ListProps> = ({ items }) => (
       <>
         <Column width='100%'>
           <Layout flexBasis={120} />
-          <Box width='100%' height={1} backgroundColor='black' />
+          <Divider />
           <Layout flexBasis={120} />
           <Item
             reverse={index % 2 !== 0}

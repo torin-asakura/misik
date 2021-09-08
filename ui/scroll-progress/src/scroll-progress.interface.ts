@@ -1,3 +1,3 @@
-export interface SliderContainerProps {
+export interface ScrollProgressProps {
   progressContainerWidth: number | string | number[] | string[]
 }

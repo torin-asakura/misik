@@ -1,12 +1,15 @@
 {
-  "name": "@landing/hero-fragment",
+  "name": "@ui/text",
   "version": "0.0.0",
+  "license": "MIT",
   "main": "src/index.ts",
+  "dependencies": {
+    "@atls-ui-parts/text": "^0.0.5",
+    "styled-tools": "^1.7.1"
+  },
   "peerDependencies": {
     "@emotion/react": "*",
     "@emotion/styled": "*",
-    "@globals/data": "*",
-    "@globals/language": "*",
     "react": "*",
     "react-dom": "*",
     "styled-system": "*"
@@ -14,17 +17,9 @@
   "devDependencies": {
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
-    "@globals/data": "workspace:globals/data",
-    "@globals/language": "workspace:globals/language",
     "@types/styled-system": "^5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "styled-system": "^5.1.5"
-  },
-  "dependencies": {
-    "@ui/button": "workspace:ui/button",
-    "@ui/image": "workspace:ui/image",
-    "@ui/layout": "workspace:ui/layout",
-    "@ui/text": "workspace:ui/text"
   }
 }

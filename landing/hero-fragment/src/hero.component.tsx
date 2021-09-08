@@ -1,9 +1,12 @@
 import React             from 'react'
 import { FC }            from 'react'
 
+import { Button }        from '@ui/button'
 import { Box }           from '@ui/layout'
 import { Column }        from '@ui/layout'
 import { Layout }        from '@ui/layout'
+import { Text }          from '@ui/text'
+import { Image }         from '@ui/image'
 import { useData }       from '@globals/data'
 import { extractObject } from '@globals/data'
 import { useLanguage }   from '@globals/language'
@@ -13,24 +16,53 @@ const Hero: FC = () => {
   const [language] = useLanguage()
 
   let title: string = ''
+  let highlighted: string = ''
+  const image = {
+    url: '',
+    alt: '',
+  }
 
   if (fragments && fragments.hero) {
-    title = extractObject('title', fragments.hero[language])?.title
+    const titleObj = extractObject('title', fragments.hero[language])
+
+    title = titleObj?.title
+    highlighted = titleObj?.fragmentParams.highlightedText
+    image.url = titleObj?.featuredImage?.node.sourceUrl
+    image.alt = titleObj?.featuredImage?.node.altText
   }
 
   return (
-    <Box border='1px solid red' width='100%' height='100%'>
+    <Box width='100%' height='100%' borderRadius='bottomHuge'>
+      <Image background src={image.url} alt={image.alt} />
+      <Layout flexBasis={[16, 16, 0]} />
       <Column width='100%'>
-        <Layout flexBasis={80} />
-        <Box border='1px solid black' height={288} width={864}>
-          {title}
-        </Box>
+        <Layout flexBasis={[40, 40, 80]} />
+        <Layout maxWidth={864}>
+          <Text
+            display='inline-block'
+            fontFamily='secondary'
+            fontWeight='thin'
+            fontSize={['big', 'big', 'giant']}
+          >
+            {title.replace(highlighted, '')}
+            <Text
+              display='inline-block'
+              fontFamily='secondary'
+              color='text.accent'
+              fontWeight='thin'
+              fontSize={['big', 'big', 'giant']}
+            >
+              {highlighted}
+            </Text>
+          </Text>
+        </Layout>
         <Layout flexGrow={1} />
-        <Box border='1px solid black' width={215} height={34}>
-          Get consult
-        </Box>
-        <Layout flexBasis={80} />
+        <Button colors='secondary' width='min-content' height={34}>
+          <Text fontSize='medium'>Получить консультацию</Text>
+        </Button>
+        <Layout flexBasis={[40, 40, 80]} />
       </Column>
+      <Layout flexBasis={[16, 16, 0]} />
     </Box>
   )
 }

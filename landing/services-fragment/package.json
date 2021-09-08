@@ -22,8 +22,12 @@
     "styled-system": "^5.1.5"
   },
   "dependencies": {
+    "@ui/accordeon": "workspace:ui/accordeon",
+    "@ui/button": "workspace:ui/button",
     "@ui/condition": "workspace:ui/condition",
+    "@ui/divider": "workspace:ui/divider",
     "@ui/image": "workspace:ui/image",
-    "@ui/layout": "workspace:ui/layout"
+    "@ui/layout": "workspace:ui/layout",
+    "@ui/text": "workspace:ui/text"
   }
 }

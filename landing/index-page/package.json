@@ -28,6 +28,6 @@
     "@landing/navigation-fragment": "workspace:landing/navigation-fragment",
     "@landing/services-fragment": "workspace:landing/services-fragment",
     "@landing/work-format-fragment": "workspace:landing/work-format-fragment",
-    "@ui/page-slider": "workspace:ui/page-slider"
+    "@ui/scroll-progress": "workspace:ui/scroll-progress"
   }
 }

@@ -1,5 +1,5 @@
 {
-  "name": "@ui/page-slider",
+  "name": "@ui/divider",
   "version": "0.0.0",
   "main": "src/index.ts",
   "peerDependencies": {

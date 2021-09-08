@@ -18,16 +18,14 @@ const Navigation: FC = () => {
   }
 
   return (
-    <Box width='100%' height={88}>
+    <Box width='100%' height={88} position='sticky' top={0} left={0}>
+      <Layout flexBasis={[16, 16, 0]} />
       <Column width='100%' alignItems='center'>
         <Layout flexBasis={21} />
         <Layout width='100%' height='100%' maxWidth={1840}>
           <Row alignItems='center'>
             <Layout>
-              <Box width={190} height={32} border='1px solid black'>
-                {/* TODO replace with real one */}
-                <Logo />
-              </Box>
+              <Logo />
             </Layout>
             <Layout flexBasis={170} />
             <Row alignItems='center' display={['none', 'none', 'flex']}>
@@ -39,7 +37,7 @@ const Navigation: FC = () => {
               <Layout flexBasis={40} />
             </Row>
             <Layout display={['none', 'none', 'flex']}>
-              <Button width={227} height={46}>
+              <Button width={227} height={46} disabled>
                 Получить консультацию
               </Button>
             </Layout>
@@ -53,6 +51,7 @@ const Navigation: FC = () => {
         </Layout>
         <Layout flexBasis={21} />
       </Column>
+      <Layout flexBasis={[16, 16, 0]} />
     </Box>
   )
 }

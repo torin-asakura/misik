@@ -122,7 +122,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@atls-ui-parts/text@npm:0.0.5":
+"@atls-ui-parts/text@npm:0.0.5, @atls-ui-parts/text@npm:^0.0.5":
   version: 0.0.5
   resolution: "@atls-ui-parts/text@npm:0.0.5"
   dependencies:
@@ -1597,8 +1597,10 @@ __metadata:
     "@globals/data": "workspace:globals/data"
     "@globals/language": "workspace:globals/language"
     "@types/styled-system": ^5
+    "@ui/divider": "workspace:ui/divider"
     "@ui/image": "workspace:ui/image"
     "@ui/layout": "workspace:ui/layout"
+    "@ui/text": "workspace:ui/text"
     react: ^17.0.2
     react-dom: ^17.0.2
     styled-system: ^5.1.5
@@ -1690,7 +1692,10 @@ __metadata:
     "@globals/data": "workspace:globals/data"
     "@globals/language": "workspace:globals/language"
     "@types/styled-system": ^5
+    "@ui/button": "workspace:ui/button"
+    "@ui/image": "workspace:ui/image"
     "@ui/layout": "workspace:ui/layout"
+    "@ui/text": "workspace:ui/text"
     react: ^17.0.2
     react-dom: ^17.0.2
     styled-system: ^5.1.5
@@ -1721,7 +1726,7 @@ __metadata:
     "@landing/services-fragment": "workspace:landing/services-fragment"
     "@landing/work-format-fragment": "workspace:landing/work-format-fragment"
     "@types/styled-system": ^5
-    "@ui/page-slider": "workspace:ui/page-slider"
+    "@ui/scroll-progress": "workspace:ui/scroll-progress"
     react: ^17.0.2
     react-dom: ^17.0.2
     styled-system: ^5.1.5
@@ -1769,9 +1774,13 @@ __metadata:
     "@globals/data": "workspace:globals/data"
     "@globals/language": "workspace:globals/language"
     "@types/styled-system": ^5
+    "@ui/accordeon": "workspace:ui/accordeon"
+    "@ui/button": "workspace:ui/button"
     "@ui/condition": "workspace:ui/condition"
+    "@ui/divider": "workspace:ui/divider"
     "@ui/image": "workspace:ui/image"
     "@ui/layout": "workspace:ui/layout"
+    "@ui/text": "workspace:ui/text"
     react: ^17.0.2
     react-dom: ^17.0.2
     styled-system: ^5.1.5
@@ -2608,6 +2617,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ui/accordeon@workspace:ui/accordeon":
+  version: 0.0.0-use.local
+  resolution: "@ui/accordeon@workspace:ui/accordeon"
+  dependencies:
+    "@emotion/react": ^11.4.1
+    "@emotion/styled": ^11.3.0
+    "@types/styled-system": ^5
+    "@ui/button": "workspace:ui/button"
+    "@ui/condition": "workspace:ui/condition"
+    "@ui/layout": "workspace:ui/layout"
+    "@ui/text": "workspace:ui/text"
+    react: ^17.0.2
+    react-dom: ^17.0.2
+    styled-system: ^5.1.5
+  peerDependencies:
+    "@emotion/react": "*"
+    "@emotion/styled": "*"
+    react: "*"
+    react-dom: "*"
+    styled-system: "*"
+  languageName: unknown
+  linkType: soft
+
 "@ui/button@workspace:ui/button":
   version: 0.0.0-use.local
   resolution: "@ui/button@workspace:ui/button"
@@ -2638,6 +2670,26 @@ __metadata:
   peerDependencies:
     react: "*"
     react-dom: "*"
+  languageName: unknown
+  linkType: soft
+
+"@ui/divider@workspace:ui/divider":
+  version: 0.0.0-use.local
+  resolution: "@ui/divider@workspace:ui/divider"
+  dependencies:
+    "@emotion/react": ^11.4.1
+    "@emotion/styled": ^11.3.0
+    "@types/styled-system": ^5
+    "@ui/layout": "workspace:ui/layout"
+    react: ^17.0.2
+    react-dom: ^17.0.2
+    styled-system: ^5.1.5
+  peerDependencies:
+    "@emotion/react": "*"
+    "@emotion/styled": "*"
+    react: "*"
+    react-dom: "*"
+    styled-system: "*"
   languageName: unknown
   linkType: soft
 
@@ -2720,9 +2772,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ui/page-slider@workspace:ui/page-slider":
+"@ui/scroll-progress@workspace:ui/scroll-progress":
   version: 0.0.0-use.local
-  resolution: "@ui/page-slider@workspace:ui/page-slider"
+  resolution: "@ui/scroll-progress@workspace:ui/scroll-progress"
   dependencies:
     "@emotion/react": ^11.4.1
     "@emotion/styled": ^11.3.0
@@ -2731,6 +2783,27 @@ __metadata:
     react: ^17.0.2
     react-dom: ^17.0.2
     styled-system: ^5.1.5
+  peerDependencies:
+    "@emotion/react": "*"
+    "@emotion/styled": "*"
+    react: "*"
+    react-dom: "*"
+    styled-system: "*"
+  languageName: unknown
+  linkType: soft
+
+"@ui/text@workspace:ui/text":
+  version: 0.0.0-use.local
+  resolution: "@ui/text@workspace:ui/text"
+  dependencies:
+    "@atls-ui-parts/text": ^0.0.5
+    "@emotion/react": ^11.4.1
+    "@emotion/styled": ^11.3.0
+    "@types/styled-system": ^5
+    react: ^17.0.2
+    react-dom: ^17.0.2
+    styled-system: ^5.1.5
+    styled-tools: ^1.7.1
   peerDependencies:
     "@emotion/react": "*"
     "@emotion/styled": "*"
@@ -12243,7 +12316,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"styled-tools@npm:^1.7.2":
+"styled-tools@npm:^1.7.1, styled-tools@npm:^1.7.2":
   version: 1.7.2
   resolution: "styled-tools@npm:1.7.2"
   checksum: 00cc1796085589b8d95d5a4183806d45b1d332fbc1dcf19922b01b81bd871c5a499fce64e82bb63bbead5bb8fe317f60a6e91c2fe01bf1ed79f5953977a05065
