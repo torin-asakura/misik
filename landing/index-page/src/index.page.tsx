@@ -7,10 +7,16 @@ import { Hero }             from '@landing/hero-fragment'
 import { About }            from '@landing/about-fragment'
 import { Services }         from '@landing/services-fragment'
 import { WorkFormat }       from '@landing/work-format-fragment'
-import { ScrollProgress }   from '@ui/scroll-progress'
+import { WorkDirections }   from '@landing/work-directions-fragment'
+import { Feedback }         from '@landing/feedback-fragment'
+import { Footer }           from '@landing/footer-fragment'
 import { DataProvider }     from '@globals/data'
 import { LanguageProvider } from '@globals/language'
 import { Language }         from '@globals/language'
+import { SpyScroll }        from '@ui/spy-scroll'
+import { Box }              from '@ui/layout'
+
+import { Seo }              from './seo.component'
 
 const IndexPage: FC = () => {
   const languageContext = useState<Language>('RU')
@@ -18,10 +24,17 @@ const IndexPage: FC = () => {
   return (
     <LanguageProvider value={languageContext}>
       <DataProvider>
-        <Navigation />
-        <ScrollProgress progressContainerWidth={40}>
+        <SpyScroll>
+          <Seo language={languageContext} />
+          <Navigation />
+          <Hero />
+          <WorkDirections />
+          <About />
+          <Services />
           <WorkFormat />
-        </ScrollProgress>
+          <Feedback />
+          <Footer />
+        </SpyScroll>
       </DataProvider>
     </LanguageProvider>
   )

@@ -6,6 +6,8 @@ const colors = {
       active: 'rgba(18, 18, 19, 1)',
       disabled: 'rgba(182,185,201,0.25)',
       fontColor: 'rgba(18, 18, 19, 1)',
+      successText: 'rgba(255, 255, 255, 1)',
+      error: 'rgba(226,29,29,1)',
     },
     secondary: {
       default: 'rgba(18, 18, 19, 1)',
@@ -22,10 +24,20 @@ const colors = {
     disabled: 'rgba(18, 18, 19, 0.3)',
   },
   background: {
+    transparentWhite: 'rgba(255, 255, 255, 0.80)',
     lightBeige: 'rgba(247,242,237,1)',
+    beige: 'rgb(241,234,226)',
     lightGray: 'rgba(18, 18, 19, 0.1)',
   },
-  input: {},
+  input: {
+    background: 'transparent',
+    font: 'rgba(18, 18, 19, 1)',
+    border: 'rgba(18, 18, 19, 0.1)',
+    hover: 'rgba(18, 18, 19, 1)',
+    focus: 'rgba(18, 18, 19, 1)',
+    press: 'rgba(18, 18, 19, 1)',
+    error: 'rgba(226, 29, 29, 1)',
+  },
 }
 
 export { colors }

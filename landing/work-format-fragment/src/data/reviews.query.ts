@@ -2,7 +2,7 @@ import { gql } from '@apollo/client'
 
 const GET_REVIEWS = gql`
   query GetReviews {
-    reviews {
+    reviews(first: 1000) {
       nodes {
         content
         excerpt

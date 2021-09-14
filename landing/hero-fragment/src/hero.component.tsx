@@ -4,12 +4,15 @@ import { FC }            from 'react'
 import { Button }        from '@ui/button'
 import { Box }           from '@ui/layout'
 import { Column }        from '@ui/layout'
+import { Row }           from '@ui/layout'
 import { Layout }        from '@ui/layout'
 import { Text }          from '@ui/text'
 import { Image }         from '@ui/image'
+import { Link }          from '@ui/link'
 import { useData }       from '@globals/data'
 import { extractObject } from '@globals/data'
 import { useLanguage }   from '@globals/language'
+import { messages }      from '@globals/messages'
 
 const Hero: FC = () => {
   const { fragments } = useData()
@@ -32,37 +35,64 @@ const Hero: FC = () => {
   }
 
   return (
-    <Box width='100%' height='100%' borderRadius='bottomHuge'>
-      <Image background src={image.url} alt={image.alt} />
-      <Layout flexBasis={[16, 16, 0]} />
-      <Column width='100%'>
-        <Layout flexBasis={[40, 40, 80]} />
-        <Layout maxWidth={864}>
-          <Text
-            display='inline-block'
-            fontFamily='secondary'
-            fontWeight='thin'
-            fontSize={['big', 'big', 'giant']}
-          >
-            {title.replace(highlighted, '')}
-            <Text
-              display='inline-block'
-              fontFamily='secondary'
-              color='text.accent'
-              fontWeight='thin'
-              fontSize={['big', 'big', 'giant']}
-            >
-              {highlighted}
-            </Text>
-          </Text>
-        </Layout>
-        <Layout flexGrow={1} />
-        <Button colors='secondary' width='min-content' height={34}>
-          <Text fontSize='medium'>Получить консультацию</Text>
-        </Button>
-        <Layout flexBasis={[40, 40, 80]} />
-      </Column>
-      <Layout flexBasis={[16, 16, 0]} />
+    <Box width='100%' height='100%' backgroundColor='background.lightBeige' zIndex={1}>
+      <Box
+        position='relative'
+        width='100%'
+        height={['100%', '100%', 1000]}
+        borderRadius={['bottomMedium', 'bottomMedium', 'bottomHuge']}
+        backgroundImage={['none', 'none', `url(${image.url})`]}
+        backgroundSize='cover'
+        overflow='hidden'
+        zIndex={3}
+      >
+        <Row height='100%' justifyContent='flex-end'>
+          <Box zIndex={-1} display={['flex', 'flex', 'none']}>
+            <Image background src={image.url} alt={image.alt} />
+          </Box>
+          <Layout flexBasis={[16, 16, 0]} />
+          <Column>
+            <Layout flexBasis={[160, 160, 240]} />
+            <Layout maxWidth={864}>
+              <Text
+                display='inline-block'
+                fontFamily='secondary'
+                fontWeight='thin'
+                fontSize={['big', 'big', 'giant']}
+                maxWidth={[500, 500, 700]}
+              >
+                {title.replace(highlighted, '')}
+                <Text
+                  display='inline-block'
+                  fontFamily='secondary'
+                  color='text.accent'
+                  fontWeight='thin'
+                  fontSize={['big', 'big', 'giant']}
+                >
+                  {highlighted}
+                </Text>
+              </Text>
+            </Layout>
+            <Layout flexBasis={[289, 289, 438]} />
+            <Layout display={['none', 'none', 'flex']}>
+              <Link href='#feedback'>
+                <Button colors='secondary' size='medium' height={34}>
+                  {messages.getConsult[language]}
+                </Button>
+              </Link>
+            </Layout>
+            <Layout display={['flex', 'flex', 'none']}>
+              <Link href='#feedback'>
+                <Button colors='secondary' size='medium' height={34}>
+                  {messages.getConsult[language]}
+                </Button>
+              </Link>
+            </Layout>
+            <Layout flexBasis={[40, 40, 160]} />
+          </Column>
+          <Layout flexBasis={[16, 16, 900]} />
+        </Row>
+      </Box>
     </Box>
   )
 }

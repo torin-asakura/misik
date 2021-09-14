@@ -7,9 +7,10 @@ import { activeStyles }                   from './link.styles'
 import { baseStyles }                     from './link.styles'
 import { hoverStyles }                    from './link.styles'
 import { transitionStyles }               from './link.styles'
+import { underlineStyles }                from './link.styles'
 
 const applyStyles = (Component) =>
-  styled(Component)(activeStyles, baseStyles, hoverStyles, transitionStyles)
+  styled(Component)(activeStyles, baseStyles, hoverStyles, transitionStyles, underlineStyles)
 
 const Link = applyStyles(LinkBase)
 const NextLink = applyStyles(NextLinkBase)

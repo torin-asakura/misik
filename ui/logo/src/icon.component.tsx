@@ -1,7 +1,12 @@
 import React  from 'react'
 import { FC } from 'react'
 
-const Icon: FC = ({ width = 190, height = 32 }) => (
+interface IconProps {
+  width?: number
+  height?: number
+}
+
+const Icon: FC<IconProps> = ({ width = 190, height = 32 }) => (
   <svg
     width={width}
     height={height}
