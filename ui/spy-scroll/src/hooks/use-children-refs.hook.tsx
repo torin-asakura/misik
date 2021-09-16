@@ -4,7 +4,7 @@ import { useRef }   from 'react'
 
 const useChildrenRefs = (children) =>
   Children.map(children, (child) => {
-    const node = useRef(null)
+    const node = useRef(null) // eslint-disable-line
 
     return <div ref={node}>{child}</div>
   })

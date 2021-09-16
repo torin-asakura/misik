@@ -6,10 +6,10 @@ import { AnimatePresence } from 'framer-motion'
 
 import { Condition }       from '@ui/condition'
 import { Button }          from '@ui/button'
+import { useDrawer }       from '@ui/drawer'
 import { Row }             from '@ui/layout'
 import { Column }          from '@ui/layout'
 import { Layout }          from '@ui/layout'
-import { Link }            from '@ui/link'
 import { Text }            from '@ui/text'
 import { messages }        from '@globals/messages'
 import { useLanguage }     from '@globals/language'
@@ -18,11 +18,10 @@ import { Minus }           from './icons'
 import { Plus }            from './icons'
 import { AccordeonProps }  from './accordeon.interface'
 
-// TODO animate
-
 const Accordeon: FC<AccordeonProps> = ({ title, content }) => {
   const [active, setActive] = useState<boolean>(false)
   const [language] = useLanguage()
+  const [, setDrawer] = useDrawer()
 
   return (
     <Column width='100%'>
@@ -77,11 +76,14 @@ const Accordeon: FC<AccordeonProps> = ({ title, content }) => {
                   </Layout>
                   <Layout flexBasis={20} />
                   <Layout>
-                    <Link href='#feedback'>
-                      <Button colors='secondary' width={119} height={26}>
-                        {messages.orderService[language]}
-                      </Button>
-                    </Link>
+                    <Button
+                      colors='secondary'
+                      width={119}
+                      height={26}
+                      onClick={() => setDrawer(true)}
+                    >
+                      {messages.orderService[language]}
+                    </Button>
                   </Layout>
                 </Column>
               </motion.section>
@@ -94,3 +96,9 @@ const Accordeon: FC<AccordeonProps> = ({ title, content }) => {
 }
 
 export { Accordeon }
+
+const arr = [1, 2, 3]
+
+const cb = (item) => item + 1
+
+arr.map(cb)

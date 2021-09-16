@@ -26,6 +26,7 @@
   "dependencies": {
     "@globals/messages": "workspace:globals/messages",
     "@ui/button": "workspace:ui/button",
+    "@ui/copy": "workspace:ui/copy",
     "@ui/form": "workspace:ui/form",
     "@ui/input": "workspace:ui/input",
     "@ui/layout": "workspace:ui/layout",

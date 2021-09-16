@@ -2,12 +2,12 @@ import React           from 'react'
 import { FC }          from 'react'
 
 import { Button }      from '@ui/button'
+import { useDrawer }   from '@ui/drawer'
 import { Condition }   from '@ui/condition'
 import { Box }         from '@ui/layout'
 import { Layout }      from '@ui/layout'
 import { Row }         from '@ui/layout'
 import { Column }      from '@ui/layout'
-import { Link }        from '@ui/link'
 import { Image }       from '@ui/image'
 import { Text }        from '@ui/text'
 import { messages }    from '@globals/messages'
@@ -17,6 +17,7 @@ import { ItemProps }   from './item.interface'
 
 const Item: FC<ItemProps> = ({ image, title, content, reverse = false }) => {
   const [language] = useLanguage()
+  const [, setActive] = useDrawer()
 
   return (
     <Box width='100%' height={['auto', 'auto', 520]}>
@@ -37,11 +38,9 @@ const Item: FC<ItemProps> = ({ image, title, content, reverse = false }) => {
               <Text color='text.secondary'>{content}</Text>
               <Layout flexBasis={70} />
               <Layout>
-                <Link href='#feedback'>
-                  <Button colors='secondary' width={119} height={18}>
-                    {messages.orderService[language]}
-                  </Button>
-                </Link>
+                <Button colors='secondary' width={119} height={18} onClick={() => setActive(true)}>
+                  {messages.orderService[language]}
+                </Button>
               </Layout>
             </Column>
           </Row>
@@ -56,11 +55,9 @@ const Item: FC<ItemProps> = ({ image, title, content, reverse = false }) => {
               <Text color='text.secondary'>{content}</Text>
               <Layout flexBasis={70} />
               <Layout>
-                <Link href='#feedback'>
-                  <Button colors='secondary' width={119} height={18}>
-                    {messages.orderService[language]}
-                  </Button>
-                </Link>
+                <Button colors='secondary' width={119} height={18} onClick={() => setActive(true)}>
+                  {messages.orderService[language]}
+                </Button>
               </Layout>
             </Column>
             <Layout flexBasis={40} />
@@ -92,11 +89,9 @@ const Item: FC<ItemProps> = ({ image, title, content, reverse = false }) => {
             </Layout>
             <Layout flexBasis={70} />
             <Layout>
-              <Link href='#feedback'>
-                <Button colors='secondary' width={119} height={18}>
-                  {messages.orderService[language]}
-                </Button>
-              </Link>
+              <Button colors='secondary' width={119} height={18} onClick={() => setActive(true)}>
+                {messages.orderService[language]}
+              </Button>
             </Layout>
           </Column>
         </Layout>

@@ -9,12 +9,13 @@ import { Services }         from '@landing/services-fragment'
 import { WorkFormat }       from '@landing/work-format-fragment'
 import { WorkDirections }   from '@landing/work-directions-fragment'
 import { Feedback }         from '@landing/feedback-fragment'
+import { Map }              from '@landing/map-fragment'
 import { Footer }           from '@landing/footer-fragment'
 import { DataProvider }     from '@globals/data'
 import { LanguageProvider } from '@globals/language'
 import { Language }         from '@globals/language'
 import { SpyScroll }        from '@ui/spy-scroll'
-import { Box }              from '@ui/layout'
+import { Drawer }           from '@ui/drawer'
 
 import { Seo }              from './seo.component'
 
@@ -24,17 +25,22 @@ const IndexPage: FC = () => {
   return (
     <LanguageProvider value={languageContext}>
       <DataProvider>
-        <SpyScroll>
-          <Seo language={languageContext} />
-          <Navigation />
-          <Hero />
-          <WorkDirections />
-          <About />
-          <Services />
-          <WorkFormat />
-          <Feedback />
-          <Footer />
-        </SpyScroll>
+        <Drawer>
+          <SpyScroll>
+            <Seo language={languageContext} />
+            <Navigation />
+            <Hero />
+            <WorkDirections />
+            <About />
+            <Services />
+            <WorkFormat />
+            <>
+              <Feedback />
+              <Map />
+            </>
+            <Footer />
+          </SpyScroll>
+        </Drawer>
       </DataProvider>
     </LanguageProvider>
   )

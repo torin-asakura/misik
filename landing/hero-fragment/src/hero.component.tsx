@@ -2,13 +2,13 @@ import React             from 'react'
 import { FC }            from 'react'
 
 import { Button }        from '@ui/button'
+import { useDrawer }     from '@ui/drawer'
 import { Box }           from '@ui/layout'
 import { Column }        from '@ui/layout'
 import { Row }           from '@ui/layout'
 import { Layout }        from '@ui/layout'
 import { Text }          from '@ui/text'
 import { Image }         from '@ui/image'
-import { Link }          from '@ui/link'
 import { useData }       from '@globals/data'
 import { extractObject } from '@globals/data'
 import { useLanguage }   from '@globals/language'
@@ -17,6 +17,7 @@ import { messages }      from '@globals/messages'
 const Hero: FC = () => {
   const { fragments } = useData()
   const [language] = useLanguage()
+  const [, setActive] = useDrawer()
 
   let title: string = ''
   let highlighted: string = ''
@@ -50,7 +51,7 @@ const Hero: FC = () => {
           <Box zIndex={-1} display={['flex', 'flex', 'none']}>
             <Image background src={image.url} alt={image.alt} />
           </Box>
-          <Layout flexBasis={[16, 16, 0]} />
+          <Layout flexBasis={[16, 16, 150]} />
           <Column>
             <Layout flexBasis={[160, 160, 240]} />
             <Layout maxWidth={864}>
@@ -75,18 +76,14 @@ const Hero: FC = () => {
             </Layout>
             <Layout flexBasis={[289, 289, 438]} />
             <Layout display={['none', 'none', 'flex']}>
-              <Link href='#feedback'>
-                <Button colors='secondary' size='medium' height={34}>
-                  {messages.getConsult[language]}
-                </Button>
-              </Link>
+              <Button colors='secondary' size='medium' height={34} onClick={() => setActive(true)}>
+                {messages.getConsult[language]}
+              </Button>
             </Layout>
             <Layout display={['flex', 'flex', 'none']}>
-              <Link href='#feedback'>
-                <Button colors='secondary' size='medium' height={34}>
-                  {messages.getConsult[language]}
-                </Button>
-              </Link>
+              <Button colors='secondary' size='medium' height={34} onClick={() => setActive(true)}>
+                {messages.getConsult[language]}
+              </Button>
             </Layout>
             <Layout flexBasis={[40, 40, 160]} />
           </Column>

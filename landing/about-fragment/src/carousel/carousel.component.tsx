@@ -4,7 +4,7 @@ import { FC }                       from 'react'
 import { Carousel as BaseCarousel } from '@ui/carousel'
 import { Layout }                   from '@ui/layout'
 
-const Desktop = ({ children }) => (
+const Desktop: FC = ({ children }) => (
   <BaseCarousel
     slidesPerView={6}
     centered={false}
@@ -18,21 +18,21 @@ const Desktop = ({ children }) => (
   </BaseCarousel>
 )
 
-const Mobile = ({ children }) => (
+const Mobile: FC = ({ children }) => (
   <BaseCarousel
     slidesPerView={2}
     centered
     loop
     spaceBetween={20}
     height={60}
-    width={375}
+    width='100%'
     timeout={2000}
   >
     {children}
   </BaseCarousel>
 )
 
-const Carousel = ({ children }) => (
+const Carousel: FC = ({ children }) => (
   <>
     <Layout display={['none', 'none', 'flex']}>
       <Desktop>{children}</Desktop>

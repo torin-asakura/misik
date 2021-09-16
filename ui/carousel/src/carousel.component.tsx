@@ -1,18 +1,16 @@
-import React                  from 'react'
-import { FC }                 from 'react'
-import { useEffect }          from 'react'
-import { useRef }             from 'react'
-import { Children }           from 'react'
-import { useCarousel }        from '@atls-ui-parts/carousel'
-import { useAddonPagination } from '@atls-ui-parts/carousel'
-import { useAddonNavigation } from '@atls-ui-parts/carousel'
+import React             from 'react'
+import { FC }            from 'react'
+import { useEffect }     from 'react'
+import { useRef }        from 'react'
+import { Children }      from 'react'
+import { useCarousel }   from '@atls-ui-parts/carousel'
 
-import { Box }                from '@ui/layout'
+import { Box }           from '@ui/layout'
 
-import { CarouselProps }      from './carousel.interface'
-import { Slide }              from './slide.component'
-import { Wrapper }            from './wrapper.component'
-import { Container }          from './container.component'
+import { CarouselProps } from './carousel.interface'
+import { Slide }         from './slide.component'
+import { Wrapper }       from './wrapper.component'
+import { Container }     from './container.component'
 
 const Carousel: FC<CarouselProps> = ({
   children,
@@ -34,8 +32,10 @@ const Carousel: FC<CarouselProps> = ({
 
   const carouselItems = Children.map(children, (child) => <Slide>{child}</Slide>)
 
-  const { slides, activeSlide, slidesLength, slideToIndex, slideToTwoIndexes, wrapperOptions } =
-    useCarousel(containerNode, carouselItems, {
+  const { slides, activeSlide, slidesLength, slideToIndex, wrapperOptions } = useCarousel(
+    containerNode,
+    carouselItems,
+    {
       direction,
       slidesPerView,
       spaceBetween,
@@ -44,26 +44,8 @@ const Carousel: FC<CarouselProps> = ({
       swipeThreshold,
       centered,
       loop,
-    })
-
-  const withPagination = useAddonPagination({
-    slidesLength,
-    activeSlide,
-    slideTo: slideToIndex,
-    slidesPerView,
-    centered,
-    loop,
-  })
-
-  const { prevProp, nextProp } = useAddonNavigation({
-    slidesLength,
-    activeSlide,
-    slideTo: slideToIndex,
-    slideToTwo: slideToTwoIndexes,
-    slidesPerView,
-    centered,
-    loop,
-  })
+    }
+  )
 
   useEffect(() => {
     const timer =

@@ -5,6 +5,7 @@ import { RawInput }                 from '@atls-ui-parts/input'
 import { useChangeValue }           from '@atls-ui-parts/input'
 import { ForwardRefRenderFunction } from 'react'
 import { forwardRef }               from 'react'
+import { layout }                   from 'styled-system'
 
 import { Text }                     from '@ui/text'
 
@@ -21,7 +22,8 @@ export const InputElement = styled.div<any>(
   shapeStyles,
   appearanceStyles,
   transitionStyles,
-  borderBottomStyles
+  borderBottomStyles,
+  layout
 )
 
 const Container = styled.div(({ type }: any) => ({

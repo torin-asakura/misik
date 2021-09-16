@@ -33,11 +33,14 @@ export const Button: FC<ButtonProps> = ({
   ...props
 }) => (
   <ButtonElement success={success} failure={failure} {...props}>
-    <Content divider={divider}>
-      <Condition match={success}>
+    <Condition match={success}>
+      <Content divider={divider}>
         <SuccessIcon />
-      </Condition>
-      {children}
-    </Content>
+        {children}
+      </Content>
+    </Condition>
+    <Condition match={!success}>
+      <Content divider={divider}>{children}</Content>
+    </Condition>
   </ButtonElement>
 )

@@ -1,3 +1,5 @@
+/* eslint-disable no-shadow */
+
 import React              from 'react'
 import { FC }             from 'react'
 
@@ -41,7 +43,7 @@ const Services: FC = () => {
       id='services'
     >
       <Layout maxWidth={1280}>
-        <Layout flexBasis={[20, 20, 0]} />
+        <Layout flexBasis={[20, 20, 150]} />
         <Column width='100%'>
           <Layout flexBasis={[64, 64, 160]} />
           <Layout width={['100%', '100%', 242]}>

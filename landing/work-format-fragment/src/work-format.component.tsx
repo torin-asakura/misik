@@ -1,3 +1,5 @@
+/* eslint-disable no-shadow */
+
 import React              from 'react'
 import { FC }             from 'react'
 
@@ -5,8 +7,6 @@ import { Divider }        from '@ui/divider'
 import { Box }            from '@ui/layout'
 import { Layout }         from '@ui/layout'
 import { Column }         from '@ui/layout'
-import { Row }            from '@ui/layout'
-import { Image }          from '@ui/image'
 import { Text }           from '@ui/text'
 import { useData }        from '@globals/data'
 import { extractObject }  from '@globals/data'
@@ -14,12 +14,9 @@ import { extractObjects } from '@globals/data'
 import { sortByOrder }    from '@globals/data'
 import { useLanguage }    from '@globals/language'
 
-import { useReviews }     from './data'
-
 const WorkFormat: FC = () => {
   const { fragments } = useData()
   const [language] = useLanguage()
-  const reviews = useReviews()
 
   let workFormats = []
   let title: string = ''
@@ -38,7 +35,7 @@ const WorkFormat: FC = () => {
       id='work_format'
     >
       <Layout maxWidth={1280}>
-        <Layout flexBasis={[20, 20, 0]} />
+        <Layout flexBasis={[20, 20, 150]} />
         <Column width='100%'>
           <Layout flexBasis={160} />
           <Layout>
@@ -56,7 +53,7 @@ const WorkFormat: FC = () => {
           <Layout width='100%' flexDirection={['column', 'column', 'row']}>
             {workFormats.sort(sortByOrder).map(({ title, content }, idx) => (
               <>
-                <Box width={['100%', '100%', 400]}>
+                <Box width='100%'>
                   <Column width='100%'>
                     <Box
                       border='1px solid'

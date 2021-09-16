@@ -1,16 +1,17 @@
 import React             from 'react'
 import { FC }            from 'react'
 
+import { Copy }          from '@ui/copy'
 import { Box }           from '@ui/layout'
 import { Layout }        from '@ui/layout'
 import { Column }        from '@ui/layout'
 import { Row }           from '@ui/layout'
 import { Text }          from '@ui/text'
 import { Space }         from '@ui/text'
+import { Form }          from '@ui/form'
 import { useData }       from '@globals/data'
 import { extractObject } from '@globals/data'
 import { useLanguage }   from '@globals/language'
-import { Form }          from '@ui/form'
 
 import { FeedbackProps } from './feedback.interface'
 
@@ -50,11 +51,12 @@ const Feedback: FC<FeedbackProps> = ({ background = 'background.lightBeige' }) =
         borderRadius={['topMedium', 'topMedium', 'topHuge']}
         justifyContent='flex-end'
       >
-        <Layout flexBasis={[20, 20, 0]} />
         <Layout width='100%' height='100%' maxWidth={1280}>
+          <Layout flexBasis={[20, 20, 0]} />
           <Column width='100%'>
             <Layout flexBasis={[0, 0, 160]} />
             <Layout flexDirection={['column', 'column', 'row']} width='100%'>
+              <Layout flexBasis={[0, 0, 150]} />
               <Column width='100%'>
                 <Layout flexBasis={[48, 48, 0]} />
                 <Layout>
@@ -94,14 +96,9 @@ const Feedback: FC<FeedbackProps> = ({ background = 'background.lightBeige' }) =
                     </Text>
                   </Layout>
                   <Layout flexBasis={16} />
-                  {/* TODO restore nnf */}
-                  <Box
-                    display='none'
-                    width={40}
-                    height={40}
-                    border='1px solid black'
-                    borderRadius='huge'
-                  />
+                  <Layout display={['none', 'none', 'flex']}>
+                    <Copy content={email} />
+                  </Layout>
                 </Row>
                 <Layout flexBasis={32} />
                 <Row>
@@ -111,14 +108,9 @@ const Feedback: FC<FeedbackProps> = ({ background = 'background.lightBeige' }) =
                     </Text>
                   </Layout>
                   <Layout flexBasis={16} />
-                  {/* TODO restore nnf */}
-                  <Box
-                    display='none'
-                    width={40}
-                    height={40}
-                    border='1px solid black'
-                    borderRadius='huge'
-                  />
+                  <Layout display={['none', 'none', 'flex']}>
+                    <Copy content={phone} />
+                  </Layout>
                 </Row>
                 <Layout flexBasis={12} />
                 <Row>
@@ -132,7 +124,7 @@ const Feedback: FC<FeedbackProps> = ({ background = 'background.lightBeige' }) =
               <Layout flexGrow={1} />
               <Form />
             </Layout>
-            <Layout flexBasis={110} />
+            <Layout flexBasis={160} />
           </Column>
         </Layout>
         <Layout flexBasis={[16, 16, 320]} />

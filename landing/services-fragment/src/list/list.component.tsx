@@ -1,7 +1,6 @@
 import React         from 'react'
 import { FC }        from 'react'
 
-import { Box }       from '@ui/layout'
 import { Column }    from '@ui/layout'
 import { Layout }    from '@ui/layout'
 import { Divider }   from '@ui/divider'

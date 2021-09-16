@@ -2,13 +2,13 @@ import React           from 'react'
 import { FC }          from 'react'
 
 import { Button }      from '@ui/button'
+import { useDrawer }   from '@ui/drawer'
 import { Box }         from '@ui/layout'
 import { Layout }      from '@ui/layout'
 import { Row }         from '@ui/layout'
 import { Column }      from '@ui/layout'
 import { Logo }        from '@ui/logo'
 import { NextLink }    from '@ui/link'
-import { Link }        from '@ui/link'
 import { useStep }     from '@ui/spy-scroll'
 import { useLanguage } from '@globals/language'
 import { messages }    from '@globals/messages'
@@ -17,6 +17,7 @@ import { useMenus }    from './data'
 
 const Navigation: FC = () => {
   const [language, setLanguage] = useLanguage()
+  const [, setActive] = useDrawer()
   const menus = useMenus()
   const step = useStep()
 
@@ -24,14 +25,14 @@ const Navigation: FC = () => {
     setLanguage(language === 'RU' ? 'EN' : 'RU')
   }
 
-  const getColor = (step) => {
-    if (step === 0) return 'background.transparentWhite'
-    if (step === 1) return 'background.lightBeige'
-    if (step === 2) return 'background.lightBeige'
-    if (step === 3) return 'background.beige'
-    if (step === 4) return 'background.lightBeige'
-    if (step === 5) return 'background.beige'
-    if (step === 6) return 'background.beige'
+  const getColor = (stepIdx) => {
+    if (stepIdx === 0) return 'background.transparentWhite'
+    if (stepIdx === 1) return 'background.lightBeige'
+    if (stepIdx === 2) return 'background.lightBeige'
+    if (stepIdx === 3) return 'background.beige'
+    if (stepIdx === 4) return 'background.lightBeige'
+    if (stepIdx === 5) return 'background.beige'
+    if (stepIdx === 6) return 'background.beige'
     return 'background.beige'
   }
 
@@ -70,15 +71,12 @@ const Navigation: FC = () => {
             </Row>
             <Layout flexGrow={1} />
             <Layout display={['none', 'none', 'flex']}>
-              <Link href='#feedback'>
-                <Button width={227} height={46}>
-                  {messages.getConsult[language]}
-                </Button>
-              </Link>
+              <Button width={227} height={46} onClick={() => setActive(true)}>
+                {messages.getConsult[language]}
+              </Button>
             </Layout>
             <Layout flexBasis={16} />
-            {/* TODO restore */}
-            <Layout display='none'>
+            <Layout>
               <Button px={0} width={[40, 40, 46]} height={[40, 40, 46]} onClick={switchLanguage}>
                 {language.replace('EN', 'РУ').replace('RU', 'EN')}
               </Button>

@@ -22,7 +22,7 @@ const useScrollPosition = (childrenWithRefs) => {
     window.addEventListener('scroll', handler)
 
     return () => window.removeEventListener('scroll', handler)
-  }, [])
+  }, [childrenWithRefs])
 
   return step
 }

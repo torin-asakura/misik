@@ -5,6 +5,7 @@ import { useState }    from 'react'
 import { Condition }   from '@ui/condition'
 import { Box }         from '@ui/layout'
 import { Column }      from '@ui/layout'
+import { Row }         from '@ui/layout'
 import { Layout }      from '@ui/layout'
 import { Input }       from '@ui/input'
 import { Button }      from '@ui/button'
@@ -34,52 +35,65 @@ const Form: FC = () => {
     }, 2000)
 
   return (
-    <Box width={['100%', '100%', 700]} height={598}>
+    <Box width={['100%', '100%', 700]} height={['100%', '100%', 598]}>
       <Column width='100%'>
-        <Input
-          value={name}
-          onChange={setName}
-          placeholder={forms[language] && forms[language][0]?.label}
-        />
+        <Layout maxHeight={[58, 58, 62]}>
+          <Input
+            value={name}
+            onChange={setName}
+            placeholder={forms[language] && forms[language][0]?.label}
+          />
+        </Layout>
         <Layout flexBasis={32} />
-        <Input
-          value={phone}
-          onChange={setPhone}
-          placeholder={forms[language] && forms[language][1]?.label}
-        />
+        <Layout maxHeight={[58, 58, 62]}>
+          <Input
+            value={phone}
+            onChange={setPhone}
+            placeholder={forms[language] && forms[language][1]?.label}
+          />
+        </Layout>
         <Layout flexBasis={32} />
-        <Input
-          value={email}
-          onChange={setEmail}
-          placeholder={forms[language] && forms[language][2]?.label}
-        />
+        <Layout maxHeight={[58, 58, 62]}>
+          <Input
+            value={email}
+            onChange={setEmail}
+            placeholder={forms[language] && forms[language][2]?.label}
+          />
+        </Layout>
         <Layout flexBasis={32} />
-        <Input
-          value={comment}
-          onChange={setComment}
-          placeholder={forms[language] && forms[language][3]?.label}
-        />
+        <Layout maxHeight={[58, 58, 62]}>
+          <Input
+            value={comment}
+            onChange={setComment}
+            placeholder={forms[language] && forms[language][3]?.label}
+          />
+        </Layout>
         <Layout flexBasis={40} />
-        <Button
-          success={success}
-          failure={success === false}
-          onClick={() =>
-            submit({
-              variables: {
-                name,
-                phone,
-                email,
-                comment,
-              },
-            })
-          }
-        >
-          <Condition match={success}>{messages.sent[language]}</Condition>
-          <Condition match={success === false}>{messages.notSent[language]}</Condition>
-          <Condition match={success === null}>{messages.send[language]}</Condition>
-        </Button>
-        <Layout flexBasis={32} />
         <Layout>
+          <Button
+            width='100%'
+            height={[48, 48, 52]}
+            px={0}
+            success={success}
+            failure={success === false}
+            onClick={() =>
+              submit({
+                variables: {
+                  name,
+                  phone,
+                  email,
+                  comment,
+                },
+              })
+            }
+          >
+            <Condition match={success}>{messages.sent[language]}</Condition>
+            <Condition match={success === false}>{messages.notSent[language]}</Condition>
+            <Condition match={success === null}>{messages.send[language]}</Condition>
+          </Button>
+        </Layout>
+        <Layout flexBasis={32} />
+        <Row justifyContent='center' display={['none', 'none', 'flex']}>
           <Layout>
             <Text
               color='text.secondary'
@@ -93,7 +107,7 @@ const Form: FC = () => {
               </NextLink>
             </Text>
           </Layout>
-        </Layout>
+        </Row>
       </Column>
     </Box>
   )

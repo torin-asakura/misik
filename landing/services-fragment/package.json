@@ -8,6 +8,7 @@
     "@emotion/styled": "*",
     "@globals/data": "*",
     "@globals/language": "*",
+    "@ui/drawer": "*",
     "react": "*",
     "react-dom": "*",
     "styled-system": "*"
@@ -19,6 +20,7 @@
     "@globals/data": "workspace:globals/data",
     "@globals/language": "workspace:globals/language",
     "@types/styled-system": "^5",
+    "@ui/drawer": "workspace:ui/drawer",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "styled-system": "^5.1.5"

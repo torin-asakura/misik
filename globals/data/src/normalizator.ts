@@ -5,6 +5,7 @@ const normalizeString = (string) =>
     .replace(/&#8212;/g, '-')
     .replace(/<meta charset="utf-8">/g, '')
     .replace(/<br\/>/g, '')
+    .replace(/<br \/>/g, '')
 
 const validateField = (field) =>
   typeof field === 'string'

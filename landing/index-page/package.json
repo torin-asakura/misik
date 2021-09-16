@@ -29,10 +29,12 @@
     "@landing/feedback-fragment": "workspace:landing/feedback-fragment",
     "@landing/footer-fragment": "workspace:landing/footer-fragment",
     "@landing/hero-fragment": "workspace:landing/hero-fragment",
+    "@landing/map-fragment": "workspace:landing/map-fragment",
     "@landing/navigation-fragment": "workspace:landing/navigation-fragment",
     "@landing/services-fragment": "workspace:landing/services-fragment",
     "@landing/work-directions-fragment": "workspace:landing/work-directions-fragment",
     "@landing/work-format-fragment": "workspace:landing/work-format-fragment",
+    "@ui/drawer": "workspace:ui/drawer",
     "@ui/layout": "workspace:ui/layout",
     "@ui/spy-scroll": "workspace:ui/spy-scroll"
   }

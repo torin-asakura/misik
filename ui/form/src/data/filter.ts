@@ -1,3 +1,5 @@
+/* eslint-disable no-param-reassign */
+
 const filter = (items) =>
   items.reduce(
     (result, { title, ...form }) => {

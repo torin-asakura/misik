@@ -25,7 +25,7 @@ const Mobile: FC = ({ children }) => (
     loop
     spaceBetween={20}
     height={210}
-    width={375}
+    width='100%'
     timeout={false}
   >
     {children}
