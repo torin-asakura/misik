@@ -7,6 +7,9 @@ services:
       - 8080:80
     volumes:
       - ./wp-content/themes:/var/www/html/wp-content/themes/
+      - wordpress:/var/www/html
+      - ./.ignore/upload.ini:/usr/local/etc/php/conf.d/upload.ini
+      - ./.ignore/wp-content/uploads/:/var/www/html/wp-content/uploads/
     depends_on:
       - db
 

@@ -1,0 +1,32 @@
+{
+  "name": "@ui/accordeon",
+  "version": "0.0.0",
+  "main": "src/index.ts",
+  "peerDependencies": {
+    "@emotion/react": "*",
+    "@emotion/styled": "*",
+    "@ui/drawer": "*",
+    "react": "*",
+    "react-dom": "*",
+    "styled-system": "*"
+  },
+  "devDependencies": {
+    "@emotion/react": "^11.4.1",
+    "@emotion/styled": "^11.3.0",
+    "@types/styled-system": "^5",
+    "@ui/drawer": "workspace:ui/drawer",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "styled-system": "^5.1.5"
+  },
+  "dependencies": {
+    "@globals/language": "workspace:globals/language",
+    "@globals/messages": "workspace:globals/messages",
+    "@ui/button": "workspace:ui/button",
+    "@ui/condition": "workspace:ui/condition",
+    "@ui/layout": "workspace:ui/layout",
+    "@ui/link": "workspace:ui/link",
+    "@ui/text": "workspace:ui/text",
+    "framer-motion": "^4.1.17"
+  }
+}

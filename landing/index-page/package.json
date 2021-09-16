@@ -8,15 +8,18 @@
     "@emotion/styled": "*",
     "react": "*",
     "react-dom": "*",
+    "react-helmet": "*",
     "styled-system": "*"
   },
   "devDependencies": {
     "@apollo/client": "^3.4.8",
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
+    "@types/react-helmet": "^6",
     "@types/styled-system": "^5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-helmet": "^6.1.0",
     "styled-system": "^5.1.5"
   },
   "dependencies": {
@@ -24,10 +27,15 @@
     "@globals/language": "workspace:globals/language",
     "@landing/about-fragment": "workspace:landing/about-fragment",
     "@landing/feedback-fragment": "workspace:landing/feedback-fragment",
+    "@landing/footer-fragment": "workspace:landing/footer-fragment",
     "@landing/hero-fragment": "workspace:landing/hero-fragment",
+    "@landing/map-fragment": "workspace:landing/map-fragment",
     "@landing/navigation-fragment": "workspace:landing/navigation-fragment",
     "@landing/services-fragment": "workspace:landing/services-fragment",
+    "@landing/work-directions-fragment": "workspace:landing/work-directions-fragment",
     "@landing/work-format-fragment": "workspace:landing/work-format-fragment",
-    "@ui/page-slider": "workspace:ui/page-slider"
+    "@ui/drawer": "workspace:ui/drawer",
+    "@ui/layout": "workspace:ui/layout",
+    "@ui/spy-scroll": "workspace:ui/spy-scroll"
   }
 }

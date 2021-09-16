@@ -5,10 +5,14 @@ const GET_PARTNERS = gql`
     partners {
       nodes {
         title
+        excerpt
+        clientsParameters {
+          ssylka
+        }
         featuredImage {
           node {
             altText
-            link
+            sourceUrl
           }
         }
       }

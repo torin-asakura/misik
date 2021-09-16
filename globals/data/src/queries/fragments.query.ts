@@ -10,6 +10,7 @@ const GET_FRAGMENTS = gql`
           node {
             altText
             link
+            sourceUrl
             title
             mediaType
           }

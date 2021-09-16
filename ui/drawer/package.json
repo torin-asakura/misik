@@ -1,0 +1,36 @@
+{
+  "name": "@ui/drawer",
+  "version": "0.0.0",
+  "main": "src/index.ts",
+  "peerDependencies": {
+    "@apollo/client": "*",
+    "@emotion/react": "*",
+    "@emotion/styled": "*",
+    "@globals/data": "*",
+    "@globals/language": "*",
+    "react": "*",
+    "react-dom": "*",
+    "styled-system": "*"
+  },
+  "devDependencies": {
+    "@apollo/client": "^3.4.8",
+    "@emotion/react": "^11.4.1",
+    "@emotion/styled": "^11.3.0",
+    "@globals/data": "workspace:globals/data",
+    "@globals/language": "workspace:globals/language",
+    "@types/styled-system": "^5",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "styled-system": "^5.1.5"
+  },
+  "dependencies": {
+    "@ui/button": "workspace:ui/button",
+    "@ui/condition": "workspace:ui/condition",
+    "@ui/form": "workspace:ui/form",
+    "@ui/layout": "workspace:ui/layout",
+    "@ui/text": "workspace:ui/text",
+    "framer-motion": "^4.1.17",
+    "react-scrolllock": "^5.0.1",
+    "styled-tools": "^1.7.2"
+  }
+}

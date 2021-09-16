@@ -5,7 +5,7 @@
   "scripts": {
     "build": "yarn app renderer build --export",
     "dev": "yarn app renderer dev",
-    "prepack": "yarn build && cp -R dist/ ../../.ignore/wp-content/themes/misik/dist/"
+    "prepack": "yarn build && cp -R dist/ ../../wp-content/themes/misik/dist/"
   },
   "dependencies": {
     "@apollo/client": "^3.3.21",
@@ -22,6 +22,7 @@
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
     "@globals/language": "workspace:globals/language",
+    "@landing/contacts-page": "workspace:landing/contacts-page",
     "@landing/index-page": "workspace:landing/index-page",
     "@ui/theme": "workspace:ui/theme",
     "events": "^3.3.0",

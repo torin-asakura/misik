@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "main": "src/index.ts",
   "peerDependencies": {
+    "@apollo/client": "*",
     "@emotion/react": "*",
     "@emotion/styled": "*",
     "@globals/data": "*",
@@ -12,6 +13,7 @@
     "styled-system": "*"
   },
   "devDependencies": {
+    "@apollo/client": "^3.4.8",
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
     "@globals/data": "workspace:globals/data",
@@ -22,6 +24,13 @@
     "styled-system": "^5.1.5"
   },
   "dependencies": {
-    "@ui/layout": "workspace:ui/layout"
+    "@globals/messages": "workspace:globals/messages",
+    "@ui/button": "workspace:ui/button",
+    "@ui/copy": "workspace:ui/copy",
+    "@ui/form": "workspace:ui/form",
+    "@ui/input": "workspace:ui/input",
+    "@ui/layout": "workspace:ui/layout",
+    "@ui/link": "workspace:ui/link",
+    "@ui/text": "workspace:ui/text"
   }
 }

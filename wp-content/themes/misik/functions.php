@@ -32,7 +32,22 @@
         </style>';
   }
 
+  // Add menus
+
+  function register_menus() {
+
+    register_nav_menus(
+      array(
+        'primary-menu' => _( 'Primary Menu' ),
+      'your-preferred-menu-location-id' => _( 'Title of your menu location' )
+    )
+  );
+}
+
+  add_action( 'init', 'register_menus' ); // <-- of course without this, the function above will not execute.
+
 
 
   add_action( 'admin_head', 'fix_svg' );
+  add_theme_support( 'menus' );
   add_theme_support( 'post-thumbnails' );

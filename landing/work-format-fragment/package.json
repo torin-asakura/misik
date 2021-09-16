@@ -24,7 +24,10 @@
     "styled-system": "^5.1.5"
   },
   "dependencies": {
+    "@ui/carousel": "workspace:ui/carousel",
+    "@ui/divider": "workspace:ui/divider",
     "@ui/image": "workspace:ui/image",
-    "@ui/layout": "workspace:ui/layout"
+    "@ui/layout": "workspace:ui/layout",
+    "@ui/text": "workspace:ui/text"
   }
 }

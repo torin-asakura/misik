@@ -3,27 +3,37 @@
   "version": "0.0.0",
   "main": "src/index.ts",
   "peerDependencies": {
+    "@apollo/client": "*",
     "@emotion/react": "*",
     "@emotion/styled": "*",
     "@globals/data": "*",
     "@globals/language": "*",
+    "@ui/drawer": "*",
     "react": "*",
     "react-dom": "*",
     "styled-system": "*"
   },
   "devDependencies": {
+    "@apollo/client": "^3.4.8",
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
     "@globals/data": "workspace:globals/data",
     "@globals/language": "workspace:globals/language",
     "@types/styled-system": "^5",
+    "@ui/drawer": "workspace:ui/drawer",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "styled-system": "^5.1.5"
   },
   "dependencies": {
+    "@globals/messages": "workspace:globals/messages",
+    "@ui/accordeon": "workspace:ui/accordeon",
+    "@ui/button": "workspace:ui/button",
     "@ui/condition": "workspace:ui/condition",
+    "@ui/divider": "workspace:ui/divider",
     "@ui/image": "workspace:ui/image",
-    "@ui/layout": "workspace:ui/layout"
+    "@ui/layout": "workspace:ui/layout",
+    "@ui/link": "workspace:ui/link",
+    "@ui/text": "workspace:ui/text"
   }
 }
