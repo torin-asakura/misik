@@ -100,6 +100,7 @@ const Drawer: FC = ({ children }) => {
                       fontSize={['moderate', 'moderate', 'increased']}
                       fontFamily='secondary'
                       lineHeight={['normal', 'normal', 'medium']}
+                      textTransform='uppercase'
                     >
                       {title}
                     </Text>

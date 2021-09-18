@@ -59,15 +59,18 @@ const Feedback: FC<FeedbackProps> = ({ background = 'background.lightBeige' }) =
               <Layout flexBasis={[0, 0, 150]} />
               <Column width='100%'>
                 <Layout flexBasis={[48, 48, 0]} />
-                <Layout>
+                <Layout maxWidth={620}>
                   <Text
+                    display='inline-block'
                     fontFamily='secondary'
                     fontSize={['semiBig', 'semiBig', 'semiGiant']}
                     fontWeight='thin'
+                    textTransform='uppercase'
                   >
                     {title.text?.replace(title.highlighted, '')}
                     <Space />
                     <Text
+                      display='inline-block'
                       fontFamily='secondary'
                       fontSize={['semiBig', 'semiBig', 'semiGiant']}
                       fontWeight='thin'

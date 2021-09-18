@@ -31,7 +31,12 @@ const Item: FC<ItemProps> = ({ image, title, content, reverse = false }) => {
             </Layout>
             <Layout flexBasis={40} />
             <Column width='100%' justifyContent='center'>
-              <Text fontFamily='secondary' fontSize='increased' color='text.primary'>
+              <Text
+                fontFamily='secondary'
+                fontSize='increased'
+                color='text.primary'
+                textTransform='uppercase'
+              >
                 {title}
               </Text>
               <Layout flexBasis={16} />
@@ -48,7 +53,12 @@ const Item: FC<ItemProps> = ({ image, title, content, reverse = false }) => {
         <Condition match={reverse}>
           <Row height='100%'>
             <Column width='100%' justifyContent='center'>
-              <Text fontFamily='secondary' fontSize='increased' color='text.primary'>
+              <Text
+                fontFamily='secondary'
+                fontSize='increased'
+                color='text.primary'
+                textTransform='uppercase'
+              >
                 {title}
               </Text>
               <Layout flexBasis={16} />
@@ -79,7 +89,12 @@ const Item: FC<ItemProps> = ({ image, title, content, reverse = false }) => {
         <Layout>
           <Column width='100%' justifyContent='center'>
             <Layout>
-              <Text fontFamily='secondary' fontSize='increased' color='text.primary'>
+              <Text
+                fontFamily='secondary'
+                fontSize='increased'
+                color='text.primary'
+                textTransform='uppercase'
+              >
                 {title}
               </Text>
             </Layout>

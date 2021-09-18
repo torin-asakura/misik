@@ -43,6 +43,7 @@ const WorkDirections: FC = () => {
                     fontWeight='medium'
                     fontSize={['medium', 'medium', 'semiLarge']}
                     textAlign='center'
+                    textTransform='uppercase'
                   >
                     {title}
                   </Text>

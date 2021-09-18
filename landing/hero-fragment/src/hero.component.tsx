@@ -60,7 +60,8 @@ const Hero: FC = () => {
                 fontFamily='secondary'
                 fontWeight='thin'
                 fontSize={['big', 'big', 'giant']}
-                maxWidth={[500, 500, 700]}
+                maxWidth={[500, 500, 864]}
+                textTransform='uppercase'
               >
                 {title.replace(highlighted, '')}
                 <Text
@@ -69,6 +70,7 @@ const Hero: FC = () => {
                   color='text.accent'
                   fontWeight='thin'
                   fontSize={['big', 'big', 'giant']}
+                  textTransform='uppercase'
                 >
                   {highlighted}
                 </Text>

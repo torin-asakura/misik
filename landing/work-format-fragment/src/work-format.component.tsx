@@ -43,6 +43,7 @@ const WorkFormat: FC = () => {
               fontFamily='secondary'
               fontSize={['semiBig', 'semiBig', 'semiGiant']}
               fontWeight='thin'
+              textTransform='uppercase'
             >
               {title}
             </Text>
@@ -70,7 +71,7 @@ const WorkFormat: FC = () => {
                     </Box>
                     <Layout flexBasis={32} />
                     <Layout>
-                      <Text fontFamily='secondary' fontSize='enlarged'>
+                      <Text fontFamily='secondary' fontSize='enlarged' textTransform='uppercase'>
                         {title}
                       </Text>
                     </Layout>

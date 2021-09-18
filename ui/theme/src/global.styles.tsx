@@ -5,6 +5,9 @@ import { css }    from '@emotion/react'
 export const GlobalStyles = () => (
   <Global
     styles={css`
+      @import url('https://fonts.googleapis.com/css2?family=Inter');
+      @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond');
+
       html,
       body,
       #__next {
