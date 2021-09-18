@@ -54,9 +54,9 @@ const Hero: FC = () => {
           <Layout flexBasis={[16, 16, 150]} />
           <Column>
             <Layout flexBasis={[160, 160, 240]} />
-            <Layout maxWidth={864}>
+            <Layout maxWidth={1300}>
               <Text
-                display='inline-block'
+                display='inline'
                 fontFamily='secondary'
                 fontWeight='thin'
                 fontSize={['big', 'big', 'giant']}
@@ -65,7 +65,6 @@ const Hero: FC = () => {
               >
                 {title.replace(highlighted, '')}
                 <Text
-                  display='inline-block'
                   fontFamily='secondary'
                   color='text.accent'
                   fontWeight='thin'

@@ -63,7 +63,7 @@ const About: FC = () => {
               <Column width='100%'>
                 <Layout width={['100%', '100%', 620]}>
                   <Text
-                    display='inline-block'
+                    display='inline'
                     fontFamily='secondary'
                     fontSize={['semiBig', 'semiBig', 'semiGiant']}
                     fontWeight='thin'
@@ -72,7 +72,6 @@ const About: FC = () => {
                   >
                     {title.text?.replace(title.highlighted, '')}
                     <Text
-                      display='inline-block'
                       fontFamily='secondary'
                       fontSize={['semiBig', 'semiBig', 'semiGiant']}
                       color='text.accent'

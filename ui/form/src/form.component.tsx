@@ -95,12 +95,7 @@ const Form: FC = () => {
         <Layout flexBasis={32} />
         <Row justifyContent='center' display={['none', 'none', 'flex']}>
           <Layout>
-            <Text
-              color='text.secondary'
-              display='inline-block'
-              fontSize='atomic'
-              textAlign='center'
-            >
+            <Text color='text.secondary' display='inline-flex' fontSize='atomic' textAlign='center'>
               {messages.byClickingYouConfirm[language]}
               <NextLink underline color='text.secondary' display='block' fontSize='atomic'>
                 {messages.privacyPolicy[language]}
