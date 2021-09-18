@@ -63,15 +63,15 @@ const About: FC = () => {
               <Column width='100%'>
                 <Layout width={['100%', '100%', 620]}>
                   <Text
-                    display='block'
+                    display='inline'
                     fontFamily='secondary'
                     fontSize={['semiBig', 'semiBig', 'semiGiant']}
                     fontWeight='thin'
                     color='text.primary'
+                    textTransform='uppercase'
                   >
                     {title.text?.replace(title.highlighted, '')}
                     <Text
-                      display='block'
                       fontFamily='secondary'
                       fontSize={['semiBig', 'semiBig', 'semiGiant']}
                       color='text.accent'

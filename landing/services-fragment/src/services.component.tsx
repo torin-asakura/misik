@@ -52,6 +52,7 @@ const Services: FC = () => {
               fontFamily='secondary'
               color='text.primary'
               fontWeight='thin'
+              textTransform='uppercase'
             >
               {title}
             </Text>

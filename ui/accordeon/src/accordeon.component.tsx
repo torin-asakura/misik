@@ -44,7 +44,7 @@ const Accordeon: FC<AccordeonProps> = ({ title, content }) => {
           </Layout>
           <Layout flexBasis={20} />
           <Layout>
-            <Text fontSize='large' fontFamily='secondary'>
+            <Text fontSize='large' fontFamily='secondary' textTransform='uppercase'>
               {title}
             </Text>
           </Layout>
