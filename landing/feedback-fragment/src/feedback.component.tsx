@@ -8,6 +8,7 @@ import { Column }        from '@ui/layout'
 import { Row }           from '@ui/layout'
 import { Text }          from '@ui/text'
 import { Space }         from '@ui/text'
+import { NextLink }      from '@ui/link'
 import { Form }          from '@ui/form'
 import { useData }       from '@globals/data'
 import { extractObject } from '@globals/data'
@@ -89,13 +90,14 @@ const Feedback: FC<FeedbackProps> = ({ background = 'background.lightBeige' }) =
                 <Layout flexBasis={[32, 32, 155]} />
                 <Row>
                   <Layout>
-                    <Text
+                    <NextLink
                       fontFamily='secondary'
                       fontSize={['large', 'large', 'enlarged']}
                       textTransform='uppercase'
+                      href={`mailto:${email}`}
                     >
                       {email}
-                    </Text>
+                    </NextLink>
                   </Layout>
                   <Layout flexBasis={16} />
                   <Layout display={['none', 'none', 'flex']}>
@@ -105,9 +107,13 @@ const Feedback: FC<FeedbackProps> = ({ background = 'background.lightBeige' }) =
                 <Layout flexBasis={32} />
                 <Row>
                   <Layout>
-                    <Text fontFamily='secondary' fontSize={['large', 'large', 'enlarged']}>
+                    <NextLink
+                      href={`tel:${phone}`}
+                      fontSize={['large', 'large', 'enlarged']}
+                      fontWeight='thin'
+                    >
                       {phone}
-                    </Text>
+                    </NextLink>
                   </Layout>
                   <Layout flexBasis={16} />
                   <Layout display={['none', 'none', 'flex']}>
