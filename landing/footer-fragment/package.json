@@ -26,6 +26,8 @@
   "dependencies": {
     "@ui/divider": "workspace:ui/divider",
     "@ui/layout": "workspace:ui/layout",
-    "@ui/logo": "workspace:ui/logo"
+    "@ui/link": "workspace:ui/link",
+    "@ui/logo": "workspace:ui/logo",
+    "@ui/text": "workspace:ui/text"
   }
 }

@@ -1808,7 +1808,9 @@ __metadata:
     "@types/styled-system": ^5
     "@ui/divider": "workspace:ui/divider"
     "@ui/layout": "workspace:ui/layout"
+    "@ui/link": "workspace:ui/link"
     "@ui/logo": "workspace:ui/logo"
+    "@ui/text": "workspace:ui/text"
     react: ^17.0.2
     react-dom: ^17.0.2
     styled-system: ^5.1.5
@@ -2937,8 +2939,8 @@ __metadata:
   resolution: "@ui/copy@workspace:ui/copy"
   dependencies:
     "@ui/button": "workspace:ui/button"
-    "@ui/condition": "workspace:ui/condition"
     "@ui/layout": "workspace:ui/layout"
+    framer-motion: ^4.1.17
     react: ^17.0.2
     react-dom: ^17.0.2
   peerDependencies:
