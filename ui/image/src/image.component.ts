@@ -4,6 +4,6 @@ import { baseStyles }     from './image.styles'
 import { absoluteStyles } from './image.styles'
 import { ImageProps }     from './image.interface'
 
-const Image = styled.img<ImageProps>(baseStyles, absoluteStyles)
+const Image = styled.img<ImageProps>(baseStyles, absoluteStyles, { pointerEvents: 'none' })
 
 export { Image }

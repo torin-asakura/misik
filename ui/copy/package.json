@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@ui/button": "workspace:ui/button",
-    "@ui/condition": "workspace:ui/condition",
-    "@ui/layout": "workspace:ui/layout"
+    "@ui/layout": "workspace:ui/layout",
+    "framer-motion": "^4.1.17"
   }
 }

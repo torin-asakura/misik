@@ -91,7 +91,7 @@ const Item: FC<ItemProps> = ({ image, title, content, reverse = false }) => {
             <Layout>
               <Text
                 fontFamily='secondary'
-                fontSize='increased'
+                fontSize={['moderate', 'moderate', 'increased']}
                 color='text.primary'
                 textTransform='uppercase'
               >

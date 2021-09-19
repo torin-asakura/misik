@@ -42,7 +42,7 @@ const Services: FC = () => {
       justifyContent='flex-end'
       id='services'
     >
-      <Layout maxWidth={1280}>
+      <Layout width='100%' maxWidth={1280}>
         <Layout flexBasis={[20, 20, 150]} />
         <Column width='100%'>
           <Layout flexBasis={[64, 64, 160]} />
