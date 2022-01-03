@@ -4,8 +4,7 @@
   "main": "src/index.ts",
   "scripts": {
     "build": "yarn app renderer build --export",
-    "dev": "yarn app renderer dev",
-    "prepack": "yarn build && cp -R dist/ ../../wp-content/themes/misik/dist/"
+    "dev": "yarn app renderer dev"
   },
   "dependencies": {
     "@apollo/client": "^3.3.21",

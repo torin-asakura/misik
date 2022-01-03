@@ -7,7 +7,7 @@ import { ThemeProvider } from '@ui/theme'
 
 export const withProviders = compose(
   withApollo({
-    uri: process.env.WP_ENDPOINT || 'https://misik.pro/graphql',
+    uri: process.env.WP_ENDPOINT || 'https://wp.misik.pro/graphql',
     onUnauthenticated: () => {},
   }),
   withEmotion({
