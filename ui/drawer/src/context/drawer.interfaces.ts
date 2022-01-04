@@ -1,1 +1,3 @@
-export type ContextValue = [boolean, (newState: boolean) => void]
+import { Active } from '../drawer.interface'
+
+export type ContextValue = [Active, (newState: Active) => void]

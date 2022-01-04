@@ -1,8 +1,9 @@
 import React             from 'react'
 import { FC }            from 'react'
+import { useState }      from 'react'
 
 import { Button }        from '@ui/button'
-import { useDrawer }     from '@ui/drawer'
+import { Layer }         from '@ui/layer'
 import { Box }           from '@ui/layout'
 import { Column }        from '@ui/layout'
 import { Row }           from '@ui/layout'
@@ -17,7 +18,7 @@ import { messages }      from '@globals/messages'
 const Hero: FC = () => {
   const { fragments } = useData()
   const [language] = useLanguage()
-  const [, setActive] = useDrawer()
+  const [visible, setVisible] = useState(false)
 
   let title: string = ''
   let highlighted: string = ''
@@ -36,6 +37,8 @@ const Hero: FC = () => {
   }
 
   return (
+    <>
+      <Layer visible={visible} onClose={() => setVisible(false)} />
     <Box width='100%' height='100%' backgroundColor='background.lightBeige' zIndex={1}>
       <Box
         position='relative'
@@ -77,12 +80,12 @@ const Hero: FC = () => {
             </Layout>
             <Layout flexBasis={[289, 289, 438]} />
             <Layout display={['none', 'none', 'flex']}>
-              <Button colors='secondary' size='medium' height={34} onClick={() => setActive(true)}>
+              <Button colors='secondary' size='medium' height={34} onClick={() => setVisible(true)}>
                 {messages.getConsult[language]}
               </Button>
             </Layout>
             <Layout display={['flex', 'flex', 'none']}>
-              <Button colors='secondary' size='medium' height={34} onClick={() => setActive(true)}>
+              <Button colors='secondary' size='medium' height={34} onClick={() => setVisible(true)}>
                 {messages.getConsult[language]}
               </Button>
             </Layout>
@@ -92,6 +95,7 @@ const Hero: FC = () => {
         </Row>
       </Box>
     </Box>
+    </>
   )
 }
 

@@ -1,0 +1,35 @@
+{
+  "name": "@ui/layer",
+  "version": "0.0.0",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "dependencies": {
+    "@globals/data": "workspace:globals/data",
+    "@globals/language": "workspace:globals/language",
+    "@ui/button": "workspace:ui/button",
+    "@ui/condition": "workspace:ui/condition",
+    "@ui/form": "workspace:ui/form",
+    "@ui/layout": "workspace:ui/layout",
+    "@ui/text": "workspace:ui/text",
+    "framer-motion": "^4.1.17",
+    "global": "4.4.0",
+    "nanoid": "^3.1.25",
+    "react-scrolllock": "5.0.1",
+    "styled-system": "5.1.5",
+    "styled-tools": "^1.7.2"
+  },
+  "peerDependencies": {
+    "@apollo/client": "*",
+    "@emotion/react": "*",
+    "@emotion/styled": "*",
+    "react": "*",
+    "react-dom": "*"
+  },
+  "devDependencies": {
+    "@apollo/client": "3.3.21",
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}

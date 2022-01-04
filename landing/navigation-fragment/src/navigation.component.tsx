@@ -1,12 +1,13 @@
 import React           from 'react'
 import { FC }          from 'react'
+import { useState }    from 'react'
 
 import { Button }      from '@ui/button'
-import { useDrawer }   from '@ui/drawer'
 import { Box }         from '@ui/layout'
 import { Layout }      from '@ui/layout'
 import { Row }         from '@ui/layout'
 import { Column }      from '@ui/layout'
+import { Layer }       from '@ui/layer'
 import { Logo }        from '@ui/logo'
 import { NextLink }    from '@ui/link'
 import { useStep }     from '@ui/spy-scroll'
@@ -17,7 +18,7 @@ import { useMenus }    from './data'
 
 const Navigation: FC = () => {
   const [language, setLanguage] = useLanguage()
-  const [, setActive] = useDrawer()
+  const [visible, setVisible] = useState<boolean>(false)
   const menus = useMenus()
   const step = useStep()
 
@@ -37,6 +38,8 @@ const Navigation: FC = () => {
   }
 
   return (
+    <>
+    <Layer visible={visible} onClose={() => setVisible(false)} />
     <Box
       width='100%'
       position='fixed'
@@ -71,7 +74,7 @@ const Navigation: FC = () => {
             </Row>
             <Layout flexGrow={1} />
             <Layout display={['none', 'none', 'flex']}>
-              <Button width={227} height={46} onClick={() => setActive(true)}>
+              <Button width={227} height={46} onClick={() => setVisible('form')}>
                 {messages.getConsult[language]}
               </Button>
             </Layout>
@@ -87,6 +90,7 @@ const Navigation: FC = () => {
       </Column>
       <Layout flexBasis={[16, 16, 40]} />
     </Box>
+    </>
   )
 }
 export { Navigation }

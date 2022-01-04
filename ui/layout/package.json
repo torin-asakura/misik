@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "main": "src/index.ts",
   "dependencies": {
-    "@atls-ui-parts/layout": "^0.0.2"
+    "@atls-ui-parts/layout": "^0.0.3"
   },
   "peerDependencies": {
     "@emotion/react": "*",

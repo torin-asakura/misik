@@ -32,6 +32,7 @@
     "@ui/condition": "workspace:ui/condition",
     "@ui/divider": "workspace:ui/divider",
     "@ui/image": "workspace:ui/image",
+    "@ui/layer": "workspace:ui/layer",
     "@ui/layout": "workspace:ui/layout",
     "@ui/link": "workspace:ui/link",
     "@ui/text": "workspace:ui/text"

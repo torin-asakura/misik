@@ -3,6 +3,7 @@ import { FC }          from 'react'
 import { useState }    from 'react'
 
 import { Condition }   from '@ui/condition'
+import { Layer }       from '@ui/layer'
 import { Box }         from '@ui/layout'
 import { Column }      from '@ui/layout'
 import { Row }         from '@ui/layout'
@@ -26,6 +27,7 @@ const Form: FC = () => {
   const forms = useForms()
   const [submit, data] = useSubmit()
   const [success, setSuccess] = useState<boolean | null>(null)
+  const [privacyPolicy, setPrivacyPolicy] = useState<boolean>(false)
 
   if (data && data.submitForm && success === null) setSuccess(data?.submitForm?.success)
 
@@ -35,6 +37,8 @@ const Form: FC = () => {
     }, 2000)
 
   return (
+    <>
+      <Layer privacyPolicy visible={privacyPolicy} onClose={() => setPrivacyPolicy(false)} />
     <Box width={['100%', '100%', 700]} height={['100%', '100%', 598]}>
       <Column width='100%'>
         <Layout maxHeight={[58, 58, 62]}>
@@ -97,7 +101,7 @@ const Form: FC = () => {
           <Layout>
             <Text color='text.secondary' display='inline' fontSize='atomic' textAlign='center'>
               {messages.byClickingYouConfirm[language]}
-              <NextLink underline color='text.secondary' display='block' fontSize='atomic'>
+              <NextLink underline color='text.secondary' display='block' fontSize='atomic' onClick={() => setPrivacyPolicy(true)}>
                 {messages.privacyPolicy[language]}
               </NextLink>
             </Text>
@@ -105,6 +109,7 @@ const Form: FC = () => {
         </Row>
       </Column>
     </Box>
+    </>
   )
 }
 
