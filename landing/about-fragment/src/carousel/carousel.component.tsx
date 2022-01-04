@@ -12,7 +12,7 @@ const Desktop: FC = ({ children }) => (
     spaceBetween={40}
     height={90}
     width='100%'
-    timeout={2000}
+    timeout={false}
   >
     {children}
   </BaseCarousel>
@@ -26,7 +26,7 @@ const Mobile: FC = ({ children }) => (
     spaceBetween={20}
     height={60}
     width='100%'
-    timeout={2000}
+    timeout={false}
   >
     {children}
   </BaseCarousel>
