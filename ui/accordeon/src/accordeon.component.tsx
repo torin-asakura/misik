@@ -57,18 +57,16 @@ const Accordeon: FC<AccordeonProps> = ({ title, content }) => {
             </Text>
           </Layout>
         </TriggerContainer>
-        <Condition match={active}>
-          <Layout flexBasis={20} />
-        </Condition>
         <Layout>
           <ContentContainer animate={controls} transition={{ duration: 0.2 }}>
-            <Layout>
+            <Layout flexBasis={20} flexShrink={0} />
+            <Layout flexShrink={0}>
               <Text fontSize='regular' color='text.secondary' lineHeight='medium'>
                 {content}
               </Text>
             </Layout>
-            <Layout flexBasis={20} />
-            <Layout>
+            <Layout flexBasis={20} flexShrink={0} />
+            <Layout flexShrink={0}>
               <Button colors='secondary' width={119} height={26} onClick={() => setVisible(true)}>
                 {messages.orderService[language]}
               </Button>

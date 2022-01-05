@@ -1,22 +1,24 @@
-import React           from 'react'
-import { FC }          from 'react'
-import { useState }    from 'react'
+import React               from 'react'
+import { FC }              from 'react'
+import { useState }        from 'react'
 
-import { Button }      from '@ui/button'
-import { Box }         from '@ui/layout'
-import { Layout }      from '@ui/layout'
-import { Row }         from '@ui/layout'
-import { Column }      from '@ui/layout'
-import { Layer }       from '@ui/layer'
-import { Logo }        from '@ui/logo'
-import { NextLink }    from '@ui/link'
-import { useStep }     from '@ui/spy-scroll'
-import { useLanguage } from '@globals/language'
-import { messages }    from '@globals/messages'
+import { Button }          from '@ui/button'
+import { Condition }       from '@ui/condition'
+import { Box }             from '@ui/layout'
+import { Layout }          from '@ui/layout'
+import { Row }             from '@ui/layout'
+import { Column }          from '@ui/layout'
+import { Layer }           from '@ui/layer'
+import { Logo }            from '@ui/logo'
+import { NextLink }        from '@ui/link'
+import { useStep }         from '@ui/spy-scroll'
+import { useLanguage }     from '@globals/language'
+import { messages }        from '@globals/messages'
 
-import { useMenus }    from './data'
+import { useMenus }        from './data'
+import { NavigationProps } from './navigation.interface'
 
-const Navigation: FC = () => {
+const Navigation: FC<NavigationProps> = ({ contacts }) => {
   const [language, setLanguage] = useLanguage()
   const [visible, setVisible] = useState<boolean>(false)
   const menus = useMenus()
@@ -36,6 +38,8 @@ const Navigation: FC = () => {
     if (stepIdx === 6) return 'background.beige'
     return 'background.beige'
   }
+
+  const contactsHidden = ['#services', '#work_format', '#reviews']
 
   return (
     <>
@@ -61,14 +65,14 @@ const Navigation: FC = () => {
               <Layout flexBasis={170} />
               <Row alignItems='center' display={['none', 'none', 'flex']}>
                 {menus[language][0]?.map(({ label, href }) => (
-                  <>
+                  <Condition match={!(contacts && contactsHidden.includes(href))}>
                     <Layout>
                       <NextLink href={href} fontSize='semiRegular'>
                         {label}
                       </NextLink>
                     </Layout>
                     <Layout flexBasis={40} />
-                  </>
+                  </Condition>
                 ))}
                 <Layout flexBasis={40} />
               </Row>

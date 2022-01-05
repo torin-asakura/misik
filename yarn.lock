@@ -1887,6 +1887,7 @@ __metadata:
     "@globals/language": "workspace:globals/language"
     "@landing/feedback-fragment": "workspace:landing/feedback-fragment"
     "@landing/footer-fragment": "workspace:landing/footer-fragment"
+    "@landing/map-fragment": "workspace:landing/map-fragment"
     "@landing/navigation-fragment": "workspace:landing/navigation-fragment"
     "@types/react-helmet": ^6
     "@types/styled-system": ^5
@@ -2081,6 +2082,7 @@ __metadata:
     "@globals/messages": "workspace:globals/messages"
     "@types/styled-system": ^5
     "@ui/button": "workspace:ui/button"
+    "@ui/condition": "workspace:ui/condition"
     "@ui/drawer": "workspace:ui/drawer"
     "@ui/layer": "workspace:ui/layer"
     "@ui/layout": "workspace:ui/layout"
@@ -2843,6 +2845,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/smoothscroll-polyfill@npm:^0":
+  version: 0.3.1
+  resolution: "@types/smoothscroll-polyfill@npm:0.3.1"
+  checksum: 871a5b556c3be746882ac58b0f936a66a716f4e9b5bd18aaf72fe60aaad42e6ce09e2c639c455ab7655637839bc3a3d923994dd68463c905bd1ecbd1961d8ec1
+  languageName: node
+  linkType: hard
+
 "@types/stack-utils@npm:^2.0.0":
   version: 2.0.1
   resolution: "@types/stack-utils@npm:2.0.1"
@@ -3374,8 +3383,10 @@ __metadata:
   resolution: "@ui/theme@workspace:ui/theme"
   dependencies:
     "@emotion/react": ^11.4.1
+    "@types/smoothscroll-polyfill": ^0
     react: ^17.0.2
     react-dom: ^17.0.2
+    smoothscroll-polyfill: ^0.4.4
   peerDependencies:
     "@emotion/react": "*"
     react: "*"
@@ -12415,6 +12426,13 @@ resolve@^2.0.0-next.3:
   version: 4.2.0
   resolution: "smart-buffer@npm:4.2.0"
   checksum: b5167a7142c1da704c0e3af85c402002b597081dd9575031a90b4f229ca5678e9a36e8a374f1814c8156a725d17008ae3bde63b92f9cfd132526379e580bec8b
+  languageName: node
+  linkType: hard
+
+"smoothscroll-polyfill@npm:^0.4.4":
+  version: 0.4.4
+  resolution: "smoothscroll-polyfill@npm:0.4.4"
+  checksum: b99ff7d91689d563ec69cb1d29713b332a24c88ac3dc4ef9ef9fbe4137305336e67253211067c5f786478dbdabd2aa6c2033709d4d8feca327b09eca8d5a0e7b
   languageName: node
   linkType: hard
 

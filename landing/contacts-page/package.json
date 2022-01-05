@@ -27,6 +27,7 @@
     "@globals/language": "workspace:globals/language",
     "@landing/feedback-fragment": "workspace:landing/feedback-fragment",
     "@landing/footer-fragment": "workspace:landing/footer-fragment",
+    "@landing/map-fragment": "workspace:landing/map-fragment",
     "@landing/navigation-fragment": "workspace:landing/navigation-fragment",
     "@ui/layout": "workspace:ui/layout",
     "@ui/spy-scroll": "workspace:ui/spy-scroll"
