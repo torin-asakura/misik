@@ -29,4 +29,8 @@ export const messages: Messages = {
     RU: 'условиями пользовательского соглашения и политикой конфиденциальности.',
     EN: 'the terms of the user agreement and the privacy policy.',
   },
+  requiredField: {
+    RU: 'Обязательное поле',
+    EN: 'Required field',
+  },
 }

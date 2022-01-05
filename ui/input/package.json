@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@atls-ui-parts/input": "^0.0.3",
+    "@ui/condition": "workspace:ui/condition",
     "@ui/text": "workspace:ui/text",
     "styled-tools": "^1.7.2"
   }

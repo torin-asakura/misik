@@ -1,6 +1,7 @@
 import React             from 'react'
 import { FC }            from 'react'
 
+import { Condition }     from '@ui/condition'
 import { Copy }          from '@ui/copy'
 import { Box }           from '@ui/layout'
 import { Layout }        from '@ui/layout'
@@ -61,24 +62,38 @@ const Feedback: FC<FeedbackProps> = ({ background = 'background.lightBeige' }) =
               <Column width='100%'>
                 <Layout flexBasis={[48, 48, 0]} />
                 <Layout maxWidth={620}>
-                  <Text
-                    display='inline'
-                    fontFamily='secondary'
-                    fontSize={['semiBig', 'semiBig', 'semiGiant']}
-                    fontWeight='thin'
-                    textTransform='uppercase'
-                  >
-                    {title.text?.replace(title.highlighted, '')}
-                    <Space />
+                  <Column fill>
+                    <Text
+                      display='inline'
+                      fontFamily='secondary'
+                      fontSize={['semiBig', 'semiBig', 'semiGiant']}
+                      fontWeight='thin'
+                      textTransform='uppercase'
+                    >
+                      {title.text?.replace(title.highlighted, '').split(' ')[0]}
+                    </Text>
                     <Text
                       fontFamily='secondary'
                       fontSize={['semiBig', 'semiBig', 'semiGiant']}
                       fontWeight='thin'
                       color='text.accent'
+                      textTransform='uppercase'
                     >
+                      <Text
+                        color='text.primary'
+                        fontFamily='secondary'
+                        fontSize={['semiBig', 'semiBig', 'semiGiant']}
+                        fontWeight='thin'
+                        textTransform='uppercase'
+                      >
+                        {title.text?.replace(title.highlighted, '').split(' ')[1]}
+                      </Text>
+                      <Condition match={language === 'RU'}>
+                        <Space />
+                      </Condition>
                       {title.highlighted}
                     </Text>
-                  </Text>
+                  </Column>
                 </Layout>
                 <Layout flexBasis={[16, 16, 32]} />
                 {/* TODO restore */}

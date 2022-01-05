@@ -24,6 +24,9 @@ const Form: FC = () => {
   const [phone, setPhone] = useState<string>('')
   const [email, setEmail] = useState<string>('')
   const [comment, setComment] = useState<string>('')
+  const [nameError, setNameError] = useState<string>('')
+  const [phoneError, setPhoneError] = useState<string>('')
+  const [emailError, setEmailError] = useState<string>('')
   const forms = useForms()
   const [submit, data] = useSubmit()
   const [success, setSuccess] = useState<boolean | null>(null)
@@ -36,6 +39,30 @@ const Form: FC = () => {
       setSuccess(null)
     }, 2000)
 
+  const submitForm = () => {
+    if (name && phone && email) {
+      setNameError('')
+      setPhoneError('')
+      setEmailError('')
+      submit({
+        variables: {
+          name,
+          phone,
+          email,
+          comment,
+        },
+      })
+    } else {
+      if (!name) setNameError(messages.requiredField[language])
+      else setNameError('')
+      if (!phone) setPhoneError(messages.requiredField[language])
+      else setPhoneError('')
+      if (!email) setEmailError(messages.requiredField[language])
+      else setEmailError('')
+      setSuccess(false)
+    }
+  }
+
   return (
     <>
       <Layer privacyPolicy visible={privacyPolicy} onClose={() => setPrivacyPolicy(false)} />
@@ -46,6 +73,7 @@ const Form: FC = () => {
               value={name}
               onChange={setName}
               placeholder={forms[language] && forms[language][0]?.label}
+              errorText={nameError}
             />
           </Layout>
           <Layout flexBasis={32} />
@@ -54,6 +82,7 @@ const Form: FC = () => {
               value={phone}
               onChange={setPhone}
               placeholder={forms[language] && forms[language][1]?.label}
+              errorText={phoneError}
             />
           </Layout>
           <Layout flexBasis={32} />
@@ -62,6 +91,7 @@ const Form: FC = () => {
               value={email}
               onChange={setEmail}
               placeholder={forms[language] && forms[language][2]?.label}
+              errorText={emailError}
             />
           </Layout>
           <Layout flexBasis={32} />
@@ -80,16 +110,7 @@ const Form: FC = () => {
               px={0}
               success={success}
               failure={success === false}
-              onClick={() =>
-                submit({
-                  variables: {
-                    name,
-                    phone,
-                    email,
-                    comment,
-                  },
-                })
-              }
+              onClick={submitForm}
             >
               <Condition match={success}>{messages.sent[language]}</Condition>
               <Condition match={success === false}>{messages.notSent[language]}</Condition>

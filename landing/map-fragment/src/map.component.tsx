@@ -1,22 +1,28 @@
-import React             from 'react'
-import { FC }            from 'react'
+import React                    from 'react'
+import { FC }                   from 'react'
 
-import { useData }       from '@globals/data'
-import { extractObject } from '@globals/data'
-import { Box }           from '@ui/layout'
+import { useData }              from '@globals/data'
+import { extractObject }        from '@globals/data'
+import { Box }                  from '@ui/layout'
+
+import { useYmapsApiInjection } from './hooks'
 
 const Map: FC = () => {
   const { fragments } = useData()
 
-  let mapUrl: string = ''
+  let apiKey: string = ''
+  let geoObjects: string = ''
 
   if (fragments) {
-    mapUrl = extractObject('map', fragments.about.RU)?.fragmentParams.highlightedText
+    apiKey = extractObject('map', fragments.about.RU)?.fragmentParams.highlightedText
+    geoObjects = extractObject('map', fragments.about.RU)?.content
   }
+
+  useYmapsApiInjection(apiKey, geoObjects)
 
   return (
     <Box width='100%' height={[600, 600, 720]}>
-      <iframe src={mapUrl} title='Office map' width='100%' height='100%' frameBorder='0' />
+      <Box width='100%' height='100%' id='map' />
     </Box>
   )
 }
