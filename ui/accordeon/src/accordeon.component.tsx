@@ -1,20 +1,20 @@
-import React               from 'react'
-import { FC }              from 'react'
-import { useState }        from 'react'
-import { useAnimation }    from 'framer-motion'
+import React                from 'react'
+import { FC }               from 'react'
+import { useState }         from 'react'
+import { useAnimation }     from 'framer-motion'
 
-import { Condition }       from '@ui/condition'
-import { Button }          from '@ui/button'
-import { Layer }           from '@ui/layer'
-import { Column }          from '@ui/layout'
-import { Layout }          from '@ui/layout'
-import { Text }            from '@ui/text'
-import { messages }        from '@globals/messages'
-import { useLanguage }     from '@globals/language'
+import { Condition }        from '@ui/condition'
+import { Button }           from '@ui/button'
+import { Layer }            from '@ui/layer'
+import { Column }           from '@ui/layout'
+import { Layout }           from '@ui/layout'
+import { Text }             from '@ui/text'
+import { messages }         from '@globals/messages'
+import { useLanguage }      from '@globals/language'
 
-import { Minus }           from './icons'
-import { Plus }            from './icons'
-import { AccordeonProps }  from './accordeon.interface'
+import { Minus }            from './icons'
+import { Plus }             from './icons'
+import { AccordeonProps }   from './accordeon.interface'
 import { TriggerContainer } from './trigger-container'
 import { ContentContainer } from './content-container'
 
@@ -35,7 +35,7 @@ const Accordeon: FC<AccordeonProps> = ({ title, content }) => {
   return (
     <>
       <Layer visible={visible} onClose={() => setVisible(false)} />
-    <Column width='100%'>
+      <Column width='100%'>
         <TriggerContainer onClick={() => setActive(!active)}>
           <Layout width={24}>
             <Condition match={!active}>
@@ -47,35 +47,35 @@ const Accordeon: FC<AccordeonProps> = ({ title, content }) => {
           </Layout>
           <Layout flexBasis={20} />
           <Layout>
-            <Text fontSize='large' fontFamily='secondary' textTransform='uppercase' whiteSpace='nowrap'>
+            <Text
+              fontSize='large'
+              fontFamily='secondary'
+              textTransform='uppercase'
+              whiteSpace='nowrap'
+            >
               {title}
             </Text>
           </Layout>
         </TriggerContainer>
-      <Condition match={active}>
-        <Layout flexBasis={20} />
-      </Condition>
-      <Layout>
-                <ContentContainer animate={controls} transition={{ duration: 0.2 }}>
-                  <Layout>
-                    <Text fontSize='regular' color='text.secondary' lineHeight='medium'>
-                      {content}
-                    </Text>
-                  </Layout>
-                  <Layout flexBasis={20} />
-                  <Layout>
-                    <Button
-                      colors='secondary'
-                      width={119}
-                      height={26}
-                      onClick={() => setVisible(true)}
-                    >
-                      {messages.orderService[language]}
-                    </Button>
-                  </Layout>
-                </ContentContainer>
-      </Layout>
-    </Column>
+        <Condition match={active}>
+          <Layout flexBasis={20} />
+        </Condition>
+        <Layout>
+          <ContentContainer animate={controls} transition={{ duration: 0.2 }}>
+            <Layout>
+              <Text fontSize='regular' color='text.secondary' lineHeight='medium'>
+                {content}
+              </Text>
+            </Layout>
+            <Layout flexBasis={20} />
+            <Layout>
+              <Button colors='secondary' width={119} height={26} onClick={() => setVisible(true)}>
+                {messages.orderService[language]}
+              </Button>
+            </Layout>
+          </ContentContainer>
+        </Layout>
+      </Column>
     </>
   )
 }

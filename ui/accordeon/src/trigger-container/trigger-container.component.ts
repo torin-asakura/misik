@@ -1,6 +1,6 @@
-import styled from '@emotion/styled'
+import styled         from '@emotion/styled'
 
-import { Row } from '@ui/layout'
+import { Row }        from '@ui/layout'
 
 import { baseStyles } from './trigger-container.styles'
 

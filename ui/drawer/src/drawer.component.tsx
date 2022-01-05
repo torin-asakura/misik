@@ -23,7 +23,7 @@ import { DrawerProvider }            from './context'
 import { CrossIcon }                 from './icons'
 import { Container }                 from './container'
 import { createOutsideClickHandler } from './outside-click.handler'
-import { Active } from './drawer.interface'
+import { Active }                    from './drawer.interface'
 
 const Drawer: FC = ({ children }) => {
   const [active, setActive] = useState<Active>('')
@@ -120,13 +120,13 @@ const Drawer: FC = ({ children }) => {
                 </Box>
               </Condition>
               <Condition match={active === 'privacy-policy'}>
-                <Column></Column>
+                <Column />
               </Condition>
             </Column>
           </Container>
         </Blackout>
       </Condition>
-      <ScrollLock isActive={active}>
+      <ScrollLock isActive={!!active}>
         <div>{children}</div>
       </ScrollLock>
     </DrawerProvider>

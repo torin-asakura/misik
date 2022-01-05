@@ -39,57 +39,57 @@ const Navigation: FC = () => {
 
   return (
     <>
-    <Layer visible={visible} onClose={() => setVisible(false)} />
-    <Box
-      width='100%'
-      position='fixed'
-      top={0}
-      left={0}
-      height={88}
-      zIndex={10}
-      backgroundColor={getColor(step)}
-      style={{ transition: '.1s' }}
-    >
-      <Layout flexBasis={[16, 16, 40]} />
-      <Column width='100%' alignItems='center'>
-        <Layout flexBasis={21} />
-        <Layout width='100%' height='100%' maxWidth={1840}>
-          <Row alignItems='center'>
-            <Layout>
-              <Logo />
-            </Layout>
-            <Layout flexBasis={170} />
-            <Row alignItems='center' display={['none', 'none', 'flex']}>
-              {menus[language][0]?.map(({ label, href }) => (
-                <>
-                  <Layout>
-                    <NextLink href={href} fontSize='semiRegular'>
-                      {label}
-                    </NextLink>
-                  </Layout>
-                  <Layout flexBasis={40} />
-                </>
-              ))}
-              <Layout flexBasis={40} />
+      <Layer visible={visible} onClose={() => setVisible(false)} />
+      <Box
+        width='100%'
+        position='fixed'
+        top={0}
+        left={0}
+        height={88}
+        zIndex={10}
+        backgroundColor={getColor(step)}
+        style={{ transition: '.1s' }}
+      >
+        <Layout flexBasis={[16, 16, 40]} />
+        <Column width='100%' alignItems='center'>
+          <Layout flexBasis={21} />
+          <Layout width='100%' height='100%' maxWidth={1840}>
+            <Row alignItems='center'>
+              <Layout>
+                <Logo />
+              </Layout>
+              <Layout flexBasis={170} />
+              <Row alignItems='center' display={['none', 'none', 'flex']}>
+                {menus[language][0]?.map(({ label, href }) => (
+                  <>
+                    <Layout>
+                      <NextLink href={href} fontSize='semiRegular'>
+                        {label}
+                      </NextLink>
+                    </Layout>
+                    <Layout flexBasis={40} />
+                  </>
+                ))}
+                <Layout flexBasis={40} />
+              </Row>
+              <Layout flexGrow={1} />
+              <Layout display={['none', 'none', 'flex']}>
+                <Button width={227} height={46} onClick={() => setVisible(true)}>
+                  {messages.getConsult[language]}
+                </Button>
+              </Layout>
+              <Layout flexBasis={16} />
+              <Layout>
+                <Button px={0} width={[40, 40, 46]} height={[40, 40, 46]} onClick={switchLanguage}>
+                  {language.replace('EN', 'РУ').replace('RU', 'EN')}
+                </Button>
+              </Layout>
             </Row>
-            <Layout flexGrow={1} />
-            <Layout display={['none', 'none', 'flex']}>
-              <Button width={227} height={46} onClick={() => setVisible('form')}>
-                {messages.getConsult[language]}
-              </Button>
-            </Layout>
-            <Layout flexBasis={16} />
-            <Layout>
-              <Button px={0} width={[40, 40, 46]} height={[40, 40, 46]} onClick={switchLanguage}>
-                {language.replace('EN', 'РУ').replace('RU', 'EN')}
-              </Button>
-            </Layout>
-          </Row>
-        </Layout>
-        <Layout flexBasis={21} />
-      </Column>
-      <Layout flexBasis={[16, 16, 40]} />
-    </Box>
+          </Layout>
+          <Layout flexBasis={21} />
+        </Column>
+        <Layout flexBasis={[16, 16, 40]} />
+      </Box>
     </>
   )
 }

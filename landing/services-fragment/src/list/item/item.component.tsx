@@ -23,109 +23,125 @@ const Item: FC<ItemProps> = ({ image, title, content, reverse = false }) => {
   return (
     <>
       <Layer visible={visible} onClose={() => setVisible(false)} />
-    <Box width='100%' height={['auto', 'auto', 520]}>
-      <Column width='100%' display={['none', 'none', 'flex']}>
-        <Condition match={!reverse}>
-          <Row height='100%'>
-            <Layout width='100%'>
-              <Box width='100%' height='100%'>
-                <Image src={image?.sourceUrl} alt={image?.altText} contain />
-              </Box>
-            </Layout>
-            <Layout flexBasis={40} />
+      <Box width='100%' height={['auto', 'auto', 520]}>
+        <Column width='100%' display={['none', 'none', 'flex']}>
+          <Condition match={!reverse}>
+            <Row height='100%'>
+              <Layout width='100%'>
+                <Box width='100%' height='100%'>
+                  <Image src={image?.sourceUrl} alt={image?.altText} contain />
+                </Box>
+              </Layout>
+              <Layout flexBasis={40} />
+              <Column width='100%' justifyContent='center'>
+                <Text
+                  fontFamily='secondary'
+                  fontSize='increased'
+                  color='text.primary'
+                  textTransform='uppercase'
+                >
+                  {title}
+                </Text>
+                <Layout flexBasis={16} />
+                {content.split('\n').map((piece) => (
+                  <>
+                    <Text color='text.secondary' lineHeight='primary'>
+                      {piece}
+                    </Text>
+                    <Layout flexBasis={16} />
+                  </>
+                ))}
+                <Layout>
+                  <Button
+                    colors='secondary'
+                    width={119}
+                    height={18}
+                    onClick={() => setVisible(true)}
+                  >
+                    {messages.orderService[language]}
+                  </Button>
+                </Layout>
+              </Column>
+            </Row>
+          </Condition>
+          <Condition match={reverse}>
+            <Row height='100%'>
+              <Column width='100%' justifyContent='center'>
+                <Text
+                  fontFamily='secondary'
+                  fontSize='increased'
+                  color='text.primary'
+                  textTransform='uppercase'
+                >
+                  {title}
+                </Text>
+                <Layout flexBasis={16} />
+                {content.split('\n').map((piece) => (
+                  <>
+                    <Text color='text.secondary' lineHeight='primary'>
+                      {piece}
+                    </Text>
+                    <Layout flexBasis={16} />
+                  </>
+                ))}
+                <Layout>
+                  <Button
+                    colors='secondary'
+                    width={119}
+                    height={18}
+                    onClick={() => setVisible(true)}
+                  >
+                    {messages.orderService[language]}
+                  </Button>
+                </Layout>
+              </Column>
+              <Layout flexBasis={40} />
+              <Layout width='100%'>
+                <Box width='100%' height='100%'>
+                  <Image src={image?.sourceUrl} alt={image?.altText} contain />
+                </Box>
+              </Layout>
+            </Row>
+          </Condition>
+        </Column>
+        <Column width='100%' display={['flex', 'flex', 'none']}>
+          <Layout width='100%'>
+            <Box width='100%' height='100%'>
+              <Image src={image?.sourceUrl} alt={image?.altText} contain />
+            </Box>
+          </Layout>
+          <Layout flexBasis={50} />
+          <Layout>
             <Column width='100%' justifyContent='center'>
-              <Text
-                fontFamily='secondary'
-                fontSize='increased'
-                color='text.primary'
-                textTransform='uppercase'
-              >
-                {title}
-              </Text>
+              <Layout>
+                <Text
+                  fontFamily='secondary'
+                  fontSize={['moderate', 'moderate', 'increased']}
+                  color='text.primary'
+                  textTransform='uppercase'
+                >
+                  {title}
+                </Text>
+              </Layout>
               <Layout flexBasis={16} />
-              {content.split('\n').map(piece => (
+              {content.split('\n').map((piece) => (
                 <>
-                  <Text color='text.secondary' lineHeight='primary'>{piece}</Text>
+                  <Text color='text.secondary' lineHeight='primary'>
+                    {piece}
+                  </Text>
                   <Layout flexBasis={16} />
                 </>
               ))}
+              <Layout flexBasis={70} />
               <Layout>
                 <Button colors='secondary' width={119} height={18} onClick={() => setVisible(true)}>
                   {messages.orderService[language]}
                 </Button>
               </Layout>
             </Column>
-          </Row>
-        </Condition>
-        <Condition match={reverse}>
-          <Row height='100%'>
-            <Column width='100%' justifyContent='center'>
-              <Text
-                fontFamily='secondary'
-                fontSize='increased'
-                color='text.primary'
-                textTransform='uppercase'
-              >
-                {title}
-              </Text>
-              <Layout flexBasis={16} />
-              {content.split('\n').map(piece => (
-                <>
-                  <Text color='text.secondary' lineHeight='primary'>{piece}</Text>
-                  <Layout flexBasis={16} />
-                </>
-              ))}
-              <Layout>
-                <Button colors='secondary' width={119} height={18} onClick={() => setVisible(true)}>
-                  {messages.orderService[language]}
-                </Button>
-              </Layout>
-            </Column>
-            <Layout flexBasis={40} />
-            <Layout width='100%'>
-              <Box width='100%' height='100%'>
-                <Image src={image?.sourceUrl} alt={image?.altText} contain />
-              </Box>
-            </Layout>
-          </Row>
-        </Condition>
-      </Column>
-      <Column width='100%' display={['flex', 'flex', 'none']}>
-        <Layout width='100%'>
-          <Box width='100%' height='100%'>
-            <Image src={image?.sourceUrl} alt={image?.altText} contain />
-          </Box>
-        </Layout>
-        <Layout flexBasis={50} />
-        <Layout>
-          <Column width='100%' justifyContent='center'>
-            <Layout>
-              <Text
-                fontFamily='secondary'
-                fontSize={['moderate', 'moderate', 'increased']}
-                color='text.primary'
-                textTransform='uppercase'
-              >
-                {title}
-              </Text>
-            </Layout>
-            <Layout flexBasis={16} />
-              {content.split('\n').map(piece => (
-                <>
-                  <Text color='text.secondary' lineHeight='primary'>{piece}</Text>
-                  <Layout flexBasis={16} />
-                </>
-              ))}
-            <Layout flexBasis={70} />
-            <Layout>
-              <Button colors='secondary' width={119} height={18} onClick={() => setVisible(true)}>
-                {messages.orderService[language]}
-              </Button>
-            </Layout>
-          </Column>
-        </Layout>
-      </Column>
-    </Box>
+          </Layout>
+        </Column>
+      </Box>
     </>
   )
 }

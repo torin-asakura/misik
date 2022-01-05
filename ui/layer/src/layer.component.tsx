@@ -1,29 +1,29 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 
-import React            from 'react'
-import { FC }           from 'react'
-import { useEffect }    from 'react'
-import { useCallback }  from 'react'
-import ScrollLock       from 'react-scrolllock'
-import { createPortal } from 'react-dom'
-import document         from 'global/document'
-import { nanoid }       from 'nanoid'
-import { useAnimation } from 'framer-motion'
+import React             from 'react'
+import { FC }            from 'react'
+import { useEffect }     from 'react'
+import { useCallback }   from 'react'
+import ScrollLock        from 'react-scrolllock'
+import { createPortal }  from 'react-dom'
+import document          from 'global/document'
+import { nanoid }        from 'nanoid'
+import { useAnimation }  from 'framer-motion'
 
-import { Button } from '@ui/button'
-import { Condition } from '@ui/condition'
-import { Box }          from '@ui/layout'
-import { Column } from '@ui/layout'
-import { Layout } from '@ui/layout'
-import { Row } from '@ui/layout'
-import { Text } from '@ui/text'
-import { Form } from '@ui/form'
-import { useData }                   from '@globals/data'
-import { extractObject }             from '@globals/data'
-import { useLanguage }               from '@globals/language'
+import { Button }        from '@ui/button'
+import { Condition }     from '@ui/condition'
+import { Box }           from '@ui/layout'
+import { Column }        from '@ui/layout'
+import { Layout }        from '@ui/layout'
+import { Row }           from '@ui/layout'
+import { Text }          from '@ui/text'
+import { Form }          from '@ui/form'
+import { useData }       from '@globals/data'
+import { extractObject } from '@globals/data'
+import { useLanguage }   from '@globals/language'
 
-import { Container }    from './container'
-import { LayerProps }   from './layer.interface'
+import { Container }     from './container'
+import { LayerProps }    from './layer.interface'
 
 export const Layer: FC<LayerProps> = ({
   children,
@@ -111,10 +111,22 @@ export const Layer: FC<LayerProps> = ({
           backgroundColor={['background.beige', 'background.beige', 'rgba(0, 0, 0, 0.4)']}
           {...props}
         >
-          <Box position='absolute' top='20px' right='20px' display={['flex', 'flex', 'none']} onClick={close}>
+          <Box
+            position='absolute'
+            top='20px'
+            right='20px'
+            display={['flex', 'flex', 'none']}
+            onClick={close}
+          >
             X
           </Box>
-          <Box position='absolute' top='30px' right='30px' display={['none', 'none', 'flex']} onClick={close}>
+          <Box
+            position='absolute'
+            top='30px'
+            right='30px'
+            display={['none', 'none', 'flex']}
+            onClick={close}
+          >
             X
           </Box>
           <Box
@@ -124,30 +136,35 @@ export const Layer: FC<LayerProps> = ({
             justifyContent={['center', 'center', 'auto']}
             alignItems={['center', 'center', 'auto']}
           >
-            <Box width={['100%', '100%', 720]} px={['20px', '20px', '64px']} backgroundColor='background.beige' borderRadius='atomic'>
+            <Box
+              width={['100%', '100%', 720]}
+              px={['20px', '20px', '64px']}
+              backgroundColor='background.beige'
+              borderRadius='atomic'
+            >
               <Condition match={!privacyPolicy}>
-              <Column fill>
-                <Layout flexBasis={64} />
-                <Layout>
-                  <Text
-                    fontSize={['moderate', 'moderate', 'increased']}
-                    fontFamily='secondary'
-                    lineHeight={['normal', 'normal', 'medium']}
-                    textTransform='uppercase'
-                  >
-                    {title}
+                <Column fill>
+                  <Layout flexBasis={64} />
+                  <Layout>
+                    <Text
+                      fontSize={['moderate', 'moderate', 'increased']}
+                      fontFamily='secondary'
+                      lineHeight={['normal', 'normal', 'medium']}
+                      textTransform='uppercase'
+                    >
+                      {title}
+                    </Text>
+                  </Layout>
+                  <Layout flexBasis={16} />
+                  <Text color='text.secondary' fontSize={['tiny', 'tiny', 'regular']}>
+                    {content}
                   </Text>
-                </Layout>
-                <Layout flexBasis={16} />
-                <Text color='text.secondary' fontSize={['tiny', 'tiny', 'regular']}>
-                  {content}
-                </Text>
-                <Layout />
-                <Layout flexBasis={50} />
-                <Layout>
-                  <Form />
-                </Layout>
-              </Column>
+                  <Layout />
+                  <Layout flexBasis={50} />
+                  <Layout>
+                    <Form />
+                  </Layout>
+                </Column>
               </Condition>
               <Condition match={privacyPolicy}>
                 <Column fill>
