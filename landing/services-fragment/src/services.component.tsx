@@ -44,7 +44,7 @@ const Services: FC = () => {
     >
       <Layout width='100%' maxWidth={1280}>
         <Layout flexBasis={[20, 20, 150]} />
-        <Column width='100%'>
+        <Column fill>
           <Layout flexBasis={[64, 64, 160]} />
           <Layout width={['100%', '100%', 242]}>
             <Text
@@ -64,10 +64,10 @@ const Services: FC = () => {
           <Layout flexBasis={120} />
           <Row flexWrap={['wrap', 'wrap', 'nowrap']}>
             <Box height='min-content' width='100%'>
-              <Column width='100%'>
+              <Column fill>
                 {leftSide?.map(({ title, content }) => (
                   <>
-                    <Column width='100%'>
+                    <Column fill>
                       <Divider />
                       <Layout flexBasis={40} />
                       <Accordeon title={title} content={content} />
@@ -80,9 +80,9 @@ const Services: FC = () => {
             </Box>
             <Layout flexBasis={40} />
             <Box height='min-content' width='100%'>
-              <Column width='100%'>
+              <Column fill>
                 {rightSide?.map(({ title, content }) => (
-                  <Column width='100%'>
+                  <Column fill>
                     <Divider />
                     <Layout flexBasis={40} />
                     <Accordeon title={title} content={content} />

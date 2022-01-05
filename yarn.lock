@@ -1186,6 +1186,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@emotion/babel-plugin@npm:^11.7.1":
+  version: 11.7.2
+  resolution: "@emotion/babel-plugin@npm:11.7.2"
+  dependencies:
+    "@babel/helper-module-imports": ^7.12.13
+    "@babel/plugin-syntax-jsx": ^7.12.13
+    "@babel/runtime": ^7.13.10
+    "@emotion/hash": ^0.8.0
+    "@emotion/memoize": ^0.7.5
+    "@emotion/serialize": ^1.0.2
+    babel-plugin-macros: ^2.6.1
+    convert-source-map: ^1.5.0
+    escape-string-regexp: ^4.0.0
+    find-root: ^1.1.0
+    source-map: ^0.5.7
+    stylis: 4.0.13
+  peerDependencies:
+    "@babel/core": ^7.0.0
+  checksum: eb9607356663c3e158b91ae7b8fde7335c74e6302d1671da1ca0b34142f762e1354bac8cb0bdf5baedf1278912eeea01e103b8f5c59ee107746d1b03f56aa664
+  languageName: node
+  linkType: hard
+
 "@emotion/cache@npm:^11.1.3, @emotion/cache@npm:^11.4.0":
   version: 11.4.0
   resolution: "@emotion/cache@npm:11.4.0"
@@ -1237,6 +1259,24 @@ __metadata:
     "@babel/core":
       optional: true
   checksum: dc50283f65bd65d282636b7ccdcfdc4d71b1cd8d604dc54207971eb13bc0204f2d787a2131fb4660348889779369c1c59454d40c986b44c6d4fc770b0e46aaac
+  languageName: node
+  linkType: hard
+
+"@emotion/css@npm:^11.7.1":
+  version: 11.7.1
+  resolution: "@emotion/css@npm:11.7.1"
+  dependencies:
+    "@emotion/babel-plugin": ^11.7.1
+    "@emotion/cache": ^11.7.1
+    "@emotion/serialize": ^1.0.0
+    "@emotion/sheet": ^1.0.3
+    "@emotion/utils": ^1.0.0
+  peerDependencies:
+    "@babel/core": ^7.0.0
+  peerDependenciesMeta:
+    "@babel/core":
+      optional: true
+  checksum: ac1f56656f33bdb6539cb4ca941532d8a155167296acdc7d0f820e1a4c679cee59f4b3456e79e1c1f6a493a1f7c6c62fb6ae29a56a51a0bf531374f9b2838967
   languageName: node
   linkType: hard
 
@@ -1375,7 +1415,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/sheet@npm:^1.1.0":
+"@emotion/sheet@npm:^1.0.3, @emotion/sheet@npm:^1.1.0":
   version: 1.1.0
   resolution: "@emotion/sheet@npm:1.1.0"
   checksum: a4b74e16a8fea1157413efe4904f5f679d724323cb605d66d20a0b98744422f5d411fca927ceb52e4de454a0a819c5273ca9496db9f011b4ecd17b9f1b212007
@@ -2959,6 +2999,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ui/accordeon@workspace:ui/accordeon"
   dependencies:
+    "@apollo/client": 3.3.21
+    "@emotion/css": ^11.7.1
     "@emotion/react": ^11.4.1
     "@emotion/styled": ^11.3.0
     "@globals/language": "workspace:globals/language"
@@ -2967,6 +3009,7 @@ __metadata:
     "@ui/button": "workspace:ui/button"
     "@ui/condition": "workspace:ui/condition"
     "@ui/drawer": "workspace:ui/drawer"
+    "@ui/layer": "workspace:ui/layer"
     "@ui/layout": "workspace:ui/layout"
     "@ui/link": "workspace:ui/link"
     "@ui/text": "workspace:ui/text"
@@ -2975,6 +3018,7 @@ __metadata:
     react-dom: ^17.0.2
     styled-system: ^5.1.5
   peerDependencies:
+    "@apollo/client": "*"
     "@emotion/react": "*"
     "@emotion/styled": "*"
     "@ui/drawer": "*"

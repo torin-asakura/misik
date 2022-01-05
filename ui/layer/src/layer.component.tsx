@@ -111,10 +111,10 @@ export const Layer: FC<LayerProps> = ({
           backgroundColor={['background.beige', 'background.beige', 'rgba(0, 0, 0, 0.4)']}
           {...props}
         >
-          <Box position='absolute' top='20px' left='20px' display={['flex', 'flex', 'none']}>
+          <Box position='absolute' top='20px' right='20px' display={['flex', 'flex', 'none']} onClick={close}>
             X
           </Box>
-          <Box position='absolute' top='30px' right='30px' display={['none', 'none', 'flex']}>
+          <Box position='absolute' top='30px' right='30px' display={['none', 'none', 'flex']} onClick={close}>
             X
           </Box>
           <Box
