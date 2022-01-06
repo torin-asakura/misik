@@ -9,6 +9,7 @@ import { Column }        from '@ui/layout'
 import { Row }           from '@ui/layout'
 import { Layout }        from '@ui/layout'
 import { Text }          from '@ui/text'
+import { Space }         from '@ui/text'
 import { Image }         from '@ui/image'
 import { useScrollTrap } from '@ui/spy-scroll'
 import { useData }       from '@globals/data'
@@ -58,7 +59,8 @@ const Hero: FC = () => {
           overflow='hidden'
           zIndex={3}
         >
-          <Row height='100%' justifyContent='flex-end'>
+          <Layout flexBasis={[20, 20, 240]} />
+          <Row height='100%'>
             <Box zIndex={-1} display={['flex', 'flex', 'none']}>
               <Image background src={image.url} alt={image.alt} />
             </Box>
@@ -66,25 +68,50 @@ const Hero: FC = () => {
             <Column>
               <Layout flexBasis={[160, 160, 240]} />
               <Layout maxWidth={1300}>
-                <Text
-                  display='inline'
-                  fontFamily='secondary'
-                  fontWeight='thin'
-                  fontSize={['big', 'big', 'giant']}
-                  maxWidth={[500, 500, 864]}
-                  textTransform='uppercase'
-                >
-                  {title.replace(highlighted, '')}
-                  <Text
-                    fontFamily='secondary'
-                    color='text.accent'
-                    fontWeight='thin'
-                    fontSize={['big', 'big', 'giant']}
-                    textTransform='uppercase'
-                  >
-                    {highlighted}
-                  </Text>
-                </Text>
+                <Layout>
+                  <Column>
+                    <Text
+                      display='inline'
+                      fontFamily='secondary'
+                      fontWeight='thin'
+                      fontSize={['big', 'big', 'giant']}
+                      textTransform='uppercase'
+                    >
+                      {title.replace(highlighted, '').split(' ')[0]}
+                    </Text>
+                    <Text
+                      display='inline'
+                      fontFamily='secondary'
+                      fontWeight='thin'
+                      fontSize={['big', 'big', 'giant']}
+                      textTransform='uppercase'
+                    >
+                      {title.replace(highlighted, '').split(' ')[1]}
+                    </Text>
+                    <Text
+                      display='inline'
+                      fontFamily='secondary'
+                      fontWeight='thin'
+                      fontSize={['big', 'big', 'giant']}
+                      textTransform='uppercase'
+                      whiteSpace={['break-all', 'break-all', 'nowrap']}
+                    >
+                      {title.replace(highlighted, '').split(' ')[2]}
+                      <Space />
+                      {title.replace(highlighted, '').split(' ')[3]}
+                      <Space />
+                      <Text
+                        fontFamily='secondary'
+                        color='text.accent'
+                        fontWeight='thin'
+                        fontSize={['big', 'big', 'giant']}
+                        textTransform='uppercase'
+                      >
+                        {highlighted}
+                      </Text>
+                    </Text>
+                  </Column>
+                </Layout>
               </Layout>
               <Layout flexBasis={[289, 289, 438]} />
               <Layout display={['none', 'none', 'flex']}>
@@ -111,6 +138,7 @@ const Hero: FC = () => {
             </Column>
             <Layout flexBasis={[16, 16, 900]} />
           </Row>
+          <Layout flexBasis={[20, 20, 240]} />
         </Box>
       </Box>
     </>

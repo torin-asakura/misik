@@ -45,11 +45,11 @@ const About: FC = () => {
       height='100vh'
       backgroundColor='background.lightBeige'
       minHeight={[1703, 1703, 'auto']}
-      justifyContent='flex-end'
       ref={trapRef}
     >
-      <Layout flexBasis={[20, 20, 0]} />
+      <Layout flexBasis={[20, 20, 240]} />
       <Layout width='100%' maxWidth={1280}>
+        <Layout flexBasis={[20, 20, 120]} />
         <Column width='100%'>
           <Divider />
           <Layout flexBasis={160} />
@@ -125,7 +125,7 @@ const About: FC = () => {
           <Layout flexBasis={80} />
         </Column>
       </Layout>
-      <Layout flexBasis={[16, 16, 320]} />
+      <Layout flexBasis={[16, 16, 240]} />
     </Box>
   )
 }

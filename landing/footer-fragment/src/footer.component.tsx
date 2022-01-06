@@ -34,7 +34,7 @@ const Footer: FC = () => {
       height={163}
       backgroundColor='background.beige'
     >
-      <Layout flexBasis={[20, 20, 150]} />
+      <Layout flexBasis={20} />
       <Layout height='100%' width='100%' maxWidth={1280}>
         <Column width='100%'>
           <Row height='100%' alignItems='center'>
@@ -44,7 +44,7 @@ const Footer: FC = () => {
             <Layout flexGrow={1} />
             <Layout>
               <Text color='text.secondary' fontSize='regular'>
-                {by.title}
+                c{by.title}
               </Text>
               <Space />
               <Link

@@ -10,27 +10,31 @@ const useScrollTrap = (id: string) => {
   const store = useStep()
 
   useEffect(() => {
-    let topTrigger: number = -1
-    let botTrigger: number = -1
+    if (store) {
+      let topTrigger: number = -1
+      let botTrigger: number = -1
 
-    store.registerTrap(id)
+      store.registerTrap(id)
 
-    if (trapRef && trapRef.current) {
-      const rect = trapRef.current.getBoundingClientRect()
+      if (trapRef && trapRef.current) {
+        const rect = trapRef.current.getBoundingClientRect()
 
-      if (topTrigger === -1) topTrigger = rect.y
-      botTrigger = topTrigger + rect.height
-    }
-
-    const handler = () => {
-      if (getWindowScrollY() >= topTrigger && getWindowScrollY() <= botTrigger) {
-        store.updateStep(id)
+        if (topTrigger === -1) topTrigger = rect.y
+        botTrigger = topTrigger + rect.height
       }
+
+      const handler = () => {
+        if (getWindowScrollY() >= topTrigger && getWindowScrollY() <= botTrigger) {
+          store.updateStep(id)
+        }
+      }
+
+      document.addEventListener('scroll', handler)
+
+      return () => document.removeEventListener('scroll', handler)
     }
 
-    document.addEventListener('scroll', handler)
-
-    return () => document.removeEventListener('scroll', handler)
+    return () => {}
   }, [trapRef, id, store])
 
   return trapRef

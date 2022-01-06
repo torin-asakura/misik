@@ -24,6 +24,7 @@ import { useLanguage }   from '@globals/language'
 
 import { Container }     from './container'
 import { LayerProps }    from './layer.interface'
+import { CrossIcon }     from './icons'
 
 export const Layer: FC<LayerProps> = ({
   children,
@@ -117,8 +118,11 @@ export const Layer: FC<LayerProps> = ({
             right='20px'
             display={['flex', 'flex', 'none']}
             onClick={close}
+            style={{
+              cursor: 'pointer',
+            }}
           >
-            X
+            <CrossIcon color='black' />
           </Box>
           <Box
             position='absolute'
@@ -126,8 +130,11 @@ export const Layer: FC<LayerProps> = ({
             right='30px'
             display={['none', 'none', 'flex']}
             onClick={close}
+            style={{
+              cursor: 'pointer',
+            }}
           >
-            X
+            <CrossIcon color='white' />
           </Box>
           <Box
             id={childrenId}

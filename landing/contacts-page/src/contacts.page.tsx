@@ -23,7 +23,7 @@ const ContactsPage: FC = () => {
         <Box backgroundColor='background.beige'>
           <Navigation contacts />
         </Box>
-        <Feedback background='background.beige' />
+        <Feedback background='background.beige' contacts />
         <Map />
         <Footer />
       </DataProvider>

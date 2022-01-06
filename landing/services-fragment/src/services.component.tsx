@@ -37,15 +37,10 @@ const Services: FC = () => {
   const [leftSide, rightSide] = splitItems(services[language])
 
   return (
-    <Box
-      width='100%'
-      backgroundColor='background.beige'
-      justifyContent='flex-end'
-      id='services'
-      ref={trapRef}
-    >
+    <Box width='100%' backgroundColor='background.beige' id='services' ref={trapRef}>
+      <Layout flexBasis={[20, 20, 240]} />
       <Layout width='100%' maxWidth={1280}>
-        <Layout flexBasis={[20, 20, 150]} />
+        <Layout flexBasis={[20, 20, 120]} />
         <Column fill>
           <Layout flexBasis={[64, 64, 160]} />
           <Layout width={['100%', '100%', 242]}>
@@ -95,11 +90,10 @@ const Services: FC = () => {
               </Column>
             </Box>
           </Row>
-          <Layout flexBasis={160} />
+          <Layout flexBasis={120} />
         </Column>
-        <Layout flexBasis={[20, 20, 0]} />
       </Layout>
-      <Layout flexBasis={[0, 0, 320]} />
+      <Layout flexBasis={[20, 20, 240]} />
     </Box>
   )
 }

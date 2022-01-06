@@ -33,14 +33,14 @@ const WorkFormat: FC = () => {
       width='100%'
       minHeight={1000}
       backgroundColor='background.lightBeige'
-      justifyContent='flex-end'
       id='work_format'
       ref={trapRef}
     >
+      <Layout flexBasis={[20, 20, 240]} />
       <Layout maxWidth={1280}>
-        <Layout flexBasis={[20, 20, 150]} />
+        <Layout flexBasis={[20, 20, 120]} />
         <Column width='100%'>
-          <Layout flexBasis={160} />
+          <Layout flexBasis={120} />
           <Layout>
             <Text
               fontFamily='secondary'
@@ -123,10 +123,10 @@ const WorkFormat: FC = () => {
           {/*    <Layout flexBasis={120} /> */}
           {/*  </Column> */}
           {/* </Layout> */}
-          <Layout flexBasis={160} />
+          <Layout flexBasis={120} />
         </Column>
       </Layout>
-      <Layout flexBasis={[16, 16, 320]} />
+      <Layout flexBasis={[16, 16, 240]} />
     </Box>
   )
 }

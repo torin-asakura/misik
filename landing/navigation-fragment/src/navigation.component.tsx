@@ -36,7 +36,9 @@ const Navigation: FC<NavigationProps> = ({ contacts }) => {
   const store = useStep()
 
   useEffect(() => {
-    store.on('update-step', setStep)
+    if (store) {
+      store.on('update-step', setStep)
+    }
   }, [store])
 
   const switchLanguage = () => {

@@ -26,7 +26,7 @@ const Map: FC = () => {
       accessToken,
       container: (ref as any).current,
       center: [37.646, 55.739],
-      zoom: 10,
+      zoom: 9,
       style: 'mapbox://styles/tfk70/cky2ykvih22sr14qcrc9l75mf',
     })
 

@@ -48,10 +48,10 @@ const Accordeon: FC<AccordeonProps> = ({ title, content }) => {
           <Layout flexBasis={20} />
           <Layout>
             <Text
-              fontSize='large'
+              fontSize={['semiLarge', 'semiLarge', 'large']}
               fontFamily='secondary'
               textTransform='uppercase'
-              whiteSpace='nowrap'
+              whiteSpace={['break-all', 'break-all', 'nowrap']}
             >
               {title}
             </Text>
@@ -79,9 +79,3 @@ const Accordeon: FC<AccordeonProps> = ({ title, content }) => {
 }
 
 export { Accordeon }
-
-const arr = [1, 2, 3]
-
-const cb = (item) => item + 1
-
-arr.map(cb)

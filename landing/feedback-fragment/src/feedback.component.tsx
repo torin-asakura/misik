@@ -18,7 +18,10 @@ import { useLanguage }   from '@globals/language'
 
 import { FeedbackProps } from './feedback.interface'
 
-const Feedback: FC<FeedbackProps> = ({ background = 'background.lightBeige' }) => {
+const Feedback: FC<FeedbackProps> = ({
+  background = 'background.lightBeige',
+  contacts = false,
+}) => {
   const { fragments } = useData()
   const [language] = useLanguage()
   const trapRef = useScrollTrap('feedback')
@@ -59,14 +62,13 @@ const Feedback: FC<FeedbackProps> = ({ background = 'background.lightBeige' }) =
         height='100%'
         backgroundColor='background.beige'
         borderRadius={['topMedium', 'topMedium', 'topHuge']}
-        justifyContent='flex-end'
       >
+        <Layout flexBasis={[20, 20, 240]} />
         <Layout width='100%' height='100%' maxWidth={1280}>
-          <Layout flexBasis={[20, 20, 0]} />
+          <Layout flexBasis={[20, 20, 120]} />
           <Column width='100%'>
             <Layout flexBasis={[0, 0, 160]} />
             <Layout flexDirection={['column', 'column', 'row']} width='100%'>
-              <Layout flexBasis={[0, 0, 150]} />
               <Column width='100%'>
                 <Layout flexBasis={[48, 48, 0]} />
                 <Layout maxWidth={620}>
