@@ -32,14 +32,7 @@ export const GlobalStyles = () => {
           flex-direction: column;
         }
 
-        .placemark_layout_container {
-          position: relative;
-        }
-
         .circle_layout {
-          position: absolute;
-          left: -20px;
-          top: -20px;
           display: flex;
           width: 40px;
           height: 40px;
@@ -58,17 +51,31 @@ export const GlobalStyles = () => {
           border-radius: 100px;
         }
 
-        .circle_layout-hover {
-          left: 0;
-          top: 0;
-          content: '';
+        .circle_layout:hover > span {
+          width: min-content;
+          opacity: 1;
+        }
+
+        .circle_layout > span {
+          display: flex;
+          align-items: center;
+          z-index: -1;
           position: absolute;
-          padding-left: 48px;
-          padding-right: 16px;
+          width: 0px;
           height: 40px;
           background-color: white;
           border-radius: 100px;
-          width: 100px;
+          font-family: ${theme.fonts.secondary};
+          font-size: ${theme.fontSizes.semiLarge}px;
+          font-weight: ${theme.fontWeights.medium};
+          left: 0px;
+          padding-left: 48px;
+          padding-right: 16px;
+          opacity: 0;
+          white-space: nowrap;
+          transition: 0.2s;
+          text-transform: uppercase;
+          box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.08), 0px 0px 16px rgba(0, 0, 0, 0.08);
         }
       `}
     />

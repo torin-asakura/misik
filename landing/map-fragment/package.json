@@ -18,6 +18,7 @@
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
     "@globals/data": "workspace:globals/data",
+    "@types/mapbox-gl": "^2",
     "@types/styled-system": "^5",
     "@ui/drawer": "workspace:ui/drawer",
     "@ui/spy-scroll": "workspace:ui/spy-scroll",
@@ -26,6 +27,7 @@
     "styled-system": "^5.1.5"
   },
   "dependencies": {
-    "@ui/layout": "workspace:ui/layout"
+    "@ui/layout": "workspace:ui/layout",
+    "mapbox-gl": "^2.6.1"
   }
 }

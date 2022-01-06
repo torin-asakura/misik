@@ -10,15 +10,15 @@ const useScrollTrap = (id: string) => {
   const store = useStep()
 
   useEffect(() => {
-    let topTrigger: number
-    let botTrigger: number
+    let topTrigger: number = -1
+    let botTrigger: number = -1
 
     store.registerTrap(id)
 
     if (trapRef && trapRef.current) {
       const rect = trapRef.current.getBoundingClientRect()
 
-      if (!topTrigger) topTrigger = rect.y
+      if (topTrigger === -1) topTrigger = rect.y
       botTrigger = topTrigger + rect.height
     }
 
