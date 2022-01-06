@@ -10,6 +10,7 @@ import { Row }           from '@ui/layout'
 import { Layout }        from '@ui/layout'
 import { Text }          from '@ui/text'
 import { Image }         from '@ui/image'
+import { useScrollTrap } from '@ui/spy-scroll'
 import { useData }       from '@globals/data'
 import { extractObject } from '@globals/data'
 import { useLanguage }   from '@globals/language'
@@ -19,6 +20,7 @@ const Hero: FC = () => {
   const { fragments } = useData()
   const [language] = useLanguage()
   const [visible, setVisible] = useState(false)
+  const trapRef = useScrollTrap('hero')
 
   let title: string = ''
   let highlighted: string = ''
@@ -39,7 +41,13 @@ const Hero: FC = () => {
   return (
     <>
       <Layer visible={visible} onClose={() => setVisible(false)} />
-      <Box width='100%' height='100%' backgroundColor='background.lightBeige' zIndex={1}>
+      <Box
+        width='100%'
+        height='100vh'
+        backgroundColor='background.lightBeige'
+        zIndex={1}
+        ref={trapRef}
+      >
         <Box
           position='relative'
           width='100%'

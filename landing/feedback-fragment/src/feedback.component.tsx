@@ -11,6 +11,7 @@ import { Text }          from '@ui/text'
 import { Space }         from '@ui/text'
 import { Link }          from '@ui/link'
 import { Form }          from '@ui/form'
+import { useScrollTrap } from '@ui/spy-scroll'
 import { useData }       from '@globals/data'
 import { extractObject } from '@globals/data'
 import { useLanguage }   from '@globals/language'
@@ -20,6 +21,7 @@ import { FeedbackProps } from './feedback.interface'
 const Feedback: FC<FeedbackProps> = ({ background = 'background.lightBeige' }) => {
   const { fragments } = useData()
   const [language] = useLanguage()
+  const trapRef = useScrollTrap('feedback')
 
   const title = {
     text: '',
@@ -45,7 +47,13 @@ const Feedback: FC<FeedbackProps> = ({ background = 'background.lightBeige' }) =
   }
 
   return (
-    <Box id='feedback' width='100%' height={[877, 877, '100%']} backgroundColor={background}>
+    <Box
+      id='feedback'
+      width='100%'
+      height={[877, 877, '100vh']}
+      backgroundColor={background}
+      ref={trapRef}
+    >
       <Box
         width='100%'
         height='100%'

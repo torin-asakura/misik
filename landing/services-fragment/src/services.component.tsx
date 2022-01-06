@@ -10,6 +10,7 @@ import { Column }         from '@ui/layout'
 import { Row }            from '@ui/layout'
 import { Layout }         from '@ui/layout'
 import { Text }           from '@ui/text'
+import { useScrollTrap }  from '@ui/spy-scroll'
 import { useData }        from '@globals/data'
 import { extractObject }  from '@globals/data'
 import { extractObjects } from '@globals/data'
@@ -23,6 +24,7 @@ const Services: FC = () => {
   const { fragments } = useData()
   const [language] = useLanguage()
   const services = useServices()
+  const trapRef = useScrollTrap('services')
 
   let items = []
   let title: string = ''
@@ -37,10 +39,10 @@ const Services: FC = () => {
   return (
     <Box
       width='100%'
-      minHeight={2302}
       backgroundColor='background.beige'
       justifyContent='flex-end'
       id='services'
+      ref={trapRef}
     >
       <Layout width='100%' maxWidth={1280}>
         <Layout flexBasis={[20, 20, 150]} />

@@ -8,6 +8,7 @@ import { Box }            from '@ui/layout'
 import { Layout }         from '@ui/layout'
 import { Column }         from '@ui/layout'
 import { Text }           from '@ui/text'
+import { useScrollTrap }  from '@ui/spy-scroll'
 import { useData }        from '@globals/data'
 import { extractObject }  from '@globals/data'
 import { extractObjects } from '@globals/data'
@@ -17,6 +18,7 @@ import { useLanguage }    from '@globals/language'
 const WorkFormat: FC = () => {
   const { fragments } = useData()
   const [language] = useLanguage()
+  const trapRef = useScrollTrap('work-format')
 
   let workFormats = []
   let title: string = ''
@@ -33,6 +35,7 @@ const WorkFormat: FC = () => {
       backgroundColor='background.lightBeige'
       justifyContent='flex-end'
       id='work_format'
+      ref={trapRef}
     >
       <Layout maxWidth={1280}>
         <Layout flexBasis={[20, 20, 150]} />

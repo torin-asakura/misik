@@ -18,14 +18,17 @@
     "@emotion/styled": "^11.3.0",
     "@globals/data": "workspace:globals/data",
     "@globals/language": "workspace:globals/language",
+    "@types/events": "^3",
     "@types/styled-system": "^5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "styled-system": "^5.1.5"
   },
   "dependencies": {
+    "@globals/dom": "workspace:globals/dom",
     "@ui/layout": "workspace:ui/layout",
     "@ui/text": "workspace:ui/text",
+    "events": "^3.3.0",
     "styled-tools": "^1.7.2"
   }
 }

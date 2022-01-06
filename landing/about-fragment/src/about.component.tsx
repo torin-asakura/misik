@@ -8,6 +8,7 @@ import { Column }        from '@ui/layout'
 import { Image }         from '@ui/image'
 import { Text }          from '@ui/text'
 import { Link }          from '@ui/link'
+import { useScrollTrap } from '@ui/spy-scroll'
 import { useData }       from '@globals/data'
 import { extractObject } from '@globals/data'
 import { useLanguage }   from '@globals/language'
@@ -19,6 +20,7 @@ const About: FC = () => {
   const { fragments } = useData()
   const [language] = useLanguage()
   const partners = usePartners()
+  const trapRef = useScrollTrap('about')
 
   const title = {
     text: '',
@@ -40,10 +42,11 @@ const About: FC = () => {
   return (
     <Box
       width='100%'
-      height='100%'
+      height='100vh'
       backgroundColor='background.lightBeige'
       minHeight={[1703, 1703, 'auto']}
       justifyContent='flex-end'
+      ref={trapRef}
     >
       <Layout flexBasis={[20, 20, 0]} />
       <Layout width='100%' maxWidth={1280}>

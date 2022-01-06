@@ -1517,6 +1517,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@globals/dom@workspace:globals/dom":
+  version: 0.0.0-use.local
+  resolution: "@globals/dom@workspace:globals/dom"
+  languageName: unknown
+  linkType: soft
+
 "@globals/language@workspace:globals/language":
   version: 0.0.0-use.local
   resolution: "@globals/language@workspace:globals/language"
@@ -1816,6 +1822,7 @@ __metadata:
     "@ui/image": "workspace:ui/image"
     "@ui/layout": "workspace:ui/layout"
     "@ui/link": "workspace:ui/link"
+    "@ui/spy-scroll": "workspace:ui/spy-scroll"
     "@ui/text": "workspace:ui/text"
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -1826,6 +1833,7 @@ __metadata:
     "@emotion/styled": "*"
     "@globals/data": "*"
     "@globals/language": "*"
+    "@ui/spy-scroll": "*"
     react: "*"
     react-dom: "*"
     styled-system: "*"
@@ -1927,6 +1935,7 @@ __metadata:
     "@ui/input": "workspace:ui/input"
     "@ui/layout": "workspace:ui/layout"
     "@ui/link": "workspace:ui/link"
+    "@ui/spy-scroll": "workspace:ui/spy-scroll"
     "@ui/text": "workspace:ui/text"
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -1937,6 +1946,7 @@ __metadata:
     "@emotion/styled": "*"
     "@globals/data": "*"
     "@globals/language": "*"
+    "@ui/spy-scroll": "*"
     react: "*"
     react-dom: "*"
     styled-system: "*"
@@ -1957,6 +1967,7 @@ __metadata:
     "@ui/layout": "workspace:ui/layout"
     "@ui/link": "workspace:ui/link"
     "@ui/logo": "workspace:ui/logo"
+    "@ui/spy-scroll": "workspace:ui/spy-scroll"
     "@ui/text": "workspace:ui/text"
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -1967,6 +1978,7 @@ __metadata:
     "@emotion/styled": "*"
     "@globals/data": "*"
     "@globals/language": "*"
+    "@ui/spy-scroll": "*"
     react: "*"
     react-dom: "*"
     styled-system: "*"
@@ -1990,6 +2002,7 @@ __metadata:
     "@ui/layer": "workspace:ui/layer"
     "@ui/layout": "workspace:ui/layout"
     "@ui/link": "workspace:ui/link"
+    "@ui/spy-scroll": "workspace:ui/spy-scroll"
     "@ui/text": "workspace:ui/text"
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -2001,6 +2014,7 @@ __metadata:
     "@globals/data": "*"
     "@globals/language": "*"
     "@ui/drawer": "*"
+    "@ui/spy-scroll": "*"
     react: "*"
     react-dom: "*"
     styled-system: "*"
@@ -2127,6 +2141,7 @@ __metadata:
     "@ui/layer": "workspace:ui/layer"
     "@ui/layout": "workspace:ui/layout"
     "@ui/link": "workspace:ui/link"
+    "@ui/spy-scroll": "workspace:ui/spy-scroll"
     "@ui/text": "workspace:ui/text"
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -2138,6 +2153,7 @@ __metadata:
     "@globals/data": "*"
     "@globals/language": "*"
     "@ui/drawer": "*"
+    "@ui/spy-scroll": "*"
     react: "*"
     react-dom: "*"
     styled-system: "*"
@@ -2158,6 +2174,7 @@ __metadata:
     "@ui/divider": "workspace:ui/divider"
     "@ui/image": "workspace:ui/image"
     "@ui/layout": "workspace:ui/layout"
+    "@ui/spy-scroll": "workspace:ui/spy-scroll"
     "@ui/text": "workspace:ui/text"
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -2168,6 +2185,7 @@ __metadata:
     "@emotion/styled": "*"
     "@globals/data": "*"
     "@globals/language": "*"
+    "@ui/spy-scroll": "*"
     react: "*"
     react-dom: "*"
     styled-system: "*"
@@ -2188,6 +2206,7 @@ __metadata:
     "@ui/divider": "workspace:ui/divider"
     "@ui/image": "workspace:ui/image"
     "@ui/layout": "workspace:ui/layout"
+    "@ui/spy-scroll": "workspace:ui/spy-scroll"
     "@ui/text": "workspace:ui/text"
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -2198,6 +2217,7 @@ __metadata:
     "@emotion/styled": "*"
     "@globals/data": "*"
     "@globals/language": "*"
+    "@ui/spy-scroll": "*"
     react: "*"
     react-dom: "*"
     styled-system: "*"
@@ -3340,10 +3360,13 @@ __metadata:
     "@emotion/react": ^11.4.1
     "@emotion/styled": ^11.3.0
     "@globals/data": "workspace:globals/data"
+    "@globals/dom": "workspace:globals/dom"
     "@globals/language": "workspace:globals/language"
+    "@types/events": ^3
     "@types/styled-system": ^5
     "@ui/layout": "workspace:ui/layout"
     "@ui/text": "workspace:ui/text"
+    events: ^3.3.0
     react: ^17.0.2
     react-dom: ^17.0.2
     styled-system: ^5.1.5

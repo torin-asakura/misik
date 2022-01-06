@@ -1,6 +1,7 @@
 import React               from 'react'
 import { FC }              from 'react'
 import { useState }        from 'react'
+import { useEffect }       from 'react'
 
 import { Button }          from '@ui/button'
 import { Condition }       from '@ui/condition'
@@ -18,25 +19,28 @@ import { messages }        from '@globals/messages'
 import { useMenus }        from './data'
 import { NavigationProps } from './navigation.interface'
 
+const getColor = (step: string) => {
+  if (step === 'hero' || '') return 'background.transparentWhite'
+  if (step === 'about') return 'background.lightBeige'
+  if (step === 'services') return 'background.beige'
+  if (step === 'work-format') return 'background.lightBeige'
+  if (step === 'feedback') return 'background.beige'
+  return 'background.transparentWhite'
+}
+
 const Navigation: FC<NavigationProps> = ({ contacts }) => {
   const [language, setLanguage] = useLanguage()
   const [visible, setVisible] = useState<boolean>(false)
+  const [step, setStep] = useState<string>('')
   const menus = useMenus()
-  const step = useStep()
+  const store = useStep()
+
+  useEffect(() => {
+    store.on('update-step', setStep)
+  }, [store])
 
   const switchLanguage = () => {
     setLanguage(language === 'RU' ? 'EN' : 'RU')
-  }
-
-  const getColor = (stepIdx) => {
-    if (stepIdx === 0) return 'background.transparentWhite'
-    if (stepIdx === 1) return 'background.lightBeige'
-    if (stepIdx === 2) return 'background.lightBeige'
-    if (stepIdx === 3) return 'background.beige'
-    if (stepIdx === 4) return 'background.lightBeige'
-    if (stepIdx === 5) return 'background.beige'
-    if (stepIdx === 6) return 'background.beige'
-    return 'background.beige'
   }
 
   const contactsHidden = ['#services', '#work_format', '#reviews']
