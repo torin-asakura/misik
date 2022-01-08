@@ -2,7 +2,10 @@ import React             from 'react'
 import { FC }            from 'react'
 import { useEffect }     from 'react'
 import { useRef }        from 'react'
+import { useState }      from 'react'
+import { useContext }    from 'react'
 import { Children }      from 'react'
+import { createContext } from 'react'
 import { useCarousel }   from '@atls-ui-parts/carousel'
 
 import { Box }           from '@ui/layout'
@@ -11,6 +14,26 @@ import { CarouselProps } from './carousel.interface'
 import { Slide }         from './slide.component'
 import { Wrapper }       from './wrapper.component'
 import { Container }     from './container.component'
+
+const Context = createContext({ slideToIndex: (x) => {}, activeSlide: 0 })
+
+const CarouselProvider = (props) => {
+  const [trigger, setTrigger] = useState(false)
+  const [direction, setDirection] = useState<'left' | 'right'>('left')
+
+  const slideLeft = () => {
+    setDirection('left')
+    setTrigger(!trigger)
+  }
+  const slideRight = () => {
+    setDirection('right')
+    setTrigger(!trigger)
+  }
+
+  return <Context.Provider value={{ trigger, slideLeft, slideRight, direction }} {...props} />
+}
+
+const CarouselConsumer = Context.Consumer
 
 const Carousel: FC<CarouselProps> = ({
   children,
@@ -27,6 +50,7 @@ const Carousel: FC<CarouselProps> = ({
 }) => {
   const containerNode = useRef(null)
   const wrapperNode = useRef(null)
+  const context = useContext(Context)
 
   const direction = 'horizontal'
 
@@ -46,6 +70,16 @@ const Carousel: FC<CarouselProps> = ({
       loop,
     }
   )
+
+  useEffect(() => {
+    if (context) {
+      if (context.direction === 'left' && activeSlide > 0) {
+        slideToIndex(activeSlide - 1)
+      }
+      if (context.direction === 'right' && activeSlide < carouselItems.length)
+        slideToIndex(activeSlide + 1)
+    }
+  }, [context?.trigger, activeSlide, carouselItems.length, context, slideToIndex])
 
   useEffect(() => {
     const timer =
@@ -74,4 +108,4 @@ const Carousel: FC<CarouselProps> = ({
   )
 }
 
-export { Carousel }
+export { Carousel, CarouselProvider, CarouselConsumer }

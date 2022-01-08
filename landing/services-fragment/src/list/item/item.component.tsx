@@ -32,7 +32,7 @@ const Item: FC<ItemProps> = ({ image, title, content, reverse = false }) => {
                   <Image src={image?.sourceUrl} alt={image?.altText} contain />
                 </Box>
               </Layout>
-              <Layout flexBasis={40} />
+              <Layout flexBasis={134} />
               <Column width='100%' justifyContent='center'>
                 <Text
                   fontFamily='secondary'
@@ -95,7 +95,7 @@ const Item: FC<ItemProps> = ({ image, title, content, reverse = false }) => {
                   </Button>
                 </Layout>
               </Column>
-              <Layout flexBasis={40} />
+              <Layout flexBasis={134} />
               <Layout width='100%'>
                 <Box width='100%' height='100%'>
                   <Image src={image?.sourceUrl} alt={image?.altText} contain />

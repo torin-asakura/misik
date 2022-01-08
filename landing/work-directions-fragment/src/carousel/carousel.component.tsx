@@ -9,7 +9,7 @@ const Desktop: FC = ({ children }) => (
     slidesPerView={6}
     centered={false}
     loop
-    spaceBetween={40}
+    spaceBetween={140}
     height={220}
     width='100%'
     timeout={false}
@@ -37,7 +37,7 @@ const Carousel: FC = ({ children }) => (
     <Layout display={['none', 'none', 'flex']}>
       <Desktop>{children}</Desktop>
     </Layout>
-    <Layout display={['flex', 'flex', 'none']}>
+    <Layout display={['flex', 'none', 'none']}>
       <Mobile>{children}</Mobile>
     </Layout>
   </>

@@ -30,6 +30,7 @@
   "dependencies": {
     "@globals/messages": "workspace:globals/messages",
     "@ui/button": "workspace:ui/button",
+    "@ui/condition": "workspace:ui/condition",
     "@ui/image": "workspace:ui/image",
     "@ui/layer": "workspace:ui/layer",
     "@ui/layout": "workspace:ui/layout",

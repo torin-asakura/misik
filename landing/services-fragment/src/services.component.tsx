@@ -38,9 +38,9 @@ const Services: FC = () => {
 
   return (
     <Box width='100%' backgroundColor='background.beige' id='services' ref={trapRef}>
-      <Layout flexBasis={[20, 20, 240]} />
-      <Layout width='100%' maxWidth={1280}>
-        <Layout flexBasis={[20, 20, 120]} />
+      <Layout flexBasis={[0, 0, 240]} />
+      <Layout width='100%' maxWidth={1830}>
+        <Layout flexBasis={[20, 20, 210]} />
         <Column fill>
           <Layout flexBasis={[64, 64, 160]} />
           <Layout width={['100%', '100%', 242]}>

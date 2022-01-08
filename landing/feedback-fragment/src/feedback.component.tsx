@@ -37,8 +37,8 @@ const Feedback: FC<FeedbackProps> = ({
 
   if (fragments) {
     const titleFragment = extractObject('title', fragments.feedback[language])
-    const emailFragment = extractObject('email', fragments.feedback[language])
-    const phoneFragment = extractObject('phone', fragments.feedback[language])
+    const emailFragment = extractObject('email', fragments.feedback.RU)
+    const phoneFragment = extractObject('phone', fragments.feedback.RU)
     const workingHoursFragment = extractObject('workingHours', fragments.feedback[language])
 
     title.text = titleFragment?.title
@@ -63,9 +63,9 @@ const Feedback: FC<FeedbackProps> = ({
         backgroundColor='background.beige'
         borderRadius={['topMedium', 'topMedium', 'topHuge']}
       >
-        <Layout flexBasis={[20, 20, 240]} />
-        <Layout width='100%' height='100%' maxWidth={1280}>
-          <Layout flexBasis={[20, 20, 120]} />
+        <Layout flexBasis={[0, 0, 240]} />
+        <Layout width='100%' height='100%' maxWidth={1830}>
+          <Layout flexBasis={[20, 20, 210]} />
           <Column width='100%'>
             <Layout flexBasis={[0, 0, 160]} />
             <Layout flexDirection={['column', 'column', 'row']} width='100%'>

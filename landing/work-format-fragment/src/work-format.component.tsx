@@ -36,9 +36,9 @@ const WorkFormat: FC = () => {
       id='work_format'
       ref={trapRef}
     >
-      <Layout flexBasis={[20, 20, 240]} />
-      <Layout maxWidth={1280}>
-        <Layout flexBasis={[20, 20, 120]} />
+      <Layout flexBasis={[0, 0, 240]} />
+      <Layout maxWidth={1830}>
+        <Layout flexBasis={[20, 20, 210]} flexShrink={0} />
         <Column width='100%'>
           <Layout flexBasis={120} />
           <Layout>
@@ -90,40 +90,82 @@ const WorkFormat: FC = () => {
               </>
             ))}
           </Layout>
-          <Layout flexBasis={240} />
+          {/* TODO update with reviews */}
+          {/* <Layout flexBasis={240} /> */}
           {/* <Layout width='100%' maxWidth={1280}> */}
-          {/*  <Column justifyContent='center' width='100%'> */}
-          {/*    <Layout flexBasis={120} /> */}
-          {/*    <Row> */}
-          {/*      <Box height={64} width='100%' border='1px solid black'> */}
-          {/*        Отзывы клиентов */}
-          {/*      </Box> */}
-          {/*      <Layout flexGrow={1} flexBasis={[64, 64, 0]} /> */}
-          {/*      <Box height={64} width='100%' border='1px solid black'> */}
-          {/*        Arrows */}
-          {/*      </Box> */}
-          {/*    </Row> */}
-          {/*    <Carousel spaceBetween={40}> */}
-          {/*      {reviews.map(({ title, content, excerpt, featuredImage }) => ( */}
-          {/*        <> */}
-          {/*          <Box width={100} height={100} border='1px solid blue'> */}
-          {/*            <Image */}
-          {/*              src={featuredImage?.node.link} */}
-          {/*              alt={featuredImage?.node.altText} */}
-          {/*              contain */}
-          {/*            /> */}
-          {/*            {title} */}
-          {/*            {excerpt} */}
-          {/*            {content} */}
-          {/*          </Box> */}
-          {/*          <Layout flexBasis={32} /> */}
-          {/*        </> */}
-          {/*      ))} */}
-          {/*    </Carousel> */}
-          {/*    <Layout flexBasis={120} /> */}
-          {/*  </Column> */}
+          {/*  <CarouselProvider> */}
+          {/* <Column fill justifyContent='center'> */}
+          {/*   <Row alignItems='center' justifyContent='space-between'> */}
+          {/*     <Layout> */}
+          {/*       <Text textTransform='uppercase' fontSize='semiGiant' fontFamily='secondary'> */}
+          {/*         {reviewsTitle} */}
+          {/*       </Text> */}
+          {/*     </Layout> */}
+          {/*     <Box> */}
+          {/*       <Layout> */}
+          {/*         <CarouselConsumer> */}
+          {/*           {({ slideLeft }) => ( */}
+          {/*             <ArrowLeft onClick={slideLeft} /> */}
+          {/*           )} */}
+          {/*         </CarouselConsumer> */}
+          {/*       </Layout> */}
+          {/*       <Layout flexBasis={16} flexShrink={0} /> */}
+          {/*       <Layout> */}
+          {/*         <CarouselConsumer> */}
+          {/*           {({ slideRight }) => ( */}
+          {/*             <ArrowRight onClick={slideRight} /> */}
+          {/*           )} */}
+          {/*         </CarouselConsumer> */}
+          {/*       </Layout> */}
+          {/*     </Box> */}
+          {/*   </Row> */}
+          {/*   <Layout flexBasis={64} /> */}
+          {/*   <Carousel width='100%' height='100%' spaceBetween={64} slidesPerView={2} centered={false}> */}
+          {/*     {reviews.reduce((acc, item) => [...acc, item, item],[]).map(({ title, content, excerpt, featuredImage }) => ( */}
+          {/*         <Box width={[315,315,620]}> */}
+          {/*           <Column fill> */}
+          {/*             <Divider /> */}
+          {/*             <Layout flexBasis={40} /> */}
+          {/*             <Box fill> */}
+          {/*               <Column> */}
+          {/*                 <Box width={64} height={64} borderRadius='huge' overflow='hidden'> */}
+          {/*                   <Image */}
+          {/*                     src={featuredImage?.node.link} */}
+          {/*                     alt={featuredImage?.node.altText} */}
+          {/*                     contain */}
+          {/*                   /> */}
+          {/*                 </Box> */}
+          {/*               </Column> */}
+          {/*               <Layout flexBasis={24} /> */}
+          {/*               <Column> */}
+          {/*                 <Layout> */}
+          {/*                   <Text fontSize='semiLarge' fontFamily='secondary' textTransform='uppercase' fontWeight='medium'> */}
+          {/*                     {title} */}
+          {/*                   </Text> */}
+          {/*                 </Layout> */}
+          {/*                 <Layout flexBasis={8} /> */}
+          {/*                 <Layout> */}
+          {/*                   <Text fontSize='small' color='text.secondary'> */}
+          {/*                     {excerpt} */}
+          {/*                   </Text> */}
+          {/*                 </Layout> */}
+          {/*                 <Layout flexBasis={29} /> */}
+          {/*                 <Layout> */}
+          {/*                   <Text fontSize='small' color='text.secondary'> */}
+          {/*                     {content} */}
+          {/*                   </Text> */}
+          {/*                 </Layout> */}
+          {/*               </Column> */}
+          {/*             </Box> */}
+          {/*           </Column> */}
+          {/*         </Box> */}
+          {/*     ))} */}
+          {/*   </Carousel> */}
+          {/*   <Layout flexBasis={120} /> */}
+          {/* </Column> */}
+          {/*  </CarouselProvider> */}
           {/* </Layout> */}
-          <Layout flexBasis={120} />
+          {/* <Layout flexBasis={120} /> */}
         </Column>
       </Layout>
       <Layout flexBasis={[16, 16, 240]} />

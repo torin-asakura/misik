@@ -3,6 +3,7 @@ import { FC }            from 'react'
 import { useState }      from 'react'
 
 import { Button }        from '@ui/button'
+import { Condition }     from '@ui/condition'
 import { Layer }         from '@ui/layer'
 import { Box }           from '@ui/layout'
 import { Column }        from '@ui/layout'
@@ -70,46 +71,95 @@ const Hero: FC = () => {
               <Layout maxWidth={1300}>
                 <Layout>
                   <Column>
-                    <Text
-                      display='inline'
-                      fontFamily='secondary'
-                      fontWeight='thin'
-                      fontSize={['big', 'big', 'giant']}
-                      textTransform='uppercase'
-                    >
-                      {title.replace(highlighted, '').split(' ')[0]}
-                    </Text>
-                    <Text
-                      display='inline'
-                      fontFamily='secondary'
-                      fontWeight='thin'
-                      fontSize={['big', 'big', 'giant']}
-                      textTransform='uppercase'
-                    >
-                      {title.replace(highlighted, '').split(' ')[1]}
-                    </Text>
-                    <Text
-                      display='inline'
-                      fontFamily='secondary'
-                      fontWeight='thin'
-                      fontSize={['big', 'big', 'giant']}
-                      textTransform='uppercase'
-                      whiteSpace={['break-all', 'break-all', 'nowrap']}
-                    >
-                      {title.replace(highlighted, '').split(' ')[2]}
-                      <Space />
-                      {title.replace(highlighted, '').split(' ')[3]}
-                      <Space />
+                    <Condition match={language === 'RU'}>
                       <Text
+                        display='inline'
                         fontFamily='secondary'
-                        color='text.accent'
                         fontWeight='thin'
                         fontSize={['big', 'big', 'giant']}
                         textTransform='uppercase'
                       >
-                        {highlighted}
+                        {title.replace(highlighted, '').split(' ')[0]}
                       </Text>
-                    </Text>
+                      <Text
+                        display='inline'
+                        fontFamily='secondary'
+                        fontWeight='thin'
+                        fontSize={['big', 'big', 'giant']}
+                        textTransform='uppercase'
+                      >
+                        {title.replace(highlighted, '').split(' ')[1]}
+                      </Text>
+                      <Text
+                        display='inline'
+                        fontFamily='secondary'
+                        fontWeight='thin'
+                        fontSize={['big', 'big', 'giant']}
+                        textTransform='uppercase'
+                        whiteSpace={['break-all', 'break-all', 'nowrap']}
+                      >
+                        {title.replace(highlighted, '').split(' ')[2]}
+                        <Space />
+                        {title.replace(highlighted, '').split(' ')[3]}
+                        <Space />
+                        <Text
+                          fontFamily='secondary'
+                          color='text.accent'
+                          fontWeight='thin'
+                          fontSize={['big', 'big', 'giant']}
+                          textTransform='uppercase'
+                        >
+                          {highlighted}
+                        </Text>
+                      </Text>
+                    </Condition>
+                    <Condition match={language === 'EN'}>
+                      <Text
+                        display='inline'
+                        fontFamily='secondary'
+                        fontWeight='thin'
+                        fontSize={['big', 'big', 'giant']}
+                        textTransform='uppercase'
+                      >
+                        {title.replace(highlighted, '').split(' ')[0]}
+                        <Space />
+                        {title.replace(highlighted, '').split(' ')[1]}
+                      </Text>
+                      <Text
+                        display='inline'
+                        fontFamily='secondary'
+                        fontWeight='thin'
+                        fontSize={['big', 'big', 'giant']}
+                        textTransform='uppercase'
+                        whiteSpace={['break-all', 'break-all', 'nowrap']}
+                      >
+                        {title.replace(highlighted, '').split(' ')[2]}
+                        <Space />
+                        {title.replace(highlighted, '').split(' ')[3]}
+                      </Text>
+                      <Text
+                        display='inline'
+                        fontFamily='secondary'
+                        fontWeight='thin'
+                        fontSize={['big', 'big', 'giant']}
+                        textTransform='uppercase'
+                        whiteSpace={['break-all', 'break-all', 'nowrap']}
+                      >
+                        {title.replace(highlighted, '').split(' ')[4]}
+                        <Space />
+                        {title.replace(highlighted, '').split(' ')[5]}
+                        <Space />
+                        <Text
+                          fontFamily='secondary'
+                          color='text.accent'
+                          fontWeight='thin'
+                          fontSize={['big', 'big', 'giant']}
+                          textTransform='uppercase'
+                        >
+                          {highlighted}
+                        </Text>
+                      </Text>
+                    </Condition>
                   </Column>
                 </Layout>
               </Layout>

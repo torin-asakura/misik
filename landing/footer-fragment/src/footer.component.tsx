@@ -44,7 +44,7 @@ const Footer: FC = () => {
             <Layout flexGrow={1} />
             <Layout>
               <Text color='text.secondary' fontSize='regular'>
-                c{by.title}
+                {by.title}
               </Text>
               <Space />
               <Link

@@ -30,6 +30,7 @@
     "@ui/divider": "workspace:ui/divider",
     "@ui/image": "workspace:ui/image",
     "@ui/layout": "workspace:ui/layout",
-    "@ui/text": "workspace:ui/text"
+    "@ui/text": "workspace:ui/text",
+    "@ui/utils": "workspace:ui/utils"
   }
 }

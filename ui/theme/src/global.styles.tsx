@@ -56,6 +56,10 @@ export const GlobalStyles = () => {
           opacity: 1;
         }
 
+        .circle_layout:hover {
+          z-index: 100;
+        }
+
         .circle_layout > span {
           display: flex;
           align-items: center;
@@ -76,6 +80,7 @@ export const GlobalStyles = () => {
           transition: 0.2s;
           text-transform: uppercase;
           box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.08), 0px 0px 16px rgba(0, 0, 0, 0.08);
+          pointer-events: none;
         }
       `}
     />
