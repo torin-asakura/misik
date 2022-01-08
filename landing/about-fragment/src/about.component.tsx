@@ -8,6 +8,7 @@ import { Column }        from '@ui/layout'
 import { Image }         from '@ui/image'
 import { Text }          from '@ui/text'
 import { Link }          from '@ui/link'
+import { useScrollTrap } from '@ui/spy-scroll'
 import { useData }       from '@globals/data'
 import { extractObject } from '@globals/data'
 import { useLanguage }   from '@globals/language'
@@ -19,6 +20,7 @@ const About: FC = () => {
   const { fragments } = useData()
   const [language] = useLanguage()
   const partners = usePartners()
+  const trapRef = useScrollTrap('about')
 
   const title = {
     text: '',
@@ -40,28 +42,28 @@ const About: FC = () => {
   return (
     <Box
       width='100%'
-      height='100%'
+      height='100vh'
       backgroundColor='background.lightBeige'
       minHeight={[1703, 1703, 'auto']}
-      justifyContent='flex-end'
+      ref={trapRef}
     >
-      <Layout flexBasis={[20, 20, 0]} />
-      <Layout width='100%' maxWidth={1280}>
+      <Layout flexBasis={[0, 0, 240]} />
+      <Layout width='100%' maxWidth={1830}>
+        <Layout flexBasis={[20, 20, 210]} />
         <Column width='100%'>
           <Divider />
           <Layout flexBasis={160} />
           <Layout height={['100%', '100%', 'auto']} flexDirection={['column', 'column', 'row']}>
-            <Layout flexBasis={[20, 20, 150]} />
             <Layout>
               <Box width={['100%', '100%', 480]} height={480}>
                 <Image alt={alt} src={imageUrl} contain />
               </Box>
             </Layout>
-            <Layout flexBasis={110} />
-            <Layout height={['auto', 'auto', '100%']} maxWidth={620}>
+            <Layout flexBasis={225} />
+            <Layout height={['auto', 'auto', '100%']} maxWidth={980}>
               <Layout flexBasis={[20, 20, 0]} />
               <Column width='100%'>
-                <Layout width={['100%', '100%', 620]}>
+                <Layout width='100%'>
                   <Text
                     display='inline'
                     fontFamily='secondary'
@@ -84,7 +86,7 @@ const About: FC = () => {
                 <Layout flexBasis={[24, 24, 72]} />
                 <Divider />
                 <Layout flexBasis={32} />
-                <Layout width={['100%', '100%', 620]}>
+                <Layout width='100%'>
                   <Text
                     fontSize={['tiny', 'tiny', 'regular']}
                     color='text.secondary'
@@ -98,7 +100,7 @@ const About: FC = () => {
             </Layout>
           </Layout>
           <Layout flexBasis={[0, 0, 160]} />
-          <Layout maxWidth={1280}>
+          <Layout maxWidth={1830}>
             <Column width='100%' justifyContent={['center', 'center', 'flex-start']}>
               <Layout flexBasis={[64, 64, 0]} />
               <Divider />
@@ -122,7 +124,7 @@ const About: FC = () => {
           <Layout flexBasis={80} />
         </Column>
       </Layout>
-      <Layout flexBasis={[16, 16, 320]} />
+      <Layout flexBasis={[16, 16, 240]} />
     </Box>
   )
 }

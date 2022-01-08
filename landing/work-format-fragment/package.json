@@ -8,6 +8,7 @@
     "@emotion/styled": "*",
     "@globals/data": "*",
     "@globals/language": "*",
+    "@ui/spy-scroll": "*",
     "react": "*",
     "react-dom": "*",
     "styled-system": "*"
@@ -19,6 +20,7 @@
     "@globals/data": "workspace:globals/data",
     "@globals/language": "workspace:globals/language",
     "@types/styled-system": "^5",
+    "@ui/spy-scroll": "workspace:ui/spy-scroll",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "styled-system": "^5.1.5"
@@ -28,6 +30,7 @@
     "@ui/divider": "workspace:ui/divider",
     "@ui/image": "workspace:ui/image",
     "@ui/layout": "workspace:ui/layout",
-    "@ui/text": "workspace:ui/text"
+    "@ui/text": "workspace:ui/text",
+    "@ui/utils": "workspace:ui/utils"
   }
 }

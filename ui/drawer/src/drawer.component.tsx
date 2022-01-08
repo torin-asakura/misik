@@ -23,9 +23,10 @@ import { DrawerProvider }            from './context'
 import { CrossIcon }                 from './icons'
 import { Container }                 from './container'
 import { createOutsideClickHandler } from './outside-click.handler'
+import { Active }                    from './drawer.interface'
 
 const Drawer: FC = ({ children }) => {
-  const [active, setActive] = useState<boolean>(false)
+  const [active, setActive] = useState<Active>('')
   const [language] = useLanguage()
   const { fragments } = useData()
   const blackoutControls = useAnimation()
@@ -37,7 +38,7 @@ const Drawer: FC = ({ children }) => {
       .start({
         x: '100%',
       })
-      .then(() => setActive(false))
+      .then(() => setActive(''))
     blackoutControls.start({
       opacity: 0,
     })
@@ -93,34 +94,39 @@ const Drawer: FC = ({ children }) => {
                 <Layout flexBasis={24} />
               </Row>
               <Layout flexBasis={20} />
-              <Box px={['20px', '20px', '64px']}>
-                <Column width='100%'>
-                  <Layout>
-                    <Text
-                      fontSize={['moderate', 'moderate', 'increased']}
-                      fontFamily='secondary'
-                      lineHeight={['normal', 'normal', 'medium']}
-                      textTransform='uppercase'
-                    >
-                      {title}
+              <Condition match={active === 'form'}>
+                <Box px={['20px', '20px', '64px']}>
+                  <Column width='100%'>
+                    <Layout>
+                      <Text
+                        fontSize={['moderate', 'moderate', 'increased']}
+                        fontFamily='secondary'
+                        lineHeight={['normal', 'normal', 'medium']}
+                        textTransform='uppercase'
+                      >
+                        {title}
+                      </Text>
+                    </Layout>
+                    <Layout flexBasis={16} />
+                    <Text color='text.secondary' fontSize={['tiny', 'tiny', 'regular']}>
+                      {content}
                     </Text>
-                  </Layout>
-                  <Layout flexBasis={16} />
-                  <Text color='text.secondary' fontSize={['tiny', 'tiny', 'regular']}>
-                    {content}
-                  </Text>
-                  <Layout />
-                  <Layout flexBasis={50} />
-                  <Layout>
-                    <Form />
-                  </Layout>
-                </Column>
-              </Box>
+                    <Layout />
+                    <Layout flexBasis={50} />
+                    <Layout>
+                      <Form />
+                    </Layout>
+                  </Column>
+                </Box>
+              </Condition>
+              <Condition match={active === 'privacy-policy'}>
+                <Column />
+              </Condition>
             </Column>
           </Container>
         </Blackout>
       </Condition>
-      <ScrollLock isActive={active}>
+      <ScrollLock isActive={!!active}>
         <div>{children}</div>
       </ScrollLock>
     </DrawerProvider>

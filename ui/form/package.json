@@ -7,6 +7,7 @@
     "@emotion/react": "*",
     "@emotion/styled": "*",
     "@globals/language": "*",
+    "@ui/drawer": "*",
     "react": "*",
     "react-dom": "*",
     "styled-system": "*"
@@ -17,6 +18,7 @@
     "@emotion/styled": "^11.3.0",
     "@globals/language": "workspace:globals/language",
     "@types/styled-system": "^5",
+    "@ui/drawer": "workspace:ui/drawer",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "styled-system": "^5.1.5"
@@ -26,6 +28,7 @@
     "@ui/button": "workspace:ui/button",
     "@ui/condition": "workspace:ui/condition",
     "@ui/input": "workspace:ui/input",
+    "@ui/layer": "workspace:ui/layer",
     "@ui/layout": "workspace:ui/layout",
     "@ui/link": "workspace:ui/link",
     "@ui/text": "workspace:ui/text"

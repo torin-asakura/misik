@@ -4,6 +4,7 @@ import { useState }         from 'react'
 
 import { Navigation }       from '@landing/navigation-fragment'
 import { Feedback }         from '@landing/feedback-fragment'
+import { Map }              from '@landing/map-fragment'
 import { Footer }           from '@landing/footer-fragment'
 import { DataProvider }     from '@globals/data'
 import { LanguageProvider } from '@globals/language'
@@ -20,9 +21,10 @@ const ContactsPage: FC = () => {
       <DataProvider>
         <Seo language={languageContext} />
         <Box backgroundColor='background.beige'>
-          <Navigation />
+          <Navigation contacts />
         </Box>
-        <Feedback background='background.beige' />
+        <Feedback background='background.beige' contacts />
+        <Map />
         <Footer />
       </DataProvider>
     </LanguageProvider>

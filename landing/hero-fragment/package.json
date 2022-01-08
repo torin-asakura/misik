@@ -9,6 +9,7 @@
     "@globals/data": "*",
     "@globals/language": "*",
     "@ui/drawer": "*",
+    "@ui/spy-scroll": "*",
     "react": "*",
     "react-dom": "*",
     "styled-system": "*"
@@ -21,6 +22,7 @@
     "@globals/language": "workspace:globals/language",
     "@types/styled-system": "^5",
     "@ui/drawer": "workspace:ui/drawer",
+    "@ui/spy-scroll": "workspace:ui/spy-scroll",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "styled-system": "^5.1.5"
@@ -28,7 +30,9 @@
   "dependencies": {
     "@globals/messages": "workspace:globals/messages",
     "@ui/button": "workspace:ui/button",
+    "@ui/condition": "workspace:ui/condition",
     "@ui/image": "workspace:ui/image",
+    "@ui/layer": "workspace:ui/layer",
     "@ui/layout": "workspace:ui/layout",
     "@ui/link": "workspace:ui/link",
     "@ui/text": "workspace:ui/text"

@@ -9,6 +9,9 @@ const GET_STEPS = gql`
         language {
           code
         }
+        stepAddons {
+          stepid
+        }
       }
     }
   }

@@ -7,6 +7,7 @@ import { ForwardRefRenderFunction } from 'react'
 import { forwardRef }               from 'react'
 import { layout }                   from 'styled-system'
 
+import { Condition }                from '@ui/condition'
 import { Text }                     from '@ui/text'
 
 import { InputProps }               from './input.interfaces'
@@ -53,7 +54,9 @@ export const InputWithoutRef: ForwardRefRenderFunction<HTMLInputElement, InputPr
       // @ts-ignore
       onClick={() => ref.current.focus()}
     >
-      <Label>{placeholder}</Label>
+      <Condition match={value}>
+        <Label>{placeholder}</Label>
+      </Condition>
       <InputElement {...props} size={size} error={errorText !== ''}>
         <RawInput
           ref={ref}

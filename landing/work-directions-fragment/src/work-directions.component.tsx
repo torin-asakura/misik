@@ -17,17 +17,12 @@ const WorkDirections: FC = () => {
   const [language] = useLanguage()
 
   return (
-    <Box
-      width='100%'
-      minHeight={[290, 290, 380]}
-      backgroundColor='background.lightBeige'
-      overflowX='scroll'
-    >
-      <Column width='100%'>
+    <Box width='100%' height={[290, 290, 380]} backgroundColor='background.lightBeige'>
+      <Column fill>
         <Layout flexBasis={80} />
         <Carousel>
           {workDirections[language].map(({ title, featuredImage }) => (
-            <>
+            <Layout maxWidth={200} maxHeight={220}>
               <Column alignItems='center'>
                 <Box width={200} height={140}>
                   <Image
@@ -36,7 +31,7 @@ const WorkDirections: FC = () => {
                     alt={featuredImage?.node?.altText}
                   />
                 </Box>
-                <Layout flexBasis={16} />
+                <Layout flexBasis={24} flexShrink={0} />
                 <Layout>
                   <Text
                     fontFamily='secondary'
@@ -49,8 +44,7 @@ const WorkDirections: FC = () => {
                   </Text>
                 </Layout>
               </Column>
-              <Layout flexBasis={80} flexShrink={0} />
-            </>
+            </Layout>
           ))}
         </Carousel>
         <Layout flexBasis={80} />

@@ -4,6 +4,7 @@ import { withApollo }    from '@atls/next-app-with-apollo'
 import { withHelmet }    from '@atls/next-app-with-helmet'
 import { withEmotion }   from '@atls/next-app-with-emotion'
 import { ThemeProvider } from '@ui/theme'
+import 'mapbox-gl/dist/mapbox-gl.css'
 
 export const withProviders = compose(
   withApollo({

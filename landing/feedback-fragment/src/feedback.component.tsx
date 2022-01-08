@@ -1,6 +1,7 @@
 import React             from 'react'
 import { FC }            from 'react'
 
+import { Condition }     from '@ui/condition'
 import { Copy }          from '@ui/copy'
 import { Box }           from '@ui/layout'
 import { Layout }        from '@ui/layout'
@@ -10,15 +11,20 @@ import { Text }          from '@ui/text'
 import { Space }         from '@ui/text'
 import { Link }          from '@ui/link'
 import { Form }          from '@ui/form'
+import { useScrollTrap } from '@ui/spy-scroll'
 import { useData }       from '@globals/data'
 import { extractObject } from '@globals/data'
 import { useLanguage }   from '@globals/language'
 
 import { FeedbackProps } from './feedback.interface'
 
-const Feedback: FC<FeedbackProps> = ({ background = 'background.lightBeige' }) => {
+const Feedback: FC<FeedbackProps> = ({
+  background = 'background.lightBeige',
+  contacts = false,
+}) => {
   const { fragments } = useData()
   const [language] = useLanguage()
+  const trapRef = useScrollTrap('feedback')
 
   const title = {
     text: '',
@@ -31,8 +37,8 @@ const Feedback: FC<FeedbackProps> = ({ background = 'background.lightBeige' }) =
 
   if (fragments) {
     const titleFragment = extractObject('title', fragments.feedback[language])
-    const emailFragment = extractObject('email', fragments.feedback[language])
-    const phoneFragment = extractObject('phone', fragments.feedback[language])
+    const emailFragment = extractObject('email', fragments.feedback.RU)
+    const phoneFragment = extractObject('phone', fragments.feedback.RU)
     const workingHoursFragment = extractObject('workingHours', fragments.feedback[language])
 
     title.text = titleFragment?.title
@@ -44,41 +50,60 @@ const Feedback: FC<FeedbackProps> = ({ background = 'background.lightBeige' }) =
   }
 
   return (
-    <Box id='feedback' width='100%' height={[877, 877, '100%']} backgroundColor={background}>
+    <Box
+      id='feedback'
+      width='100%'
+      height={[877, 877, '100vh']}
+      backgroundColor={background}
+      ref={trapRef}
+    >
       <Box
         width='100%'
         height='100%'
         backgroundColor='background.beige'
         borderRadius={['topMedium', 'topMedium', 'topHuge']}
-        justifyContent='flex-end'
       >
-        <Layout width='100%' height='100%' maxWidth={1280}>
-          <Layout flexBasis={[20, 20, 0]} />
+        <Layout flexBasis={[0, 0, 240]} />
+        <Layout width='100%' height='100%' maxWidth={1830}>
+          <Layout flexBasis={[20, 20, 210]} />
           <Column width='100%'>
             <Layout flexBasis={[0, 0, 160]} />
             <Layout flexDirection={['column', 'column', 'row']} width='100%'>
-              <Layout flexBasis={[0, 0, 150]} />
               <Column width='100%'>
                 <Layout flexBasis={[48, 48, 0]} />
                 <Layout maxWidth={620}>
-                  <Text
-                    display='inline'
-                    fontFamily='secondary'
-                    fontSize={['semiBig', 'semiBig', 'semiGiant']}
-                    fontWeight='thin'
-                    textTransform='uppercase'
-                  >
-                    {title.text?.replace(title.highlighted, '')}
-                    <Space />
+                  <Column fill>
+                    <Text
+                      display='inline'
+                      fontFamily='secondary'
+                      fontSize={['semiBig', 'semiBig', 'semiGiant']}
+                      fontWeight='thin'
+                      textTransform='uppercase'
+                    >
+                      {title.text?.replace(title.highlighted, '').split(' ')[0]}
+                    </Text>
                     <Text
                       fontFamily='secondary'
                       fontSize={['semiBig', 'semiBig', 'semiGiant']}
                       fontWeight='thin'
                       color='text.accent'
+                      textTransform='uppercase'
                     >
+                      <Text
+                        color='text.primary'
+                        fontFamily='secondary'
+                        fontSize={['semiBig', 'semiBig', 'semiGiant']}
+                        fontWeight='thin'
+                        textTransform='uppercase'
+                      >
+                        {title.text?.replace(title.highlighted, '').split(' ')[1]}
+                      </Text>
+                      <Condition match={language === 'RU'}>
+                        <Space />
+                      </Condition>
                       {title.highlighted}
                     </Text>
-                  </Text>
+                  </Column>
                 </Layout>
                 <Layout flexBasis={[16, 16, 32]} />
                 {/* TODO restore */}

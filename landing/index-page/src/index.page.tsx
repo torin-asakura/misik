@@ -34,10 +34,8 @@ const IndexPage: FC = () => {
             <About />
             <Services />
             <WorkFormat />
-            <>
-              <Feedback />
-              <Map />
-            </>
+            <Feedback />
+            <Map />
             <Footer />
           </SpyScroll>
         </Drawer>

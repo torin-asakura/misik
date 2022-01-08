@@ -1,37 +1,17 @@
-import React                 from 'react'
-import { FC }                from 'react'
-import styled                from '@emotion/styled'
+import React              from 'react'
+import { FC }             from 'react'
 
-import { Column }            from '@ui/layout'
-import { Box }               from '@ui/layout'
-import { Layout }            from '@ui/layout'
-import { Text }              from '@ui/text'
-import { useLanguage }       from '@globals/language'
+import { Box }            from '@ui/layout'
 
-import { useScrollPosition } from './hooks'
-import { useChildrenRefs }   from './hooks'
-import { useSteps }          from './data'
-import { Provider }          from './context'
-
-// TODO separate components
-
-const VerticalText = styled(Text)({
-  transform: 'rotate(-90deg)',
-  whiteSpace: 'nowrap',
-})
-
-const TransitionBox = styled(Box)({
-  transition: '.1s',
-})
+import { Provider }       from './context'
+import { SpyScrollStore } from './store'
+import { StepDisplay }    from './step-display'
 
 const SpyScroll: FC = ({ children }) => {
-  const childrenWithRefs = useChildrenRefs(children)
-  const steps = useSteps()
-  const [language] = useLanguage()
-  const step = useScrollPosition(childrenWithRefs)
+  const store = new SpyScrollStore()
 
   return (
-    <Provider value={step}>
+    <Provider value={store}>
       <Box
         height={333}
         width={18}
@@ -41,19 +21,9 @@ const SpyScroll: FC = ({ children }) => {
         zIndex={10}
         display={['none', 'none', 'flex']}
       >
-        <Column width='100%' alignItems='center'>
-          <VerticalText>{steps[language][step]?.title}</VerticalText>
-          <Layout flexGrow={1} flexBasis={32} />
-          <Box backgroundColor='background.lightGray' width={2} height={240}>
-            <TransitionBox
-              height={`${((step + 1) / 6) * 100}%`}
-              backgroundColor='black'
-              width='100%'
-            />
-          </Box>
-        </Column>
+        <StepDisplay />
       </Box>
-      {childrenWithRefs}
+      {children}
     </Provider>
   )
 }

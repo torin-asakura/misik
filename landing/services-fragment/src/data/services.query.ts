@@ -2,7 +2,7 @@ import { gql } from '@apollo/client'
 
 const GET_SERVICES = gql`
   query GetMenus {
-    services {
+    services(first: 100) {
       nodes {
         title
         content

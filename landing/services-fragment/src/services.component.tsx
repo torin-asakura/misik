@@ -10,6 +10,7 @@ import { Column }         from '@ui/layout'
 import { Row }            from '@ui/layout'
 import { Layout }         from '@ui/layout'
 import { Text }           from '@ui/text'
+import { useScrollTrap }  from '@ui/spy-scroll'
 import { useData }        from '@globals/data'
 import { extractObject }  from '@globals/data'
 import { extractObjects } from '@globals/data'
@@ -23,6 +24,7 @@ const Services: FC = () => {
   const { fragments } = useData()
   const [language] = useLanguage()
   const services = useServices()
+  const trapRef = useScrollTrap('services')
 
   let items = []
   let title: string = ''
@@ -35,16 +37,11 @@ const Services: FC = () => {
   const [leftSide, rightSide] = splitItems(services[language])
 
   return (
-    <Box
-      width='100%'
-      minHeight={2302}
-      backgroundColor='background.beige'
-      justifyContent='flex-end'
-      id='services'
-    >
-      <Layout width='100%' maxWidth={1280}>
-        <Layout flexBasis={[20, 20, 150]} />
-        <Column width='100%'>
+    <Box width='100%' backgroundColor='background.beige' id='services' ref={trapRef}>
+      <Layout flexBasis={[0, 0, 240]} />
+      <Layout width='100%' maxWidth={1830}>
+        <Layout flexBasis={[20, 20, 210]} />
+        <Column fill>
           <Layout flexBasis={[64, 64, 160]} />
           <Layout width={['100%', '100%', 242]}>
             <Text
@@ -64,10 +61,10 @@ const Services: FC = () => {
           <Layout flexBasis={120} />
           <Row flexWrap={['wrap', 'wrap', 'nowrap']}>
             <Box height='min-content' width='100%'>
-              <Column width='100%'>
+              <Column fill>
                 {leftSide?.map(({ title, content }) => (
                   <>
-                    <Column width='100%'>
+                    <Column fill>
                       <Divider />
                       <Layout flexBasis={40} />
                       <Accordeon title={title} content={content} />
@@ -80,9 +77,9 @@ const Services: FC = () => {
             </Box>
             <Layout flexBasis={40} />
             <Box height='min-content' width='100%'>
-              <Column width='100%'>
+              <Column fill>
                 {rightSide?.map(({ title, content }) => (
-                  <Column width='100%'>
+                  <Column fill>
                     <Divider />
                     <Layout flexBasis={40} />
                     <Accordeon title={title} content={content} />
@@ -93,11 +90,10 @@ const Services: FC = () => {
               </Column>
             </Box>
           </Row>
-          <Layout flexBasis={160} />
+          <Layout flexBasis={120} />
         </Column>
-        <Layout flexBasis={[20, 20, 0]} />
       </Layout>
-      <Layout flexBasis={[0, 0, 320]} />
+      <Layout flexBasis={[20, 20, 240]} />
     </Box>
   )
 }

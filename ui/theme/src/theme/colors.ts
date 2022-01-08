@@ -29,6 +29,8 @@ const colors = {
     lightBeige: 'rgba(247,242,237,1)',
     beige: 'rgb(241,234,226)',
     lightGray: 'rgba(18, 18, 19, 0.1)',
+    white: 'rgb(255, 255, 255)',
+    black: 'rgb(0, 0, 0)',
   },
   input: {
     background: 'transparent',
