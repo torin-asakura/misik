@@ -15,7 +15,12 @@ import { Slide }         from './slide.component'
 import { Wrapper }       from './wrapper.component'
 import { Container }     from './container.component'
 
-const Context = createContext({ slideToIndex: (x) => {}, activeSlide: 0 })
+const Context = createContext({
+  trigger: false,
+  slideLeft: (x) => {},
+  slideRight: (x) => {},
+  direction: 'left',
+})
 
 const CarouselProvider = (props) => {
   const [trigger, setTrigger] = useState(false)
