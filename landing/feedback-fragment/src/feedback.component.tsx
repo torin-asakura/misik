@@ -64,7 +64,7 @@ const Feedback: FC<FeedbackProps> = ({
         borderRadius={['topMedium', 'topMedium', 'topHuge']}
       >
         <Layout flexBasis={[0, 0, 240]} />
-        <Layout width='100%' height='100%' maxWidth={1830}>
+        <Layout width='90%' height='100%' maxWidth={1830}>
           <Layout flexBasis={[20, 20, 210]} />
           <Column width='100%'>
             <Layout flexBasis={[0, 0, 160]} />

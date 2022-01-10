@@ -38,7 +38,7 @@ const WorkFormat: FC = () => {
     >
       <Layout flexBasis={[0, 0, 240]} />
       <Layout maxWidth={1830}>
-        <Layout flexBasis={[20, 20, 210]} flexShrink={0} />
+        <Layout flexBasis={[20, 20, 110]} flexShrink={0} />
         <Column width='100%'>
           <Layout flexBasis={120} />
           <Layout>
