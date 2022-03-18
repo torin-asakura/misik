@@ -12,7 +12,6 @@ import { Column }          from '@ui/layout'
 import { Layer }           from '@ui/layer'
 import { Logo }            from '@ui/logo'
 import { NextLink }        from '@ui/link'
-import { useStep }         from '@ui/spy-scroll'
 import { useLanguage }     from '@globals/language'
 import { messages }        from '@globals/messages'
 
@@ -33,13 +32,6 @@ const Navigation: FC<NavigationProps> = ({ contacts }) => {
   const [visible, setVisible] = useState<boolean>(false)
   const [step, setStep] = useState<string>('')
   const menus = useMenus()
-  const store = useStep()
-
-  useEffect(() => {
-    if (store) {
-      store.on('update-step', setStep)
-    }
-  }, [store])
 
   const switchLanguage = () => {
     setLanguage(language === 'RU' ? 'EN' : 'RU')

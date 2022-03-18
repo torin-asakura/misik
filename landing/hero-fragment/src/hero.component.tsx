@@ -13,17 +13,15 @@ import { Layout }        from '@ui/layout'
 import { Text }          from '@ui/text'
 import { Space }         from '@ui/text'
 import { Image }         from '@ui/image'
-import { useScrollTrap } from '@ui/spy-scroll'
 import { useData }       from '@globals/data'
 import { extractObject } from '@globals/data'
 import { useLanguage }   from '@globals/language'
 import { messages }      from '@globals/messages'
 
-const Hero: FC = forwardRef((ref: any) => {
+const Hero: FC = forwardRef((props, ref: any) => {
   const { fragments } = useData()
   const [language] = useLanguage()
   const [visible, setVisible] = useState(false)
-  const trapRef = useScrollTrap('hero')
 
   let title: string = ''
   let highlighted: string = ''

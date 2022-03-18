@@ -12,7 +12,6 @@ import { Text }          from '@ui/text'
 import { Space }         from '@ui/text'
 import { Link }          from '@ui/link'
 import { Form }          from '@ui/form'
-import { useScrollTrap } from '@ui/spy-scroll'
 import { useData }       from '@globals/data'
 import { extractObject } from '@globals/data'
 import { useLanguage }   from '@globals/language'
@@ -22,10 +21,9 @@ import { FeedbackProps } from './feedback.interface'
 const Feedback: FC<FeedbackProps> = forwardRef(({
   background = 'background.lightBeige',
   contacts = false,
-}, ref: any) => {
+}, props,ref: any) => {
   const { fragments } = useData()
   const [language] = useLanguage()
-  const trapRef = useScrollTrap('feedback')
 
   const title = {
     text: '',

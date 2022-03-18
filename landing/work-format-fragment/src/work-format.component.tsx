@@ -9,17 +9,15 @@ import { Box }            from '@ui/layout'
 import { Layout }         from '@ui/layout'
 import { Column }         from '@ui/layout'
 import { Text }           from '@ui/text'
-import { useScrollTrap }  from '@ui/spy-scroll'
 import { useData }        from '@globals/data'
 import { extractObject }  from '@globals/data'
 import { extractObjects } from '@globals/data'
 import { sortByOrder }    from '@globals/data'
 import { useLanguage }    from '@globals/language'
 
-const WorkFormat: FC = forwardRef((ref: any) => {
+const WorkFormat: FC = forwardRef((props, ref: any) => {
   const { fragments } = useData()
   const [language] = useLanguage()
-  const trapRef = useScrollTrap('work-format')
 
   let workFormats = []
   let title: string = ''

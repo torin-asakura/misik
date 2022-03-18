@@ -11,7 +11,6 @@ import { Column }         from '@ui/layout'
 import { Row }            from '@ui/layout'
 import { Layout }         from '@ui/layout'
 import { Text }           from '@ui/text'
-import { useScrollTrap }  from '@ui/spy-scroll'
 import { useData }        from '@globals/data'
 import { extractObject }  from '@globals/data'
 import { extractObjects } from '@globals/data'
@@ -21,11 +20,10 @@ import { List }           from './list'
 import { useServices }    from './data'
 import { splitItems }     from './helpers'
 
-const Services: FC = forwardRef((ref: any) => {
+const Services: FC = forwardRef((props,ref: any) => {
   const { fragments } = useData()
   const [language] = useLanguage()
   const services = useServices()
-  const trapRef = useScrollTrap('services')
 
   let items = []
   let title: string = ''

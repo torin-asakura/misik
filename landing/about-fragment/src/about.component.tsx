@@ -9,7 +9,6 @@ import { Column }        from '@ui/layout'
 import { Image }         from '@ui/image'
 import { Text }          from '@ui/text'
 import { Link }          from '@ui/link'
-import { useScrollTrap } from '@ui/spy-scroll'
 import { useData }       from '@globals/data'
 import { extractObject } from '@globals/data'
 import { useLanguage }   from '@globals/language'
@@ -17,11 +16,10 @@ import { useLanguage }   from '@globals/language'
 import { usePartners }   from './data'
 import { Carousel }      from './carousel'
 
-const About: FC = forwardRef((ref: any) => {
+const About: FC = forwardRef((props, ref: any) => {
   const { fragments } = useData()
   const [language] = useLanguage()
   const partners = usePartners()
-  const trapRef = useScrollTrap('about')
 
   const title = {
     text: '',
