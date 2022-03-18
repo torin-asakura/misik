@@ -2043,6 +2043,7 @@ __metadata:
     "@types/react-helmet": ^6
     "@types/styled-system": ^5
     "@ui/drawer": "workspace:ui/drawer"
+    "@ui/intersection-observer": "workspace:ui/intersection-observer"
     "@ui/layout": "workspace:ui/layout"
     "@ui/spy-scroll": "workspace:ui/spy-scroll"
     react: ^17.0.2
@@ -3346,6 +3347,20 @@ __metadata:
     react: "*"
     react-dom: "*"
     styled-system: "*"
+  languageName: unknown
+  linkType: soft
+
+"@ui/intersection-observer@workspace:ui/intersection-observer":
+  version: 0.0.0-use.local
+  resolution: "@ui/intersection-observer@workspace:ui/intersection-observer"
+  dependencies:
+    "@emotion/react": ^11.4.1
+    "@emotion/styled": ^11.3.0
+    react: ^17.0.2
+  peerDependencies:
+    "@emotion/react": "*"
+    "@emotion/styled": "*"
+    react: "*"
   languageName: unknown
   linkType: soft
 

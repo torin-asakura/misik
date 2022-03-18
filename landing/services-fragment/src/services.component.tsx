@@ -2,6 +2,7 @@
 
 import React              from 'react'
 import { FC }             from 'react'
+import { forwardRef }     from 'react'
 
 import { Accordeon }      from '@ui/accordeon'
 import { Divider }        from '@ui/divider'
@@ -20,7 +21,7 @@ import { List }           from './list'
 import { useServices }    from './data'
 import { splitItems }     from './helpers'
 
-const Services: FC = () => {
+const Services: FC = forwardRef((ref: any) => {
   const { fragments } = useData()
   const [language] = useLanguage()
   const services = useServices()
@@ -37,7 +38,7 @@ const Services: FC = () => {
   const [leftSide, rightSide] = splitItems(services[language])
 
   return (
-    <Box width='100%' backgroundColor='background.beige' id='services' ref={trapRef}>
+    <Box width='100%' backgroundColor='background.beige' id='services' ref={ref}>
       <Layout flexBasis={[0, 0, 240]} />
       <Layout width='100%' maxWidth={1830}>
         <Layout flexBasis={[20, 20, 210]} />
@@ -96,5 +97,6 @@ const Services: FC = () => {
       <Layout flexBasis={[20, 20, 240]} />
     </Box>
   )
-}
+})
+
 export { Services }

@@ -3,15 +3,17 @@ import { FC }             from 'react'
 
 import { Box }            from '@ui/layout'
 
-import { Provider }       from './context'
-import { SpyScrollStore } from './store'
 import { StepDisplay }    from './step-display'
 
-const SpyScroll: FC = ({ children }) => {
-  const store = new SpyScrollStore()
+interface StepDotsProps {
+  children: any
+  activeDot: number
+}
+
+const SpyScroll: FC = ({ children, activeDot }: StepDotsProps) => {
 
   return (
-    <Provider value={store}>
+    <>
       <Box
         height={333}
         width={18}
@@ -24,7 +26,7 @@ const SpyScroll: FC = ({ children }) => {
         <StepDisplay />
       </Box>
       {children}
-    </Provider>
+    </>
   )
 }
 

@@ -1,5 +1,6 @@
 import React             from 'react'
 import { FC }            from 'react'
+import { forwardRef }    from 'react'
 
 import { Condition }     from '@ui/condition'
 import { Copy }          from '@ui/copy'
@@ -18,10 +19,10 @@ import { useLanguage }   from '@globals/language'
 
 import { FeedbackProps } from './feedback.interface'
 
-const Feedback: FC<FeedbackProps> = ({
+const Feedback: FC<FeedbackProps> = forwardRef(({
   background = 'background.lightBeige',
   contacts = false,
-}) => {
+}, ref: any) => {
   const { fragments } = useData()
   const [language] = useLanguage()
   const trapRef = useScrollTrap('feedback')
@@ -55,7 +56,7 @@ const Feedback: FC<FeedbackProps> = ({
       width='100%'
       height={[877, 877, '100vh']}
       backgroundColor={background}
-      ref={trapRef}
+      ref={ref}
     >
       <Box
         width='100%'
@@ -164,5 +165,6 @@ const Feedback: FC<FeedbackProps> = ({
       </Box>
     </Box>
   )
-}
+})
+
 export { Feedback }

@@ -1,6 +1,7 @@
 import React             from 'react'
 import { FC }            from 'react'
 import { useState }      from 'react'
+import { forwardRef }    from 'react'
 
 import { Button }        from '@ui/button'
 import { Condition }     from '@ui/condition'
@@ -18,7 +19,7 @@ import { extractObject } from '@globals/data'
 import { useLanguage }   from '@globals/language'
 import { messages }      from '@globals/messages'
 
-const Hero: FC = () => {
+const Hero: FC = forwardRef((ref: any) => {
   const { fragments } = useData()
   const [language] = useLanguage()
   const [visible, setVisible] = useState(false)
@@ -48,7 +49,7 @@ const Hero: FC = () => {
         height='100vh'
         backgroundColor='background.lightBeige'
         zIndex={1}
-        ref={trapRef}
+        ref={ref}
       >
         <Box
           position='relative'
@@ -193,6 +194,6 @@ const Hero: FC = () => {
       </Box>
     </>
   )
-}
+})
 
 export { Hero }

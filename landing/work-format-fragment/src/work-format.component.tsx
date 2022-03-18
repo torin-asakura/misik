@@ -2,6 +2,7 @@
 
 import React              from 'react'
 import { FC }             from 'react'
+import { forwardRef }     from 'react'
 
 import { Divider }        from '@ui/divider'
 import { Box }            from '@ui/layout'
@@ -15,7 +16,7 @@ import { extractObjects } from '@globals/data'
 import { sortByOrder }    from '@globals/data'
 import { useLanguage }    from '@globals/language'
 
-const WorkFormat: FC = () => {
+const WorkFormat: FC = forwardRef((ref: any) => {
   const { fragments } = useData()
   const [language] = useLanguage()
   const trapRef = useScrollTrap('work-format')
@@ -34,7 +35,7 @@ const WorkFormat: FC = () => {
       minHeight={1000}
       backgroundColor='background.lightBeige'
       id='work_format'
-      ref={trapRef}
+      ref={ref}
     >
       <Layout flexBasis={[0, 0, 240]} />
       <Layout maxWidth={1830}>
@@ -171,5 +172,6 @@ const WorkFormat: FC = () => {
       <Layout flexBasis={[16, 16, 240]} />
     </Box>
   )
-}
+})
+
 export { WorkFormat }

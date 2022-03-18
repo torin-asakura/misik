@@ -35,6 +35,7 @@
     "@landing/work-directions-fragment": "workspace:landing/work-directions-fragment",
     "@landing/work-format-fragment": "workspace:landing/work-format-fragment",
     "@ui/drawer": "workspace:ui/drawer",
+    "@ui/intersection-observer": "workspace:ui/intersection-observer",
     "@ui/layout": "workspace:ui/layout",
     "@ui/spy-scroll": "workspace:ui/spy-scroll"
   }
