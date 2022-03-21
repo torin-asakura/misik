@@ -1,5 +1,4 @@
 import React             from 'react'
-import { FC }            from 'react'
 import { forwardRef }    from 'react'
 
 import { Divider }       from '@ui/divider'
@@ -16,7 +15,7 @@ import { useLanguage }   from '@globals/language'
 import { usePartners }   from './data'
 import { Carousel }      from './carousel'
 
-const About: FC = forwardRef((props, ref: any) => {
+const About = forwardRef((props, ref: any) => {
   const { fragments } = useData()
   const [language] = useLanguage()
   const partners = usePartners()

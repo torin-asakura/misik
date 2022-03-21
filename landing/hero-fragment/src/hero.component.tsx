@@ -1,5 +1,4 @@
 import React             from 'react'
-import { FC }            from 'react'
 import { useState }      from 'react'
 import { forwardRef }    from 'react'
 
@@ -18,7 +17,7 @@ import { extractObject } from '@globals/data'
 import { useLanguage }   from '@globals/language'
 import { messages }      from '@globals/messages'
 
-const Hero: FC = forwardRef((props, ref: any) => {
+const Hero = forwardRef((props, ref: any) => {
   const { fragments } = useData()
   const [language] = useLanguage()
   const [visible, setVisible] = useState(false)

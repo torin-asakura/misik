@@ -1,7 +1,6 @@
 /* eslint-disable no-shadow */
 
 import React              from 'react'
-import { FC }             from 'react'
 import { forwardRef }     from 'react'
 
 import { Divider }        from '@ui/divider'
@@ -15,7 +14,7 @@ import { extractObjects } from '@globals/data'
 import { sortByOrder }    from '@globals/data'
 import { useLanguage }    from '@globals/language'
 
-const WorkFormat: FC = forwardRef((props, ref: any) => {
+const WorkFormat = forwardRef((props, ref: any) => {
   const { fragments } = useData()
   const [language] = useLanguage()
 

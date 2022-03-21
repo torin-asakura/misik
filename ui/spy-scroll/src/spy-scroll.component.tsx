@@ -1,16 +1,17 @@
-import React              from 'react'
-import { FC }             from 'react'
+import React           from 'react'
+import { ReactNode }   from 'react'
 
-import { Box }            from '@ui/layout'
+import { Box }         from '@ui/layout'
 
-import { StepDisplay }    from './step-display'
+import { StepDisplay } from './step-display'
 
 interface StepDotsProps {
-  children: any
+  children?: ReactNode
   activeDot: number
+  total: number
 }
 
-const SpyScroll: FC = ({ children, activeDot }: StepDotsProps) => {
+const SpyScroll = ({ children, activeDot, total }: StepDotsProps) => {
 
   return (
     <>
@@ -23,7 +24,7 @@ const SpyScroll: FC = ({ children, activeDot }: StepDotsProps) => {
         zIndex={10}
         display={['none', 'none', 'flex']}
       >
-        <StepDisplay />
+        <StepDisplay activeDot={activeDot} total={total} />
       </Box>
       {children}
     </>

@@ -1,7 +1,6 @@
 import React               from 'react'
 import { FC }              from 'react'
 import { useState }        from 'react'
-import { useEffect }       from 'react'
 
 import { Button }          from '@ui/button'
 import { Condition }       from '@ui/condition'

@@ -18,10 +18,12 @@ import { useLanguage }   from '@globals/language'
 
 import { FeedbackProps } from './feedback.interface'
 
-const Feedback: FC<FeedbackProps> = forwardRef(({
+const Feedback: FC<FeedbackProps> = forwardRef((
+  props,
+  ref: any,
   background = 'background.lightBeige',
-  contacts = false,
-}, props,ref: any) => {
+  contacts = false
+) => {
   const { fragments } = useData()
   const [language] = useLanguage()
 

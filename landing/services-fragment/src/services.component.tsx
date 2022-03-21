@@ -1,7 +1,6 @@
 /* eslint-disable no-shadow */
 
 import React              from 'react'
-import { FC }             from 'react'
 import { forwardRef }     from 'react'
 
 import { Accordeon }      from '@ui/accordeon'
@@ -20,7 +19,7 @@ import { List }           from './list'
 import { useServices }    from './data'
 import { splitItems }     from './helpers'
 
-const Services: FC = forwardRef((props,ref: any) => {
+const Services = forwardRef((props, ref: any) => {
   const { fragments } = useData()
   const [language] = useLanguage()
   const services = useServices()
