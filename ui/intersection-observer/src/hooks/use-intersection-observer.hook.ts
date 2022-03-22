@@ -26,7 +26,7 @@ const useIntersectionObserver = (onIntersection: (id: string) => void = doNothin
           onIntersection((entries[0].target as any).observerId)
         }
       },
-      { threshold: 1 }
+      { threshold: 0.6 }
     )
 
     for (const key of observers.keys() as any) {

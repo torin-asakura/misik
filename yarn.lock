@@ -3469,6 +3469,7 @@ __metadata:
     "@globals/language": "workspace:globals/language"
     "@types/events": ^3
     "@types/styled-system": ^5
+    "@ui/condition": "workspace:ui/condition"
     "@ui/layout": "workspace:ui/layout"
     "@ui/text": "workspace:ui/text"
     events: ^3.3.0

@@ -8,10 +8,9 @@ import { StepDisplay } from './step-display'
 interface StepDotsProps {
   children?: ReactNode
   activeDot: number
-  total: number
 }
 
-const SpyScroll = ({ children, activeDot, total }: StepDotsProps) => {
+const SpyScroll = ({ children, activeDot }: StepDotsProps) => {
 
   return (
     <>
@@ -24,7 +23,7 @@ const SpyScroll = ({ children, activeDot, total }: StepDotsProps) => {
         zIndex={10}
         display={['none', 'none', 'flex']}
       >
-        <StepDisplay activeDot={activeDot} total={total} />
+        <StepDisplay activeDot={activeDot} />
       </Box>
       {children}
     </>

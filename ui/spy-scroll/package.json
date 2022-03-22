@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "@globals/dom": "workspace:globals/dom",
+    "@ui/condition": "workspace:ui/condition",
     "@ui/layout": "workspace:ui/layout",
     "@ui/text": "workspace:ui/text",
     "events": "^3.3.0",

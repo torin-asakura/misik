@@ -35,6 +35,7 @@ const IndexPage: FC = () => {
     <LanguageProvider value={languageContext}>
       <DataProvider>
         <Drawer>
+          <SpyScroll activeDot={active}>
             <Seo language={languageContext} />
             <Navigation />
             <Hero {...getObserverOptions('hero')} />
@@ -45,7 +46,7 @@ const IndexPage: FC = () => {
             <Feedback {...getObserverOptions('feedback')} />
             <Map />
             <Footer />
-          <SpyScroll total={5} activeDot={active} />
+          </SpyScroll>
         </Drawer>
       </DataProvider>
     </LanguageProvider>

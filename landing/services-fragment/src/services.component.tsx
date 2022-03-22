@@ -35,7 +35,11 @@ const Services = forwardRef((props, ref: any) => {
   const [leftSide, rightSide] = splitItems(services[language])
 
   return (
-    <Box width='100%' backgroundColor='background.beige' id='services' ref={ref}>
+    <Box
+      width='100%'
+      backgroundColor='background.beige'
+      id='services'
+    >
       <Layout flexBasis={[0, 0, 240]} />
       <Layout width='100%' maxWidth={1830}>
         <Layout flexBasis={[20, 20, 210]} />
@@ -53,11 +57,11 @@ const Services = forwardRef((props, ref: any) => {
             </Text>
           </Layout>
           <Layout flexBasis={[32, 32, 64]} />
-          <Layout>
+          <Layout ref={ref}>
             <List items={items} />
           </Layout>
           <Layout flexBasis={120} />
-          <Row flexWrap={['wrap', 'wrap', 'nowrap']}>
+          <Row flexWrap={['wrap', 'wrap', 'nowrap']} ref={ref}>
             <Box height='min-content' width='100%'>
               <Column fill>
                 {leftSide?.map(({ title, content }) => (
