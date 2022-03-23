@@ -1,9 +1,8 @@
 import { sortByOrder } from '@globals/data'
 
 const filter = (items) =>
-  items
-    .filter(sortByOrder)
-    .reverse()
+  [...items]
+    .sort(sortByOrder)
     .reduce(
       (result, item) => {
         if (item.language.code === 'RU') result.RU.push(item)
