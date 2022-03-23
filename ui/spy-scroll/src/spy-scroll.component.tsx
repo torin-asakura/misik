@@ -1,9 +1,9 @@
-import React           from 'react'
-import { ReactNode }   from 'react'
+import React              from 'react'
+import { ReactNode }      from 'react'
 
-import { Box }         from '@ui/layout'
+import { Box }            from '@ui/layout'
 
-import { StepDisplay } from './step-display'
+import { StepDisplay }    from './step-display'
 
 interface StepDotsProps {
   children?: ReactNode
