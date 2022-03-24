@@ -7,12 +7,20 @@ const doNothing = () => {
 
 const useIntersectionObserver = (onIntersection: (id: string) => void = doNothing) => {
   const observers: Map<string, any> = new Map()
+  const observersThreshold: Map<number, any> = new Map()
 
-  const getObserverOptions = (id: string): { ref: any } => {
+  const THRESHOLD = 0.6
+  let thresholdOption = 0
+
+  const getObserverOptions = (id: string, hold: number): { ref: any } => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const ref = useRef(null)
 
+    thresholdOption = hold
+
     observers.set(id, ref)
+
+    observersThreshold.set(hold, ref)
 
     return {
       ref,
@@ -22,30 +30,40 @@ const useIntersectionObserver = (onIntersection: (id: string) => void = doNothin
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries) {
+        if (entries && (entries[0].target as any).thresholdValue === THRESHOLD) {
           onIntersection((entries[0].target as any).observerId)
         }
       },
-      { threshold: 0.6 }
+      { threshold: THRESHOLD }
     )
 
-    const observerServices = new IntersectionObserver(
+    const observerCustom = new IntersectionObserver(
       (entries) => {
-        if ((entries[0].target as any).observerId === 'services') {
+        if ((entries && entries[0].target as any).thresholdValue !== THRESHOLD) {
           onIntersection((entries[0].target as any).observerId)
+          onIntersection((entries[0].target as any).thresholdValue)
         }
       },
-      { threshold: 0.3 }
+      { threshold: thresholdOption }
     )
 
     for (const key of observers.keys() as any) {
       const observerRef = observers.get(key)
 
       observerRef.current.observerId = key
+      observerRef.current.thresholdValue = key
 
       observer.observe(observerRef.current)
-      observerServices.observe(observerRef.current)
     }
+
+    for (const key of observersThreshold.keys() as any) {
+      const observerThresholdRef = observersThreshold.get(key)
+
+      observerThresholdRef.current.thresholdValue = key
+
+      observerCustom.observe(observerThresholdRef.current)
+    }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 

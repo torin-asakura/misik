@@ -38,12 +38,12 @@ const IndexPage: FC = () => {
           <SpyScroll activeDot={active}>
             <Seo language={languageContext} />
             <Navigation activeDot={active} />
-            <Hero {...getObserverOptions('hero')} />
+            <Hero {...getObserverOptions('hero', 0.6)} />
             <WorkDirections />
-            <About {...getObserverOptions('about')} />
-            <Services {...getObserverOptions('services')} />
-            <WorkFormat {...getObserverOptions('work-format')} />
-            <Feedback {...getObserverOptions('feedback')} />
+            <About {...getObserverOptions('about', 0.6)} />
+            <Services {...getObserverOptions('services', 0.3)} />
+            <WorkFormat {...getObserverOptions('work-format', 0.6)} />
+            <Feedback {...getObserverOptions('feedback', 0.6)} />
             <Map />
             <Footer />
           </SpyScroll>
