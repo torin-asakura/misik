@@ -29,12 +29,22 @@ const useIntersectionObserver = (onIntersection: (id: string) => void = doNothin
       { threshold: 0.6 }
     )
 
+    const observerServices = new IntersectionObserver(
+      (entries) => {
+        if ((entries[0].target as any).observerId === 'services') {
+          onIntersection((entries[0].target as any).observerId)
+        }
+      },
+      { threshold: 0.3 }
+    )
+
     for (const key of observers.keys() as any) {
       const observerRef = observers.get(key)
 
       observerRef.current.observerId = key
 
       observer.observe(observerRef.current)
+      observerServices.observe(observerRef.current)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])

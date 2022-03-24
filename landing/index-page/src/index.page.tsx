@@ -17,7 +17,6 @@ import { Language }                        from '@globals/language'
 import { SpyScroll }                       from '@ui/spy-scroll'
 import { Drawer }                          from '@ui/drawer'
 import { useIntersectionObserver }         from '@ui/intersection-observer'
-import { useIntersectionObserverServices } from '@ui/intersection-observer'
 
 import { Seo }                             from './seo.component'
 
@@ -27,12 +26,6 @@ const IndexPage: FC = () => {
   const [active, setActive] = useState<number>(0)
 
   const { getObserverOptions } = useIntersectionObserver((id) => {
-    const order = ['hero', 'about', 'services', 'work-format', 'feedback']
-
-    setActive(order.indexOf(id))
-  })
-
-  const { getObserverOptionsServices } = useIntersectionObserverServices((id) => {
     const order = ['hero', 'about', 'services', 'work-format', 'feedback']
 
     setActive(order.indexOf(id))
@@ -48,7 +41,7 @@ const IndexPage: FC = () => {
             <Hero {...getObserverOptions('hero')} />
             <WorkDirections />
             <About {...getObserverOptions('about')} />
-            <Services {...getObserverOptionsServices('services')} />
+            <Services {...getObserverOptions('services')} />
             <WorkFormat {...getObserverOptions('work-format')} />
             <Feedback {...getObserverOptions('feedback')} />
             <Map />
