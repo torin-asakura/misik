@@ -16,7 +16,7 @@ import { LanguageProvider }        from '@globals/language'
 import { Language }                from '@globals/language'
 import { SpyScroll }               from '@ui/spy-scroll'
 import { Drawer }                  from '@ui/drawer'
-import { useIntersectionObserver } from '@ui/intersection-observer'
+import {useIntersectionObserver, useIntersectionObserverServices} from '@ui/intersection-observer'
 
 import { Seo }                     from './seo.component'
 
@@ -31,17 +31,23 @@ const IndexPage: FC = () => {
     setActive(order.indexOf(id))
   })
 
+  const { getObserverOptionsServices } = useIntersectionObserverServices((id) => {
+    const order = ['hero', 'about', 'services', 'work-format', 'feedback']
+
+    setActive(order.indexOf(id))
+  })
+console.log(active)
   return (
     <LanguageProvider value={languageContext}>
       <DataProvider>
         <Drawer>
           <SpyScroll activeDot={active}>
             <Seo language={languageContext} />
-            <Navigation />
+            <Navigation activeDot={active} />
             <Hero {...getObserverOptions('hero')} />
             <WorkDirections />
             <About {...getObserverOptions('about')} />
-            <Services {...getObserverOptions('services')} />
+            <Services {...getObserverOptionsServices('services')} />
             <WorkFormat {...getObserverOptions('work-format')} />
             <Feedback {...getObserverOptions('feedback')} />
             <Map />

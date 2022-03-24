@@ -39,6 +39,7 @@ const Services = forwardRef((props, ref: any) => {
       width='100%'
       backgroundColor='background.beige'
       id='services'
+      ref={ref}
     >
       <Layout flexBasis={[0, 0, 240]} />
       <Layout width='100%' maxWidth={1830}>
@@ -57,11 +58,11 @@ const Services = forwardRef((props, ref: any) => {
             </Text>
           </Layout>
           <Layout flexBasis={[32, 32, 64]} />
-          <Layout ref={ref}>
+          <Layout>
             <List items={items} />
           </Layout>
           <Layout flexBasis={120} />
-          <Row flexWrap={['wrap', 'wrap', 'nowrap']} ref={ref}>
+          <Row flexWrap={['wrap', 'wrap', 'nowrap']}>
             <Box height='min-content' width='100%'>
               <Column fill>
                 {leftSide?.map(({ title, content }) => (

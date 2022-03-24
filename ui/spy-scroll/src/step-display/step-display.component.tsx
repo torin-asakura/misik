@@ -29,19 +29,29 @@ const StepDisplay = ({ activeDot }) => {
     <Column fill alignItems='center'>
       <VerticalText>
         <Condition match={activeDot === 0}>
-          {steps[language][activeDot]?.title}
+          <>
+            {steps[language][activeDot]?.title}
+          </>
         </Condition>
         <Condition match={activeDot === 1}>
-          {steps[language][activeDot]?.title}
+          <>
+            {steps[language][activeDot]?.title}
+          </>
         </Condition>
         <Condition match={activeDot === 2}>
-          {steps[language][activeDot]?.title}
+          <>
+            {steps[language][activeDot]?.title}
+          </>
         </Condition>
         <Condition match={activeDot === 3}>
-          {steps[language][activeDot]?.title}
+          <>
+            {steps[language][activeDot]?.title}
+          </>
         </Condition>
         <Condition match={activeDot === 4}>
-          {steps[language][activeDot]?.title}
+          <>
+            {steps[language][activeDot]?.title}
+          </>
         </Condition>
       </VerticalText>
       <Layout flexGrow={1} flexBasis={32} />

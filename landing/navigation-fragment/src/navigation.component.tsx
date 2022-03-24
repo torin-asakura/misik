@@ -17,19 +17,18 @@ import { messages }        from '@globals/messages'
 import { useMenus }        from './data'
 import { NavigationProps } from './navigation.interface'
 
-const getColor = (step: string) => {
-  if (step === 'hero' || '') return 'background.transparentWhite'
-  if (step === 'about') return 'background.lightBeige'
-  if (step === 'services') return 'background.beige'
-  if (step === 'work-format') return 'background.lightBeige'
-  if (step === 'feedback') return 'background.beige'
+const getColor = (step: number) => {
+  if (step === 0) return 'background.transparentWhite'
+  if (step === 1) return 'background.lightBeige'
+  if (step === 2) return 'background.beige'
+  if (step === 3) return 'background.lightBeige'
+  if (step === 4) return 'background.beige'
   return 'background.transparentWhite'
 }
 
-const Navigation: FC<NavigationProps> = ({ contacts }) => {
+const Navigation: FC<NavigationProps> = ({ contacts, activeDot }) => {
   const [language, setLanguage] = useLanguage()
   const [visible, setVisible] = useState<boolean>(false)
-  const [step, setStep] = useState<string>('')
   const menus = useMenus()
 
   const switchLanguage = () => {
@@ -48,7 +47,7 @@ const Navigation: FC<NavigationProps> = ({ contacts }) => {
         left={0}
         height={88}
         zIndex={10}
-        backgroundColor={getColor(step)}
+        backgroundColor={getColor(activeDot!)}
         style={{ transition: '.1s' }}
       >
         <Layout flexBasis={[16, 16, 40]} />
