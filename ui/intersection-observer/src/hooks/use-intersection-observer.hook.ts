@@ -6,63 +6,50 @@ const doNothing = () => {
 }
 
 const useIntersectionObserver = (onIntersection: (id: string) => void = doNothing) => {
-  const observers: Map<string, any> = new Map()
-  const observersThreshold = []
+  const observers: Map<string, { ref: any; threshold: number }> = new Map()
 
-  const THRESHOLD = 0.6
-  let thresholdOption = 0
-
-  const getObserverOptions = (id: string, hold: number): { ref: any } => {
+  const getObserverOptions = (id: string, hold: number = 0.6): { ref: any } => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const ref = useRef(null)
 
-    thresholdOption = hold
-
-    observers.set(id, ref)
-
-    observersThreshold.push({ [hold]: ref })
-
+    observers.set(id, { ref, threshold: hold })
     return {
       ref,
     }
   }
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries && (entries[0].target as any).thresholdValue === THRESHOLD) {
-          onIntersection((entries[0].target as any).observerId)
-        }
-      },
-      { threshold: THRESHOLD }
-    )
-
-    const observerCustom = new IntersectionObserver(
-      (entries) => {
-        if ((entries && entries[0].target as any).thresholdValue !== THRESHOLD) {
-          onIntersection((entries[0].target as any).observerId)
-        }
-        console.log((entries && entries[0].target as any).thresholdValue)
-      },
-      { threshold: thresholdOption }
-    )
+    const intersectionObservers: Map<number, IntersectionObserver> = new Map()
 
     for (const key of observers.keys() as any) {
-      const observerRef = observers.get(key)
+      const observerThreshold = observers.get(key).threshold
 
-      observerRef.current.observerId = key
+      if (!intersectionObservers.has(observerThreshold)) {
+        intersectionObservers.set(
+          observerThreshold,
+          new IntersectionObserver(
+            (entries) => {
+              if (entries) {
+                onIntersection((entries[0].target as any).observerId)
+              }
+            },
+            { threshold: observerThreshold }
+          )
+        )
 
-      observer.observe(observerRef.current)
+        const observer = observers.get(key)
+
+        observer.ref.current.observerId = key
+
+        intersectionObservers.get(observerThreshold).observe(observer?.ref?.current)
+      } else {
+        const observer = observers.get(key)
+
+        observer.ref.current.observerId = key
+
+        intersectionObservers.get(observerThreshold).observe(observer?.ref?.current)
+      }
     }
-
-    for (const key of observersThreshold as any) {
-      const observerThresholdRef = key
-      console.log(observerThresholdRef)
-      // observerThresholdRef.current.thresholdValue = key
-
-      // observerCustom.observe(observerThresholdRef.current)
-    }
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
