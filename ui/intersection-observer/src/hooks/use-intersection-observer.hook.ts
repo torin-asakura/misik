@@ -22,7 +22,7 @@ const useIntersectionObserver = (onIntersection: (id: string) => void = doNothin
     const intersectionObservers: Map<number, IntersectionObserver> = new Map()
 
     for (const key of observers.keys() as any) {
-      const observerThreshold = observers.get(key).threshold
+      const observerThreshold = observers.get(key)!.threshold
 
       if (!intersectionObservers.has(observerThreshold)) {
         intersectionObservers.set(
@@ -39,15 +39,15 @@ const useIntersectionObserver = (onIntersection: (id: string) => void = doNothin
 
         const observer = observers.get(key)
 
-        observer.ref.current.observerId = key
+        observer!.ref.current.observerId = key
 
-        intersectionObservers.get(observerThreshold).observe(observer?.ref?.current)
+        intersectionObservers.get(observerThreshold)!.observe(observer?.ref?.current)
       } else {
         const observer = observers.get(key)
 
-        observer.ref.current.observerId = key
+        observer!.ref.current.observerId = key
 
-        intersectionObservers.get(observerThreshold).observe(observer?.ref?.current)
+        intersectionObservers.get(observerThreshold)!.observe(observer?.ref?.current)
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
