@@ -41,13 +41,7 @@ const Hero = forwardRef((props, ref: any) => {
   return (
     <>
       <Layer visible={visible} onClose={() => setVisible(false)} />
-      <Box
-        width='100%'
-        height='100vh'
-        backgroundColor='background.lightBeige'
-        zIndex={1}
-        ref={ref}
-      >
+      <Box width='100%' height='100vh' backgroundColor='background.lightBeige' zIndex={1} ref={ref}>
         <Box
           position='relative'
           width='100%'
