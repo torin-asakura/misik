@@ -21,6 +21,12 @@ const useIntersectionObserver = (onIntersection: (id: string) => void = doNothin
   useEffect(() => {
     const intersectionObservers: Map<number, IntersectionObserver> = new Map()
 
+    let isExecutionAllowed = false
+
+    setTimeout(() => {
+      isExecutionAllowed = true
+    })
+
     for (const key of observers.keys() as any) {
       const observerThreshold = observers.get(key)!.threshold
 
@@ -29,7 +35,7 @@ const useIntersectionObserver = (onIntersection: (id: string) => void = doNothin
           observerThreshold,
           new IntersectionObserver(
             (entries) => {
-              if (entries) {
+              if (entries && isExecutionAllowed) {
                 onIntersection((entries[0].target as any).observerId)
               }
             },

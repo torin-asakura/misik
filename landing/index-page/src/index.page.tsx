@@ -20,8 +20,6 @@ import { useIntersectionObserver } from '@ui/intersection-observer'
 
 import { Seo }                     from './seo.component'
 
-let isCalled = false
-
 const IndexPage: FC = () => {
   const languageContext = useState<Language>('RU')
 
@@ -30,14 +28,7 @@ const IndexPage: FC = () => {
   const { getObserverOptions } = useIntersectionObserver((id) => {
     const order = ['hero', 'about', 'services', 'work-format', 'feedback']
 
-    if (isCalled) {
-      setActive(order.indexOf(id))
-    }
-     else {
-       setTimeout(() => {
-         isCalled = true
-       }, 200)
-    }
+    setActive(order.indexOf(id))
   })
 
   return (
