@@ -1,6 +1,6 @@
 import React             from 'react'
-import { FC }            from 'react'
 import { useState }      from 'react'
+import { forwardRef }    from 'react'
 
 import { Button }        from '@ui/button'
 import { Condition }     from '@ui/condition'
@@ -12,17 +12,15 @@ import { Layout }        from '@ui/layout'
 import { Text }          from '@ui/text'
 import { Space }         from '@ui/text'
 import { Image }         from '@ui/image'
-import { useScrollTrap } from '@ui/spy-scroll'
 import { useData }       from '@globals/data'
 import { extractObject } from '@globals/data'
 import { useLanguage }   from '@globals/language'
 import { messages }      from '@globals/messages'
 
-const Hero: FC = () => {
+const Hero = forwardRef((props, ref: any) => {
   const { fragments } = useData()
   const [language] = useLanguage()
   const [visible, setVisible] = useState(false)
-  const trapRef = useScrollTrap('hero')
 
   let title: string = ''
   let highlighted: string = ''
@@ -43,13 +41,7 @@ const Hero: FC = () => {
   return (
     <>
       <Layer visible={visible} onClose={() => setVisible(false)} />
-      <Box
-        width='100%'
-        height='100vh'
-        backgroundColor='background.lightBeige'
-        zIndex={1}
-        ref={trapRef}
-      >
+      <Box width='100%' height='100vh' backgroundColor='background.lightBeige' zIndex={1} ref={ref}>
         <Box
           position='relative'
           width='100%'
@@ -193,6 +185,6 @@ const Hero: FC = () => {
       </Box>
     </>
   )
-}
+})
 
 export { Hero }

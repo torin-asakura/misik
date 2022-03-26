@@ -1,7 +1,7 @@
 /* eslint-disable no-shadow */
 
 import React              from 'react'
-import { FC }             from 'react'
+import { forwardRef }     from 'react'
 
 import { Accordeon }      from '@ui/accordeon'
 import { Divider }        from '@ui/divider'
@@ -10,7 +10,6 @@ import { Column }         from '@ui/layout'
 import { Row }            from '@ui/layout'
 import { Layout }         from '@ui/layout'
 import { Text }           from '@ui/text'
-import { useScrollTrap }  from '@ui/spy-scroll'
 import { useData }        from '@globals/data'
 import { extractObject }  from '@globals/data'
 import { extractObjects } from '@globals/data'
@@ -20,11 +19,10 @@ import { List }           from './list'
 import { useServices }    from './data'
 import { splitItems }     from './helpers'
 
-const Services: FC = () => {
+const Services = forwardRef((props, ref: any) => {
   const { fragments } = useData()
   const [language] = useLanguage()
   const services = useServices()
-  const trapRef = useScrollTrap('services')
 
   let items = []
   let title: string = ''
@@ -37,7 +35,7 @@ const Services: FC = () => {
   const [leftSide, rightSide] = splitItems(services[language])
 
   return (
-    <Box width='100%' backgroundColor='background.beige' id='services' ref={trapRef}>
+    <Box width='100%' backgroundColor='background.beige' id='services' ref={ref}>
       <Layout flexBasis={[0, 0, 240]} />
       <Layout width='100%' maxWidth={1830}>
         <Layout flexBasis={[20, 20, 210]} />
@@ -96,5 +94,6 @@ const Services: FC = () => {
       <Layout flexBasis={[20, 20, 240]} />
     </Box>
   )
-}
+})
+
 export { Services }

@@ -1,24 +1,22 @@
 /* eslint-disable no-shadow */
 
 import React              from 'react'
-import { FC }             from 'react'
+import { forwardRef }     from 'react'
 
 import { Divider }        from '@ui/divider'
 import { Box }            from '@ui/layout'
 import { Layout }         from '@ui/layout'
 import { Column }         from '@ui/layout'
 import { Text }           from '@ui/text'
-import { useScrollTrap }  from '@ui/spy-scroll'
 import { useData }        from '@globals/data'
 import { extractObject }  from '@globals/data'
 import { extractObjects } from '@globals/data'
 import { sortByOrder }    from '@globals/data'
 import { useLanguage }    from '@globals/language'
 
-const WorkFormat: FC = () => {
+const WorkFormat = forwardRef((props, ref: any) => {
   const { fragments } = useData()
   const [language] = useLanguage()
-  const trapRef = useScrollTrap('work-format')
 
   let workFormats = []
   let title: string = ''
@@ -34,7 +32,7 @@ const WorkFormat: FC = () => {
       minHeight={1000}
       backgroundColor='background.lightBeige'
       id='work_format'
-      ref={trapRef}
+      ref={ref}
     >
       <Layout flexBasis={[0, 0, 240]} />
       <Layout maxWidth={1830}>
@@ -171,5 +169,6 @@ const WorkFormat: FC = () => {
       <Layout flexBasis={[16, 16, 240]} />
     </Box>
   )
-}
+})
+
 export { WorkFormat }

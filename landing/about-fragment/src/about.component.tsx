@@ -1,5 +1,5 @@
 import React             from 'react'
-import { FC }            from 'react'
+import { forwardRef }    from 'react'
 
 import { Divider }       from '@ui/divider'
 import { Box }           from '@ui/layout'
@@ -8,7 +8,6 @@ import { Column }        from '@ui/layout'
 import { Image }         from '@ui/image'
 import { Text }          from '@ui/text'
 import { Link }          from '@ui/link'
-import { useScrollTrap } from '@ui/spy-scroll'
 import { useData }       from '@globals/data'
 import { extractObject } from '@globals/data'
 import { useLanguage }   from '@globals/language'
@@ -16,11 +15,10 @@ import { useLanguage }   from '@globals/language'
 import { usePartners }   from './data'
 import { Carousel }      from './carousel'
 
-const About: FC = () => {
+const About = forwardRef((props, ref: any) => {
   const { fragments } = useData()
   const [language] = useLanguage()
   const partners = usePartners()
-  const trapRef = useScrollTrap('about')
 
   const title = {
     text: '',
@@ -45,7 +43,7 @@ const About: FC = () => {
       height='100vh'
       backgroundColor='background.lightBeige'
       minHeight={[1703, 1703, 'auto']}
-      ref={trapRef}
+      ref={ref}
     >
       <Layout flexBasis={[0, 0, 240]} />
       <Layout width='100%' maxWidth={1830}>
@@ -127,5 +125,6 @@ const About: FC = () => {
       <Layout flexBasis={[16, 16, 240]} />
     </Box>
   )
-}
+})
+
 export { About }
