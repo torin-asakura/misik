@@ -1,36 +1,35 @@
-import React                        from 'react'
-import { FC }                       from 'react'
+import React           from 'react'
+import { FC }          from 'react'
 
-import { Carousel as BaseCarousel } from '@ui/carousel'
-import { Layout }                   from '@ui/layout'
+import { Layout }      from '@ui/layout'
+import { useCarousel } from '@ui/carousel'
 
-const Desktop: FC = ({ children }) => (
-  <BaseCarousel
-    slidesPerView={6}
-    centered={false}
-    loop
-    spaceBetween={140}
-    height={220}
-    width='100%'
-    timeout={false}
-  >
-    {children}
-  </BaseCarousel>
-)
+const Desktop: FC = ({ children }) => {
+  const { carousel } = useCarousel({
+    children,
+    slidesPerView: 6,
+    spaceBetween: 120,
+    centered: false,
+    height: 220,
+    width: 1830,
+    loop: true,
+  })
 
-const Mobile: FC = ({ children }) => (
-  <BaseCarousel
-    slidesPerView={2}
-    centered={false}
-    loop
-    spaceBetween={20}
-    height={210}
-    width='100%'
-    timeout={false}
-  >
-    {children}
-  </BaseCarousel>
-)
+  return carousel
+}
+
+const Mobile: FC = ({ children }) => {
+  const { carousel } = useCarousel({
+    children,
+    slidesPerView: 2,
+    spaceBetween: 20,
+    centered: true,
+    height: 210,
+    loop: true,
+  })
+
+  return carousel
+}
 
 const Carousel: FC = ({ children }) => (
   <>

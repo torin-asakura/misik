@@ -18,35 +18,37 @@ const WorkDirections: FC = () => {
 
   return (
     <Box width='100%' height={[290, 290, 380]} backgroundColor='background.lightBeige'>
-      <Column fill>
+      <Column fill alignItems='center'>
         <Layout flexBasis={80} />
-        <Carousel>
-          {workDirections[language].map(({ title, featuredImage }) => (
-            <Layout maxWidth={200} maxHeight={220}>
-              <Column alignItems='center'>
-                <Box width={200} height={140}>
-                  <Image
-                    contain
-                    src={featuredImage?.node?.sourceUrl}
-                    alt={featuredImage?.node?.altText}
-                  />
-                </Box>
-                <Layout flexBasis={24} flexShrink={0} />
-                <Layout>
-                  <Text
-                    fontFamily='secondary'
-                    fontWeight='medium'
-                    fontSize={['medium', 'medium', 'semiLarge']}
-                    textAlign='center'
-                    textTransform='uppercase'
-                  >
-                    {title}
-                  </Text>
-                </Layout>
-              </Column>
-            </Layout>
-          ))}
-        </Carousel>
+        <Box width='100%' overflow='hidden' justifyContent='center'>
+          <Carousel>
+            {workDirections[language].map(({ title, featuredImage }) => (
+              <Layout maxWidth={200} maxHeight={220}>
+                <Column alignItems='center'>
+                  <Box width={200} height={140}>
+                    <Image
+                      contain
+                      src={featuredImage?.node?.sourceUrl}
+                      alt={featuredImage?.node?.altText}
+                    />
+                  </Box>
+                  <Layout flexBasis={24} flexShrink={0} />
+                  <Layout>
+                    <Text
+                      fontFamily='secondary'
+                      fontWeight='medium'
+                      fontSize={['medium', 'medium', 'semiLarge']}
+                      textAlign='center'
+                      textTransform='uppercase'
+                    >
+                      {title}
+                    </Text>
+                  </Layout>
+                </Column>
+              </Layout>
+            ))}
+          </Carousel>
+        </Box>
         <Layout flexBasis={80} />
         <Divider />
       </Column>

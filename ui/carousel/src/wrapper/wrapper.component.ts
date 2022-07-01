@@ -4,4 +4,7 @@ import { createWrapperPositionStyles } from '@atls-ui-parts/carousel'
 
 import { motion }                      from 'framer-motion'
 
-export const Wrapper = styled(motion.div)(createWrapperBaseStyles(), createWrapperPositionStyles())
+export const Wrapper = styled(motion.div)<any>(
+  createWrapperBaseStyles(),
+  createWrapperPositionStyles()
+)
