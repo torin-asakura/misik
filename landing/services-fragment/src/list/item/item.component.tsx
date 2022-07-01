@@ -4,6 +4,7 @@ import { useState }    from 'react'
 
 import { Button }      from '@ui/button'
 import { Condition }   from '@ui/condition'
+import { Drawer }      from '@ui/drawer'
 import { Image }       from '@ui/image'
 import { Layer }       from '@ui/layer'
 import { Box }         from '@ui/layout'
@@ -23,6 +24,7 @@ const Item: FC<ItemProps> = ({ image, title, content, reverse = false }) => {
   return (
     <>
       <Layer visible={visible} onClose={() => setVisible(false)} />
+      <Drawer active={visible} onClose={() => setVisible(false)} />
       <Box width='100%' height={['auto', 'auto', 520]}>
         <Column width='100%' display={['none', 'none', 'flex']}>
           <Condition match={!reverse}>

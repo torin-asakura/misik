@@ -4,6 +4,7 @@ import { forwardRef }    from 'react'
 
 import { Button }        from '@ui/button'
 import { Condition }     from '@ui/condition'
+import { Drawer }        from '@ui/drawer'
 import { Image }         from '@ui/image'
 import { Layer }         from '@ui/layer'
 import { Box }           from '@ui/layout'
@@ -41,6 +42,7 @@ const Hero = forwardRef((props, ref: any) => {
   return (
     <>
       <Layer visible={visible} onClose={() => setVisible(false)} />
+      <Drawer active={visible} onClose={() => setVisible(false)} />
       <Box width='100%' height='100vh' backgroundColor='background.lightBeige' zIndex={1} ref={ref}>
         <Box
           position='relative'

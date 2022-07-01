@@ -41,6 +41,9 @@ const colors = {
     press: 'rgba(18, 18, 19, 1)',
     error: 'rgba(226, 29, 29, 1)',
   },
+  drawer: {
+    backdrop: 'rgba(105,103,102, 0.5)',
+  },
 }
 
 export { colors }

@@ -4,6 +4,7 @@ import { useState }        from 'react'
 
 import { Button }          from '@ui/button'
 import { Condition }       from '@ui/condition'
+import { Drawer }          from '@ui/drawer'
 import { Layer }           from '@ui/layer'
 import { Box }             from '@ui/layout'
 import { Layout }          from '@ui/layout'
@@ -39,6 +40,7 @@ const Navigation: FC<NavigationProps> = ({ contacts, activeDot }) => {
 
   return (
     <>
+      <Drawer active={visible} onClose={() => setVisible(false)} />
       <Layer visible={visible} onClose={() => setVisible(false)} />
       <Box
         width='100%'

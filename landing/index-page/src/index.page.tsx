@@ -14,7 +14,6 @@ import { Navigation }              from '@landing/navigation-fragment'
 import { Services }                from '@landing/services-fragment'
 import { WorkDirections }          from '@landing/work-directions-fragment'
 import { WorkFormat }              from '@landing/work-format-fragment'
-import { Drawer }                  from '@ui/drawer'
 import { SpyScroll }               from '@ui/spy-scroll'
 import { useIntersectionObserver } from '@ui/intersection-observer'
 
@@ -34,20 +33,18 @@ const IndexPage: FC = () => {
   return (
     <LanguageProvider value={languageContext}>
       <DataProvider>
-        <Drawer>
-          <SpyScroll activeDot={active}>
-            <Seo language={languageContext} />
-            <Navigation activeDot={active} />
-            <Hero {...getObserverOptions('hero', 0.6)} />
-            <WorkDirections />
-            <About {...getObserverOptions('about', 0.6)} />
-            <Services {...getObserverOptions('services', 0.3)} />
-            <WorkFormat {...getObserverOptions('work-format', 0.6)} />
-            <Feedback {...getObserverOptions('feedback', 0.6)} />
-            <Map />
-            <Footer />
-          </SpyScroll>
-        </Drawer>
+        <SpyScroll activeDot={active}>
+          <Seo language={languageContext} />
+          <Navigation activeDot={active} />
+          <Hero {...getObserverOptions('hero', 0.6)} />
+          <WorkDirections />
+          <About {...getObserverOptions('about', 0.6)} />
+          <Services {...getObserverOptions('services', 0.3)} />
+          <WorkFormat {...getObserverOptions('work-format', 0.6)} />
+          <Feedback {...getObserverOptions('feedback', 0.6)} />
+          <Map />
+          <Footer />
+        </SpyScroll>
       </DataProvider>
     </LanguageProvider>
   )

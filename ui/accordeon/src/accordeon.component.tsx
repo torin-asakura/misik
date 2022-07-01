@@ -5,6 +5,7 @@ import { useState }         from 'react'
 
 import { Button }           from '@ui/button'
 import { Condition }        from '@ui/condition'
+import { Drawer }           from '@ui/drawer'
 import { Layer }            from '@ui/layer'
 import { Column }           from '@ui/layout'
 import { Layout }           from '@ui/layout'
@@ -34,6 +35,7 @@ const Accordeon: FC<AccordeonProps> = ({ title, content }) => {
 
   return (
     <>
+      <Drawer active={visible} onClose={() => setVisible(false)} />
       <Layer visible={visible} onClose={() => setVisible(false)} />
       <Column width='100%'>
         <TriggerContainer onClick={() => setActive(!active)}>
