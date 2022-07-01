@@ -1,5 +1,4 @@
 import styled                               from '@emotion/styled'
-
 import { createPaginationBaseStyles }       from '@atls-ui-parts/carousel'
 import { createPaginationShapeStyles }      from '@atls-ui-parts/carousel'
 import { createPaginationAppearanceStyles } from '@atls-ui-parts/carousel'

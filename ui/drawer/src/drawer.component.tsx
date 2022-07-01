@@ -1,10 +1,10 @@
 import React                         from 'react'
+import ScrollLock                    from 'react-scrolllock'
 import { FC }                        from 'react'
+import { useAnimation }              from 'framer-motion'
 import { useState }                  from 'react'
 import { useEffect }                 from 'react'
 import { useRef }                    from 'react'
-import ScrollLock                    from 'react-scrolllock'
-import { useAnimation }              from 'framer-motion'
 
 import { Button }                    from '@ui/button'
 import { Condition }                 from '@ui/condition'
@@ -19,11 +19,11 @@ import { extractObject }             from '@globals/data'
 import { useLanguage }               from '@globals/language'
 
 import { Blackout }                  from './blackout'
-import { DrawerProvider }            from './context'
-import { CrossIcon }                 from './icons'
 import { Container }                 from './container'
-import { createOutsideClickHandler } from './outside-click.handler'
+import { DrawerProvider }            from './context'
 import { Active }                    from './drawer.interface'
+import { CrossIcon }                 from './icons'
+import { createOutsideClickHandler } from './outside-click.handler'
 
 const Drawer: FC = ({ children }) => {
   const [active, setActive] = useState<Active>('')

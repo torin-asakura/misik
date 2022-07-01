@@ -1,5 +1,4 @@
 import styled                               from '@emotion/styled'
-
 import { createNavigationBaseStyles }       from '@atls-ui-parts/carousel'
 import { createNavigationShapeStyles }      from '@atls-ui-parts/carousel'
 import { createNavigationAppearanceStyles } from '@atls-ui-parts/carousel'

@@ -2,15 +2,15 @@ import React                 from 'react'
 import { FC }                from 'react'
 
 import { Divider }           from '@ui/divider'
+import { Image }             from '@ui/image'
 import { Box }               from '@ui/layout'
 import { Column }            from '@ui/layout'
 import { Layout }            from '@ui/layout'
-import { Image }             from '@ui/image'
 import { Text }              from '@ui/text'
 import { useLanguage }       from '@globals/language'
 
-import { useWorkDirections } from './data'
 import { Carousel }          from './carousel'
+import { useWorkDirections } from './data'
 
 const WorkDirections: FC = () => {
   const workDirections = useWorkDirections()

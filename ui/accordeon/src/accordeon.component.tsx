@@ -1,22 +1,22 @@
 import React                from 'react'
 import { FC }               from 'react'
-import { useState }         from 'react'
 import { useAnimation }     from 'framer-motion'
+import { useState }         from 'react'
 
-import { Condition }        from '@ui/condition'
 import { Button }           from '@ui/button'
+import { Condition }        from '@ui/condition'
 import { Layer }            from '@ui/layer'
 import { Column }           from '@ui/layout'
 import { Layout }           from '@ui/layout'
 import { Text }             from '@ui/text'
-import { messages }         from '@globals/messages'
 import { useLanguage }      from '@globals/language'
+import { messages }         from '@globals/messages'
 
+import { AccordeonProps }   from './accordeon.interface'
+import { ContentContainer } from './content-container'
 import { Minus }            from './icons'
 import { Plus }             from './icons'
-import { AccordeonProps }   from './accordeon.interface'
 import { TriggerContainer } from './trigger-container'
-import { ContentContainer } from './content-container'
 
 const Accordeon: FC<AccordeonProps> = ({ title, content }) => {
   const [active, setActive] = useState<boolean>(false)

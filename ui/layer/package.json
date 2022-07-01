@@ -1,16 +1,16 @@
 {
   "name": "@ui/layer",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "MIT",
   "main": "src/index.ts",
   "dependencies": {
-    "@globals/data": "workspace:globals/data",
-    "@globals/language": "workspace:globals/language",
-    "@ui/button": "workspace:ui/button",
-    "@ui/condition": "workspace:ui/condition",
-    "@ui/form": "workspace:ui/form",
-    "@ui/layout": "workspace:ui/layout",
-    "@ui/text": "workspace:ui/text",
+    "@globals/data": "workspace:0.0.1",
+    "@globals/language": "workspace:0.0.1",
+    "@ui/button": "workspace:0.0.1",
+    "@ui/condition": "workspace:0.0.1",
+    "@ui/form": "workspace:0.0.1",
+    "@ui/layout": "workspace:0.0.1",
+    "@ui/text": "workspace:0.0.1",
     "framer-motion": "^4.1.17",
     "global": "4.4.0",
     "nanoid": "^3.1.25",
@@ -18,18 +18,18 @@
     "styled-system": "5.1.5",
     "styled-tools": "^1.7.2"
   },
+  "devDependencies": {
+    "@apollo/client": "3.6.9",
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
   "peerDependencies": {
     "@apollo/client": "*",
     "@emotion/react": "*",
     "@emotion/styled": "*",
     "react": "*",
     "react-dom": "*"
-  },
-  "devDependencies": {
-    "@apollo/client": "3.3.21",
-    "@emotion/react": "^11.7.1",
-    "@emotion/styled": "^11.6.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
   }
 }

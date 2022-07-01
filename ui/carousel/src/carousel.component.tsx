@@ -1,24 +1,30 @@
+import { useCarousel }   from '@atls-ui-parts/carousel'
+
 import React             from 'react'
 import { FC }            from 'react'
+import { Children }      from 'react'
+import { useMemo }       from 'react'
 import { useEffect }     from 'react'
 import { useRef }        from 'react'
 import { useState }      from 'react'
 import { useContext }    from 'react'
-import { Children }      from 'react'
 import { createContext } from 'react'
-import { useCarousel }   from '@atls-ui-parts/carousel'
 
 import { Box }           from '@ui/layout'
 
 import { CarouselProps } from './carousel.interface'
+import { Container }     from './container.component'
 import { Slide }         from './slide.component'
 import { Wrapper }       from './wrapper.component'
-import { Container }     from './container.component'
+
+const doNothing = (...args) => {
+  // do nothing
+}
 
 const Context = createContext({
   trigger: false,
-  slideLeft: (x) => {},
-  slideRight: (x) => {},
+  slideLeft: doNothing,
+  slideRight: doNothing,
   direction: 'left',
 })
 
@@ -26,16 +32,25 @@ const CarouselProvider = (props) => {
   const [trigger, setTrigger] = useState(false)
   const [direction, setDirection] = useState<'left' | 'right'>('left')
 
-  const slideLeft = () => {
-    setDirection('left')
-    setTrigger(!trigger)
-  }
-  const slideRight = () => {
-    setDirection('right')
-    setTrigger(!trigger)
-  }
+  const context = useMemo(() => {
+    const slideLeft = () => {
+      setDirection('left')
+      setTrigger(!trigger)
+    }
+    const slideRight = () => {
+      setDirection('right')
+      setTrigger(!trigger)
+    }
 
-  return <Context.Provider value={{ trigger, slideLeft, slideRight, direction }} {...props} />
+    return {
+      trigger,
+      slideLeft,
+      slideRight,
+      direction,
+    }
+  }, [trigger, direction])
+
+  return <Context.Provider value={context} {...props} />
 }
 
 const CarouselConsumer = Context.Consumer

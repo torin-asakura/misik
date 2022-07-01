@@ -1,7 +1,6 @@
 import { styleFn } from 'styled-system'
 
-const createBaseStyles =
-  (): styleFn =>
+const createBaseStyles = (): styleFn =>
   ({ scroll }) => ({
     width: '100%',
     height: '100%',

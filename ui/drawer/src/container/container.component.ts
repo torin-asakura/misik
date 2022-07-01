@@ -1,9 +1,10 @@
-import { motion }                 from 'framer-motion'
 import styled                     from '@emotion/styled'
+
+import { motion }                 from 'framer-motion'
 import { layout }                 from 'styled-system'
 
-import { createBaseStyles }       from './base'
 import { createAppearanceStyles } from './appearance'
+import { createBaseStyles }       from './base'
 import { createShapeStyles }      from './shape'
 
 const Container = styled(motion.div)(

@@ -1,7 +1,28 @@
 {
   "name": "@ui/form",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "src/index.ts",
+  "dependencies": {
+    "@globals/messages": "workspace:0.0.1",
+    "@ui/button": "workspace:0.0.1",
+    "@ui/condition": "workspace:0.0.1",
+    "@ui/input": "workspace:0.0.1",
+    "@ui/layer": "workspace:0.0.1",
+    "@ui/layout": "workspace:0.0.1",
+    "@ui/link": "workspace:0.0.1",
+    "@ui/text": "workspace:0.0.1"
+  },
+  "devDependencies": {
+    "@apollo/client": "^3.6.9",
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@globals/language": "workspace:0.0.1",
+    "@types/styled-system": "^5",
+    "@ui/drawer": "workspace:0.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "styled-system": "^5.1.5"
+  },
   "peerDependencies": {
     "@apollo/client": "*",
     "@emotion/react": "*",
@@ -11,26 +32,5 @@
     "react": "*",
     "react-dom": "*",
     "styled-system": "*"
-  },
-  "devDependencies": {
-    "@apollo/client": "^3.4.8",
-    "@emotion/react": "^11.4.1",
-    "@emotion/styled": "^11.3.0",
-    "@globals/language": "workspace:globals/language",
-    "@types/styled-system": "^5",
-    "@ui/drawer": "workspace:ui/drawer",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "styled-system": "^5.1.5"
-  },
-  "dependencies": {
-    "@globals/messages": "workspace:globals/messages",
-    "@ui/button": "workspace:ui/button",
-    "@ui/condition": "workspace:ui/condition",
-    "@ui/input": "workspace:ui/input",
-    "@ui/layer": "workspace:ui/layer",
-    "@ui/layout": "workspace:ui/layout",
-    "@ui/link": "workspace:ui/link",
-    "@ui/text": "workspace:ui/text"
   }
 }

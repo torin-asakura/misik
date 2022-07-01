@@ -1,4 +1,5 @@
 import { createAppearanceStyles } from '@atls-ui-parts/button'
+
 import { styleFn }                from 'styled-system'
 
 const getPrimaryColorsStyles = (theme): styleFn => {

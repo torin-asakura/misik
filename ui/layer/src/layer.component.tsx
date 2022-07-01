@@ -1,30 +1,28 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-
 import React             from 'react'
+import ScrollLock        from 'react-scrolllock'
+import document          from 'global/document'
 import { FC }            from 'react'
+import { useAnimation }  from 'framer-motion'
+import { nanoid }        from 'nanoid'
 import { useEffect }     from 'react'
 import { useCallback }   from 'react'
-import ScrollLock        from 'react-scrolllock'
 import { createPortal }  from 'react-dom'
-import document          from 'global/document'
-import { nanoid }        from 'nanoid'
-import { useAnimation }  from 'framer-motion'
 
 import { Button }        from '@ui/button'
 import { Condition }     from '@ui/condition'
+import { Form }          from '@ui/form'
 import { Box }           from '@ui/layout'
 import { Column }        from '@ui/layout'
 import { Layout }        from '@ui/layout'
 import { Row }           from '@ui/layout'
 import { Text }          from '@ui/text'
-import { Form }          from '@ui/form'
 import { useData }       from '@globals/data'
 import { extractObject } from '@globals/data'
 import { useLanguage }   from '@globals/language'
 
 import { Container }     from './container'
-import { LayerProps }    from './layer.interface'
 import { CrossIcon }     from './icons'
+import { LayerProps }    from './layer.interface'
 
 export const Layer: FC<LayerProps> = ({
   children,
