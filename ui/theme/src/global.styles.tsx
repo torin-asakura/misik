@@ -23,8 +23,7 @@ export const GlobalStyles = () => {
         #__next {
           margin: 0;
           -webkit-font-smoothing: antialiased;
-          -webkit-overflow-scrolling: touch;
-          height: 100%;
+          -webkit-overflow-scrolling: touch;          
           scroll-behavior: smooth;
         }
 
