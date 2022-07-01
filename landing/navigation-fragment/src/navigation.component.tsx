@@ -4,18 +4,18 @@ import { useState }        from 'react'
 
 import { Button }          from '@ui/button'
 import { Condition }       from '@ui/condition'
+import { Layer }           from '@ui/layer'
 import { Box }             from '@ui/layout'
 import { Layout }          from '@ui/layout'
 import { Row }             from '@ui/layout'
 import { Column }          from '@ui/layout'
-import { Layer }           from '@ui/layer'
-import { Logo }            from '@ui/logo'
 import { NextLink }        from '@ui/link'
+import { Logo }            from '@ui/logo'
 import { useLanguage }     from '@globals/language'
 import { messages }        from '@globals/messages'
 
-import { useMenus }        from './data'
 import { NavigationProps } from './navigation.interface'
+import { useMenus }        from './data'
 
 const getColor = (step: number) => {
   if (step === 0) return 'background.transparentWhite'

@@ -1,7 +1,12 @@
-import { CarouselProps as BaseProps } from '@atls-ui-parts/carousel'
-
-export interface CarouselProps extends Omit<BaseProps, 'direction'> {
-  width: number | string | number[] | string[]
-  height: number | string | number[] | string[]
-  timeout?: number | boolean
+export interface UseCarouselOptions {
+  children: any
+  height: number | string
+  width?: number | string
+  slidesPerView?: number
+  spaceBetween?: number
+  dragElastic?: 0.5
+  transitionDuration?: number
+  swipeThreshold?: number
+  centered?: boolean
+  loop?: boolean
 }

@@ -1,6 +1,7 @@
+import { useQuery }         from '@apollo/client'
+
 import React                from 'react'
 import { FC }               from 'react'
-import { useQuery }         from '@apollo/client'
 
 import { Provider }         from './context'
 import { GET_FRAGMENTS }    from './queries'

@@ -1,17 +1,17 @@
 import React               from 'react'
 import { FC }              from 'react'
-import { useState }        from 'react'
-import { useEffect }       from 'react'
 import { motion }          from 'framer-motion'
 import { useAnimation }    from 'framer-motion'
+import { useState }        from 'react'
+import { useEffect }       from 'react'
 
 import { Button }          from '@ui/button'
 import { Box }             from '@ui/layout'
 import { Layout }          from '@ui/layout'
 
-import { CopyProps }       from './copy.interface'
-import { CopyIcon }        from './copy.icon'
 import { CopySuccessIcon } from './copy-success.icon'
+import { CopyIcon }        from './copy.icon'
+import { CopyProps }       from './copy.interface'
 import { copy }            from './copy.helper'
 
 const Copy: FC<CopyProps> = ({ content }) => {

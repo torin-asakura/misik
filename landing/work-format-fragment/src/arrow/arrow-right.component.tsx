@@ -3,8 +3,8 @@ import { FC }             from 'react'
 
 import { useHover }       from '@ui/utils'
 
-import { ArrowRightIcon } from './icons'
 import { Container }      from './container'
+import { ArrowRightIcon } from './icons'
 
 const ArrowRight: FC = (props) => {
   const [hover, hoverProps] = useHover()

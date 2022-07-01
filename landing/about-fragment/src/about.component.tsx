@@ -2,18 +2,18 @@ import React             from 'react'
 import { forwardRef }    from 'react'
 
 import { Divider }       from '@ui/divider'
+import { Image }         from '@ui/image'
 import { Box }           from '@ui/layout'
 import { Layout }        from '@ui/layout'
 import { Column }        from '@ui/layout'
-import { Image }         from '@ui/image'
-import { Text }          from '@ui/text'
 import { Link }          from '@ui/link'
+import { Text }          from '@ui/text'
 import { useData }       from '@globals/data'
 import { extractObject } from '@globals/data'
 import { useLanguage }   from '@globals/language'
 
-import { usePartners }   from './data'
 import { Carousel }      from './carousel'
+import { usePartners }   from './data'
 
 const About = forwardRef((props, ref: any) => {
   const { fragments } = useData()

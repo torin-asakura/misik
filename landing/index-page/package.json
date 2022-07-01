@@ -1,7 +1,35 @@
 {
   "name": "@landing/index-page",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "src/index.ts",
+  "dependencies": {
+    "@globals/data": "workspace:0.0.1",
+    "@globals/language": "workspace:0.0.1",
+    "@landing/about-fragment": "workspace:0.0.1",
+    "@landing/feedback-fragment": "workspace:0.0.1",
+    "@landing/footer-fragment": "workspace:0.0.1",
+    "@landing/hero-fragment": "workspace:0.0.1",
+    "@landing/map-fragment": "workspace:0.0.1",
+    "@landing/navigation-fragment": "workspace:0.0.1",
+    "@landing/services-fragment": "workspace:0.0.1",
+    "@landing/work-directions-fragment": "workspace:0.0.1",
+    "@landing/work-format-fragment": "workspace:0.0.1",
+    "@ui/drawer": "workspace:0.0.1",
+    "@ui/intersection-observer": "workspace:0.0.1",
+    "@ui/layout": "workspace:0.0.1",
+    "@ui/spy-scroll": "workspace:0.0.1"
+  },
+  "devDependencies": {
+    "@apollo/client": "^3.6.9",
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@types/react-helmet": "^6",
+    "@types/styled-system": "^5",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-helmet": "^6.1.0",
+    "styled-system": "^5.1.5"
+  },
   "peerDependencies": {
     "@apollo/client": "*",
     "@emotion/react": "*",
@@ -10,33 +38,5 @@
     "react-dom": "*",
     "react-helmet": "*",
     "styled-system": "*"
-  },
-  "devDependencies": {
-    "@apollo/client": "^3.4.8",
-    "@emotion/react": "^11.4.1",
-    "@emotion/styled": "^11.3.0",
-    "@types/react-helmet": "^6",
-    "@types/styled-system": "^5",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-helmet": "^6.1.0",
-    "styled-system": "^5.1.5"
-  },
-  "dependencies": {
-    "@globals/data": "workspace:globals/data",
-    "@globals/language": "workspace:globals/language",
-    "@landing/about-fragment": "workspace:landing/about-fragment",
-    "@landing/feedback-fragment": "workspace:landing/feedback-fragment",
-    "@landing/footer-fragment": "workspace:landing/footer-fragment",
-    "@landing/hero-fragment": "workspace:landing/hero-fragment",
-    "@landing/map-fragment": "workspace:landing/map-fragment",
-    "@landing/navigation-fragment": "workspace:landing/navigation-fragment",
-    "@landing/services-fragment": "workspace:landing/services-fragment",
-    "@landing/work-directions-fragment": "workspace:landing/work-directions-fragment",
-    "@landing/work-format-fragment": "workspace:landing/work-format-fragment",
-    "@ui/drawer": "workspace:ui/drawer",
-    "@ui/intersection-observer": "workspace:ui/intersection-observer",
-    "@ui/layout": "workspace:ui/layout",
-    "@ui/spy-scroll": "workspace:ui/spy-scroll"
   }
 }

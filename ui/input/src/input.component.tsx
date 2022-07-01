@@ -1,9 +1,10 @@
-import React                        from 'react'
-import { useRef }                   from 'react'
 import styled                       from '@emotion/styled'
 import { RawInput }                 from '@atls-ui-parts/input'
 import { useChangeValue }           from '@atls-ui-parts/input'
+
+import React                        from 'react'
 import { ForwardRefRenderFunction } from 'react'
+import { useRef }                   from 'react'
 import { forwardRef }               from 'react'
 import { layout }                   from 'styled-system'
 
@@ -11,12 +12,12 @@ import { Condition }                from '@ui/condition'
 import { Text }                     from '@ui/text'
 
 import { InputProps }               from './input.interfaces'
+import { Label }                    from './label'
 import { baseStyles }               from './input.styles'
 import { shapeStyles }              from './input.styles'
 import { appearanceStyles }         from './input.styles'
 import { transitionStyles }         from './input.styles'
 import { borderBottomStyles }       from './input.styles'
-import { Label }                    from './label'
 
 export const InputElement = styled.div<any>(
   baseStyles,
@@ -52,7 +53,7 @@ export const InputWithoutRef: ForwardRefRenderFunction<HTMLInputElement, InputPr
     <Container
       type={type}
       // @ts-ignore
-      onClick={() => ref.current.focus()}
+      onClick={() => (ref as any).current.focus()}
     >
       <Condition match={value}>
         <Label>{placeholder}</Label>

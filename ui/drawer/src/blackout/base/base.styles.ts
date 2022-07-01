@@ -1,7 +1,6 @@
 import { styleFn } from 'styled-system'
 
-const createBaseStyles: styleFn =
-  () =>
+const createBaseStyles: styleFn = () =>
   ({ theme }) => ({
     position: 'fixed',
     top: 0,

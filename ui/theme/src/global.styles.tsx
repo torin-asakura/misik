@@ -1,10 +1,11 @@
-import React         from 'react'
-import { useEffect } from 'react'
+import * as theme    from './theme'
+
 import { Global }    from '@emotion/react'
 import { css }       from '@emotion/react'
-import { polyfill }  from 'smoothscroll-polyfill'
 
-import * as theme    from './theme'
+import React         from 'react'
+import { useEffect } from 'react'
+import { polyfill }  from 'smoothscroll-polyfill'
 
 export const GlobalStyles = () => {
   useEffect(() => {

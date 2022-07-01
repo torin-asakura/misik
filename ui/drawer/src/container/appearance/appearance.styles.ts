@@ -1,7 +1,6 @@
 import { styleFn } from 'styled-system'
 
-const createAppearanceStyles =
-  (): styleFn =>
+const createAppearanceStyles = (): styleFn =>
   ({ theme }) => ({
     backgroundColor: theme.colors.background.beige,
   })

@@ -1,5 +1,6 @@
-import React              from 'react'
 import styled             from '@emotion/styled'
+
+import React              from 'react'
 import { FC }             from 'react'
 
 import { Text }           from '@ui/text'
@@ -18,8 +19,6 @@ const Label: FC = ({ children }) =>
         {children}
       </LabelComponent>
     </LabelContainer>
-  ) : (
-    <></>
-  )
+  ) : null
 
 export { Label }
