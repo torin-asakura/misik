@@ -98,106 +98,108 @@ export const Layer: FC<LayerProps> = ({
 
   if (visible) {
     return createPortal(
-      <ScrollLock>
-        <Container
-          animate={main}
-          initial={{ opacity: 0 }}
-          scroll={scroll}
-          opacity={opacity}
-          id={blackoutId}
-          justifyContent='center'
-          alignItems='center'
-          backgroundColor={['background.beige', 'background.beige', 'rgba(0, 0, 0, 0.4)']}
-          {...props}
-        >
-          <Box
-            position='absolute'
-            top='20px'
-            right='20px'
-            display={['flex', 'flex', 'none']}
-            onClick={close}
-            style={{
-              cursor: 'pointer',
-            }}
-          >
-            <CrossIcon color='black' />
-          </Box>
-          <Box
-            position='absolute'
-            top='30px'
-            right='30px'
-            display={['none', 'none', 'flex']}
-            onClick={close}
-            style={{
-              cursor: 'pointer',
-            }}
-          >
-            <CrossIcon color='white' />
-          </Box>
-          <Box
-            id={childrenId}
-            width={['100%', '100%', 'auto']}
-            height={['100%', '100%', 'auto']}
-            justifyContent={['center', 'center', 'auto']}
-            alignItems={['center', 'center', 'auto']}
+      <Layout display={['flex', 'flex', 'none']}>
+        <ScrollLock>
+          <Container
+            animate={main}
+            initial={{ opacity: 0 }}
+            scroll={scroll}
+            opacity={opacity}
+            id={blackoutId}
+            justifyContent='center'
+            alignItems='center'
+            backgroundColor={['background.beige', 'background.beige', 'rgba(0, 0, 0, 0.4)']}
+            {...props}
           >
             <Box
-              width={['100%', '100%', 720]}
-              px={['20px', '20px', '64px']}
-              backgroundColor='background.beige'
-              borderRadius='atomic'
+              position='absolute'
+              top='20px'
+              right='20px'
+              display={['flex', 'flex', 'none']}
+              onClick={close}
+              style={{
+                cursor: 'pointer',
+              }}
             >
-              <Condition match={!privacyPolicy}>
-                <Column fill>
-                  <Layout flexBasis={64} />
-                  <Layout>
-                    <Text
-                      fontSize={['moderate', 'moderate', 'increased']}
-                      fontFamily='secondary'
-                      lineHeight={['normal', 'normal', 'medium']}
-                      textTransform='uppercase'
-                    >
-                      {title}
-                    </Text>
-                  </Layout>
-                  <Layout flexBasis={16} />
-                  <Text color='text.secondary' fontSize={['tiny', 'tiny', 'regular']}>
-                    {content}
-                  </Text>
-                  <Layout />
-                  <Layout flexBasis={50} />
-                  <Layout>
-                    <Form />
-                  </Layout>
-                </Column>
-              </Condition>
-              <Condition match={privacyPolicy}>
-                <Column fill>
-                  <Layout flexBasis={64} />
-                  <Layout>
-                    <Text fontFamily='secondary' fontSize='enlarged'>
-                      {privacyTitle}
-                    </Text>
-                  </Layout>
-                  <Layout flexBasis={16} />
-                  <Layout>
-                    <Text fontSize='regular' lineHeight='primary' color='text.secondary'>
-                      {privacyContent}
-                    </Text>
-                  </Layout>
-                  <Layout flexBasis={32} />
-                  <Row>
-                    <Button width='100%' onClick={close}>
-                      OK
-                    </Button>
-                  </Row>
-                  <Layout flexBasis={32} />
-                </Column>
-              </Condition>
+              <CrossIcon color='black' />
             </Box>
-          </Box>
-        </Container>
-      </ScrollLock>,
+            <Box
+              position='absolute'
+              top='30px'
+              right='30px'
+              display={['none', 'none', 'flex']}
+              onClick={close}
+              style={{
+                cursor: 'pointer',
+              }}
+            >
+              <CrossIcon color='white' />
+            </Box>
+            <Box
+              id={childrenId}
+              width={['100%', '100%', 'auto']}
+              height={['100%', '100%', 'auto']}
+              justifyContent={['center', 'center', 'auto']}
+              alignItems={['center', 'center', 'auto']}
+            >
+              <Box
+                width={['100%', '100%', 720]}
+                px={['20px', '20px', '64px']}
+                backgroundColor='background.beige'
+                borderRadius='atomic'
+              >
+                <Condition match={!privacyPolicy}>
+                  <Column fill>
+                    <Layout flexBasis={64} />
+                    <Layout>
+                      <Text
+                        fontSize={['moderate', 'moderate', 'increased']}
+                        fontFamily='secondary'
+                        lineHeight={['normal', 'normal', 'medium']}
+                        textTransform='uppercase'
+                      >
+                        {title}
+                      </Text>
+                    </Layout>
+                    <Layout flexBasis={16} />
+                    <Text color='text.secondary' fontSize={['tiny', 'tiny', 'regular']}>
+                      {content}
+                    </Text>
+                    <Layout />
+                    <Layout flexBasis={50} />
+                    <Layout>
+                      <Form />
+                    </Layout>
+                  </Column>
+                </Condition>
+                <Condition match={privacyPolicy}>
+                  <Column fill>
+                    <Layout flexBasis={64} />
+                    <Layout>
+                      <Text fontFamily='secondary' fontSize='enlarged'>
+                        {privacyTitle}
+                      </Text>
+                    </Layout>
+                    <Layout flexBasis={16} />
+                    <Layout>
+                      <Text fontSize='regular' lineHeight='primary' color='text.secondary'>
+                        {privacyContent}
+                      </Text>
+                    </Layout>
+                    <Layout flexBasis={32} />
+                    <Row>
+                      <Button width='100%' onClick={close}>
+                        OK
+                      </Button>
+                    </Row>
+                    <Layout flexBasis={32} />
+                  </Column>
+                </Condition>
+              </Box>
+            </Box>
+          </Container>
+        </ScrollLock>
+      </Layout>,
       document.body
     )
   }

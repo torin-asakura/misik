@@ -4,6 +4,7 @@ import { useState }    from 'react'
 
 import { Button }      from '@ui/button'
 import { Condition }   from '@ui/condition'
+import { Drawer }      from '@ui/drawer'
 import { Input }       from '@ui/input'
 import { Layer }       from '@ui/layer'
 import { Box }         from '@ui/layout'
@@ -65,7 +66,12 @@ const Form: FC = () => {
 
   return (
     <>
-      <Layer privacyPolicy visible={privacyPolicy} onClose={() => setPrivacyPolicy(false)} />
+      <Drawer
+        active={privacyPolicy}
+        onClose={() => setPrivacyPolicy(false)}
+        display='privacy-policy'
+      />
+      <Layer visible={privacyPolicy} onClose={() => setPrivacyPolicy(false)} privacyPolicy />
       <Box width={['100%', '100%', 810]} height={['100%', '100%', 598]}>
         <Column width='100%'>
           <Layout maxHeight={[58, 58, 62]}>

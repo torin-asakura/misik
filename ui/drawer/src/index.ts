@@ -1,2 +1,2 @@
 export * from './drawer.component'
-export * from './context'
+export * from './drawer.interfaces'

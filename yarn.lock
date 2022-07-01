@@ -938,7 +938,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/react@npm:*, @emotion/react@npm:^11.9.3":
+"@emotion/react@npm:*, @emotion/react@npm:^11.4.1, @emotion/react@npm:^11.9.3":
   version: 11.9.3
   resolution: "@emotion/react@npm:11.9.3"
   dependencies:
@@ -1001,7 +1001,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/styled@npm:^11.9.3":
+"@emotion/styled@npm:^11.3.0, @emotion/styled@npm:^11.9.3":
   version: 11.9.3
   resolution: "@emotion/styled@npm:11.9.3"
   dependencies:
@@ -1634,7 +1634,6 @@ __metadata:
     "@emotion/styled": "*"
     "@globals/data": "*"
     "@globals/language": "*"
-    "@ui/drawer": "*"
     "@ui/spy-scroll": "*"
     react: "*"
     react-dom: "*"
@@ -1662,7 +1661,6 @@ __metadata:
     "@landing/work-format-fragment": "workspace:0.0.1"
     "@types/react-helmet": ^6
     "@types/styled-system": ^5
-    "@ui/drawer": "workspace:0.0.1"
     "@ui/intersection-observer": "workspace:0.0.1"
     "@ui/layout": "workspace:0.0.1"
     "@ui/spy-scroll": "workspace:0.0.1"
@@ -1737,7 +1735,6 @@ __metadata:
     "@emotion/react": "*"
     "@emotion/styled": "*"
     "@globals/language": "*"
-    "@ui/drawer": "*"
     "@ui/spy-scroll": "*"
     react: "*"
     react-dom: "*"
@@ -1776,7 +1773,6 @@ __metadata:
     "@emotion/styled": "*"
     "@globals/data": "*"
     "@globals/language": "*"
-    "@ui/drawer": "*"
     "@ui/spy-scroll": "*"
     react: "*"
     react-dom: "*"
@@ -2597,6 +2593,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/styled-system@npm:^5.1.12":
+  version: 5.1.15
+  resolution: "@types/styled-system@npm:5.1.15"
+  dependencies:
+    csstype: ^3.0.2
+  checksum: ca1bbd4b5f36ac417079a9d0e3cd99893e41a6034197ef6ad6cda972277f8bf44f914dcc2dfb3bfbf7cba708561ae5b648166967f68622dec1eef1bfbc9ce59b
+  languageName: node
+  linkType: hard
+
 "@types/treeify@npm:^1.0.0":
   version: 1.0.0
   resolution: "@types/treeify@npm:1.0.0"
@@ -2653,7 +2658,6 @@ __metadata:
     "@apollo/client": "*"
     "@emotion/react": "*"
     "@emotion/styled": "*"
-    "@ui/drawer": "*"
     react: "*"
     react-dom: "*"
     styled-system: "*"
@@ -2755,23 +2759,21 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ui/drawer@workspace:ui/drawer"
   dependencies:
-    "@apollo/client": ^3.6.9
-    "@emotion/react": ^11.9.3
-    "@emotion/styled": ^11.9.3
+    "@emotion/react": ^11.4.1
+    "@emotion/styled": ^11.3.0
     "@globals/data": "workspace:0.0.1"
     "@globals/language": "workspace:0.0.1"
-    "@types/styled-system": ^5
+    "@types/react-dom": ^17
+    "@types/styled-system": ^5.1.12
     "@ui/button": "workspace:0.0.1"
     "@ui/condition": "workspace:0.0.1"
     "@ui/form": "workspace:0.0.1"
     "@ui/layout": "workspace:0.0.1"
     "@ui/text": "workspace:0.0.1"
-    framer-motion: ^4.1.17
+    framer-motion: 4.1.7
     react: ^17.0.2
-    react-dom: ^17.0.2
-    react-scrolllock: ^5.0.1
+    react-dom: 17.0.2
     styled-system: ^5.1.5
-    styled-tools: ^1.7.2
   peerDependencies:
     "@apollo/client": "*"
     "@emotion/react": "*"
@@ -2810,7 +2812,6 @@ __metadata:
     "@emotion/react": "*"
     "@emotion/styled": "*"
     "@globals/language": "*"
-    "@ui/drawer": "*"
     react: "*"
     react-dom: "*"
     styled-system: "*"
@@ -5304,6 +5305,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"framer-motion@npm:4.1.7":
+  version: 4.1.7
+  resolution: "framer-motion@npm:4.1.7"
+  dependencies:
+    "@emotion/is-prop-valid": ^0.8.2
+    framesync: 5.3.0
+    hey-listen: ^1.0.8
+    popmotion: 9.3.5
+    style-value-types: 4.1.4
+    tslib: ^2.1.0
+  peerDependencies:
+    react: ">=16.8 || ^17.0.0"
+    react-dom: ">=16.8 || ^17.0.0"
+  dependenciesMeta:
+    "@emotion/is-prop-valid":
+      optional: true
+  checksum: 492578368de9e2b173c72fb8e459374f2dd1b4399e6b1d14c81fb1945facb6bf7ef7ef70435b21dcc54827abb4f0f4b30e4ea31cd6dfa60e4e5e20a4e51795e8
+  languageName: node
+  linkType: hard
+
 "framer-motion@npm:6.3.11":
   version: 6.3.11
   resolution: "framer-motion@npm:6.3.11"
@@ -7663,6 +7684,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"popmotion@npm:9.3.5":
+  version: 9.3.5
+  resolution: "popmotion@npm:9.3.5"
+  dependencies:
+    framesync: 5.3.0
+    hey-listen: ^1.0.8
+    style-value-types: 4.1.4
+    tslib: ^2.1.0
+  checksum: 8f05f5ae6cb71a237732f0345a5e8295690061bf43cf45553954a9cdeea84a60a3ead4ca9136c43a6e8ed5490cde90e763076a347d0f6814e5a13d63aefbf1ce
+  languageName: node
+  linkType: hard
+
 "popmotion@npm:9.3.6":
   version: 9.3.6
   resolution: "popmotion@npm:9.3.6"
@@ -7981,7 +8014,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-scrolllock@npm:5.0.1, react-scrolllock@npm:^5.0.1":
+"react-scrolllock@npm:5.0.1":
   version: 5.0.1
   resolution: "react-scrolllock@npm:5.0.1"
   dependencies:

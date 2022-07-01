@@ -1,6 +1,7 @@
 {
   "name": "@ui/drawer",
   "version": "0.0.1",
+  "license": "BSD-3-Clause",
   "main": "src/index.ts",
   "dependencies": {
     "@ui/button": "workspace:0.0.1",
@@ -8,20 +9,18 @@
     "@ui/form": "workspace:0.0.1",
     "@ui/layout": "workspace:0.0.1",
     "@ui/text": "workspace:0.0.1",
-    "framer-motion": "^4.1.17",
-    "react-scrolllock": "^5.0.1",
-    "styled-tools": "^1.7.2"
+    "framer-motion": "4.1.7",
+    "styled-system": "^5.1.5"
   },
   "devDependencies": {
-    "@apollo/client": "^3.6.9",
-    "@emotion/react": "^11.9.3",
-    "@emotion/styled": "^11.9.3",
+    "@emotion/react": "^11.4.1",
+    "@emotion/styled": "^11.3.0",
     "@globals/data": "workspace:0.0.1",
     "@globals/language": "workspace:0.0.1",
-    "@types/styled-system": "^5",
+    "@types/react-dom": "^17",
+    "@types/styled-system": "^5.1.12",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "styled-system": "^5.1.5"
+    "react-dom": "17.0.2"
   },
   "peerDependencies": {
     "@apollo/client": "*",
