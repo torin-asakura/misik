@@ -54,7 +54,7 @@ const Feedback: FC<FeedbackProps> = forwardRef((
     <Box
       id='feedback'
       width='100%'
-      height={[877, 877, '100vh']}
+      height={[877, 877, '100%']}
       backgroundColor={background}
       ref={ref}
     >

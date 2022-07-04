@@ -33,7 +33,7 @@ const WorkDirections: FC = () => {
                     />
                   </Box>
                   <Layout flexBasis={24} flexShrink={0} />
-                  <Layout>
+                  <Layout height={48}>
                     <Text
                       fontFamily='secondary'
                       fontWeight='medium'
