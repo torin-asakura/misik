@@ -18,6 +18,20 @@ const Desktop: FC = ({ children }) => {
   return carousel
 }
 
+const Tablet: FC = ({ children }) => {
+  const { carousel } = useCarousel({
+    children,
+    slidesPerView: 3,
+    spaceBetween: 20,
+    centered: true,
+    height: 210,
+    width: 850,
+    loop: true,
+  })
+
+  return carousel
+}
+
 const Mobile: FC = ({ children }) => {
   const { carousel } = useCarousel({
     children,
@@ -25,6 +39,7 @@ const Mobile: FC = ({ children }) => {
     spaceBetween: 20,
     centered: true,
     height: 210,
+    width: 450,
     loop: true,
   })
 
@@ -35,6 +50,9 @@ const Carousel: FC = ({ children }) => (
   <>
     <Layout display={['none', 'none', 'flex']}>
       <Desktop>{children}</Desktop>
+    </Layout>
+    <Layout display={['none', 'flex', 'none']}>
+      <Tablet>{children}</Tablet>
     </Layout>
     <Layout display={['flex', 'none', 'none']}>
       <Mobile>{children}</Mobile>

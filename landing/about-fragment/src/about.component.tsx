@@ -40,7 +40,7 @@ const About = forwardRef((props, ref: any) => {
   return (
     <Box
       width='100%'
-      height='100vh'
+      height='100%'
       backgroundColor='background.lightBeige'
       minHeight={[1703, 1703, 'auto']}
       justifyContent='center'
