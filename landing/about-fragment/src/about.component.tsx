@@ -43,6 +43,7 @@ const About = forwardRef((props, ref: any) => {
       height='100vh'
       backgroundColor='background.lightBeige'
       minHeight={[1703, 1703, 'auto']}
+      justifyContent='center'
       ref={ref}
     >
       <Layout flexBasis={[0, 0, 240]} />

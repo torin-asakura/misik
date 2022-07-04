@@ -32,6 +32,7 @@ const WorkFormat = forwardRef((props, ref: any) => {
       minHeight={1000}
       backgroundColor='background.lightBeige'
       id='work_format'
+      justifyContent='center'
       ref={ref}
     >
       <Layout flexBasis={[0, 0, 240]} />

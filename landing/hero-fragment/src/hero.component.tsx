@@ -43,7 +43,7 @@ const Hero = forwardRef((props, ref: any) => {
     <>
       <Layer visible={visible} onClose={() => setVisible(false)} />
       <Drawer active={visible} onClose={() => setVisible(false)} />
-      <Box width='100%' height='100vh' backgroundColor='background.lightBeige' zIndex={1} ref={ref}>
+      <Box width='100%' height='100%' backgroundColor='background.lightBeige' zIndex={1} ref={ref}>
         <Box
           position='relative'
           width='100%'
@@ -55,7 +55,7 @@ const Hero = forwardRef((props, ref: any) => {
           zIndex={3}
         >
           <Layout flexBasis={[20, 20, 240]} />
-          <Row height='100%'>
+          <Row height='100%' justifyContent='center'>
             <Box zIndex={-1} display={['flex', 'flex', 'none']}>
               <Image background src={image.url} alt={image.alt} />
             </Box>
