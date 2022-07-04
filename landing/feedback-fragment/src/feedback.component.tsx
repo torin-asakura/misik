@@ -65,7 +65,6 @@ const Feedback: FC<FeedbackProps> = forwardRef((
         borderRadius={['topMedium', 'topMedium', 'topHuge']}
         justifyContent='center'
       >
-        <Layout flexBasis={[0, 0, 240]} />
         <Layout width='100%' height='100%' maxWidth={1830}>
           <Layout flexBasis={[20, 20, 210]} />
           <Column width='100%'>

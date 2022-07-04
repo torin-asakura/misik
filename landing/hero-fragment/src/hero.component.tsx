@@ -54,7 +54,7 @@ const Hero = forwardRef((props, ref: any) => {
           overflow='hidden'
           zIndex={3}
         >
-          <Layout flexBasis={[20, 20, 240]} />
+          <Layout flexBasis={[20, 20, 0]} />
           <Row height='100%' justifyContent='center'>
             <Box zIndex={-1} display={['flex', 'flex', 'none']}>
               <Image background src={image.url} alt={image.alt} />
