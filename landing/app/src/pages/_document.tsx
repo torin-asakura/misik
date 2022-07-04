@@ -18,7 +18,7 @@ const withIcons = () => (TargetComponent) =>
         <link
           rel='icon'
           type='image/png'
-          href='https://wp.misik.pro/wp-content/uploads/2022/07/apple_touch_icon.png'
+          href='https://wp.misik.pro/wp-content/uploads/2022/07/favicon.png'
         />
       )
 
