@@ -50,7 +50,9 @@ const WorkDirections: FC = () => {
           </Carousel>
         </Box>
         <Layout flexBasis={80} />
-        <Divider />
+        <Layout>
+          <Divider />
+        </Layout>
       </Column>
     </Box>
   )
