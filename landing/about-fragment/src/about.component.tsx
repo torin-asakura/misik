@@ -13,6 +13,7 @@ import { extractObject } from '@globals/data'
 import { useLanguage }   from '@globals/language'
 
 import { Carousel }      from './carousel'
+import { MisikLawIcon }  from './icons'
 import { usePartners }   from './data'
 
 const About = forwardRef((props, ref: any) => {
@@ -53,8 +54,11 @@ const About = forwardRef((props, ref: any) => {
           <Layout flexBasis={160} />
           <Layout height={['100%', '100%', 'auto']} flexDirection={['column', 'column', 'row']}>
             <Layout>
-              <Box width={['100%', '100%', 480]} height={480}>
+              <Box position='relative' width={['100%', '100%', 480]} height={480}>
                 <Image alt={alt} src={imageUrl} contain />
+                <Box position='absolute' top='30%' left={-16}>
+                  <MisikLawIcon />
+                </Box>
               </Box>
             </Layout>
             <Layout flexBasis={225} />
