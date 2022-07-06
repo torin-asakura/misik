@@ -33,4 +33,12 @@ export const messages: Messages = {
     RU: 'Обязательное поле',
     EN: 'Required field',
   },
+  details: {
+    RU: 'Подробности',
+    EN: 'Details',
+  },
+  reviews: {
+    RU: 'Отзывы',
+    EN: 'Reviews',
+  },
 }

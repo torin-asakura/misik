@@ -11,6 +11,7 @@ import { Footer }                  from '@landing/footer-fragment'
 import { Hero }                    from '@landing/hero-fragment'
 import { Map }                     from '@landing/map-fragment'
 import { Navigation }              from '@landing/navigation-fragment'
+import { Reviews }                 from '@landing/reviews-fragment'
 import { Services }                from '@landing/services-fragment'
 import { WorkDirections }          from '@landing/work-directions-fragment'
 import { WorkFormat }              from '@landing/work-format-fragment'
@@ -41,6 +42,7 @@ const IndexPage: FC = () => {
           <About {...getObserverOptions('about', 0.6)} />
           <Services {...getObserverOptions('services', 0.3)} />
           <WorkFormat {...getObserverOptions('work-format', 0.6)} />
+          <Reviews />
           <Feedback {...getObserverOptions('feedback', 0.6)} />
           <Map />
           <Footer />

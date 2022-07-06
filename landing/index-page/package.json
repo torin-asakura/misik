@@ -11,6 +11,7 @@
     "@landing/hero-fragment": "workspace:0.0.1",
     "@landing/map-fragment": "workspace:0.0.1",
     "@landing/navigation-fragment": "workspace:0.0.1",
+    "@landing/reviews-fragment": "workspace:0.0.1",
     "@landing/services-fragment": "workspace:0.0.1",
     "@landing/work-directions-fragment": "workspace:0.0.1",
     "@landing/work-format-fragment": "workspace:0.0.1",
