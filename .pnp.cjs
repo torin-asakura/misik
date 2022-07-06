@@ -5380,15 +5380,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
-      ["@types/smoothscroll-polyfill", [\
-        ["npm:0.3.1", {\
-          "packageLocation": "./.yarn/cache/@types-smoothscroll-polyfill-npm-0.3.1-4930c615ad-871a5b556c.zip/node_modules/@types/smoothscroll-polyfill/",\
-          "packageDependencies": [\
-            ["@types/smoothscroll-polyfill", "npm:0.3.1"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
       ["@types/stack-utils", [\
         ["npm:2.0.1", {\
           "packageLocation": "./.yarn/cache/@types-stack-utils-npm-2.0.1-867718ab70-205fdbe332.zip/node_modules/@types/stack-utils/",\
@@ -8150,10 +8141,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/emotion__react", null],\
             ["@types/react", "npm:17.0.47"],\
             ["@types/react-dom", "npm:17.0.17"],\
-            ["@types/smoothscroll-polyfill", "npm:0.3.1"],\
             ["react", "npm:17.0.2"],\
             ["react-dom", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:17.0.2"],\
-            ["smoothscroll-polyfill", "npm:0.4.4"]\
+            ["seamless-scroll-polyfill", "npm:2.2.0"]\
           ],\
           "packagePeers": [\
             "@emotion/react",\
@@ -8170,10 +8160,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@ui/theme", "workspace:ui/theme"],\
             ["@emotion/react", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#npm:11.9.3"],\
-            ["@types/smoothscroll-polyfill", "npm:0.3.1"],\
             ["react", "npm:17.0.2"],\
             ["react-dom", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#npm:17.0.2"],\
-            ["smoothscroll-polyfill", "npm:0.4.4"]\
+            ["seamless-scroll-polyfill", "npm:2.2.0"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -14840,6 +14829,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["seamless-scroll-polyfill", [\
+        ["npm:2.2.0", {\
+          "packageLocation": "./.yarn/cache/seamless-scroll-polyfill-npm-2.2.0-3af6031c89-8845d3ff0b.zip/node_modules/seamless-scroll-polyfill/",\
+          "packageDependencies": [\
+            ["seamless-scroll-polyfill", "npm:2.2.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["semver", [\
         ["npm:6.3.0", {\
           "packageLocation": "./.yarn/cache/semver-npm-6.3.0-b3eace8bfd-1b26ecf6db.zip/node_modules/semver/",\
@@ -14990,15 +14988,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/smart-buffer-npm-4.2.0-5ac3f668bb-b5167a7142.zip/node_modules/smart-buffer/",\
           "packageDependencies": [\
             ["smart-buffer", "npm:4.2.0"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["smoothscroll-polyfill", [\
-        ["npm:0.4.4", {\
-          "packageLocation": "./.yarn/cache/smoothscroll-polyfill-npm-0.4.4-69b5bb4bf7-b99ff7d916.zip/node_modules/smoothscroll-polyfill/",\
-          "packageDependencies": [\
-            ["smoothscroll-polyfill", "npm:0.4.4"]\
           ],\
           "linkType": "HARD"\
         }]\

@@ -5,7 +5,7 @@ import { css }       from '@emotion/react'
 
 import React         from 'react'
 import { useEffect } from 'react'
-import { polyfill }  from 'smoothscroll-polyfill'
+import { polyfill }  from 'seamless-scroll-polyfill'
 
 export const GlobalStyles = () => {
   useEffect(() => {
