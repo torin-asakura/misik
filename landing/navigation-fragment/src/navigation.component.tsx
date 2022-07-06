@@ -39,11 +39,16 @@ const Navigation: FC<NavigationProps> = ({ contacts }) => {
           <Layout flexBasis={21} />
           <Layout width='100%' height='100%'>
             <Row alignItems='center'>
-              <Layout>
+              <Box>
                 <Logo />
-              </Layout>
-              <Layout flexBasis={170} flexShrink={0} />
-              <Row alignItems='center' display={['none', 'none', 'flex']}>
+              </Box>
+              <Layout flexGrow={1} flexBasis={150} />
+              <Row
+                maxWidth={797}
+                alignItems='center'
+                justifyContent='flex-start'
+                display={['none', 'none', 'flex']}
+              >
                 {menus[language][0]?.map(({ label, href }) => (
                   <Condition match={!(contacts && contactsHidden.includes(href))}>
                     <Layout>
@@ -56,23 +61,30 @@ const Navigation: FC<NavigationProps> = ({ contacts }) => {
                 ))}
                 <Layout flexBasis={40} />
               </Row>
-              <Layout flexGrow={3} />
-              <Layout display={['none', 'none', 'flex']}>
-                <Button width={227} height={46} onClick={() => setVisible(true)}>
-                  {messages.getConsult[language]}
-                </Button>
-              </Layout>
-              <Layout flexBasis={16} />
-              <Layout>
-                <Button px={0} width={[40, 40, 46]} height={[40, 40, 46]} onClick={switchLanguage}>
-                  {language.replace('EN', 'РУ').replace('RU', 'EN')}
-                </Button>
-              </Layout>
+              <Layout flexGrow={1} flexBasis={[16, 16, 1120]} />
+              <Box position='absolute' right={[30, 30, 40]}>
+                <Layout display={['none', 'none', 'flex']}>
+                  <Button width={227} height={46} onClick={() => setVisible(true)}>
+                    {messages.getConsult[language]}
+                  </Button>
+                </Layout>
+                <Layout flexBasis={16} flexShrink={0} />
+                <Layout>
+                  <Button
+                    px={0}
+                    width={[40, 40, 46]}
+                    height={[40, 40, 46]}
+                    onClick={switchLanguage}
+                  >
+                    {language.replace('EN', 'РУ').replace('RU', 'EN')}
+                  </Button>
+                </Layout>
+              </Box>
             </Row>
           </Layout>
           <Layout flexBasis={21} />
         </Column>
-        <Layout flexBasis={[16, 16, 40]} flexShrink={0} />
+        <Layout flexBasis={[20, 20, 240]} />
       </Box>
     </>
   )
