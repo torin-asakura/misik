@@ -1,14 +1,27 @@
-import { createActiveStyles }     from '@atls-ui-parts/link'
-import { createHoverStyles }      from '@atls-ui-parts/link'
-import { createTransitionStyles } from '@atls-ui-parts/link'
+import { createBaseStyles } from '@atls-ui-parts/link'
 
-export const baseStyles = ({ theme, color }) => !color && { color: theme.colors.text.primary }
+import { styleFn }          from 'styled-system'
 
-export const activeStyles = createActiveStyles({ color: 'press' })
+export const baseStyles = createBaseStyles()
 
-export const hoverStyles = createHoverStyles({ color: 'accent' })
+export const appearanceLinkStyles: styleFn = ({ theme, color }) => ({
+  color: theme.colors.text[color] || theme.colors.text.primary,
+  '&:hover': {
+    color: theme.colors.text.accent,
+  },
+  '&:active': {
+    color: theme.colors.text.press,
+  },
+})
 
-export const transitionStyles = createTransitionStyles('.15s')
+export const transitionStyles = {
+  transition: '.15s',
+}
+
+export const shapeLinkStyles: styleFn = ({ theme, fontFamily }) => ({
+  fontFamily: theme.fonts[fontFamily] || theme.fonts.primary,
+  whiteSpace: 'nowrap',
+})
 
 export const underlineStyles = ({ underline }) => ({
   textDecoration: underline ? 'underline' : 'none',

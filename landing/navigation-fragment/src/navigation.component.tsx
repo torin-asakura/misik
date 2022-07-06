@@ -52,7 +52,7 @@ const Navigation: FC<NavigationProps> = ({ contacts }) => {
                 {menus[language][0]?.map(({ label, href }) => (
                   <Condition match={!(contacts && contactsHidden.includes(href))}>
                     <Layout>
-                      <NextLink href={href} fontSize='semiRegular'>
+                      <NextLink path={href} fontSize='semiRegular'>
                         {label}
                       </NextLink>
                     </Layout>

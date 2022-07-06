@@ -1,6 +1,5 @@
 const fonts = {
-  // TODO use Inter
-  primary: 'Gordita, sans-serif',
+  primary: 'Inter',
   // TODO load
   secondary: 'Cormorant Garamond',
 }

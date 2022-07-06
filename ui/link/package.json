@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "main": "src/index.ts",
   "dependencies": {
-    "@atls-ui-parts/link": "^0.0.3"
+    "@atls-ui-parts/link": "^0.0.10",
+    "@ui/text": "workspace:0.0.1"
   },
   "devDependencies": {
     "@emotion/react": "^11.9.3",
@@ -18,6 +19,7 @@
   "peerDependencies": {
     "@emotion/react": "*",
     "@emotion/styled": "*",
+    "next": "*",
     "react": "*",
     "react-dom": "*",
     "styled-system": "*"

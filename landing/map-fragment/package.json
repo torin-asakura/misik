@@ -26,6 +26,7 @@
     "@globals/data": "*",
     "@ui/drawer": "*",
     "@ui/spy-scroll": "*",
+    "next": "*",
     "react": "*",
     "react-dom": "*",
     "styled-system": "*"

@@ -6,7 +6,7 @@ import { NextLink } from '@ui/link'
 import { Icon }     from './icon.component'
 
 const Logo: FC = () => (
-  <NextLink href='/'>
+  <NextLink path='/'>
     <Icon />
   </NextLink>
 )
