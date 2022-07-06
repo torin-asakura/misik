@@ -18,16 +18,7 @@ import { messages }        from '@globals/messages'
 import { NavigationProps } from './navigation.interface'
 import { useMenus }        from './data'
 
-const getColor = (step: number) => {
-  if (step === 0) return 'background.transparentWhite'
-  if (step === 1) return 'background.lightBeige'
-  if (step === 2) return 'background.beige'
-  if (step === 3) return 'background.lightBeige'
-  if (step === 4) return 'background.beige'
-  return 'background.transparentWhite'
-}
-
-const Navigation: FC<NavigationProps> = ({ contacts, activeDot }) => {
+const Navigation: FC<NavigationProps> = ({ contacts }) => {
   const [language, setLanguage] = useLanguage()
   const [visible, setVisible] = useState<boolean>(false)
   const menus = useMenus()
@@ -42,26 +33,22 @@ const Navigation: FC<NavigationProps> = ({ contacts, activeDot }) => {
     <>
       <Drawer active={visible} onClose={() => setVisible(false)} />
       <Layer visible={visible} onClose={() => setVisible(false)} />
-      <Box
-        width='100%'
-        position='fixed'
-        top={0}
-        left={0}
-        height={88}
-        zIndex={10}
-        backgroundColor={getColor(activeDot!)}
-        style={{ transition: '.1s' }}
-      >
-        <Layout flexBasis={[16, 16, 40]} />
-        <Column width='100%' alignItems='center'>
+      <Box width='100%' position='fixed' top={0} left={0} height={88} zIndex={10}>
+        <Layout flexBasis={[16, 16, 40]} flexShrink={0} />
+        <Column width='100%'>
           <Layout flexBasis={21} />
-          <Layout width='100%' height='100%' maxWidth={1840}>
+          <Layout width='100%' height='100%'>
             <Row alignItems='center'>
-              <Layout>
+              <Box>
                 <Logo />
-              </Layout>
-              <Layout flexBasis={170} />
-              <Row alignItems='center' display={['none', 'none', 'flex']}>
+              </Box>
+              <Layout flexGrow={1} flexBasis={150} />
+              <Row
+                maxWidth={797}
+                alignItems='center'
+                justifyContent='flex-start'
+                display={['none', 'none', 'flex']}
+              >
                 {menus[language][0]?.map(({ label, href }) => (
                   <Condition match={!(contacts && contactsHidden.includes(href))}>
                     <Layout>
@@ -74,23 +61,30 @@ const Navigation: FC<NavigationProps> = ({ contacts, activeDot }) => {
                 ))}
                 <Layout flexBasis={40} />
               </Row>
-              <Layout flexGrow={1} />
-              <Layout display={['none', 'none', 'flex']}>
-                <Button width={227} height={46} onClick={() => setVisible(true)}>
-                  {messages.getConsult[language]}
-                </Button>
-              </Layout>
-              <Layout flexBasis={16} />
-              <Layout>
-                <Button px={0} width={[40, 40, 46]} height={[40, 40, 46]} onClick={switchLanguage}>
-                  {language.replace('EN', 'РУ').replace('RU', 'EN')}
-                </Button>
-              </Layout>
+              <Layout flexGrow={1} flexBasis={[16, 16, 1120]} />
+              <Box position='absolute' right={[30, 30, 40]}>
+                <Layout display={['none', 'none', 'flex']}>
+                  <Button width={227} height={46} onClick={() => setVisible(true)}>
+                    {messages.getConsult[language]}
+                  </Button>
+                </Layout>
+                <Layout flexBasis={16} flexShrink={0} />
+                <Layout>
+                  <Button
+                    px={0}
+                    width={[40, 40, 46]}
+                    height={[40, 40, 46]}
+                    onClick={switchLanguage}
+                  >
+                    {language.replace('EN', 'РУ').replace('RU', 'EN')}
+                  </Button>
+                </Layout>
+              </Box>
             </Row>
           </Layout>
           <Layout flexBasis={21} />
         </Column>
-        <Layout flexBasis={[16, 16, 40]} />
+        <Layout flexBasis={[20, 20, 240]} />
       </Box>
     </>
   )

@@ -35,7 +35,7 @@ const IndexPage: FC = () => {
       <DataProvider>
         <SpyScroll activeDot={active}>
           <Seo language={languageContext} />
-          <Navigation activeDot={active} />
+          <Navigation />
           <Hero {...getObserverOptions('hero', 0.6)} />
           <WorkDirections />
           <About {...getObserverOptions('about', 0.6)} />
