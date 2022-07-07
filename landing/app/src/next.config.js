@@ -6,4 +6,5 @@ module.exports = {
     outputStandalone: true,
     esmExternals: 'loose',
   },
+  staticPageGenerationTimeout: 1000,
 }
