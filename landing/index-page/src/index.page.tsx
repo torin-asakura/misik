@@ -26,7 +26,7 @@ const IndexPage: FC = () => {
   const [active, setActive] = useState<number>(0)
 
   const { getObserverOptions } = useIntersectionObserver((id) => {
-    const order = ['hero', 'about', 'services', 'work-format', 'feedback']
+    const order = ['hero', 'about', 'services', 'work-format', 'reviews', 'feedback']
 
     setActive(order.indexOf(id))
   })
@@ -41,9 +41,9 @@ const IndexPage: FC = () => {
           <WorkDirections />
           <About {...getObserverOptions('about', 0.6)} />
           <Services {...getObserverOptions('services', 0.3)} />
-          <WorkFormat {...getObserverOptions('work-format', 0.6)} />
-          <Reviews />
-          <Feedback {...getObserverOptions('feedback', 0.6)} />
+          <WorkFormat {...getObserverOptions('work-format', 1)} />
+          <Reviews {...getObserverOptions('reviews', 1)} />
+          <Feedback {...getObserverOptions('feedback', 1)} />
           <Map />
           <Footer />
         </SpyScroll>

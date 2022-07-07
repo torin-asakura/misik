@@ -1,4 +1,5 @@
 import React               from 'react'
+import { forwardRef }      from 'react'
 
 import { Button }          from '@ui/button'
 import { Box }             from '@ui/layout'
@@ -16,7 +17,7 @@ import { ArrowLeftIcon }   from './icons'
 import { Item }            from './item'
 import { useReviews }      from './data'
 
-export const Reviews = () => {
+export const Reviews = forwardRef((props, ref) => {
   const [language] = useLanguage()
   const reviews = useReviews()
 
@@ -49,6 +50,7 @@ export const Reviews = () => {
 
   return (
     <Box
+      ref={ref as any}
       px={['32px', '32px', '0px']}
       backgroundColor='background.lightBeige'
       justifyContent='center'
@@ -92,4 +94,4 @@ export const Reviews = () => {
       </Layout>
     </Box>
   )
-}
+})
