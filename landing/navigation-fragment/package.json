@@ -29,6 +29,7 @@
     "@emotion/styled": "*",
     "@globals/language": "*",
     "@ui/spy-scroll": "*",
+    "next": "*",
     "react": "*",
     "react-dom": "*",
     "styled-system": "*"

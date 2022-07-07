@@ -160,17 +160,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@atls-ui-parts/link@npm:^0.0.3":
-  version: 0.0.3
-  resolution: "@atls-ui-parts/link@npm:0.0.3"
+"@atls-ui-parts/link@npm:^0.0.10":
+  version: 0.0.10
+  resolution: "@atls-ui-parts/link@npm:0.0.10"
   dependencies:
-    "@atls-ui-parts/text": 0.0.5
+    "@atls-ui-parts/text": 0.0.10
   peerDependencies:
     "@emotion/styled": ^11.1.5
     next: "*"
     react: ^17.0.1
     styled-system: ^5.1.5
-  checksum: a5e76cec7f886f897872f1f91326633fe1741e478719234f43cdc0edb6a7c852ee9469ea6c24684a32c3cc5e990b291d3b72c5897bc38585d5e6535b21327c8e
+  checksum: e6220f3e6d068443766af3f26a3022c87e2518f0a6f2a0aae9c7419d3e2519023daf60756ea4372b553da5471b2d78dad80672ff9ae5170c3b31ee75f341ef10
   languageName: node
   linkType: hard
 
@@ -192,7 +192,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@atls-ui-parts/text@npm:0.0.5, @atls-ui-parts/text@npm:^0.0.5":
+"@atls-ui-parts/text@npm:0.0.10":
+  version: 0.0.10
+  resolution: "@atls-ui-parts/text@npm:0.0.10"
+  dependencies:
+    styled-system: ^5.1.5
+  peerDependencies:
+    "@emotion/styled": ^11.1.5
+    react: ^17.0.1
+  checksum: 230609e5f5fb8129c12ae34ce89dd7d7c6f46d7dda5b0bf9b9e9a4ef530bba3f635fffb56390b0dab1e71fe1c50a858e4bf4108e9142213ce3f55a289482c40f
+  languageName: node
+  linkType: hard
+
+"@atls-ui-parts/text@npm:^0.0.5":
   version: 0.0.5
   resolution: "@atls-ui-parts/text@npm:0.0.5"
   dependencies:
@@ -860,7 +872,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/css@npm:^11.9.0":
+"@emotion/css@npm:*, @emotion/css@npm:^11.9.0":
   version: 11.9.0
   resolution: "@emotion/css@npm:11.9.0"
   dependencies:
@@ -1460,6 +1472,7 @@ __metadata:
     "@globals/data": "*"
     "@globals/language": "*"
     "@ui/spy-scroll": "*"
+    next: "*"
     react: "*"
     react-dom: "*"
     styled-system: "*"
@@ -1532,6 +1545,7 @@ __metadata:
     "@apollo/client": "*"
     "@emotion/react": "*"
     "@emotion/styled": "*"
+    next: "*"
     react: "*"
     react-dom: "*"
     react-helmet: "*"
@@ -1569,6 +1583,7 @@ __metadata:
     "@globals/data": "*"
     "@globals/language": "*"
     "@ui/spy-scroll": "*"
+    next: "*"
     react: "*"
     react-dom: "*"
     styled-system: "*"
@@ -1599,6 +1614,7 @@ __metadata:
     "@emotion/styled": "*"
     "@globals/data": "*"
     "@globals/language": "*"
+    next: "*"
     react: "*"
     react-dom: "*"
     styled-system: "*"
@@ -1635,6 +1651,7 @@ __metadata:
     "@globals/data": "*"
     "@globals/language": "*"
     "@ui/spy-scroll": "*"
+    next: "*"
     react: "*"
     react-dom: "*"
     styled-system: "*"
@@ -1656,6 +1673,7 @@ __metadata:
     "@landing/hero-fragment": "workspace:0.0.1"
     "@landing/map-fragment": "workspace:0.0.1"
     "@landing/navigation-fragment": "workspace:0.0.1"
+    "@landing/reviews-fragment": "workspace:0.0.1"
     "@landing/services-fragment": "workspace:0.0.1"
     "@landing/work-directions-fragment": "workspace:0.0.1"
     "@landing/work-format-fragment": "workspace:0.0.1"
@@ -1672,6 +1690,7 @@ __metadata:
     "@apollo/client": "*"
     "@emotion/react": "*"
     "@emotion/styled": "*"
+    next: "*"
     react: "*"
     react-dom: "*"
     react-helmet: "*"
@@ -1703,6 +1722,7 @@ __metadata:
     "@globals/data": "*"
     "@ui/drawer": "*"
     "@ui/spy-scroll": "*"
+    next: "*"
     react: "*"
     react-dom: "*"
     styled-system: "*"
@@ -1736,6 +1756,47 @@ __metadata:
     "@emotion/styled": "*"
     "@globals/language": "*"
     "@ui/spy-scroll": "*"
+    next: "*"
+    react: "*"
+    react-dom: "*"
+    styled-system: "*"
+  languageName: unknown
+  linkType: soft
+
+"@landing/reviews-fragment@workspace:0.0.1, @landing/reviews-fragment@workspace:landing/reviews-fragment":
+  version: 0.0.0-use.local
+  resolution: "@landing/reviews-fragment@workspace:landing/reviews-fragment"
+  dependencies:
+    "@apollo/client": ^3.6.9
+    "@emotion/react": ^11.9.3
+    "@emotion/styled": ^11.9.3
+    "@globals/data": "workspace:0.0.1"
+    "@globals/language": "workspace:0.0.1"
+    "@globals/messages": "workspace:0.0.1"
+    "@types/styled-system": ^5
+    "@ui/button": "workspace:0.0.1"
+    "@ui/carousel": "workspace:0.0.1"
+    "@ui/condition": "workspace:0.0.1"
+    "@ui/divider": "workspace:0.0.1"
+    "@ui/drawer": "workspace:0.0.1"
+    "@ui/image": "workspace:0.0.1"
+    "@ui/layer": "workspace:0.0.1"
+    "@ui/layout": "workspace:0.0.1"
+    "@ui/link": "workspace:0.0.1"
+    "@ui/spy-scroll": "workspace:0.0.1"
+    "@ui/text": "workspace:0.0.1"
+    react: ^17.0.2
+    react-dom: ^17.0.2
+    styled-system: ^5.1.5
+  peerDependencies:
+    "@apollo/client": "*"
+    "@emotion/react": "*"
+    "@emotion/styled": "*"
+    "@globals/data": "*"
+    "@globals/language": "*"
+    "@globals/messages": "*"
+    "@ui/spy-scroll": "*"
+    next: "*"
     react: "*"
     react-dom: "*"
     styled-system: "*"
@@ -1774,6 +1835,7 @@ __metadata:
     "@globals/data": "*"
     "@globals/language": "*"
     "@ui/spy-scroll": "*"
+    next: "*"
     react: "*"
     react-dom: "*"
     styled-system: "*"
@@ -1806,6 +1868,7 @@ __metadata:
     "@globals/data": "*"
     "@globals/language": "*"
     "@ui/spy-scroll": "*"
+    next: "*"
     react: "*"
     react-dom: "*"
     styled-system: "*"
@@ -1839,6 +1902,7 @@ __metadata:
     "@globals/data": "*"
     "@globals/language": "*"
     "@ui/spy-scroll": "*"
+    next: "*"
     react: "*"
     react-dom: "*"
     styled-system: "*"
@@ -2570,13 +2634,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/smoothscroll-polyfill@npm:^0":
-  version: 0.3.1
-  resolution: "@types/smoothscroll-polyfill@npm:0.3.1"
-  checksum: 871a5b556c3be746882ac58b0f936a66a716f4e9b5bd18aaf72fe60aaad42e6ce09e2c639c455ab7655637839bc3a3d923994dd68463c905bd1ecbd1961d8ec1
-  languageName: node
-  linkType: hard
-
 "@types/stack-utils@npm:^2.0.0":
   version: 2.0.1
   resolution: "@types/stack-utils@npm:2.0.1"
@@ -2932,11 +2989,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ui/link@workspace:ui/link"
   dependencies:
-    "@atls-ui-parts/link": ^0.0.3
+    "@atls-ui-parts/link": ^0.0.10
     "@emotion/react": ^11.9.3
     "@emotion/styled": ^11.9.3
     "@types/react-dom": ^17.0.9
     "@types/styled-system": ^5
+    "@ui/text": "workspace:0.0.1"
     next: ^12.2.0
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -2944,6 +3002,7 @@ __metadata:
   peerDependencies:
     "@emotion/react": "*"
     "@emotion/styled": "*"
+    next: "*"
     react: "*"
     react-dom: "*"
     styled-system: "*"
@@ -3028,10 +3087,9 @@ __metadata:
   resolution: "@ui/theme@workspace:ui/theme"
   dependencies:
     "@emotion/react": ^11.9.3
-    "@types/smoothscroll-polyfill": ^0
     react: ^17.0.2
     react-dom: ^17.0.2
-    smoothscroll-polyfill: ^0.4.4
+    seamless-scroll-polyfill: ^2.2.0
   peerDependencies:
     "@emotion/react": "*"
     react: "*"
@@ -8277,6 +8335,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"seamless-scroll-polyfill@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "seamless-scroll-polyfill@npm:2.2.0"
+  checksum: 8845d3ff0b71b8afdc5ff4337559bfa973c5ad823b227cda85a21f3f84edcfb28e2aba15affc1cfdfa5654567b912c8f27084edf3edaabed2049f4eeb71d67ef
+  languageName: node
+  linkType: hard
+
 "semver@npm:7.x, semver@npm:^7.1.2, semver@npm:^7.3.4, semver@npm:^7.3.5":
   version: 7.3.5
   resolution: "semver@npm:7.3.5"
@@ -8412,13 +8477,6 @@ __metadata:
   version: 4.2.0
   resolution: "smart-buffer@npm:4.2.0"
   checksum: b5167a7142c1da704c0e3af85c402002b597081dd9575031a90b4f229ca5678e9a36e8a374f1814c8156a725d17008ae3bde63b92f9cfd132526379e580bec8b
-  languageName: node
-  linkType: hard
-
-"smoothscroll-polyfill@npm:^0.4.4":
-  version: 0.4.4
-  resolution: "smoothscroll-polyfill@npm:0.4.4"
-  checksum: b99ff7d91689d563ec69cb1d29713b332a24c88ac3dc4ef9ef9fbe4137305336e67253211067c5f786478dbdabd2aa6c2033709d4d8feca327b09eca8d5a0e7b
   languageName: node
   linkType: hard
 
