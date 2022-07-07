@@ -26,7 +26,7 @@ const Avatar = ({ imageUrl }) => (
 const Name = ({ title, description }) => (
   <Column>
     <Row>
-      <Text fontFamily='secondary' fontSize='semiLarge'>
+      <Text fontFamily='secondary' fontSize='semiLarge' textTransform='uppercase'>
         {title}
       </Text>
     </Row>
