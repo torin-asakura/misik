@@ -19,7 +19,7 @@ export const messages: Messages = {
   },
   getConsult: {
     RU: 'Получить консультацию',
-    EN: 'Get consult',
+    EN: 'Get in touch',
   },
   byClickingYouConfirm: {
     RU: 'Нажимая кнопку отправить вы подтверждаете, что ознакомлены с',
