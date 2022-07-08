@@ -17,10 +17,12 @@
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
     "@globals/language": "workspace:0.0.1",
+    "@types/react-scroll": "^1",
     "@types/styled-system": "^5",
     "@ui/spy-scroll": "workspace:0.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-scroll": "^1.8.7",
     "styled-system": "^5.1.5"
   },
   "peerDependencies": {
@@ -32,6 +34,7 @@
     "next": "*",
     "react": "*",
     "react-dom": "*",
+    "react-scroll": "*",
     "styled-system": "*"
   }
 }

@@ -1,5 +1,6 @@
 import React                       from 'react'
 import { FC }                      from 'react'
+import { Element }                 from 'react-scroll'
 import { useState }                from 'react'
 
 import { DataProvider }            from '@globals/data'
@@ -37,13 +38,25 @@ const IndexPage: FC = () => {
         <SpyScroll activeDot={active}>
           <Seo language={languageContext} />
           <Navigation />
-          <Hero {...getObserverOptions('hero', 0.6)} />
+          <Element name='hero'>
+            <Hero {...getObserverOptions('hero', 0.6)} />
+          </Element>
           <WorkDirections />
-          <About {...getObserverOptions('about', 0.6)} />
-          <Services {...getObserverOptions('services', 0.3)} />
-          <WorkFormat {...getObserverOptions('work-format', 1)} />
-          <Reviews {...getObserverOptions('reviews', 1)} />
-          <Feedback {...getObserverOptions('feedback', 1)} />
+          <Element name='about'>
+            <About {...getObserverOptions('about', 0.6)} />
+          </Element>
+          <Element name='services'>
+            <Services {...getObserverOptions('services', 0.3)} />
+          </Element>
+          <Element name='work_format'>
+            <WorkFormat {...getObserverOptions('work-format', 1)} />
+          </Element>
+          <Element name='reviews'>
+            <Reviews {...getObserverOptions('reviews', 1)} />
+          </Element>
+          <Element name='feedback'>
+            <Feedback {...getObserverOptions('feedback', 1)} />
+          </Element>
           <Map />
           <Footer />
         </SpyScroll>
