@@ -11,6 +11,7 @@ import { Layout }          from '@ui/layout'
 import { Row }             from '@ui/layout'
 import { Column }          from '@ui/layout'
 import { Link }            from '@ui/link'
+import { NextLink }        from '@ui/link'
 import { Logo }            from '@ui/logo'
 import { useLanguage }     from '@globals/language'
 import { messages }        from '@globals/messages'
@@ -52,9 +53,16 @@ const Navigation: FC<NavigationProps> = ({ contacts }) => {
                 {menus[language][0]?.map(({ label, href }) => (
                   <Condition match={!(contacts && contactsHidden.includes(href))}>
                     <Layout>
-                      <Link href={href} fontSize='semiRegular'>
-                        {label}
-                      </Link>
+                      <Condition match={Array.from(href)[0] === '#'}>
+                        <Link href={href} fontSize='semiRegular'>
+                          {label}
+                        </Link>
+                      </Condition>
+                      <Condition match={Array.from(href)[0] !== '#'}>
+                        <NextLink path={href} fontSize='semiRegular'>
+                          {label}
+                        </NextLink>
+                      </Condition>
                     </Layout>
                     <Layout flexBasis={40} />
                   </Condition>
