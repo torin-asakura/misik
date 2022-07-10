@@ -1,6 +1,7 @@
 import { ApolloClient }  from '@apollo/client'
 import { InMemoryCache } from '@apollo/client'
 import { gql }           from '@apollo/client'
+import { withGtag }      from '@atls/next-document-with-gtag'
 import { withHelmet }    from '@atls/next-document-with-helmet'
 import { withOpenGraph } from '@atls/next-document-with-opengraph'
 
@@ -55,9 +56,8 @@ const withIcons = () => (TargetComponent) =>
 const withProviders = compose(
   withOpenGraph({ image: 'https://misik.pro/wp-content/uploads/2021/06/Misik-Dark.svg' }),
   withIcons(),
-  withHelmet()
-  // TODO add gtag
-  // withGtag(process.env.GA_TRACKING_ID || 'GTM-TPXQGZP')
+  withHelmet(),
+  withGtag(process.env.GA_TRACKING_ID || 'GTM-KGZLL27')
 )
 
 export default withProviders(Document)
