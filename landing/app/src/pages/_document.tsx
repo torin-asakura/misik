@@ -1,22 +1,24 @@
+/* eslint-disable max-classes-per-file */
+
 import { ApolloClient }  from '@apollo/client'
 import { InMemoryCache } from '@apollo/client'
 import { gql }           from '@apollo/client'
+import { withGtag }      from '@atls/next-document-with-gtag'
 import { withHelmet }    from '@atls/next-document-with-helmet'
-import { withOpenGraph } from '@atls/next-document-with-opengraph'
 
 import Document          from 'next/document'
 import React             from 'react'
 import compose           from 'recompose/compose'
 
+const client = new ApolloClient({
+  uri: 'https://wp.misik.pro/graphql',
+  cache: new InMemoryCache(),
+})
+
 const withIcons = () => (TargetComponent) =>
   class WithIcons extends TargetComponent {
     static async getInitialProps(context) {
       const props = await super.getInitialProps(context)
-
-      const client = new ApolloClient({
-        uri: 'https://wp.misik.pro/graphql',
-        cache: new InMemoryCache(),
-      })
 
       const faviconResponse = await client.query({
         query: gql`
@@ -52,12 +54,45 @@ const withIcons = () => (TargetComponent) =>
     }
   }
 
+const withOpenGraph = () => (TargetComponent) =>
+  class WithOpenGraph extends TargetComponent {
+    static async getInitialProps(context) {
+      const props = await super.getInitialProps(context)
+
+      const coverResponse = await client.query({
+        query: gql`
+          query GetCover {
+            mediaItemBy(uri: "/cover/") {
+              sourceUrl
+            }
+          }
+        `,
+      })
+
+      props.head.push(
+        <meta
+          property='og:image'
+          content={
+            coverResponse.data.mediaItemBy?.sourceUrl ||
+            'https://wp.misik.pro/wp-content/uploads/2022/07/cover.jpg'
+          }
+        />
+      )
+
+      return props
+    }
+
+    static renderDocument(...args) {
+      // @ts-ignore
+      return Document.renderDocument(...args)
+    }
+  }
+
 const withProviders = compose(
-  withOpenGraph({ image: 'https://misik.pro/wp-content/uploads/2021/06/Misik-Dark.svg' }),
+  withOpenGraph(),
   withIcons(),
-  withHelmet()
-  // TODO add gtag
-  // withGtag(process.env.GA_TRACKING_ID || 'GTM-TPXQGZP')
+  withHelmet(),
+  withGtag(process.env.GA_TRACKING_ID || 'GTM-KGZLL27')
 )
 
 export default withProviders(Document)
