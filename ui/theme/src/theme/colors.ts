@@ -31,6 +31,7 @@ const colors = {
     lightGray: 'rgba(18, 18, 19, 0.1)',
     white: 'rgb(255, 255, 255)',
     black: 'rgb(0, 0, 0)',
+    accentBlack: 'rgb(18,18,19)',
   },
   input: {
     background: 'transparent',

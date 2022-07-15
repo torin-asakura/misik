@@ -1528,6 +1528,7 @@ __metadata:
     "@types/react-dom": ^17
     "@types/react-helmet": ^6
     "@types/recompose": ^0
+    "@ui/preloader": "workspace:0.0.1"
     "@ui/theme": "workspace:0.0.1"
     events: ^3.3.0
     express: ^4.17.1
@@ -3060,6 +3061,30 @@ __metadata:
     "@emotion/react": "*"
     "@emotion/styled": "*"
     next: "*"
+    react: "*"
+    react-dom: "*"
+    styled-system: "*"
+  languageName: unknown
+  linkType: soft
+
+"@ui/preloader@workspace:0.0.1, @ui/preloader@workspace:ui/preoader":
+  version: 0.0.0-use.local
+  resolution: "@ui/preloader@workspace:ui/preoader"
+  dependencies:
+    "@emotion/css": ^11.9.0
+    "@emotion/react": ^11.9.3
+    "@emotion/styled": ^11.9.3
+    "@types/styled-system": ^5
+    "@ui/condition": "workspace:0.0.1"
+    "@ui/layout": "workspace:0.0.1"
+    "@ui/text": "workspace:0.0.1"
+    framer-motion: 4.1.7
+    react: ^17.0.2
+    react-dom: ^17.0.2
+    styled-system: ^5.1.5
+  peerDependencies:
+    "@emotion/react": "*"
+    "@emotion/styled": "*"
     react: "*"
     react-dom: "*"
     styled-system: "*"
