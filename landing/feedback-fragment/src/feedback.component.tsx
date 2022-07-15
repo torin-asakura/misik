@@ -91,6 +91,7 @@ const Feedback: FC<FeedbackProps> = forwardRef((
                       fontWeight='thin'
                       color='text.accent'
                       textTransform='uppercase'
+                      fontStyle='italic'
                     >
                       <Text
                         color='text.primary'

@@ -102,6 +102,7 @@ const Hero = forwardRef((props, ref: any) => {
                           fontWeight='thin'
                           fontSize={['big', 'big', 'giant']}
                           textTransform='uppercase'
+                          fontStyle='italic'
                         >
                           {highlighted}
                         </Text>
@@ -149,6 +150,7 @@ const Hero = forwardRef((props, ref: any) => {
                           fontWeight='thin'
                           fontSize={['big', 'big', 'giant']}
                           textTransform='uppercase'
+                          fontStyle='italic'
                         >
                           {highlighted}
                         </Text>
