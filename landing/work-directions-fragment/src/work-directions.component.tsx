@@ -24,7 +24,7 @@ const WorkDirections: FC = () => {
           <Carousel>
             {workDirections[language].map(({ title, featuredImage }) => (
               <Layout maxWidth={200} maxHeight={220}>
-                <Column alignItems='center'>
+                <Column alignItems='center' itemScope itemType='https://schema.org/Thing'>
                   <Box width={200} height={140}>
                     <Image
                       contain
@@ -40,6 +40,7 @@ const WorkDirections: FC = () => {
                       fontSize={['medium', 'medium', 'semiLarge']}
                       textAlign='center'
                       textTransform='uppercase'
+                      itemProp='name'
                     >
                       {title}
                     </Text>

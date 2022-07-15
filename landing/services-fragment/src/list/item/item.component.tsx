@@ -25,7 +25,12 @@ const Item: FC<ItemProps> = ({ image, title, content, reverse = false }) => {
     <>
       <Layer visible={visible} onClose={() => setVisible(false)} />
       <Drawer active={visible} onClose={() => setVisible(false)} />
-      <Box width='100%' height={['auto', 'auto', 520]}>
+      <Box
+        width='100%'
+        height={['auto', 'auto', 520]}
+        itemScope
+        itemType='https://schema.org/Thing'
+      >
         <Column width='100%' display={['none', 'none', 'flex']}>
           <Condition match={!reverse}>
             <Row height='100%'>
@@ -41,13 +46,14 @@ const Item: FC<ItemProps> = ({ image, title, content, reverse = false }) => {
                   fontSize='increased'
                   color='text.primary'
                   textTransform='uppercase'
+                  itemProp='name'
                 >
                   {title}
                 </Text>
                 <Layout flexBasis={16} />
                 {content.split('\n').map((piece) => (
                   <>
-                    <Text color='text.secondary' lineHeight='primary'>
+                    <Text color='text.secondary' lineHeight='primary' itemProp='description'>
                       {piece}
                     </Text>
                     <Layout flexBasis={16} />

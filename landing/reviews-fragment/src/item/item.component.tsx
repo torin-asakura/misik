@@ -40,7 +40,7 @@ const Name = ({ title, description }) => (
 )
 
 const Content = ({ content }) => (
-  <Text color='text.secondary' fontSize='regular' lineHeight='primary'>
+  <Text color='text.secondary' fontSize='regular' lineHeight='primary' itemProp='reviewBody'>
     {content}
   </Text>
 )
@@ -52,6 +52,8 @@ const Item: FC<ItemProps> = ({ title, content, description, imageUrl }) => (
     backgroundColor='background.lightBeige'
     borderRadius='normal'
     overflow='hidden'
+    itemScope
+    itemType='https://schema.org/Review'
   >
     <Column fill>
       <Row>
