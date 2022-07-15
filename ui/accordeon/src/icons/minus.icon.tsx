@@ -1,14 +1,17 @@
+import styled from '@emotion/styled'
+
 import React  from 'react'
 import { FC } from 'react'
 
+const Path = styled.path({
+  strokeDasharray: 1,
+  animationName: 'draw',
+  animationDuration: '1s',
+})
+
 const Minus: FC = () => (
   <svg width='18' height='2' viewBox='0 0 18 2' fill='none' xmlns='http://www.w3.org/2000/svg'>
-    <path
-      fillRule='evenodd'
-      clipRule='evenodd'
-      d='M0 0.325001L18 0.325002V1.675L0 1.675V0.325001Z'
-      fill='#121213'
-    />
+    <Path pathLength={1} strokeLinecap='round' d='M0 1H9H18' stroke='black' stroke-width='1.25' />
   </svg>
 )
 
