@@ -57,6 +57,8 @@ const Feedback: FC<FeedbackProps> = forwardRef((
       height={[877, 877, '100%']}
       backgroundColor={background}
       ref={ref}
+      itemScope
+      itemType='http://schema.org/Organization'
     >
       <Box
         width='100%'
@@ -65,8 +67,8 @@ const Feedback: FC<FeedbackProps> = forwardRef((
         borderRadius={['topMedium', 'topMedium', 'topHuge']}
         justifyContent='center'
       >
+        <Layout flexBasis={[20, 20, 210]} />
         <Layout width='100%' height='100%' maxWidth={1830}>
-          <Layout flexBasis={[20, 20, 210]} />
           <Column width='100%'>
             <Layout flexBasis={[0, 0, 160]} />
             <Layout flexDirection={['column', 'column', 'row']} width='100%'>
@@ -121,6 +123,7 @@ const Feedback: FC<FeedbackProps> = forwardRef((
                       fontSize={['large', 'large', 'enlarged']}
                       textTransform='uppercase'
                       href={`mailto:${email}`}
+                      itemProp='email'
                     >
                       {email}
                     </Link>
@@ -137,6 +140,7 @@ const Feedback: FC<FeedbackProps> = forwardRef((
                       href={`tel:${phone}`}
                       fontSize={['large', 'large', 'enlarged']}
                       fontWeight='thin'
+                      itemProp='telephone'
                     >
                       {phone}
                     </Link>

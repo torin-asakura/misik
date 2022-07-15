@@ -1,22 +1,24 @@
-import React               from 'react'
-import { FC }              from 'react'
-import { useState }        from 'react'
+import React                  from 'react'
+import { FC }                 from 'react'
+import { Link as ScrollLink } from 'react-scroll'
+import { useState }           from 'react'
 
-import { Button }          from '@ui/button'
-import { Condition }       from '@ui/condition'
-import { Drawer }          from '@ui/drawer'
-import { Layer }           from '@ui/layer'
-import { Box }             from '@ui/layout'
-import { Layout }          from '@ui/layout'
-import { Row }             from '@ui/layout'
-import { Column }          from '@ui/layout'
-import { Link }            from '@ui/link'
-import { Logo }            from '@ui/logo'
-import { useLanguage }     from '@globals/language'
-import { messages }        from '@globals/messages'
+import { Button }             from '@ui/button'
+import { Condition }          from '@ui/condition'
+import { Drawer }             from '@ui/drawer'
+import { Layer }              from '@ui/layer'
+import { Box }                from '@ui/layout'
+import { Layout }             from '@ui/layout'
+import { Row }                from '@ui/layout'
+import { Column }             from '@ui/layout'
+import { Link }               from '@ui/link'
+import { NextLink }           from '@ui/link'
+import { Logo }               from '@ui/logo'
+import { useLanguage }        from '@globals/language'
+import { messages }           from '@globals/messages'
 
-import { NavigationProps } from './navigation.interface'
-import { useMenus }        from './data'
+import { NavigationProps }    from './navigation.interface'
+import { useMenus }           from './data'
 
 const Navigation: FC<NavigationProps> = ({ contacts }) => {
   const [language, setLanguage] = useLanguage()
@@ -52,9 +54,19 @@ const Navigation: FC<NavigationProps> = ({ contacts }) => {
                 {menus[language][0]?.map(({ label, href }) => (
                   <Condition match={!(contacts && contactsHidden.includes(href))}>
                     <Layout>
-                      <Link href={href} fontSize='semiRegular'>
-                        {label}
-                      </Link>
+                      <Condition match={Array.from(href)[0] === '#'}>
+                        <ScrollLink spy smooth to={href.replace('#', '')}>
+                          {/* eslint-disable-next-line */}
+                          <Link fontSize='semiRegular' onClick={(e) => e.preventDefault()}>
+                            {label}
+                          </Link>
+                        </ScrollLink>
+                      </Condition>
+                      <Condition match={Array.from(href)[0] !== '#'}>
+                        <NextLink path={href} fontSize='semiRegular'>
+                          {label}
+                        </NextLink>
+                      </Condition>
                     </Layout>
                     <Layout flexBasis={40} />
                   </Condition>
