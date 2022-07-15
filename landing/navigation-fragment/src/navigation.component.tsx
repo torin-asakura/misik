@@ -55,7 +55,7 @@ const Navigation: FC<NavigationProps> = ({ contacts }) => {
                   <Condition match={!(contacts && contactsHidden.includes(href))}>
                     <Layout>
                       <Condition match={Array.from(href)[0] === '#'}>
-                        <ScrollLink duration={1000} delay={100} smooth to={href.replace('#', '')}>
+                        <ScrollLink spy smooth to={href.replace('#', '')}>
                           {/* eslint-disable-next-line */}
                           <Link fontSize='semiRegular' onClick={(e) => e.preventDefault()}>
                             {label}

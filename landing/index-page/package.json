@@ -17,8 +17,7 @@
     "@landing/work-format-fragment": "workspace:0.0.1",
     "@ui/intersection-observer": "workspace:0.0.1",
     "@ui/layout": "workspace:0.0.1",
-    "@ui/spy-scroll": "workspace:0.0.1",
-    "react-scroll": "^1.8.7"
+    "@ui/spy-scroll": "workspace:0.0.1"
   },
   "devDependencies": {
     "@apollo/client": "^3.6.9",
