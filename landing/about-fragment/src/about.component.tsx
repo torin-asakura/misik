@@ -80,6 +80,7 @@ const About = forwardRef((props, ref: any) => {
                       fontSize={['semiBig', 'semiBig', 'semiGiant']}
                       color='text.accent'
                       fontWeight='thin'
+                      fontStyle='italic'
                     >
                       {title.highlighted}
                     </Text>
