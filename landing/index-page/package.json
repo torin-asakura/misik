@@ -35,6 +35,7 @@
     "@apollo/client": "*",
     "@emotion/react": "*",
     "@emotion/styled": "*",
+    "@ui/preloader": "workspace:^",
     "next": "*",
     "react": "*",
     "react-dom": "*",

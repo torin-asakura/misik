@@ -11,6 +11,7 @@ import { Box }           from '@ui/layout'
 import { Column }        from '@ui/layout'
 import { Row }           from '@ui/layout'
 import { Layout }        from '@ui/layout'
+import { AnimateOnLoad } from '@ui/preloader'
 import { Text }          from '@ui/text'
 import { Space }         from '@ui/text'
 import { useData }       from '@globals/data'
@@ -63,7 +64,12 @@ const Hero = forwardRef((props, ref: any) => {
             <Column>
               <Layout flexBasis={[160, 160, 240]} />
               <Layout maxWidth={1300}>
-                <Layout>
+                <AnimateOnLoad
+                  initial={{ opacity: 0, y: '100%' }}
+                  transition={{ duration: 1 }}
+                  animation={{ y: 0, opacity: 1 }}
+                  delay={300}
+                >
                   <Column>
                     <Condition match={language === 'RU'}>
                       <Text
@@ -157,7 +163,7 @@ const Hero = forwardRef((props, ref: any) => {
                       </Text>
                     </Condition>
                   </Column>
-                </Layout>
+                </AnimateOnLoad>
               </Layout>
               <Layout flexBasis={[289, 289, 438]} />
               <Layout display={['none', 'none', 'flex']}>

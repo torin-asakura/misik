@@ -14,6 +14,7 @@ import { Column }             from '@ui/layout'
 import { Link }               from '@ui/link'
 import { NextLink }           from '@ui/link'
 import { Logo }               from '@ui/logo'
+import { AnimateOnLoad }      from '@ui/preloader'
 import { useLanguage }        from '@globals/language'
 import { messages }           from '@globals/messages'
 
@@ -29,13 +30,26 @@ const Navigation: FC<NavigationProps> = ({ contacts }) => {
     setLanguage(language === 'RU' ? 'EN' : 'RU')
   }
 
-  const contactsHidden = ['#services', '#work_format', '#reviews']
+  const contactsHidden = ['#services', '#work_format', '#reviews', '/contacts']
 
   return (
     <>
       <Drawer active={visible} onClose={() => setVisible(false)} />
       <Layer visible={visible} onClose={() => setVisible(false)} />
-      <Box width='100%' position='fixed' top={0} left={0} height={88} zIndex={10}>
+      <AnimateOnLoad
+        style={{
+          width: '100%',
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          height: 88,
+          zIndex: 10,
+        }}
+        animation={{ y: 0 }}
+        initial={{ y: '-100%' }}
+        transition={{ duration: 1 }}
+        delay={300}
+      >
         <Layout flexBasis={[16, 16, 40]} flexShrink={0} />
         <Column width='100%'>
           <Layout flexBasis={21} />
@@ -97,7 +111,7 @@ const Navigation: FC<NavigationProps> = ({ contacts }) => {
           <Layout flexBasis={21} />
         </Column>
         <Layout flexBasis={[20, 20, 240]} />
-      </Box>
+      </AnimateOnLoad>
     </>
   )
 }

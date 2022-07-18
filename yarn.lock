@@ -1666,8 +1666,10 @@ __metadata:
     "@ui/layer": "workspace:0.0.1"
     "@ui/layout": "workspace:0.0.1"
     "@ui/link": "workspace:0.0.1"
+    "@ui/preloader": "workspace:0.0.1"
     "@ui/spy-scroll": "workspace:0.0.1"
     "@ui/text": "workspace:0.0.1"
+    framer-motion: ^6.5.1
     react: ^17.0.2
     react-dom: ^17.0.2
     styled-system: ^5.1.5
@@ -1677,6 +1679,7 @@ __metadata:
     "@emotion/styled": "*"
     "@globals/data": "*"
     "@globals/language": "*"
+    "@ui/preloader": "*"
     "@ui/spy-scroll": "*"
     next: "*"
     react: "*"
@@ -1718,6 +1721,7 @@ __metadata:
     "@apollo/client": "*"
     "@emotion/react": "*"
     "@emotion/styled": "*"
+    "@ui/preloader": "workspace:^"
     next: "*"
     react: "*"
     react-dom: "*"
@@ -1775,7 +1779,9 @@ __metadata:
     "@ui/layout": "workspace:0.0.1"
     "@ui/link": "workspace:0.0.1"
     "@ui/logo": "workspace:0.0.1"
+    "@ui/preloader": "workspace:0.0.1"
     "@ui/spy-scroll": "workspace:0.0.1"
+    framer-motion: ^6.5.1
     react: ^17.0.2
     react-dom: ^17.0.2
     react-scroll: ^1.8.7
@@ -1785,6 +1791,7 @@ __metadata:
     "@emotion/react": "*"
     "@emotion/styled": "*"
     "@globals/language": "*"
+    "@ui/preloader": "workspace:^"
     "@ui/spy-scroll": "*"
     next: "*"
     react: "*"
