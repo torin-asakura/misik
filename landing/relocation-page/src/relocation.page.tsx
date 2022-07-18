@@ -14,7 +14,7 @@ import { RelocationHero }            from '@landing/relocation-hero-fragment'
 import { RelocationProgramBenefits } from '@landing/relocation-program-benefits-fragment'
 import { Box }                       from '@ui/layout'
 
-const ServicesPage: FC = () => {
+const RelocationPage: FC = () => {
   const languageContext = useState<Language>('RU')
 
   return (
@@ -34,4 +34,4 @@ const ServicesPage: FC = () => {
   )
 }
 
-export default ServicesPage
+export default RelocationPage

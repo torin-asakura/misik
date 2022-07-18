@@ -1,5 +1,5 @@
 {
-  "name": "@landing/services-page",
+  "name": "@landing/relocation-page",
   "version": "0.0.1",
   "main": "src/index.ts",
   "dependencies": {

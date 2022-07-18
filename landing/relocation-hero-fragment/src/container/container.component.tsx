@@ -6,10 +6,19 @@ import { Box }            from '@ui/layout'
 import { Row }            from '@ui/layout'
 import { Layout }         from '@ui/layout'
 import { Column }         from '@ui/layout'
+import { messages }       from '@globals/messages'
 
+import { CTA }            from '../CTA'
 import { ContainerProps } from './container.interface'
 
-const Container: FC<ContainerProps> = ({ backgroundUrl, altText, height, children }) => (
+const Container: FC<ContainerProps> = ({
+  backgroundUrl,
+  altText,
+  height,
+  setVisible,
+  language,
+  children,
+}) => (
   <Box width='100%' height='100%' backgroundColor='background.lightBeige' zIndex={1}>
     <Box
       position='relative'
@@ -30,6 +39,10 @@ const Container: FC<ContainerProps> = ({ backgroundUrl, altText, height, childre
         <Column>
           <Layout flexBasis={[88, 88, 160]} flexShrink={0} />
           {children}
+          <Layout>
+            <CTA setVisible={setVisible} message={messages.getConsult[language]} />
+          </Layout>
+          <Layout flexBasis={[40, 40, 80]} flexShrink={0} />
         </Column>
         <Layout flexBasis={[0, 0, 659]} />
       </Row>
