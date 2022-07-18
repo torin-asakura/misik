@@ -8,8 +8,9 @@ import { Layout }      from '@ui/layout'
 
 const Desktop: FC = ({ children }) => (
   <Swiper
-    spaceBetween={120}
+    className='swiper-work-directions'
     slidesPerView={6}
+    spaceBetween={160}
     width={1830}
     height={220}
     touchEventsTarget='container'

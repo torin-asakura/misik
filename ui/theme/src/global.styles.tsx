@@ -87,6 +87,10 @@ export const GlobalStyles = () => {
           display: flex;
         }
         
+        .swiper-work-directions {
+          max-width: 1830px;
+        }
+        
         @keyframes draw {
           from {
             stroke-dashoffset: 1;
