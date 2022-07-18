@@ -1,4 +1,5 @@
 import 'mapbox-gl/dist/mapbox-gl.css'
+import 'swiper/css'
 
 import { ApolloProvider } from '@apollo/client'
 import { ApolloClient }   from '@apollo/client'

@@ -1,50 +1,57 @@
 import React           from 'react'
 import { FC }          from 'react'
+import { Children }    from 'react'
+import { Swiper }      from 'swiper/react'
+import { SwiperSlide } from 'swiper/react'
 
 import { Layout }      from '@ui/layout'
-import { useCarousel } from '@ui/carousel'
 
-const Desktop: FC = ({ children }) => {
-  const { carousel } = useCarousel({
-    children,
-    slidesPerView: 6,
-    spaceBetween: 120,
-    centered: false,
-    height: 220,
-    width: 1830,
-    loop: true,
-  })
+const Desktop: FC = ({ children }) => (
+  <Swiper
+    spaceBetween={120}
+    slidesPerView={6}
+    width={1830}
+    height={220}
+    touchEventsTarget='container'
+    loop
+    grabCursor
+  >
+    {Children.map(children, (child) => (
+      <SwiperSlide>{child}</SwiperSlide>
+    ))}
+  </Swiper>
+)
 
-  return carousel
-}
+const Tablet: FC = ({ children }) => (
+  <Swiper
+    spaceBetween={20}
+    slidesPerView={3}
+    width={850}
+    height={210}
+    touchEventsTarget='container'
+    loop
+    centeredSlides
+  >
+    {Children.map(children, (child) => (
+      <SwiperSlide>{child}</SwiperSlide>
+    ))}
+  </Swiper>
+)
 
-const Tablet: FC = ({ children }) => {
-  const { carousel } = useCarousel({
-    children,
-    slidesPerView: 3,
-    spaceBetween: 20,
-    centered: true,
-    height: 210,
-    width: 850,
-    loop: true,
-  })
-
-  return carousel
-}
-
-const Mobile: FC = ({ children }) => {
-  const { carousel } = useCarousel({
-    children,
-    slidesPerView: 2,
-    spaceBetween: 20,
-    centered: true,
-    height: 210,
-    width: 450,
-    loop: true,
-  })
-
-  return carousel
-}
+const Mobile: FC = ({ children }) => (
+  <Swiper
+    spaceBetween={40}
+    slidesPerView={2}
+    width={375}
+    height={220}
+    touchEventsTarget='container'
+    loop
+  >
+    {Children.map(children, (child) => (
+      <SwiperSlide>{child}</SwiperSlide>
+    ))}
+  </Swiper>
+)
 
 const Carousel: FC = ({ children }) => (
   <>
