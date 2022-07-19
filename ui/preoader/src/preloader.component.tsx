@@ -26,10 +26,6 @@ export const Preloader = ({ children }) => {
       setTimeout(() => {
         setProgress(progress + 5)
       }, 100)
-    } else {
-      listeners.forEach((listener) => listener())
-
-      listeners = []
     }
   }, [progress])
 
@@ -41,7 +37,12 @@ export const Preloader = ({ children }) => {
             key='main'
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.7, delay: 1.3 }}
+            onAnimationComplete={() => {
+              listeners.forEach((listener) => listener())
+
+              listeners = []
+            }}
           >
             <Condition match={progress < 100}>
               <Logo />
