@@ -33,7 +33,7 @@ const Feedback: FC<FeedbackProps> = forwardRef((
   }
   let content: string = ''
   let email: string = ''
-  let phone: string = ''
+  let phones: string = ''
   let workingHours: string = ''
 
   if (fragments) {
@@ -46,7 +46,7 @@ const Feedback: FC<FeedbackProps> = forwardRef((
     title.highlighted = titleFragment?.fragmentParams.highlightedText
     content = titleFragment?.content
     email = emailFragment?.content
-    phone = phoneFragment?.content
+    phones = phoneFragment?.content
     workingHours = workingHoursFragment?.content
   }
 
@@ -135,24 +135,32 @@ const Feedback: FC<FeedbackProps> = forwardRef((
                   </Layout>
                 </Row>
                 <Layout flexBasis={32} />
-                <Row>
-                  <Layout>
-                    <Link
-                      href={`tel:${phone}`}
-                      fontSize={['large', 'large', 'enlarged']}
-                      fontWeight='thin'
-                      itemProp='telephone'
-                      fontFamily='secondary'
-                      style={{ fontVariantNumeric: 'lining-nums' }}
-                    >
-                      {phone}
-                    </Link>
-                  </Layout>
-                  <Layout flexBasis={16} />
-                  <Layout display={['none', 'none', 'flex']}>
-                    <Copy content={phone} />
-                  </Layout>
-                </Row>
+                {phones
+                  .split('\n')
+                  .filter((string) => string.trim() !== '')
+                  .map((phone) => (
+                    <>
+                      <Row>
+                        <Layout>
+                          <Link
+                            href={`tel:${phone}`}
+                            fontSize={['large', 'large', 'enlarged']}
+                            fontWeight='thin'
+                            itemProp='telephone'
+                            fontFamily='secondary'
+                            style={{ fontVariantNumeric: 'lining-nums' }}
+                          >
+                            {phone}
+                          </Link>
+                        </Layout>
+                        <Layout flexBasis={16} />
+                        <Layout display={['none', 'none', 'flex']}>
+                          <Copy content={phone} />
+                        </Layout>
+                      </Row>
+                      <Layout flexBasis={12} />
+                    </>
+                  ))}
                 <Layout flexBasis={12} />
                 <Row>
                   <Layout>
