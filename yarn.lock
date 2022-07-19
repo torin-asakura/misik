@@ -1509,7 +1509,6 @@ __metadata:
     "@types/react-dom": ^17
     "@types/react-helmet": ^6
     "@types/recompose": ^0
-    "@ui/preloader": "workspace:0.0.1"
     "@ui/theme": "workspace:0.0.1"
     events: ^3.3.0
     express: ^4.17.1
@@ -1541,6 +1540,7 @@ __metadata:
     "@types/react-helmet": ^6
     "@types/styled-system": ^5
     "@ui/layout": "workspace:0.0.1"
+    "@ui/preloader": "workspace:0.0.1"
     "@ui/spy-scroll": "workspace:0.0.1"
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -1550,6 +1550,7 @@ __metadata:
     "@apollo/client": "*"
     "@emotion/react": "*"
     "@emotion/styled": "*"
+    "@ui/preloader": "workspace:^"
     next: "*"
     react: "*"
     react-dom: "*"
@@ -1576,6 +1577,7 @@ __metadata:
     "@ui/input": "workspace:0.0.1"
     "@ui/layout": "workspace:0.0.1"
     "@ui/link": "workspace:0.0.1"
+    "@ui/preloader": "workspace:0.0.1"
     "@ui/spy-scroll": "workspace:0.0.1"
     "@ui/text": "workspace:0.0.1"
     react: ^17.0.2
@@ -1587,6 +1589,7 @@ __metadata:
     "@emotion/styled": "*"
     "@globals/data": "*"
     "@globals/language": "*"
+    "@ui/preloader": "workspace:^"
     "@ui/spy-scroll": "*"
     next: "*"
     react: "*"
@@ -1690,6 +1693,7 @@ __metadata:
     "@types/styled-system": ^5
     "@ui/intersection-observer": "workspace:0.0.1"
     "@ui/layout": "workspace:0.0.1"
+    "@ui/preloader": "workspace:0.0.1"
     "@ui/spy-scroll": "workspace:0.0.1"
     react: ^17.0.2
     react-dom: ^17.0.2

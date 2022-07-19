@@ -68,7 +68,6 @@ const Hero = forwardRef((props, ref: any) => {
                   initial={{ opacity: 0, y: '100%' }}
                   transition={{ duration: 1 }}
                   animation={{ y: 0, opacity: 1 }}
-                  delay={300}
                 >
                   <Column>
                     <Condition match={language === 'RU'}>

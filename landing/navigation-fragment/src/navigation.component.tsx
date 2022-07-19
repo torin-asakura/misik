@@ -48,7 +48,6 @@ const Navigation: FC<NavigationProps> = ({ contacts }) => {
         animation={{ y: 0 }}
         initial={{ y: '-100%' }}
         transition={{ duration: 1 }}
-        delay={300}
       >
         <Layout flexBasis={[16, 16, 40]} flexShrink={0} />
         <Column width='100%'>

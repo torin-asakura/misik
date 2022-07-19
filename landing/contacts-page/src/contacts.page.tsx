@@ -10,6 +10,7 @@ import { Footer }           from '@landing/footer-fragment'
 import { Map }              from '@landing/map-fragment'
 import { Navigation }       from '@landing/navigation-fragment'
 import { Box }              from '@ui/layout'
+import { Preloader }        from '@ui/preloader'
 
 import { Seo }              from './seo.component'
 
@@ -17,17 +18,19 @@ const ContactsPage: FC = () => {
   const languageContext = useState<Language>('RU')
 
   return (
-    <LanguageProvider value={languageContext}>
-      <DataProvider>
-        <Seo language={languageContext} />
-        <Box backgroundColor='background.beige'>
-          <Navigation contacts />
-        </Box>
-        <Feedback background='background.beige' contacts />
-        <Map />
-        <Footer />
-      </DataProvider>
-    </LanguageProvider>
+    <Preloader>
+      <LanguageProvider value={languageContext}>
+        <DataProvider>
+          <Seo language={languageContext} />
+          <Box backgroundColor='background.beige'>
+            <Navigation contacts />
+          </Box>
+          <Feedback background='background.beige' contacts />
+          <Map />
+          <Footer />
+        </DataProvider>
+      </LanguageProvider>
+    </Preloader>
   )
 }
 export default ContactsPage
