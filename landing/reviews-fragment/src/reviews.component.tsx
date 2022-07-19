@@ -1,25 +1,31 @@
-import React               from 'react'
-import { forwardRef }      from 'react'
+import React                    from 'react'
+import { Children }             from 'react'
+import { Swiper as SwiperCore } from 'swiper'
+import { forwardRef }           from 'react'
+import { useState }             from 'react'
 
-import { Button }          from '@ui/button'
-import { Box }             from '@ui/layout'
-import { Layout }          from '@ui/layout'
-import { Row }             from '@ui/layout'
-import { Column }          from '@ui/layout'
-import { Text }            from '@ui/text'
-import { normalizeString } from '@globals/data'
-import { useLanguage }     from '@globals/language'
-import { messages }        from '@globals/messages'
-import { useCarousel }     from '@ui/carousel'
+import { Button }               from '@ui/button'
+import { Swiper }               from '@ui/carousel'
+import { SwiperSlide }          from '@ui/carousel'
+import { Box }                  from '@ui/layout'
+import { Layout }               from '@ui/layout'
+import { Row }                  from '@ui/layout'
+import { Column }               from '@ui/layout'
+import { Text }                 from '@ui/text'
+import { normalizeString }      from '@globals/data'
+import { useLanguage }          from '@globals/language'
+import { messages }             from '@globals/messages'
+import { useSwiper }            from '@ui/carousel'
 
-import { ArrowRightIcon }  from './icons'
-import { ArrowLeftIcon }   from './icons'
-import { Item }            from './item'
-import { useReviews }      from './data'
+import { ArrowRightIcon }       from './icons'
+import { ArrowLeftIcon }        from './icons'
+import { Item }                 from './item'
+import { useReviews }           from './data'
 
 export const Reviews = forwardRef((props, ref) => {
   const [language] = useLanguage()
   const reviews = useReviews()
+  const [swiper, setSwiper] = useState<SwiperCore | null>(null)
 
   const carouselChildren = reviews[language].map((review) => (
     <Item
@@ -30,23 +36,13 @@ export const Reviews = forwardRef((props, ref) => {
     />
   ))
 
-  const { carousel: desktopCarousel, useControls: useDesktopControls } = useCarousel({
-    children: carouselChildren,
-    spaceBetween: 40,
-    slidesPerView: 2,
-    height: 300,
-    centered: false,
-  })
+  const CarouselControlsExporter = () => {
+    const swiperInstance = useSwiper()
 
-  const { carousel: mobileCarousel } = useCarousel({
-    children: carouselChildren,
-    spaceBetween: 32,
-    slidesPerView: 1,
-    height: 300,
-    centered: true,
-  })
+    if (!swiper) setSwiper(swiperInstance)
 
-  const { prevProp: desktopPrevProp, nextProp: desktopNextProp } = useDesktopControls()
+    return null
+  }
 
   return (
     <Box
@@ -55,7 +51,7 @@ export const Reviews = forwardRef((props, ref) => {
       backgroundColor='background.lightBeige'
       justifyContent='center'
     >
-      <Layout width='100%' maxWidth={1280}>
+      <Layout width='100%' maxWidth={1830}>
         <Column justifyContent='center' width='100%'>
           <Layout flexBasis={120} />
           <Row alignItems='center'>
@@ -70,7 +66,7 @@ export const Reviews = forwardRef((props, ref) => {
             <Layout flexGrow={1} flexBasis={[64, 64, 0]} />
             <Layout width={128}>
               <Layout display={['none', 'none', 'flex']}>
-                <Button width={44} onClick={desktopPrevProp?.onClick}>
+                <Button width={44} onClick={() => swiper?.slidePrev()}>
                   <Layout>
                     <ArrowLeftIcon />
                   </Layout>
@@ -78,7 +74,7 @@ export const Reviews = forwardRef((props, ref) => {
               </Layout>
               <Layout flexBasis={16} />
               <Layout display={['none', 'none', 'flex']}>
-                <Button width={44} onClick={desktopNextProp?.onClick}>
+                <Button width={44} onClick={() => swiper?.slideNext()}>
                   <Layout>
                     <ArrowRightIcon />
                   </Layout>
@@ -87,8 +83,36 @@ export const Reviews = forwardRef((props, ref) => {
             </Layout>
           </Row>
           <Layout flexBasis={48} />
-          <Layout display={['none', 'none', 'flex']}>{desktopCarousel}</Layout>
-          <Layout display={['flex', 'flex', 'none']}>{mobileCarousel}</Layout>
+          <Layout display={['none', 'none', 'flex']}>
+            <Swiper
+              slidesPerView={2}
+              spaceBetween={40}
+              height={300}
+              touchEventsTarget='container'
+              grabCursor
+              loop
+            >
+              {Children.map(carouselChildren, (child) => (
+                <SwiperSlide>
+                  <CarouselControlsExporter />
+                  {child}
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </Layout>
+          <Layout display={['flex', 'flex', 'none']}>
+            <Swiper
+              slidesPerView={1}
+              spaceBetween={32}
+              height={300}
+              touchEventsTarget='container'
+              grabCursor
+            >
+              {Children.map(carouselChildren, (child) => (
+                <SwiperSlide>{child}</SwiperSlide>
+              ))}
+            </Swiper>
+          </Layout>
           <Layout flexBasis={120} />
         </Column>
       </Layout>

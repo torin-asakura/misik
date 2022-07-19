@@ -20,7 +20,7 @@ const WorkDirections: FC = () => {
     <Box width='100%' height={[290, 290, 380]} backgroundColor='background.lightBeige'>
       <Column fill alignItems='center'>
         <Layout flexBasis={80} />
-        <Box width='100%' overflow='hidden' justifyContent='center'>
+        <Box width={['100%', '100%', 1830]} overflow='hidden' justifyContent='center'>
           <Carousel>
             {workDirections[language].map(({ title, featuredImage }) => (
               <Layout maxWidth={200} maxHeight={220}>

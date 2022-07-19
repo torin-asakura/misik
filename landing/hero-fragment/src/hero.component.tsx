@@ -11,6 +11,7 @@ import { Box }           from '@ui/layout'
 import { Column }        from '@ui/layout'
 import { Row }           from '@ui/layout'
 import { Layout }        from '@ui/layout'
+import { AnimateOnLoad } from '@ui/preloader'
 import { Text }          from '@ui/text'
 import { Space }         from '@ui/text'
 import { useData }       from '@globals/data'
@@ -43,11 +44,11 @@ const Hero = forwardRef((props, ref: any) => {
     <>
       <Layer visible={visible} onClose={() => setVisible(false)} />
       <Drawer active={visible} onClose={() => setVisible(false)} />
-      <Box width='100%' height='100%' backgroundColor='background.lightBeige' zIndex={1} ref={ref}>
+      <Box width='100%' height='100vh' backgroundColor='background.lightBeige' zIndex={1} ref={ref}>
         <Box
           position='relative'
           width='100%'
-          height={['100%', '100%', 1000]}
+          height='100%'
           borderRadius={['bottomMedium', 'bottomMedium', 'bottomHuge']}
           backgroundImage={['none', 'none', `url(${image.url})`]}
           backgroundSize='cover'
@@ -63,7 +64,11 @@ const Hero = forwardRef((props, ref: any) => {
             <Column>
               <Layout flexBasis={[160, 160, 240]} />
               <Layout maxWidth={1300}>
-                <Layout>
+                <AnimateOnLoad
+                  initial={{ opacity: 0, y: '100%' }}
+                  transition={{ duration: 1 }}
+                  animation={{ y: 0, opacity: 1 }}
+                >
                   <Column>
                     <Condition match={language === 'RU'}>
                       <Text
@@ -157,7 +162,7 @@ const Hero = forwardRef((props, ref: any) => {
                       </Text>
                     </Condition>
                   </Column>
-                </Layout>
+                </AnimateOnLoad>
               </Layout>
               <Layout flexBasis={[289, 289, 438]} />
               <Layout display={['none', 'none', 'flex']}>
