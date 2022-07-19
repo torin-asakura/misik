@@ -82,11 +82,6 @@ export const GlobalStyles = () => {
           pointer-events: none;
         }
         
-        .swiper {
-          max-width: 100vw;
-          display: flex;
-        }
-        
         .swiper-work-directions {
           max-width: 1830px;
         }

@@ -1,9 +1,9 @@
 import React           from 'react'
 import { FC }          from 'react'
 import { Children }    from 'react'
-import { Swiper }      from 'swiper/react'
-import { SwiperSlide } from 'swiper/react'
 
+import { Swiper }      from '@ui/carousel'
+import { SwiperSlide } from '@ui/carousel'
 import { Layout }      from '@ui/layout'
 
 const Desktop: FC = ({ children }) => (
