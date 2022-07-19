@@ -73,12 +73,24 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:landing/navigation-fragment"\
       },\
       {\
+        "name": "@landing/relocation-faq-fragment",\
+        "reference": "workspace:landing/relocation-faq-fragment"\
+      },\
+      {\
         "name": "@landing/relocation-grounds-status-fragment",\
         "reference": "workspace:landing/relocation-grounds-status-fragment"\
       },\
       {\
         "name": "@landing/relocation-hero-fragment",\
         "reference": "workspace:landing/relocation-hero-fragment"\
+      },\
+      {\
+        "name": "@landing/relocation-how-move-to-america-fragment",\
+        "reference": "workspace:landing/relocation-how-move-to-america-fragment"\
+      },\
+      {\
+        "name": "@landing/relocation-our-role-fragment",\
+        "reference": "workspace:landing/relocation-our-role-fragment"\
       },\
       {\
         "name": "@landing/relocation-page",\
@@ -201,8 +213,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@landing/index-page", ["virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#workspace:landing/index-page", "workspace:landing/index-page"]],\
       ["@landing/map-fragment", ["virtual:21a2fd08c4c294f40c9be3053921783e96f2ab4ded6b1fd2c8ed1d5b5a3f70a0a333bb0e9bf7331929dcc86f9c85655bb3c4e76ea0107dc4821d6f6e73ec5d86#workspace:landing/map-fragment", "virtual:290013263b56cab67ac42d006655b2881814b3ef4836a307ed07e7d7b8057b49a03d95376313c21826a577c56a93b2a257710a190fff33bb3e5589dd53943239#workspace:landing/map-fragment", "virtual:3b0bfd6fb1bdfaf8928d7e0acf01a3c74c1a510a72b82ba57b77448f43b8cdf9c8cbd57e3f03aede6f1a616bf43b3ba2c0afa4dcdfdfce2e37102deb178c0acb#workspace:landing/map-fragment", "virtual:3fdbd3310525f7a9a05db960401343ed19c1fc3b3b65b336d5cb9ab2bd14be2573b87f6b5d94f1858f681b90b1552565534574dd20bf87bfebc641a315804865#workspace:landing/map-fragment", "workspace:landing/map-fragment"]],\
       ["@landing/navigation-fragment", ["virtual:21a2fd08c4c294f40c9be3053921783e96f2ab4ded6b1fd2c8ed1d5b5a3f70a0a333bb0e9bf7331929dcc86f9c85655bb3c4e76ea0107dc4821d6f6e73ec5d86#workspace:landing/navigation-fragment", "virtual:290013263b56cab67ac42d006655b2881814b3ef4836a307ed07e7d7b8057b49a03d95376313c21826a577c56a93b2a257710a190fff33bb3e5589dd53943239#workspace:landing/navigation-fragment", "virtual:3b0bfd6fb1bdfaf8928d7e0acf01a3c74c1a510a72b82ba57b77448f43b8cdf9c8cbd57e3f03aede6f1a616bf43b3ba2c0afa4dcdfdfce2e37102deb178c0acb#workspace:landing/navigation-fragment", "virtual:3fdbd3310525f7a9a05db960401343ed19c1fc3b3b65b336d5cb9ab2bd14be2573b87f6b5d94f1858f681b90b1552565534574dd20bf87bfebc641a315804865#workspace:landing/navigation-fragment", "workspace:landing/navigation-fragment"]],\
+      ["@landing/relocation-faq-fragment", ["virtual:290013263b56cab67ac42d006655b2881814b3ef4836a307ed07e7d7b8057b49a03d95376313c21826a577c56a93b2a257710a190fff33bb3e5589dd53943239#workspace:landing/relocation-faq-fragment", "virtual:3fdbd3310525f7a9a05db960401343ed19c1fc3b3b65b336d5cb9ab2bd14be2573b87f6b5d94f1858f681b90b1552565534574dd20bf87bfebc641a315804865#workspace:landing/relocation-faq-fragment", "workspace:landing/relocation-faq-fragment"]],\
       ["@landing/relocation-grounds-status-fragment", ["virtual:290013263b56cab67ac42d006655b2881814b3ef4836a307ed07e7d7b8057b49a03d95376313c21826a577c56a93b2a257710a190fff33bb3e5589dd53943239#workspace:landing/relocation-grounds-status-fragment", "virtual:3fdbd3310525f7a9a05db960401343ed19c1fc3b3b65b336d5cb9ab2bd14be2573b87f6b5d94f1858f681b90b1552565534574dd20bf87bfebc641a315804865#workspace:landing/relocation-grounds-status-fragment", "workspace:landing/relocation-grounds-status-fragment"]],\
       ["@landing/relocation-hero-fragment", ["virtual:290013263b56cab67ac42d006655b2881814b3ef4836a307ed07e7d7b8057b49a03d95376313c21826a577c56a93b2a257710a190fff33bb3e5589dd53943239#workspace:landing/relocation-hero-fragment", "virtual:3fdbd3310525f7a9a05db960401343ed19c1fc3b3b65b336d5cb9ab2bd14be2573b87f6b5d94f1858f681b90b1552565534574dd20bf87bfebc641a315804865#workspace:landing/relocation-hero-fragment", "workspace:landing/relocation-hero-fragment"]],\
+      ["@landing/relocation-how-move-to-america-fragment", ["virtual:290013263b56cab67ac42d006655b2881814b3ef4836a307ed07e7d7b8057b49a03d95376313c21826a577c56a93b2a257710a190fff33bb3e5589dd53943239#workspace:landing/relocation-how-move-to-america-fragment", "virtual:3fdbd3310525f7a9a05db960401343ed19c1fc3b3b65b336d5cb9ab2bd14be2573b87f6b5d94f1858f681b90b1552565534574dd20bf87bfebc641a315804865#workspace:landing/relocation-how-move-to-america-fragment", "workspace:landing/relocation-how-move-to-america-fragment"]],\
+      ["@landing/relocation-our-role-fragment", ["virtual:290013263b56cab67ac42d006655b2881814b3ef4836a307ed07e7d7b8057b49a03d95376313c21826a577c56a93b2a257710a190fff33bb3e5589dd53943239#workspace:landing/relocation-our-role-fragment", "virtual:3fdbd3310525f7a9a05db960401343ed19c1fc3b3b65b336d5cb9ab2bd14be2573b87f6b5d94f1858f681b90b1552565534574dd20bf87bfebc641a315804865#workspace:landing/relocation-our-role-fragment", "workspace:landing/relocation-our-role-fragment"]],\
       ["@landing/relocation-page", ["virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#workspace:landing/relocation-page", "workspace:landing/relocation-page"]],\
       ["@landing/relocation-program-benefits-fragment", ["virtual:290013263b56cab67ac42d006655b2881814b3ef4836a307ed07e7d7b8057b49a03d95376313c21826a577c56a93b2a257710a190fff33bb3e5589dd53943239#workspace:landing/relocation-program-benefits-fragment", "virtual:3fdbd3310525f7a9a05db960401343ed19c1fc3b3b65b336d5cb9ab2bd14be2573b87f6b5d94f1858f681b90b1552565534574dd20bf87bfebc641a315804865#workspace:landing/relocation-program-benefits-fragment", "workspace:landing/relocation-program-benefits-fragment"]],\
       ["@landing/reviews-fragment", ["virtual:03894f76ff274bf63520d2531e053cad24a096297a47e20af4967b810c07cd5f2c5f80834fddb64bfa48f7d787f2e1ead071f9eed4b5441ea76cbb357f06cde8#workspace:landing/reviews-fragment", "virtual:f5678eb3990f5cba807d054c445d5157fb5c83c577fbf6ca25f95a9c2a52ab48eb636a26a1b23220d8414a543eae9d0c64d7e42aa64e850515edbed9e79b65b6#workspace:landing/reviews-fragment", "workspace:landing/reviews-fragment"]],\
@@ -4672,6 +4687,133 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "SOFT"\
         }]\
       ]],\
+      ["@landing/relocation-faq-fragment", [\
+        ["virtual:290013263b56cab67ac42d006655b2881814b3ef4836a307ed07e7d7b8057b49a03d95376313c21826a577c56a93b2a257710a190fff33bb3e5589dd53943239#workspace:landing/relocation-faq-fragment", {\
+          "packageLocation": "./.yarn/__virtual__/@landing-relocation-faq-fragment-virtual-62606b1e1e/1/landing/relocation-faq-fragment/",\
+          "packageDependencies": [\
+            ["@landing/relocation-faq-fragment", "virtual:290013263b56cab67ac42d006655b2881814b3ef4836a307ed07e7d7b8057b49a03d95376313c21826a577c56a93b2a257710a190fff33bb3e5589dd53943239#workspace:landing/relocation-faq-fragment"],\
+            ["@apollo/client", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:3.6.9"],\
+            ["@emotion/react", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:11.9.3"],\
+            ["@emotion/styled", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:11.9.3"],\
+            ["@globals/data", "virtual:3b0bfd6fb1bdfaf8928d7e0acf01a3c74c1a510a72b82ba57b77448f43b8cdf9c8cbd57e3f03aede6f1a616bf43b3ba2c0afa4dcdfdfce2e37102deb178c0acb#workspace:globals/data"],\
+            ["@globals/language", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#workspace:globals/language"],\
+            ["@types/apollo__client", null],\
+            ["@types/emotion__react", null],\
+            ["@types/emotion__styled", null],\
+            ["@types/globals__data", null],\
+            ["@types/globals__language", null],\
+            ["@types/next", null],\
+            ["@types/react", "npm:17.0.47"],\
+            ["@types/react-dom", "npm:17.0.17"],\
+            ["@types/styled-system", "npm:5.1.13"],\
+            ["@types/ui__spy-scroll", null],\
+            ["@ui/accordeon", "virtual:3aaae67c5338a6384204d927fb6ee48e25a3e2dd759e7fb314919d8c174fd64c1f6675473909016a3ac4df6e02432951f185b8ec44645dc697746efa9a6b7232#workspace:ui/accordeon"],\
+            ["@ui/divider", "virtual:eb074ad7dd4e3b8395f8d36ac7fb7c4abbbad3585cd163bd844e516940e5a8e18b9de5a30dfde0ad445768aac0d8a7f2d2b9d63d95ea7ee94250dde9d664e918#workspace:ui/divider"],\
+            ["@ui/layout", "virtual:3b0bfd6fb1bdfaf8928d7e0acf01a3c74c1a510a72b82ba57b77448f43b8cdf9c8cbd57e3f03aede6f1a616bf43b3ba2c0afa4dcdfdfce2e37102deb178c0acb#workspace:ui/layout"],\
+            ["@ui/spy-scroll", "virtual:3b0bfd6fb1bdfaf8928d7e0acf01a3c74c1a510a72b82ba57b77448f43b8cdf9c8cbd57e3f03aede6f1a616bf43b3ba2c0afa4dcdfdfce2e37102deb178c0acb#workspace:ui/spy-scroll"],\
+            ["@ui/text", "virtual:fdfc0347cdb41d50b5e57e3d4a2754692d9df7b5f359f63b046f7c5be68980692ca04516892d45b437b138660e850138efce92f11ef9be93e8014dc64d79c008#workspace:ui/text"],\
+            ["next", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:12.1.0"],\
+            ["react", "npm:17.0.2"],\
+            ["react-dom", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:17.0.2"],\
+            ["styled-system", "npm:5.1.5"]\
+          ],\
+          "packagePeers": [\
+            "@apollo/client",\
+            "@emotion/react",\
+            "@emotion/styled",\
+            "@globals/data",\
+            "@globals/language",\
+            "@types/apollo__client",\
+            "@types/emotion__react",\
+            "@types/emotion__styled",\
+            "@types/globals__data",\
+            "@types/globals__language",\
+            "@types/next",\
+            "@types/react-dom",\
+            "@types/react",\
+            "@types/styled-system",\
+            "@types/ui__spy-scroll",\
+            "next",\
+            "react-dom",\
+            "react",\
+            "styled-system"\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:3fdbd3310525f7a9a05db960401343ed19c1fc3b3b65b336d5cb9ab2bd14be2573b87f6b5d94f1858f681b90b1552565534574dd20bf87bfebc641a315804865#workspace:landing/relocation-faq-fragment", {\
+          "packageLocation": "./.yarn/__virtual__/@landing-relocation-faq-fragment-virtual-1e084c0602/1/landing/relocation-faq-fragment/",\
+          "packageDependencies": [\
+            ["@landing/relocation-faq-fragment", "virtual:3fdbd3310525f7a9a05db960401343ed19c1fc3b3b65b336d5cb9ab2bd14be2573b87f6b5d94f1858f681b90b1552565534574dd20bf87bfebc641a315804865#workspace:landing/relocation-faq-fragment"],\
+            ["@apollo/client", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#npm:3.6.9"],\
+            ["@emotion/react", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#npm:11.9.3"],\
+            ["@emotion/styled", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#npm:11.9.3"],\
+            ["@globals/data", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#workspace:globals/data"],\
+            ["@globals/language", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#workspace:globals/language"],\
+            ["@types/apollo__client", null],\
+            ["@types/emotion__react", null],\
+            ["@types/emotion__styled", null],\
+            ["@types/globals__data", null],\
+            ["@types/globals__language", null],\
+            ["@types/next", null],\
+            ["@types/react", null],\
+            ["@types/react-dom", null],\
+            ["@types/styled-system", "npm:5.1.13"],\
+            ["@types/ui__spy-scroll", null],\
+            ["@ui/accordeon", "virtual:029642b1350331828ab08da9e90d7a2ce97944b28969224c96462e866425eba3db5a21e7699b39e45a7407ebe9b34eae2aa44d8350f7eb7c45299e5cea3e19c7#workspace:ui/accordeon"],\
+            ["@ui/divider", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#workspace:ui/divider"],\
+            ["@ui/layout", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#workspace:ui/layout"],\
+            ["@ui/spy-scroll", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#workspace:ui/spy-scroll"],\
+            ["@ui/text", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#workspace:ui/text"],\
+            ["next", null],\
+            ["react", "npm:17.0.2"],\
+            ["react-dom", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#npm:17.0.2"],\
+            ["styled-system", "npm:5.1.5"]\
+          ],\
+          "packagePeers": [\
+            "@apollo/client",\
+            "@emotion/react",\
+            "@emotion/styled",\
+            "@globals/data",\
+            "@globals/language",\
+            "@types/apollo__client",\
+            "@types/emotion__react",\
+            "@types/emotion__styled",\
+            "@types/globals__data",\
+            "@types/globals__language",\
+            "@types/next",\
+            "@types/react-dom",\
+            "@types/react",\
+            "@types/styled-system",\
+            "@types/ui__spy-scroll",\
+            "next",\
+            "react-dom",\
+            "react",\
+            "styled-system"\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["workspace:landing/relocation-faq-fragment", {\
+          "packageLocation": "./landing/relocation-faq-fragment/",\
+          "packageDependencies": [\
+            ["@landing/relocation-faq-fragment", "workspace:landing/relocation-faq-fragment"],\
+            ["@apollo/client", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#npm:3.6.9"],\
+            ["@emotion/react", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#npm:11.9.3"],\
+            ["@emotion/styled", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#npm:11.9.3"],\
+            ["@globals/data", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#workspace:globals/data"],\
+            ["@globals/language", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#workspace:globals/language"],\
+            ["@types/styled-system", "npm:5.1.13"],\
+            ["@ui/accordeon", "virtual:029642b1350331828ab08da9e90d7a2ce97944b28969224c96462e866425eba3db5a21e7699b39e45a7407ebe9b34eae2aa44d8350f7eb7c45299e5cea3e19c7#workspace:ui/accordeon"],\
+            ["@ui/divider", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#workspace:ui/divider"],\
+            ["@ui/layout", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#workspace:ui/layout"],\
+            ["@ui/spy-scroll", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#workspace:ui/spy-scroll"],\
+            ["@ui/text", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#workspace:ui/text"],\
+            ["react", "npm:17.0.2"],\
+            ["react-dom", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#npm:17.0.2"],\
+            ["styled-system", "npm:5.1.5"]\
+          ],\
+          "linkType": "SOFT"\
+        }]\
+      ]],\
       ["@landing/relocation-grounds-status-fragment", [\
         ["virtual:290013263b56cab67ac42d006655b2881814b3ef4836a307ed07e7d7b8057b49a03d95376313c21826a577c56a93b2a257710a190fff33bb3e5589dd53943239#workspace:landing/relocation-grounds-status-fragment", {\
           "packageLocation": "./.yarn/__virtual__/@landing-relocation-grounds-status-fragment-virtual-4e28d4b523/1/landing/relocation-grounds-status-fragment/",\
@@ -4938,6 +5080,266 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "SOFT"\
         }]\
       ]],\
+      ["@landing/relocation-how-move-to-america-fragment", [\
+        ["virtual:290013263b56cab67ac42d006655b2881814b3ef4836a307ed07e7d7b8057b49a03d95376313c21826a577c56a93b2a257710a190fff33bb3e5589dd53943239#workspace:landing/relocation-how-move-to-america-fragment", {\
+          "packageLocation": "./.yarn/__virtual__/@landing-relocation-how-move-to-america-fragment-virtual-bb7ab7279a/1/landing/relocation-how-move-to-america-fragment/",\
+          "packageDependencies": [\
+            ["@landing/relocation-how-move-to-america-fragment", "virtual:290013263b56cab67ac42d006655b2881814b3ef4836a307ed07e7d7b8057b49a03d95376313c21826a577c56a93b2a257710a190fff33bb3e5589dd53943239#workspace:landing/relocation-how-move-to-america-fragment"],\
+            ["@apollo/client", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:3.6.9"],\
+            ["@emotion/react", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:11.9.3"],\
+            ["@emotion/styled", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:11.9.3"],\
+            ["@globals/data", "virtual:3b0bfd6fb1bdfaf8928d7e0acf01a3c74c1a510a72b82ba57b77448f43b8cdf9c8cbd57e3f03aede6f1a616bf43b3ba2c0afa4dcdfdfce2e37102deb178c0acb#workspace:globals/data"],\
+            ["@globals/language", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#workspace:globals/language"],\
+            ["@globals/messages", "workspace:globals/messages"],\
+            ["@types/apollo__client", null],\
+            ["@types/emotion__react", null],\
+            ["@types/emotion__styled", null],\
+            ["@types/globals__data", null],\
+            ["@types/globals__language", null],\
+            ["@types/next", null],\
+            ["@types/react", "npm:17.0.47"],\
+            ["@types/react-dom", "npm:17.0.17"],\
+            ["@types/styled-system", "npm:5.1.13"],\
+            ["@types/ui__spy-scroll", null],\
+            ["@ui/button", "virtual:fdfc0347cdb41d50b5e57e3d4a2754692d9df7b5f359f63b046f7c5be68980692ca04516892d45b437b138660e850138efce92f11ef9be93e8014dc64d79c008#workspace:ui/button"],\
+            ["@ui/divider", "virtual:eb074ad7dd4e3b8395f8d36ac7fb7c4abbbad3585cd163bd844e516940e5a8e18b9de5a30dfde0ad445768aac0d8a7f2d2b9d63d95ea7ee94250dde9d664e918#workspace:ui/divider"],\
+            ["@ui/image", "virtual:0ee0c17d0d840785b5fa66a1065998ff1ca54d62c04fc36a720293c1b41373b042e06b67a0a26dd9cff0d7cb532bc9b26bcdb5ac35fae14ab9e5cfc9a25db775#workspace:ui/image"],\
+            ["@ui/layout", "virtual:3b0bfd6fb1bdfaf8928d7e0acf01a3c74c1a510a72b82ba57b77448f43b8cdf9c8cbd57e3f03aede6f1a616bf43b3ba2c0afa4dcdfdfce2e37102deb178c0acb#workspace:ui/layout"],\
+            ["@ui/spy-scroll", "virtual:3b0bfd6fb1bdfaf8928d7e0acf01a3c74c1a510a72b82ba57b77448f43b8cdf9c8cbd57e3f03aede6f1a616bf43b3ba2c0afa4dcdfdfce2e37102deb178c0acb#workspace:ui/spy-scroll"],\
+            ["@ui/text", "virtual:fdfc0347cdb41d50b5e57e3d4a2754692d9df7b5f359f63b046f7c5be68980692ca04516892d45b437b138660e850138efce92f11ef9be93e8014dc64d79c008#workspace:ui/text"],\
+            ["framer-motion", "virtual:0ee0c17d0d840785b5fa66a1065998ff1ca54d62c04fc36a720293c1b41373b042e06b67a0a26dd9cff0d7cb532bc9b26bcdb5ac35fae14ab9e5cfc9a25db775#npm:6.5.1"],\
+            ["next", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:12.1.0"],\
+            ["react", "npm:17.0.2"],\
+            ["react-dom", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:17.0.2"],\
+            ["styled-system", "npm:5.1.5"]\
+          ],\
+          "packagePeers": [\
+            "@apollo/client",\
+            "@emotion/react",\
+            "@emotion/styled",\
+            "@globals/data",\
+            "@globals/language",\
+            "@types/apollo__client",\
+            "@types/emotion__react",\
+            "@types/emotion__styled",\
+            "@types/globals__data",\
+            "@types/globals__language",\
+            "@types/next",\
+            "@types/react-dom",\
+            "@types/react",\
+            "@types/styled-system",\
+            "@types/ui__spy-scroll",\
+            "next",\
+            "react-dom",\
+            "react",\
+            "styled-system"\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:3fdbd3310525f7a9a05db960401343ed19c1fc3b3b65b336d5cb9ab2bd14be2573b87f6b5d94f1858f681b90b1552565534574dd20bf87bfebc641a315804865#workspace:landing/relocation-how-move-to-america-fragment", {\
+          "packageLocation": "./.yarn/__virtual__/@landing-relocation-how-move-to-america-fragment-virtual-14805e0a52/1/landing/relocation-how-move-to-america-fragment/",\
+          "packageDependencies": [\
+            ["@landing/relocation-how-move-to-america-fragment", "virtual:3fdbd3310525f7a9a05db960401343ed19c1fc3b3b65b336d5cb9ab2bd14be2573b87f6b5d94f1858f681b90b1552565534574dd20bf87bfebc641a315804865#workspace:landing/relocation-how-move-to-america-fragment"],\
+            ["@apollo/client", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#npm:3.6.9"],\
+            ["@emotion/react", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#npm:11.9.3"],\
+            ["@emotion/styled", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#npm:11.9.3"],\
+            ["@globals/data", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#workspace:globals/data"],\
+            ["@globals/language", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#workspace:globals/language"],\
+            ["@globals/messages", "workspace:globals/messages"],\
+            ["@types/apollo__client", null],\
+            ["@types/emotion__react", null],\
+            ["@types/emotion__styled", null],\
+            ["@types/globals__data", null],\
+            ["@types/globals__language", null],\
+            ["@types/next", null],\
+            ["@types/react", null],\
+            ["@types/react-dom", null],\
+            ["@types/styled-system", "npm:5.1.13"],\
+            ["@types/ui__spy-scroll", null],\
+            ["@ui/button", "virtual:0a9550716dd79c75a3e5744b0d8131c471aacf14293a7fb3ed8b6b275514763b8cde9c08c44fde1c38bdb1e91eea360dc4ff32245e7135263710c01f4e7ef328#workspace:ui/button"],\
+            ["@ui/divider", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#workspace:ui/divider"],\
+            ["@ui/image", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#workspace:ui/image"],\
+            ["@ui/layout", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#workspace:ui/layout"],\
+            ["@ui/spy-scroll", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#workspace:ui/spy-scroll"],\
+            ["@ui/text", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#workspace:ui/text"],\
+            ["framer-motion", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#npm:6.5.1"],\
+            ["next", null],\
+            ["react", "npm:17.0.2"],\
+            ["react-dom", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#npm:17.0.2"],\
+            ["styled-system", "npm:5.1.5"]\
+          ],\
+          "packagePeers": [\
+            "@apollo/client",\
+            "@emotion/react",\
+            "@emotion/styled",\
+            "@globals/data",\
+            "@globals/language",\
+            "@types/apollo__client",\
+            "@types/emotion__react",\
+            "@types/emotion__styled",\
+            "@types/globals__data",\
+            "@types/globals__language",\
+            "@types/next",\
+            "@types/react-dom",\
+            "@types/react",\
+            "@types/styled-system",\
+            "@types/ui__spy-scroll",\
+            "next",\
+            "react-dom",\
+            "react",\
+            "styled-system"\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["workspace:landing/relocation-how-move-to-america-fragment", {\
+          "packageLocation": "./landing/relocation-how-move-to-america-fragment/",\
+          "packageDependencies": [\
+            ["@landing/relocation-how-move-to-america-fragment", "workspace:landing/relocation-how-move-to-america-fragment"],\
+            ["@apollo/client", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#npm:3.6.9"],\
+            ["@emotion/react", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#npm:11.9.3"],\
+            ["@emotion/styled", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#npm:11.9.3"],\
+            ["@globals/data", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#workspace:globals/data"],\
+            ["@globals/language", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#workspace:globals/language"],\
+            ["@globals/messages", "workspace:globals/messages"],\
+            ["@types/styled-system", "npm:5.1.13"],\
+            ["@ui/button", "virtual:0a9550716dd79c75a3e5744b0d8131c471aacf14293a7fb3ed8b6b275514763b8cde9c08c44fde1c38bdb1e91eea360dc4ff32245e7135263710c01f4e7ef328#workspace:ui/button"],\
+            ["@ui/divider", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#workspace:ui/divider"],\
+            ["@ui/image", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#workspace:ui/image"],\
+            ["@ui/layout", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#workspace:ui/layout"],\
+            ["@ui/spy-scroll", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#workspace:ui/spy-scroll"],\
+            ["@ui/text", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#workspace:ui/text"],\
+            ["framer-motion", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#npm:6.5.1"],\
+            ["react", "npm:17.0.2"],\
+            ["react-dom", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#npm:17.0.2"],\
+            ["styled-system", "npm:5.1.5"]\
+          ],\
+          "linkType": "SOFT"\
+        }]\
+      ]],\
+      ["@landing/relocation-our-role-fragment", [\
+        ["virtual:290013263b56cab67ac42d006655b2881814b3ef4836a307ed07e7d7b8057b49a03d95376313c21826a577c56a93b2a257710a190fff33bb3e5589dd53943239#workspace:landing/relocation-our-role-fragment", {\
+          "packageLocation": "./.yarn/__virtual__/@landing-relocation-our-role-fragment-virtual-05ce577cf6/1/landing/relocation-our-role-fragment/",\
+          "packageDependencies": [\
+            ["@landing/relocation-our-role-fragment", "virtual:290013263b56cab67ac42d006655b2881814b3ef4836a307ed07e7d7b8057b49a03d95376313c21826a577c56a93b2a257710a190fff33bb3e5589dd53943239#workspace:landing/relocation-our-role-fragment"],\
+            ["@apollo/client", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:3.6.9"],\
+            ["@emotion/react", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:11.9.3"],\
+            ["@emotion/styled", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:11.9.3"],\
+            ["@globals/data", "virtual:3b0bfd6fb1bdfaf8928d7e0acf01a3c74c1a510a72b82ba57b77448f43b8cdf9c8cbd57e3f03aede6f1a616bf43b3ba2c0afa4dcdfdfce2e37102deb178c0acb#workspace:globals/data"],\
+            ["@globals/language", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#workspace:globals/language"],\
+            ["@types/apollo__client", null],\
+            ["@types/emotion__react", null],\
+            ["@types/emotion__styled", null],\
+            ["@types/globals__data", null],\
+            ["@types/globals__language", null],\
+            ["@types/next", null],\
+            ["@types/react", "npm:17.0.47"],\
+            ["@types/react-dom", "npm:17.0.17"],\
+            ["@types/styled-system", "npm:5.1.13"],\
+            ["@types/ui__spy-scroll", null],\
+            ["@ui/image", "virtual:0ee0c17d0d840785b5fa66a1065998ff1ca54d62c04fc36a720293c1b41373b042e06b67a0a26dd9cff0d7cb532bc9b26bcdb5ac35fae14ab9e5cfc9a25db775#workspace:ui/image"],\
+            ["@ui/layout", "virtual:3b0bfd6fb1bdfaf8928d7e0acf01a3c74c1a510a72b82ba57b77448f43b8cdf9c8cbd57e3f03aede6f1a616bf43b3ba2c0afa4dcdfdfce2e37102deb178c0acb#workspace:ui/layout"],\
+            ["@ui/spy-scroll", "virtual:3b0bfd6fb1bdfaf8928d7e0acf01a3c74c1a510a72b82ba57b77448f43b8cdf9c8cbd57e3f03aede6f1a616bf43b3ba2c0afa4dcdfdfce2e37102deb178c0acb#workspace:ui/spy-scroll"],\
+            ["@ui/text", "virtual:fdfc0347cdb41d50b5e57e3d4a2754692d9df7b5f359f63b046f7c5be68980692ca04516892d45b437b138660e850138efce92f11ef9be93e8014dc64d79c008#workspace:ui/text"],\
+            ["next", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:12.1.0"],\
+            ["react", "npm:17.0.2"],\
+            ["react-dom", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:17.0.2"],\
+            ["styled-system", "npm:5.1.5"]\
+          ],\
+          "packagePeers": [\
+            "@apollo/client",\
+            "@emotion/react",\
+            "@emotion/styled",\
+            "@globals/data",\
+            "@globals/language",\
+            "@types/apollo__client",\
+            "@types/emotion__react",\
+            "@types/emotion__styled",\
+            "@types/globals__data",\
+            "@types/globals__language",\
+            "@types/next",\
+            "@types/react-dom",\
+            "@types/react",\
+            "@types/styled-system",\
+            "@types/ui__spy-scroll",\
+            "next",\
+            "react-dom",\
+            "react",\
+            "styled-system"\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:3fdbd3310525f7a9a05db960401343ed19c1fc3b3b65b336d5cb9ab2bd14be2573b87f6b5d94f1858f681b90b1552565534574dd20bf87bfebc641a315804865#workspace:landing/relocation-our-role-fragment", {\
+          "packageLocation": "./.yarn/__virtual__/@landing-relocation-our-role-fragment-virtual-07c370a3de/1/landing/relocation-our-role-fragment/",\
+          "packageDependencies": [\
+            ["@landing/relocation-our-role-fragment", "virtual:3fdbd3310525f7a9a05db960401343ed19c1fc3b3b65b336d5cb9ab2bd14be2573b87f6b5d94f1858f681b90b1552565534574dd20bf87bfebc641a315804865#workspace:landing/relocation-our-role-fragment"],\
+            ["@apollo/client", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#npm:3.6.9"],\
+            ["@emotion/react", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#npm:11.9.3"],\
+            ["@emotion/styled", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#npm:11.9.3"],\
+            ["@globals/data", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#workspace:globals/data"],\
+            ["@globals/language", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#workspace:globals/language"],\
+            ["@types/apollo__client", null],\
+            ["@types/emotion__react", null],\
+            ["@types/emotion__styled", null],\
+            ["@types/globals__data", null],\
+            ["@types/globals__language", null],\
+            ["@types/next", null],\
+            ["@types/react", null],\
+            ["@types/react-dom", null],\
+            ["@types/styled-system", "npm:5.1.13"],\
+            ["@types/ui__spy-scroll", null],\
+            ["@ui/image", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#workspace:ui/image"],\
+            ["@ui/layout", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#workspace:ui/layout"],\
+            ["@ui/spy-scroll", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#workspace:ui/spy-scroll"],\
+            ["@ui/text", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#workspace:ui/text"],\
+            ["next", null],\
+            ["react", "npm:17.0.2"],\
+            ["react-dom", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#npm:17.0.2"],\
+            ["styled-system", "npm:5.1.5"]\
+          ],\
+          "packagePeers": [\
+            "@apollo/client",\
+            "@emotion/react",\
+            "@emotion/styled",\
+            "@globals/data",\
+            "@globals/language",\
+            "@types/apollo__client",\
+            "@types/emotion__react",\
+            "@types/emotion__styled",\
+            "@types/globals__data",\
+            "@types/globals__language",\
+            "@types/next",\
+            "@types/react-dom",\
+            "@types/react",\
+            "@types/styled-system",\
+            "@types/ui__spy-scroll",\
+            "next",\
+            "react-dom",\
+            "react",\
+            "styled-system"\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["workspace:landing/relocation-our-role-fragment", {\
+          "packageLocation": "./landing/relocation-our-role-fragment/",\
+          "packageDependencies": [\
+            ["@landing/relocation-our-role-fragment", "workspace:landing/relocation-our-role-fragment"],\
+            ["@apollo/client", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#npm:3.6.9"],\
+            ["@emotion/react", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#npm:11.9.3"],\
+            ["@emotion/styled", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#npm:11.9.3"],\
+            ["@globals/data", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#workspace:globals/data"],\
+            ["@globals/language", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#workspace:globals/language"],\
+            ["@types/styled-system", "npm:5.1.13"],\
+            ["@ui/image", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#workspace:ui/image"],\
+            ["@ui/layout", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#workspace:ui/layout"],\
+            ["@ui/spy-scroll", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#workspace:ui/spy-scroll"],\
+            ["@ui/text", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#workspace:ui/text"],\
+            ["react", "npm:17.0.2"],\
+            ["react-dom", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#npm:17.0.2"],\
+            ["styled-system", "npm:5.1.5"]\
+          ],\
+          "linkType": "SOFT"\
+        }]\
+      ]],\
       ["@landing/relocation-page", [\
         ["virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#workspace:landing/relocation-page", {\
           "packageLocation": "./.yarn/__virtual__/@landing-relocation-page-virtual-290013263b/1/landing/relocation-page/",\
@@ -4952,8 +5354,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@landing/footer-fragment", "virtual:3b0bfd6fb1bdfaf8928d7e0acf01a3c74c1a510a72b82ba57b77448f43b8cdf9c8cbd57e3f03aede6f1a616bf43b3ba2c0afa4dcdfdfce2e37102deb178c0acb#workspace:landing/footer-fragment"],\
             ["@landing/map-fragment", "virtual:290013263b56cab67ac42d006655b2881814b3ef4836a307ed07e7d7b8057b49a03d95376313c21826a577c56a93b2a257710a190fff33bb3e5589dd53943239#workspace:landing/map-fragment"],\
             ["@landing/navigation-fragment", "virtual:290013263b56cab67ac42d006655b2881814b3ef4836a307ed07e7d7b8057b49a03d95376313c21826a577c56a93b2a257710a190fff33bb3e5589dd53943239#workspace:landing/navigation-fragment"],\
+            ["@landing/relocation-faq-fragment", "virtual:290013263b56cab67ac42d006655b2881814b3ef4836a307ed07e7d7b8057b49a03d95376313c21826a577c56a93b2a257710a190fff33bb3e5589dd53943239#workspace:landing/relocation-faq-fragment"],\
             ["@landing/relocation-grounds-status-fragment", "virtual:290013263b56cab67ac42d006655b2881814b3ef4836a307ed07e7d7b8057b49a03d95376313c21826a577c56a93b2a257710a190fff33bb3e5589dd53943239#workspace:landing/relocation-grounds-status-fragment"],\
             ["@landing/relocation-hero-fragment", "virtual:290013263b56cab67ac42d006655b2881814b3ef4836a307ed07e7d7b8057b49a03d95376313c21826a577c56a93b2a257710a190fff33bb3e5589dd53943239#workspace:landing/relocation-hero-fragment"],\
+            ["@landing/relocation-how-move-to-america-fragment", "virtual:290013263b56cab67ac42d006655b2881814b3ef4836a307ed07e7d7b8057b49a03d95376313c21826a577c56a93b2a257710a190fff33bb3e5589dd53943239#workspace:landing/relocation-how-move-to-america-fragment"],\
+            ["@landing/relocation-our-role-fragment", "virtual:290013263b56cab67ac42d006655b2881814b3ef4836a307ed07e7d7b8057b49a03d95376313c21826a577c56a93b2a257710a190fff33bb3e5589dd53943239#workspace:landing/relocation-our-role-fragment"],\
             ["@landing/relocation-program-benefits-fragment", "virtual:290013263b56cab67ac42d006655b2881814b3ef4836a307ed07e7d7b8057b49a03d95376313c21826a577c56a93b2a257710a190fff33bb3e5589dd53943239#workspace:landing/relocation-program-benefits-fragment"],\
             ["@types/apollo__client", null],\
             ["@types/emotion__react", null],\
@@ -5002,8 +5407,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@landing/footer-fragment", "virtual:21a2fd08c4c294f40c9be3053921783e96f2ab4ded6b1fd2c8ed1d5b5a3f70a0a333bb0e9bf7331929dcc86f9c85655bb3c4e76ea0107dc4821d6f6e73ec5d86#workspace:landing/footer-fragment"],\
             ["@landing/map-fragment", "virtual:3fdbd3310525f7a9a05db960401343ed19c1fc3b3b65b336d5cb9ab2bd14be2573b87f6b5d94f1858f681b90b1552565534574dd20bf87bfebc641a315804865#workspace:landing/map-fragment"],\
             ["@landing/navigation-fragment", "virtual:3fdbd3310525f7a9a05db960401343ed19c1fc3b3b65b336d5cb9ab2bd14be2573b87f6b5d94f1858f681b90b1552565534574dd20bf87bfebc641a315804865#workspace:landing/navigation-fragment"],\
+            ["@landing/relocation-faq-fragment", "virtual:3fdbd3310525f7a9a05db960401343ed19c1fc3b3b65b336d5cb9ab2bd14be2573b87f6b5d94f1858f681b90b1552565534574dd20bf87bfebc641a315804865#workspace:landing/relocation-faq-fragment"],\
             ["@landing/relocation-grounds-status-fragment", "virtual:3fdbd3310525f7a9a05db960401343ed19c1fc3b3b65b336d5cb9ab2bd14be2573b87f6b5d94f1858f681b90b1552565534574dd20bf87bfebc641a315804865#workspace:landing/relocation-grounds-status-fragment"],\
             ["@landing/relocation-hero-fragment", "virtual:3fdbd3310525f7a9a05db960401343ed19c1fc3b3b65b336d5cb9ab2bd14be2573b87f6b5d94f1858f681b90b1552565534574dd20bf87bfebc641a315804865#workspace:landing/relocation-hero-fragment"],\
+            ["@landing/relocation-how-move-to-america-fragment", "virtual:3fdbd3310525f7a9a05db960401343ed19c1fc3b3b65b336d5cb9ab2bd14be2573b87f6b5d94f1858f681b90b1552565534574dd20bf87bfebc641a315804865#workspace:landing/relocation-how-move-to-america-fragment"],\
+            ["@landing/relocation-our-role-fragment", "virtual:3fdbd3310525f7a9a05db960401343ed19c1fc3b3b65b336d5cb9ab2bd14be2573b87f6b5d94f1858f681b90b1552565534574dd20bf87bfebc641a315804865#workspace:landing/relocation-our-role-fragment"],\
             ["@landing/relocation-program-benefits-fragment", "virtual:3fdbd3310525f7a9a05db960401343ed19c1fc3b3b65b336d5cb9ab2bd14be2573b87f6b5d94f1858f681b90b1552565534574dd20bf87bfebc641a315804865#workspace:landing/relocation-program-benefits-fragment"],\
             ["@types/react-helmet", "npm:6.1.2"],\
             ["@types/styled-system", "npm:5.1.13"],\

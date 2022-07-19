@@ -19,7 +19,7 @@ import { Minus }            from './icons'
 import { Plus }             from './icons'
 import { TriggerContainer } from './trigger-container'
 
-const Accordeon: FC<AccordeonProps> = ({ title, content }) => {
+const Accordeon: FC<AccordeonProps> = ({ title, content, isService = true }) => {
   const [active, setActive] = useState<boolean>(false)
   const [language] = useLanguage()
   const [visible, setVisible] = useState<boolean>(false)
@@ -53,7 +53,6 @@ const Accordeon: FC<AccordeonProps> = ({ title, content }) => {
               fontSize={['semiLarge', 'semiLarge', 'large']}
               fontFamily='secondary'
               textTransform='uppercase'
-              whiteSpace={['break-all', 'break-all', 'nowrap']}
             >
               {title}
             </Text>
@@ -67,12 +66,14 @@ const Accordeon: FC<AccordeonProps> = ({ title, content }) => {
                 {content}
               </Text>
             </Layout>
-            <Layout flexBasis={20} flexShrink={0} />
-            <Layout flexShrink={0}>
-              <Button colors='secondary' width={119} height={26} onClick={() => setVisible(true)}>
-                {messages.orderService[language]}
-              </Button>
-            </Layout>
+            <Condition match={isService}>
+              <Layout flexBasis={20} flexShrink={0} />
+              <Layout flexShrink={0}>
+                <Button colors='secondary' width={119} height={26} onClick={() => setVisible(true)}>
+                  {messages.orderService[language]}
+                </Button>
+              </Layout>
+            </Condition>
           </ContentContainer>
         </Layout>
       </Column>

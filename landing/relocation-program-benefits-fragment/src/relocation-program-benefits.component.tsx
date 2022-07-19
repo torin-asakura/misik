@@ -18,7 +18,7 @@ const RelocationProgramBenefits: FC = () => {
 
   return (
     <Box width='100%' justifyContent='center' backgroundColor='background.beige'>
-      <Layout flexBasis={[20, 20, 397]} flexShrink={0} />
+      <Layout flexBasis={[20, 20, 397]} flexShrink={[0, 0, 1]} />
       <Layout maxWidth={1284}>
         <Column fill height='auto'>
           <Layout flexBasis={[64, 64, 160]} flexShrink={0} />
@@ -77,7 +77,7 @@ const RelocationProgramBenefits: FC = () => {
           <Layout flexBasis={[64, 64, 80]} flexShrink={0} />
         </Column>
       </Layout>
-      <Layout flexBasis={[20, 20, 239]} flexShrink={0} />
+      <Layout flexBasis={[20, 20, 239]} flexShrink={[0, 0, 1]} />
     </Box>
   )
 }

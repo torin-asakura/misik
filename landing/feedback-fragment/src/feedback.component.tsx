@@ -142,6 +142,7 @@ const Feedback: FC<FeedbackProps> = forwardRef((
                       fontSize={['large', 'large', 'enlarged']}
                       fontWeight='thin'
                       itemProp='telephone'
+                      fontFamily='secondary'
                     >
                       {phone}
                     </Link>

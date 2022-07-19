@@ -17,7 +17,7 @@ const RelocationGroundsStatus: FC = () => {
 
   return (
     <Box width='100%' justifyContent='center' backgroundColor='background.lightBeige'>
-      <Layout flexBasis={[20, 20, 397]} flexShrink={0} />
+      <Layout flexBasis={[20, 20, 397]} flexShrink={[0, 0, 1]} />
       <Layout maxWidth={1243}>
         <Column fill height='auto'>
           <Layout flexBasis={[64, 64, 160]} flexShrink={0} />
@@ -81,7 +81,7 @@ const RelocationGroundsStatus: FC = () => {
           <Layout flexBasis={[64, 64, 160]} flexShrink={0} />
         </Column>
       </Layout>
-      <Layout flexBasis={[20, 20, 280]} flexShrink={0} />
+      <Layout flexBasis={[20, 20, 280]} flexShrink={[0, 0, 1]} />
     </Box>
   )
 }
