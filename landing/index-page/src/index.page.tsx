@@ -1,5 +1,6 @@
 import React                       from 'react'
 import { FC }                      from 'react'
+import { useEffect }               from 'react'
 import { useState }                from 'react'
 
 import { DataProvider }            from '@globals/data'
@@ -31,6 +32,12 @@ const IndexPage: FC = () => {
 
     setActive(order.indexOf(id))
   })
+
+  useEffect(() => {
+    setTimeout(() => {
+      setActive(0)
+    })
+  }, [])
 
   return (
     <Preloader>
