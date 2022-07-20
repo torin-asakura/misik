@@ -68,7 +68,7 @@ const Hero = forwardRef((props, ref: any) => {
                   transition={{ duration: 1 }}
                   animation={{ y: 0, opacity: 1 }}
                 >
-                  <Column>
+                  <Column paddingRight={[0, 0, '10px']}>
                     <Condition match={language === 'RU'}>
                       <Text
                         display='inline'
