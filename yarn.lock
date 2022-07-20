@@ -1608,7 +1608,10 @@ __metadata:
     "@globals/data": "workspace:0.0.1"
     "@globals/language": "workspace:0.0.1"
     "@types/styled-system": ^5
+    "@ui/button": "workspace:0.0.1"
+    "@ui/condition": "workspace:0.0.1"
     "@ui/divider": "workspace:0.0.1"
+    "@ui/image": "workspace:0.0.1"
     "@ui/layout": "workspace:0.0.1"
     "@ui/link": "workspace:0.0.1"
     "@ui/logo": "workspace:0.0.1"
