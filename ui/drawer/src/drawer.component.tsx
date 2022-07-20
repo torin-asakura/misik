@@ -1,26 +1,28 @@
-import React             from 'react'
-import { FC }            from 'react'
-import { motion }        from 'framer-motion'
+import React                from 'react'
+import { FC }               from 'react'
+import { motion }           from 'framer-motion'
 
-import { Button }        from '@ui/button'
-import { Condition }     from '@ui/condition'
-import { Form }          from '@ui/form'
-import { Column }        from '@ui/layout'
-import { Layout }        from '@ui/layout'
-import { Row }           from '@ui/layout'
-import { Box }           from '@ui/layout'
-import { Text }          from '@ui/text'
-import { useData }       from '@globals/data'
-import { extractObject } from '@globals/data'
-import { useLanguage }   from '@globals/language'
+import { Button }           from '@ui/button'
+import { Condition }        from '@ui/condition'
+import { Form }             from '@ui/form'
+import { Column }           from '@ui/layout'
+import { Layout }           from '@ui/layout'
+import { Row }              from '@ui/layout'
+import { Box }              from '@ui/layout'
+import { Text }             from '@ui/text'
+import { useData }          from '@globals/data'
+import { extractObject }    from '@globals/data'
+import { useLanguage }      from '@globals/language'
 
-import { Backdrop }      from './backdrop'
-import { Container }     from './container'
-import { DrawerProps }   from './drawer.interfaces'
-import { CrossIcon }     from './icons'
-import { Renderer }      from './renderer'
+import { Backdrop }         from './backdrop'
+import { Container }        from './container'
+import { DrawerProps }      from './drawer.interfaces'
+import { CrossIcon }        from './icons'
+import { ProgressBar }      from './progress-bar'
+import { Renderer }         from './renderer'
+import { descriptionsMock } from './descriptions.mock'
 
-const Drawer: FC<DrawerProps> = ({ active, onClose, display = 'form' }) => {
+const Drawer: FC<DrawerProps> = ({ active, onClose, display = 'form', scroll = false }) => {
   const [language] = useLanguage()
   const { fragments } = useData()
 
@@ -28,6 +30,7 @@ const Drawer: FC<DrawerProps> = ({ active, onClose, display = 'form' }) => {
   let content: string = ''
   let privacyTitle: string = ''
   let privacyContent: string = ''
+  const relocationTitle: string = 'Описание услуги переезда'
 
   if (fragments) {
     const titleObj = extractObject('drawer', fragments.feedback[language])
@@ -55,10 +58,11 @@ const Drawer: FC<DrawerProps> = ({ active, onClose, display = 'form' }) => {
         animate={{ right: 0 }}
         exit={{ right: '-100%' }}
         transition={{ duration: 0.5 }}
+        id='drawer'
       >
-        <Container>
+        <Container scroll={scroll}>
           <Column width='100%'>
-            <Layout flexBasis={20} />
+            <Layout flexBasis={24} flexShrink={0} />
             <Row justifyContent={['flex-start', 'flex-start', 'flex-end']}>
               <Layout flexBasis={10} />
               <Layout>
@@ -66,9 +70,14 @@ const Drawer: FC<DrawerProps> = ({ active, onClose, display = 'form' }) => {
                   <CrossIcon />
                 </Button>
               </Layout>
-              <Layout flexBasis={24} />
+              <Layout flexBasis={24} flexShrink={0} />
             </Row>
-            <Layout flexBasis={20} />
+            <Layout flexBasis={24} flexShrink={0} />
+            <Condition match={display === 'relocation-description'}>
+              <Layout>
+                <ProgressBar />
+              </Layout>
+            </Condition>
             <Condition match={display === 'form'}>
               <Box width={['100%', '100%', 720]} px={['20px', '20px', '64px']}>
                 <Column width='100%'>
@@ -115,6 +124,43 @@ const Drawer: FC<DrawerProps> = ({ active, onClose, display = 'form' }) => {
                   </Button>
                 </Row>
                 <Layout flexBasis={32} />
+              </Column>
+            </Condition>
+            <Condition match={display === 'relocation-description'}>
+              <Column width={['100%', '100%', 720]} px={['20px', '20px', '64px']}>
+                <Layout>
+                  <Text fontFamily='secondary' fontSize='enlarged' textTransform='uppercase'>
+                    {relocationTitle}
+                  </Text>
+                </Layout>
+                <Layout flexBasis={64} flexShrink={0} />
+                <Column height='auto'>
+                  {/* eslint-disable-next-line */}
+                  {descriptionsMock.map(({ id, title, content }) => (
+                    <Column key={id}>
+                      <Row>
+                        <Text
+                          style={{ fontVariantNumeric: 'lining-nums' }}
+                          fontSize='24px'
+                          fontFamily='secondary'
+                          textTransform='uppercase'
+                          lineHeight='primary'
+                          color='text.secondary'
+                        >
+                          {title}
+                        </Text>
+                      </Row>
+                      <Layout flexBasis={16} />
+                      <Row>
+                        <Text fontSize='regular' lineHeight='primary' color='text.secondary'>
+                          {content}
+                        </Text>
+                      </Row>
+                      <Layout flexBasis={40} />
+                    </Column>
+                  ))}
+                </Column>
+                <Layout flexBasis={64} />
               </Column>
             </Condition>
           </Column>
