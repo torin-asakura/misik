@@ -8,6 +8,7 @@ const GET_FORMS = gql`
         fields {
           nodes {
             label
+            required
           }
         }
       }

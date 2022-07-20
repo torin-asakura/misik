@@ -78,7 +78,9 @@ const Form: FC = () => {
             <Input
               value={name}
               onChange={setName}
-              placeholder={forms[language] && forms[language][0]?.label}
+              placeholder={`${forms[language] && forms[language][0]?.label}${
+                forms[language] && forms[language][0]?.required ? '*' : ''
+              }`}
               errorText={nameError}
             />
           </Layout>
@@ -87,7 +89,9 @@ const Form: FC = () => {
             <Input
               value={phone}
               onChange={setPhone}
-              placeholder={forms[language] && forms[language][1]?.label}
+              placeholder={`${forms[language] && forms[language][1]?.label}${
+                forms[language] && forms[language][1]?.required ? '*' : ''
+              }`}
               errorText={phoneError}
             />
           </Layout>
@@ -96,7 +100,9 @@ const Form: FC = () => {
             <Input
               value={email}
               onChange={setEmail}
-              placeholder={forms[language] && forms[language][2]?.label}
+              placeholder={`${forms[language] && forms[language][2]?.label}${
+                forms[language] && forms[language][2]?.required ? '*' : ''
+              }`}
               errorText={emailError}
             />
           </Layout>
@@ -105,7 +111,9 @@ const Form: FC = () => {
             <Input
               value={comment}
               onChange={setComment}
-              placeholder={forms[language] && forms[language][3]?.label}
+              placeholder={`${forms[language] && forms[language][3]?.label}${
+                forms[language] && forms[language][3]?.required ? '*' : ''
+              }`}
             />
           </Layout>
           <Layout flexBasis={40} />
