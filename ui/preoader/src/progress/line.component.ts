@@ -1,14 +1,12 @@
 import styled      from '@emotion/styled'
 
+import { motion }  from 'framer-motion'
 import { styleFn } from 'styled-system'
 
-import { Box }     from '@ui/layout'
-
-const styles: styleFn = ({ theme, progress = 0 }) => ({
-  width: `${progress}%`,
+const styles: styleFn = ({ theme }) => ({
+  width: '100%',
   height: 2,
   backgroundColor: theme.colors.background.accentBlack,
-  transition: '0.2s',
 })
 
-export const Line = styled(Box)<{ progress: number } & any>(styles)
+export const Line = styled(motion.div)(styles)
