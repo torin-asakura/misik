@@ -6,7 +6,7 @@ import { FC } from 'react'
 const Path = styled.path({
   strokeDasharray: 1,
   animationName: 'draw',
-  animationDuration: '1s',
+  animationDuration: '0.2s',
 })
 
 const Minus: FC = () => (
