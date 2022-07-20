@@ -65,7 +65,7 @@ const Hero = forwardRef((props, ref: any) => {
               <Layout flexBasis={[160, 160, 240]} />
               <Layout maxWidth={1300}>
                 <AnimateOnLoad
-                  initial={{ opacity: 0, y: '100%' }}
+                  initial={{ opacity: 0, y: '30%' }}
                   transition={{ duration: 1 }}
                   animation={{ y: 0, opacity: 1 }}
                 >
