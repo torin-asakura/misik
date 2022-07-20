@@ -49,8 +49,8 @@ export const InputWithoutRef: ForwardRefRenderFunction<HTMLInputElement, InputPr
       // @ts-ignore
       onClick={() => (ref as any).current.focus()}
     >
-      <Condition match={value}>
-        <Label>{placeholder}</Label>
+      <Condition match={value || error}>
+        <Label error={error}>{placeholder}</Label>
       </Condition>
       <InputElement {...props} size={size} error={error}>
         <RawInput
