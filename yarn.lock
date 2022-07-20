@@ -159,15 +159,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@atls-ui-parts/swiper@npm:^0.0.1":
-  version: 0.0.1
-  resolution: "@atls-ui-parts/swiper@npm:0.0.1"
+"@atls-ui-parts/swiper@npm:^0.0.2":
+  version: 0.0.2
+  resolution: "@atls-ui-parts/swiper@npm:0.0.2"
   dependencies:
+    nanoid: ^4.0.0
     swiper: ^8.3.1
   peerDependencies:
     "@emotion/css": "*"
     react: ^17.0.1
-  checksum: 91bb1b24e5c08729f16c2f6ef3e8e602ce6b059226e62805dce249ce09233e6cbec289a11848965cf1d6465af29577a2d3bf2e2b9f0a2ea89c2c194872496e09
+  checksum: ab5803f29db857d47f3b81432a7218b8dde03a3361ea8ee3f9aa34b70a9af96693c7c2fd576ba28f5b9244f5e7b14f6134dbaee617df1742991773817586176a
   languageName: node
   linkType: hard
 
@@ -2844,7 +2845,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ui/carousel@workspace:ui/carousel"
   dependencies:
-    "@atls-ui-parts/swiper": ^0.0.1
+    "@atls-ui-parts/swiper": ^0.0.2
     "@emotion/css": ^11.9.0
     "@emotion/react": ^11.9.3
     "@emotion/styled": ^11.9.3
@@ -7357,6 +7358,15 @@ __metadata:
   bin:
     nanoid: bin/nanoid.cjs
   checksum: 2fddd6dee994b7676f008d3ffa4ab16035a754f4bb586c61df5a22cf8c8c94017aadd360368f47d653829e0569a92b129979152ff97af23a558331e47e37cd9c
+  languageName: node
+  linkType: hard
+
+"nanoid@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "nanoid@npm:4.0.0"
+  bin:
+    nanoid: bin/nanoid.js
+  checksum: 7d5946df5c6d383694195b781ae7b5067c149d164ec71e910d6b06676309c3459b68af570b944fb5ecd5065d19df464f05700d141d70bb712ff8ca06642fd8df
   languageName: node
   linkType: hard
 

@@ -1048,20 +1048,21 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@atls-ui-parts/swiper", [\
-        ["npm:0.0.1", {\
-          "packageLocation": "./.yarn/cache/@atls-ui-parts-swiper-npm-0.0.1-3d91f058b7-91bb1b24e5.zip/node_modules/@atls-ui-parts/swiper/",\
+        ["npm:0.0.2", {\
+          "packageLocation": "./.yarn/cache/@atls-ui-parts-swiper-npm-0.0.2-6a7cda0905-ab5803f29d.zip/node_modules/@atls-ui-parts/swiper/",\
           "packageDependencies": [\
-            ["@atls-ui-parts/swiper", "npm:0.0.1"]\
+            ["@atls-ui-parts/swiper", "npm:0.0.2"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:371d00f9a5f899c84053f7d83590b4064d409a33b9026b4c2ebee2a549ef1511837336456873bbfd83b35f458aa948771672baf5bbd4c64e61b7f4ea7359a5b0#npm:0.0.1", {\
-          "packageLocation": "./.yarn/__virtual__/@atls-ui-parts-swiper-virtual-2c737dd313/0/cache/@atls-ui-parts-swiper-npm-0.0.1-3d91f058b7-91bb1b24e5.zip/node_modules/@atls-ui-parts/swiper/",\
+        ["virtual:371d00f9a5f899c84053f7d83590b4064d409a33b9026b4c2ebee2a549ef1511837336456873bbfd83b35f458aa948771672baf5bbd4c64e61b7f4ea7359a5b0#npm:0.0.2", {\
+          "packageLocation": "./.yarn/__virtual__/@atls-ui-parts-swiper-virtual-0a19f370dc/0/cache/@atls-ui-parts-swiper-npm-0.0.2-6a7cda0905-ab5803f29d.zip/node_modules/@atls-ui-parts/swiper/",\
           "packageDependencies": [\
-            ["@atls-ui-parts/swiper", "virtual:371d00f9a5f899c84053f7d83590b4064d409a33b9026b4c2ebee2a549ef1511837336456873bbfd83b35f458aa948771672baf5bbd4c64e61b7f4ea7359a5b0#npm:0.0.1"],\
+            ["@atls-ui-parts/swiper", "virtual:371d00f9a5f899c84053f7d83590b4064d409a33b9026b4c2ebee2a549ef1511837336456873bbfd83b35f458aa948771672baf5bbd4c64e61b7f4ea7359a5b0#npm:0.0.2"],\
             ["@emotion/css", "virtual:b68dbc1c8b7ef6a9d6ce6303bcc12d16e690d107ada6c90d0a2416adb6c0a100310ae9c5d5066aa349e805460c21b9e5a61f9795208ecb0530f9a0141effb452#npm:11.9.0"],\
             ["@types/emotion__css", null],\
             ["@types/react", "npm:17.0.47"],\
+            ["nanoid", "npm:4.0.0"],\
             ["react", "npm:17.0.2"],\
             ["swiper", "npm:8.3.1"]\
           ],\
@@ -1073,13 +1074,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["virtual:b68dbc1c8b7ef6a9d6ce6303bcc12d16e690d107ada6c90d0a2416adb6c0a100310ae9c5d5066aa349e805460c21b9e5a61f9795208ecb0530f9a0141effb452#npm:0.0.1", {\
-          "packageLocation": "./.yarn/__virtual__/@atls-ui-parts-swiper-virtual-af36c42b16/0/cache/@atls-ui-parts-swiper-npm-0.0.1-3d91f058b7-91bb1b24e5.zip/node_modules/@atls-ui-parts/swiper/",\
+        ["virtual:b68dbc1c8b7ef6a9d6ce6303bcc12d16e690d107ada6c90d0a2416adb6c0a100310ae9c5d5066aa349e805460c21b9e5a61f9795208ecb0530f9a0141effb452#npm:0.0.2", {\
+          "packageLocation": "./.yarn/__virtual__/@atls-ui-parts-swiper-virtual-1774927d2b/0/cache/@atls-ui-parts-swiper-npm-0.0.2-6a7cda0905-ab5803f29d.zip/node_modules/@atls-ui-parts/swiper/",\
           "packageDependencies": [\
-            ["@atls-ui-parts/swiper", "virtual:b68dbc1c8b7ef6a9d6ce6303bcc12d16e690d107ada6c90d0a2416adb6c0a100310ae9c5d5066aa349e805460c21b9e5a61f9795208ecb0530f9a0141effb452#npm:0.0.1"],\
+            ["@atls-ui-parts/swiper", "virtual:b68dbc1c8b7ef6a9d6ce6303bcc12d16e690d107ada6c90d0a2416adb6c0a100310ae9c5d5066aa349e805460c21b9e5a61f9795208ecb0530f9a0141effb452#npm:0.0.2"],\
             ["@emotion/css", "virtual:b68dbc1c8b7ef6a9d6ce6303bcc12d16e690d107ada6c90d0a2416adb6c0a100310ae9c5d5066aa349e805460c21b9e5a61f9795208ecb0530f9a0141effb452#npm:11.9.0"],\
             ["@types/emotion__css", null],\
             ["@types/react", null],\
+            ["nanoid", "npm:4.0.0"],\
             ["react", "npm:17.0.2"],\
             ["swiper", "npm:8.3.1"]\
           ],\
@@ -6228,7 +6230,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/__virtual__/@ui-carousel-virtual-371d00f9a5/1/ui/carousel/",\
           "packageDependencies": [\
             ["@ui/carousel", "virtual:0ee0c17d0d840785b5fa66a1065998ff1ca54d62c04fc36a720293c1b41373b042e06b67a0a26dd9cff0d7cb532bc9b26bcdb5ac35fae14ab9e5cfc9a25db775#workspace:ui/carousel"],\
-            ["@atls-ui-parts/swiper", "virtual:371d00f9a5f899c84053f7d83590b4064d409a33b9026b4c2ebee2a549ef1511837336456873bbfd83b35f458aa948771672baf5bbd4c64e61b7f4ea7359a5b0#npm:0.0.1"],\
+            ["@atls-ui-parts/swiper", "virtual:371d00f9a5f899c84053f7d83590b4064d409a33b9026b4c2ebee2a549ef1511837336456873bbfd83b35f458aa948771672baf5bbd4c64e61b7f4ea7359a5b0#npm:0.0.2"],\
             ["@emotion/css", "virtual:b68dbc1c8b7ef6a9d6ce6303bcc12d16e690d107ada6c90d0a2416adb6c0a100310ae9c5d5066aa349e805460c21b9e5a61f9795208ecb0530f9a0141effb452#npm:11.9.0"],\
             ["@emotion/react", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:11.9.3"],\
             ["@emotion/styled", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:11.9.3"],\
@@ -6256,7 +6258,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/__virtual__/@ui-carousel-virtual-b68dbc1c8b/1/ui/carousel/",\
           "packageDependencies": [\
             ["@ui/carousel", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#workspace:ui/carousel"],\
-            ["@atls-ui-parts/swiper", "virtual:b68dbc1c8b7ef6a9d6ce6303bcc12d16e690d107ada6c90d0a2416adb6c0a100310ae9c5d5066aa349e805460c21b9e5a61f9795208ecb0530f9a0141effb452#npm:0.0.1"],\
+            ["@atls-ui-parts/swiper", "virtual:b68dbc1c8b7ef6a9d6ce6303bcc12d16e690d107ada6c90d0a2416adb6c0a100310ae9c5d5066aa349e805460c21b9e5a61f9795208ecb0530f9a0141effb452#npm:0.0.2"],\
             ["@emotion/css", "virtual:b68dbc1c8b7ef6a9d6ce6303bcc12d16e690d107ada6c90d0a2416adb6c0a100310ae9c5d5066aa349e805460c21b9e5a61f9795208ecb0530f9a0141effb452#npm:11.9.0"],\
             ["@emotion/react", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#npm:11.9.3"],\
             ["@emotion/styled", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#npm:11.9.3"],\
@@ -6284,7 +6286,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./ui/carousel/",\
           "packageDependencies": [\
             ["@ui/carousel", "workspace:ui/carousel"],\
-            ["@atls-ui-parts/swiper", "virtual:b68dbc1c8b7ef6a9d6ce6303bcc12d16e690d107ada6c90d0a2416adb6c0a100310ae9c5d5066aa349e805460c21b9e5a61f9795208ecb0530f9a0141effb452#npm:0.0.1"],\
+            ["@atls-ui-parts/swiper", "virtual:b68dbc1c8b7ef6a9d6ce6303bcc12d16e690d107ada6c90d0a2416adb6c0a100310ae9c5d5066aa349e805460c21b9e5a61f9795208ecb0530f9a0141effb452#npm:0.0.2"],\
             ["@emotion/css", "virtual:b68dbc1c8b7ef6a9d6ce6303bcc12d16e690d107ada6c90d0a2416adb6c0a100310ae9c5d5066aa349e805460c21b9e5a61f9795208ecb0530f9a0141effb452#npm:11.9.0"],\
             ["@emotion/react", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#npm:11.9.3"],\
             ["@emotion/styled", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#npm:11.9.3"],\
@@ -13991,6 +13993,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/nanoid-npm-3.3.4-3d250377d6-2fddd6dee9.zip/node_modules/nanoid/",\
           "packageDependencies": [\
             ["nanoid", "npm:3.3.4"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:4.0.0", {\
+          "packageLocation": "./.yarn/cache/nanoid-npm-4.0.0-924f5c6312-7d5946df5c.zip/node_modules/nanoid/",\
+          "packageDependencies": [\
+            ["nanoid", "npm:4.0.0"]\
           ],\
           "linkType": "HARD"\
         }]\
