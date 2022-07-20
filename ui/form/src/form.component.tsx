@@ -71,7 +71,11 @@ const Form: FC = () => {
         onClose={() => setPrivacyPolicy(false)}
         display='privacy-policy'
       />
-      <Layer visible={privacyPolicy} onClose={() => setPrivacyPolicy(false)} privacyPolicy />
+      <Layer
+        visible={privacyPolicy}
+        onClose={() => setPrivacyPolicy(false)}
+        display='privacy-policy'
+      />
       <Box width={['100%', '100%', 810]} height={['100%', '100%', 598]}>
         <Column width='100%'>
           <Layout maxHeight={[58, 58, 62]}>

@@ -33,7 +33,7 @@ export const Layer: FC<LayerProps> = ({
   center = false,
   top = 0,
   left = 0,
-  privacyPolicy = false,
+  display = 'form',
   ...props
 }) => {
   const blackoutId = nanoid()
@@ -46,6 +46,8 @@ export const Layer: FC<LayerProps> = ({
   let content: string = ''
   let privacyTitle: string = ''
   let privacyContent: string = ''
+  const relocationTitle: string = 'описание услуги переезда'
+  const relocationContent: string = 'text'
 
   if (fragments) {
     const titleObj = extractObject('drawer', fragments.feedback[language])
@@ -114,7 +116,7 @@ export const Layer: FC<LayerProps> = ({
             <Box
               position='absolute'
               top='20px'
-              right='20px'
+              left='20px'
               display={['flex', 'flex', 'none']}
               onClick={close}
               style={{
@@ -140,7 +142,6 @@ export const Layer: FC<LayerProps> = ({
               width={['100%', '100%', 'auto']}
               height={['100%', '100%', 'auto']}
               justifyContent={['center', 'center', 'auto']}
-              alignItems={['center', 'center', 'auto']}
             >
               <Box
                 width={['100%', '100%', 720]}
@@ -148,7 +149,7 @@ export const Layer: FC<LayerProps> = ({
                 backgroundColor='background.beige'
                 borderRadius='atomic'
               >
-                <Condition match={!privacyPolicy}>
+                <Condition match={display === 'form'}>
                   <Column fill>
                     <Layout flexBasis={64} />
                     <Layout>
@@ -172,7 +173,7 @@ export const Layer: FC<LayerProps> = ({
                     </Layout>
                   </Column>
                 </Condition>
-                <Condition match={privacyPolicy}>
+                <Condition match={display === 'privacy-policy'}>
                   <Column fill>
                     <Layout flexBasis={64} />
                     <Layout>
@@ -193,6 +194,26 @@ export const Layer: FC<LayerProps> = ({
                       </Button>
                     </Row>
                     <Layout flexBasis={32} />
+                  </Column>
+                </Condition>
+                <Condition match={display === 'relocation-description'}>
+                  <Column fill>
+                    <Layout flexBasis={80} flexShrink={0} />
+                    <Layout>
+                      <Text textTransform='uppercase' fontFamily='secondary' fontSize='semiBig'>
+                        {relocationTitle}
+                      </Text>
+                    </Layout>
+                    <Layout flexBasis={48} flexShrink={0} />
+                    <Column height='auto'>
+                      <Column fill>
+                        <Row>
+                          <Text style={{ fontVariantNumeric: 'lining-nums' }} lineHeight='primary'>
+                            {relocationContent}
+                          </Text>
+                        </Row>
+                      </Column>
+                    </Column>
                   </Column>
                 </Condition>
               </Box>

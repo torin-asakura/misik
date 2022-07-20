@@ -1,16 +1,14 @@
-import React           from 'react'
-import { FC }          from 'react'
-import { useState }    from 'react'
+import React             from 'react'
+import { FC }            from 'react'
 
-import { Layout }      from '@ui/layout'
+import { Layout }        from '@ui/layout'
+import { AnimateOnLoad } from '@ui/preloader'
 
-import { Container }   from './container'
-import { Content }     from './content'
-import { Description } from './description'
+import { Container }     from './container'
+import { Content }       from './content'
+import { Description }   from './description'
 
 const RelocationHero: FC = () => {
-  const [, setVisible] = useState<boolean>(false)
-
   const language = 'RU'
   const title = 'Ваша программа переезда в'
   const highlighted = 'США'
@@ -23,21 +21,27 @@ const RelocationHero: FC = () => {
   }
 
   return (
-    <Container
-      backgroundUrl={image.url}
-      altText={image.alt}
-      language={language}
-      setVisible={setVisible}
-      height={668}
-    >
+    <Container backgroundUrl={image.url} altText={image.alt} language={language} height={668}>
       <Layout>
-        <Content language='RU' highlightedText={highlighted}>
-          {title}
-        </Content>
+        <AnimateOnLoad
+          initial={{ opacity: 0, y: '100%' }}
+          transition={{ duration: 1 }}
+          animation={{ y: 0, opacity: 1 }}
+        >
+          <Content language='RU' highlightedText={highlighted}>
+            {title}
+          </Content>
+        </AnimateOnLoad>
       </Layout>
       <Layout flexBasis={[16, 16, 24]} flexShrink={0} />
       <Layout>
-        <Description>{description}</Description>
+        <AnimateOnLoad
+          initial={{ opacity: 0, y: '100%' }}
+          transition={{ duration: 1 }}
+          animation={{ y: 0, opacity: 1 }}
+        >
+          <Description>{description}</Description>
+        </AnimateOnLoad>
       </Layout>
       <Layout flexBasis={[106, 106, 120]} flexShrink={0} />
     </Container>

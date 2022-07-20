@@ -40,6 +40,7 @@ const Price: FC = () => {
               lineHeight='small'
               color='text.accent'
               fontFamily='secondary'
+              style={{ fontVariantNumeric: 'lining-nums' }}
             >
               {prettifyNumber(pricePerPerson)}
             </Text>
@@ -49,12 +50,13 @@ const Price: FC = () => {
               lineHeight='small'
               color='text.accent'
               fontFamily='secondary'
+              style={{ fontVariantNumeric: 'lining-nums' }}
             >
               <Dollar />
             </Text>
           </Row>
           <Layout flexBasis={8} flexShrink={0} />
-          <Row>
+          <Row width={158}>
             <Text fontSize='small' color='text.secondary' lineHeight='extra'>
               {titlePerson}
             </Text>
@@ -68,6 +70,7 @@ const Price: FC = () => {
               lineHeight='small'
               color='text.accent'
               fontFamily='secondary'
+              style={{ fontVariantNumeric: 'lining-nums' }}
             >
               {prettifyNumber(pricePerFamily)}
             </Text>
@@ -77,21 +80,20 @@ const Price: FC = () => {
               lineHeight='small'
               color='text.accent'
               fontFamily='secondary'
+              style={{ fontVariantNumeric: 'lining-nums' }}
             >
               <Dollar />
             </Text>
           </Row>
           <Layout flexBasis={8} flexShrink={0} />
-          <Row width={158}>
+          <Row maxWidth={257}>
             <Layout>
               <Text display='inline' fontSize='small' color='text.secondary' lineHeight='extra'>
                 {titleFamily}
-              </Text>
-            </Layout>
-            <Space />
-            <Layout>
-              <Text display='inline' fontSize='small' color='text.disabled' lineHeight='extra'>
-                {contentFamily}
+                <Space />
+                <Text display='inline' fontSize='small' color='text.disabled' lineHeight='extra'>
+                  {contentFamily}
+                </Text>
               </Text>
             </Layout>
           </Row>

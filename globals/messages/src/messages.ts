@@ -45,4 +45,8 @@ export const messages: Messages = {
     RU: 'Отзывы',
     EN: 'Reviews',
   },
+  more: {
+    RU: 'Подробнее',
+    EN: 'More',
+  },
 }

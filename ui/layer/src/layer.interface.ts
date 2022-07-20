@@ -1,4 +1,5 @@
 export type OpacityTypes = 'small' | 'large' | 'none'
+export type DisplayTypes = 'form' | 'privacy-policy' | 'relocation-description'
 
 export interface LayerProps {
   visible: boolean
@@ -8,5 +9,5 @@ export interface LayerProps {
   center?: boolean
   top?: number
   left?: number
-  privacyPolicy?: boolean
+  display?: DisplayTypes
 }

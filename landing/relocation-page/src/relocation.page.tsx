@@ -16,27 +16,30 @@ import { RelocationHowMoveToAmerica } from '@landing/relocation-how-move-to-amer
 import { RelocationOurRole }          from '@landing/relocation-our-role-fragment'
 import { RelocationProgramBenefits }  from '@landing/relocation-program-benefits-fragment'
 import { Box }                        from '@ui/layout'
+import { Preloader }                  from '@ui/preloader'
 
 const RelocationPage: FC = () => {
   const languageContext = useState<Language>('RU')
 
   return (
-    <LanguageProvider value={languageContext}>
-      <DataProvider>
-        <Box backgroundColor='background.beige'>
-          <Navigation />
-        </Box>
-        <RelocationHero />
-        <RelocationGroundsStatus />
-        <RelocationProgramBenefits />
-        <RelocationHowMoveToAmerica />
-        <RelocationFaq />
-        <RelocationOurRole />
-        <Feedback background='background.beige' contacts />
-        <Map />
-        <Footer />
-      </DataProvider>
-    </LanguageProvider>
+    <Preloader>
+      <LanguageProvider value={languageContext}>
+        <DataProvider>
+          <Box backgroundColor='background.beige'>
+            <Navigation />
+          </Box>
+          <RelocationHero />
+          <RelocationGroundsStatus />
+          <RelocationProgramBenefits />
+          <RelocationHowMoveToAmerica />
+          <RelocationFaq />
+          <RelocationOurRole />
+          <Feedback />
+          <Map />
+          <Footer />
+        </DataProvider>
+      </LanguageProvider>
+    </Preloader>
   )
 }
 

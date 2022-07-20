@@ -3,5 +3,4 @@ export interface ContainerProps {
   height: number
   altText: string
   language: string
-  setVisible: (visible: boolean) => void
 }
