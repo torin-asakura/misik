@@ -22,7 +22,14 @@ import { ProgressBar }      from './progress-bar'
 import { Renderer }         from './renderer'
 import { descriptionsMock } from './descriptions.mock'
 
-const Drawer: FC<DrawerProps> = ({ active, onClose, display = 'form', scroll = false }) => {
+const Drawer: FC<DrawerProps> = ({
+  active,
+  onClose,
+  display = 'form',
+  scroll = false,
+  activeProgressBar = false,
+  heightProgressBar,
+}) => {
   const [language] = useLanguage()
   const { fragments } = useData()
 
@@ -62,107 +69,114 @@ const Drawer: FC<DrawerProps> = ({ active, onClose, display = 'form', scroll = f
       >
         <Container scroll={scroll}>
           <Column width='100%'>
-            <Layout flexBasis={24} flexShrink={0} />
-            <Row justifyContent={['flex-start', 'flex-start', 'flex-end']}>
-              <Layout flexBasis={10} />
-              <Layout>
-                <Button colors='transparent' width={24} height={24} px={1} py={1} onClick={onClose}>
-                  <CrossIcon />
-                </Button>
-              </Layout>
+            <ProgressBar
+              activeProgressBar={activeProgressBar}
+              heightProgressBar={heightProgressBar}
+            >
               <Layout flexBasis={24} flexShrink={0} />
-            </Row>
-            <Layout flexBasis={24} flexShrink={0} />
-            <Condition match={display === 'relocation-description'}>
-              <Layout>
-                <ProgressBar />
-              </Layout>
-            </Condition>
-            <Condition match={display === 'form'}>
-              <Box width={['100%', '100%', 720]} px={['20px', '20px', '64px']}>
-                <Column width='100%'>
+              <Row justifyContent={['flex-start', 'flex-start', 'flex-end']}>
+                <Layout flexBasis={10} />
+                <Layout>
+                  <Button
+                    colors='transparent'
+                    width={24}
+                    height={24}
+                    px={1}
+                    py={1}
+                    onClick={onClose}
+                  >
+                    <CrossIcon />
+                  </Button>
+                </Layout>
+                <Layout flexBasis={24} flexShrink={0} />
+              </Row>
+              <Layout flexBasis={24} flexShrink={0} />
+              <Condition match={display === 'form'}>
+                <Box width={['100%', '100%', 720]} px={['20px', '20px', '64px']}>
+                  <Column width='100%'>
+                    <Layout>
+                      <Text
+                        fontSize={['moderate', 'moderate', 'increased']}
+                        fontFamily='secondary'
+                        lineHeight={['normal', 'normal', 'medium']}
+                        textTransform='uppercase'
+                      >
+                        {title}
+                      </Text>
+                    </Layout>
+                    <Layout flexBasis={16} />
+                    <Text color='text.secondary' fontSize={['tiny', 'tiny', 'regular']}>
+                      {content}
+                    </Text>
+                    <Layout />
+                    <Layout flexBasis={50} />
+                    <Layout>
+                      <Form />
+                    </Layout>
+                  </Column>
+                </Box>
+              </Condition>
+              <Condition match={display === 'privacy-policy'}>
+                <Column width={['100%', '100%', 720]} px={['20px', '20px', '64px']}>
+                  <Layout flexBasis={64} />
                   <Layout>
-                    <Text
-                      fontSize={['moderate', 'moderate', 'increased']}
-                      fontFamily='secondary'
-                      lineHeight={['normal', 'normal', 'medium']}
-                      textTransform='uppercase'
-                    >
-                      {title}
+                    <Text fontFamily='secondary' fontSize='enlarged'>
+                      {privacyTitle}
                     </Text>
                   </Layout>
                   <Layout flexBasis={16} />
-                  <Text color='text.secondary' fontSize={['tiny', 'tiny', 'regular']}>
-                    {content}
-                  </Text>
-                  <Layout />
-                  <Layout flexBasis={50} />
                   <Layout>
-                    <Form />
+                    <Text fontSize='regular' lineHeight='primary' color='text.secondary'>
+                      {privacyContent}
+                    </Text>
                   </Layout>
+                  <Layout flexBasis={32} />
+                  <Row>
+                    <Button width='100%' onClick={onClose}>
+                      OK
+                    </Button>
+                  </Row>
+                  <Layout flexBasis={32} />
                 </Column>
-              </Box>
-            </Condition>
-            <Condition match={display === 'privacy-policy'}>
-              <Column width={['100%', '100%', 720]} px={['20px', '20px', '64px']}>
-                <Layout flexBasis={64} />
-                <Layout>
-                  <Text fontFamily='secondary' fontSize='enlarged'>
-                    {privacyTitle}
-                  </Text>
-                </Layout>
-                <Layout flexBasis={16} />
-                <Layout>
-                  <Text fontSize='regular' lineHeight='primary' color='text.secondary'>
-                    {privacyContent}
-                  </Text>
-                </Layout>
-                <Layout flexBasis={32} />
-                <Row>
-                  <Button width='100%' onClick={onClose}>
-                    OK
-                  </Button>
-                </Row>
-                <Layout flexBasis={32} />
-              </Column>
-            </Condition>
-            <Condition match={display === 'relocation-description'}>
-              <Column width={['100%', '100%', 720]} px={['20px', '20px', '64px']}>
-                <Layout>
-                  <Text fontFamily='secondary' fontSize='enlarged' textTransform='uppercase'>
-                    {relocationTitle}
-                  </Text>
-                </Layout>
-                <Layout flexBasis={64} flexShrink={0} />
-                <Column height='auto'>
-                  {/* eslint-disable-next-line */}
-                  {descriptionsMock.map(({ id, title, content }) => (
-                    <Column key={id}>
-                      <Row>
-                        <Text
-                          style={{ fontVariantNumeric: 'lining-nums' }}
-                          fontSize='24px'
-                          fontFamily='secondary'
-                          textTransform='uppercase'
-                          lineHeight='primary'
-                          color='text.secondary'
-                        >
-                          {title}
-                        </Text>
-                      </Row>
-                      <Layout flexBasis={16} />
-                      <Row>
-                        <Text fontSize='regular' lineHeight='primary' color='text.secondary'>
-                          {content}
-                        </Text>
-                      </Row>
-                      <Layout flexBasis={40} />
-                    </Column>
-                  ))}
+              </Condition>
+              <Condition match={display === 'relocation-description'}>
+                <Column width={['100%', '100%', 720]} px={['20px', '20px', '64px']}>
+                  <Layout>
+                    <Text fontFamily='secondary' fontSize='enlarged' textTransform='uppercase'>
+                      {relocationTitle}
+                    </Text>
+                  </Layout>
+                  <Layout flexBasis={64} flexShrink={0} />
+                  <Column height='auto'>
+                    {/* eslint-disable-next-line */}
+                    {descriptionsMock.map(({ id, title, content }) => (
+                      <Column key={id}>
+                        <Row>
+                          <Text
+                            style={{ fontVariantNumeric: 'lining-nums' }}
+                            fontSize='24px'
+                            fontFamily='secondary'
+                            textTransform='uppercase'
+                            lineHeight='primary'
+                            color='text.secondary'
+                          >
+                            {title}
+                          </Text>
+                        </Row>
+                        <Layout flexBasis={16} />
+                        <Row>
+                          <Text fontSize='regular' lineHeight='primary' color='text.secondary'>
+                            {content}
+                          </Text>
+                        </Row>
+                        <Layout flexBasis={40} />
+                      </Column>
+                    ))}
+                  </Column>
+                  <Layout flexBasis={64} />
                 </Column>
-                <Layout flexBasis={64} />
-              </Column>
-            </Condition>
+              </Condition>
+            </ProgressBar>
           </Column>
         </Container>
       </motion.div>

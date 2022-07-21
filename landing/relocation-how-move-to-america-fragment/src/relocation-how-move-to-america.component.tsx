@@ -48,6 +48,8 @@ const RelocationHowMoveToAmerica: FC = () => {
         onClose={() => setVisibleDescription(!visibleDescription)}
         display='relocation-description'
         scroll
+        activeProgressBar
+        heightProgressBar={240}
       />
       <Box
         width='100%'
