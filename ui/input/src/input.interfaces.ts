@@ -4,5 +4,5 @@ export type InputSize = 'small' | 'normal' | 'large'
 
 export interface InputProps extends BaseInputProps {
   size?: InputSize
-  errorText?: string
+  error?: boolean
 }

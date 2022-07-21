@@ -9,7 +9,6 @@ import { forwardRef }               from 'react'
 import { layout }                   from 'styled-system'
 
 import { Condition }                from '@ui/condition'
-import { Text }                     from '@ui/text'
 
 import { InputProps }               from './input.interfaces'
 import { Label }                    from './label'
@@ -34,13 +33,8 @@ const Container = styled.div(({ type }: any) => ({
   flexDirection: 'column',
 }))
 
-const Layout = styled.div(({ flexBasis }: any) => ({
-  display: 'flex',
-  flexBasis,
-}))
-
 export const InputWithoutRef: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
-  { size, value, type, disabled, errorText = '', onChange, onChangeNative, placeholder, ...props },
+  { size, value, type, disabled, error = false, onChange, onChangeNative, placeholder, ...props },
   ref
 ) => {
   const changeValue = useChangeValue(disabled, onChange, onChangeNative)
@@ -55,10 +49,10 @@ export const InputWithoutRef: ForwardRefRenderFunction<HTMLInputElement, InputPr
       // @ts-ignore
       onClick={() => (ref as any).current.focus()}
     >
-      <Condition match={value}>
-        <Label>{placeholder}</Label>
+      <Condition match={value || error}>
+        <Label error={error}>{placeholder}</Label>
       </Condition>
-      <InputElement {...props} size={size} error={errorText !== ''}>
+      <InputElement {...props} size={size} error={error}>
         <RawInput
           ref={ref}
           type={type}
@@ -69,8 +63,6 @@ export const InputWithoutRef: ForwardRefRenderFunction<HTMLInputElement, InputPr
           {...props}
         />
       </InputElement>
-      <Layout flexBasis={5} />
-      <Text color='input.error'>{errorText}</Text>
     </Container>
   )
 }

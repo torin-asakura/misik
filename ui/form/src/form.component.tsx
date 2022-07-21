@@ -25,26 +25,25 @@ const Form: FC = () => {
   const [phone, setPhone] = useState<string>('')
   const [email, setEmail] = useState<string>('')
   const [comment, setComment] = useState<string>('')
-  const [nameError, setNameError] = useState<string>('')
-  const [phoneError, setPhoneError] = useState<string>('')
-  const [emailError, setEmailError] = useState<string>('')
+  const [nameError, setNameError] = useState<boolean>(false)
+  const [phoneError, setPhoneError] = useState<boolean>(false)
+  const [emailError, setEmailError] = useState<boolean>(false)
   const forms = useForms()
-  const [submit, data] = useSubmit()
+  const [submit] = useSubmit()
   const [success, setSuccess] = useState<boolean | null>(null)
   const [privacyPolicy, setPrivacyPolicy] = useState<boolean>(false)
 
-  if (data && data.submitForm && success === null) setSuccess(data?.submitForm?.success)
-
-  if (success !== null)
+  if (success !== null) {
     setTimeout(() => {
       setSuccess(null)
     }, 2000)
+  }
 
   const submitForm = () => {
     if (name && phone && email) {
-      setNameError('')
-      setPhoneError('')
-      setEmailError('')
+      setNameError(false)
+      setPhoneError(false)
+      setEmailError(false)
       submit({
         variables: {
           name,
@@ -52,14 +51,16 @@ const Form: FC = () => {
           email,
           comment,
         },
+      }).then(({ data }) => {
+        if (data.submitForm) setSuccess(data.submitForm.success)
       })
     } else {
-      if (!name) setNameError(messages.requiredField[language])
-      else setNameError('')
-      if (!phone) setPhoneError(messages.requiredField[language])
-      else setPhoneError('')
-      if (!email) setEmailError(messages.requiredField[language])
-      else setEmailError('')
+      if (!name) setNameError(true)
+      else setNameError(false)
+      if (!phone) setPhoneError(true)
+      else setPhoneError(false)
+      if (!email) setEmailError(true)
+      else setEmailError(false)
       setSuccess(false)
     }
   }
@@ -82,8 +83,10 @@ const Form: FC = () => {
             <Input
               value={name}
               onChange={setName}
-              placeholder={forms[language] && forms[language][0]?.label}
-              errorText={nameError}
+              error={nameError}
+              placeholder={`${forms[language] && forms[language][0]?.label}${
+                forms[language] && forms[language][0]?.required ? '*' : ''
+              }`}
             />
           </Layout>
           <Layout flexBasis={32} />
@@ -91,8 +94,10 @@ const Form: FC = () => {
             <Input
               value={phone}
               onChange={setPhone}
-              placeholder={forms[language] && forms[language][1]?.label}
-              errorText={phoneError}
+              error={phoneError}
+              placeholder={`${forms[language] && forms[language][1]?.label}${
+                forms[language] && forms[language][1]?.required ? '*' : ''
+              }`}
             />
           </Layout>
           <Layout flexBasis={32} />
@@ -100,8 +105,10 @@ const Form: FC = () => {
             <Input
               value={email}
               onChange={setEmail}
-              placeholder={forms[language] && forms[language][2]?.label}
-              errorText={emailError}
+              error={emailError}
+              placeholder={`${forms[language] && forms[language][2]?.label}${
+                forms[language] && forms[language][2]?.required ? '*' : ''
+              }`}
             />
           </Layout>
           <Layout flexBasis={32} />
@@ -109,7 +116,9 @@ const Form: FC = () => {
             <Input
               value={comment}
               onChange={setComment}
-              placeholder={forms[language] && forms[language][3]?.label}
+              placeholder={`${forms[language] && forms[language][3]?.label}${
+                forms[language] && forms[language][3]?.required ? '*' : ''
+              }`}
             />
           </Layout>
           <Layout flexBasis={40} />

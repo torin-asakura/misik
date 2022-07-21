@@ -43,7 +43,7 @@ const Services = forwardRef((props, ref: any) => {
       ref={ref}
     >
       <Layout width='100%' maxWidth={1830}>
-        <Layout flexBasis={[20, 20, 210]} />
+        <Layout flexBasis={[20, 20, 0]} />
         <Column fill>
           <Layout flexBasis={[64, 64, 160]} />
           <Layout width={['100%', '100%', 242]}>
@@ -94,7 +94,7 @@ const Services = forwardRef((props, ref: any) => {
           <Layout flexBasis={120} />
         </Column>
       </Layout>
-      <Layout flexBasis={[20, 20, 240]} />
+      <Layout flexBasis={[20, 20, 0]} />
     </Box>
   )
 })
