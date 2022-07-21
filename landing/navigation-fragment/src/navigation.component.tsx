@@ -30,8 +30,6 @@ const Navigation: FC<NavigationProps> = ({ contacts }) => {
     setLanguage(language === 'RU' ? 'EN' : 'RU')
   }
 
-  const contactsHidden = ['#services', '#work_format', '#reviews', '/contacts']
-
   return (
     <>
       <Drawer active={visible} onClose={() => setVisible(false)} />
@@ -65,15 +63,22 @@ const Navigation: FC<NavigationProps> = ({ contacts }) => {
                 display={['none', 'none', 'flex']}
               >
                 {menus[language][0]?.map(({ label, href }) => (
-                  <Condition match={!(contacts && contactsHidden.includes(href))}>
+                  <>
                     <Layout>
                       <Condition match={Array.from(href)[0] === '#'}>
-                        <ScrollLink spy smooth to={href.replace('#', '')}>
-                          {/* eslint-disable-next-line */}
-                          <Link fontSize='semiRegular' onClick={(e) => e.preventDefault()}>
+                        <Condition match={!contacts}>
+                          <ScrollLink spy smooth to={href.replace('#', '')}>
+                            {/* eslint-disable-next-line */}
+                            <Link fontSize='semiRegular' onClick={(e) => e.preventDefault()}>
+                              {label}
+                            </Link>
+                          </ScrollLink>
+                        </Condition>
+                        <Condition match={contacts}>
+                          <NextLink fontSize='semiRegular' path='/'>
                             {label}
-                          </Link>
-                        </ScrollLink>
+                          </NextLink>
+                        </Condition>
                       </Condition>
                       <Condition match={Array.from(href)[0] !== '#'}>
                         <NextLink path={href} fontSize='semiRegular'>
@@ -82,7 +87,7 @@ const Navigation: FC<NavigationProps> = ({ contacts }) => {
                       </Condition>
                     </Layout>
                     <Layout flexBasis={40} />
-                  </Condition>
+                  </>
                 ))}
                 <Layout flexBasis={40} />
               </Row>

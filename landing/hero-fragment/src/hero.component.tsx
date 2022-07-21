@@ -55,21 +55,20 @@ const Hero = forwardRef((props, ref: any) => {
           overflow='hidden'
           zIndex={3}
         >
-          <Layout flexBasis={[20, 20, 0]} />
+          <Layout flexBasis={[36, 36, 0]} />
           <Row height='100%' justifyContent='center'>
             <Box zIndex={-1} display={['flex', 'flex', 'none']}>
               <Image background src={image.url} alt={image.alt} />
             </Box>
-            <Layout flexBasis={[16, 16, 150]} />
             <Column>
               <Layout flexBasis={[160, 160, 240]} />
               <Layout maxWidth={1300}>
                 <AnimateOnLoad
-                  initial={{ opacity: 0, y: '100%' }}
+                  initial={{ opacity: 0, y: '30%' }}
                   transition={{ duration: 1 }}
                   animation={{ y: 0, opacity: 1 }}
                 >
-                  <Column>
+                  <Column paddingRight={[0, 0, '10px']}>
                     <Condition match={language === 'RU'}>
                       <Text
                         display='inline'
@@ -164,7 +163,7 @@ const Hero = forwardRef((props, ref: any) => {
                   </Column>
                 </AnimateOnLoad>
               </Layout>
-              <Layout flexBasis={[289, 289, 438]} />
+              <Layout flexBasis={[289, 289, 0]} flexGrow={[0, 0, 1]} />
               <Layout display={['none', 'none', 'flex']}>
                 <Button
                   colors='secondary'
@@ -189,7 +188,7 @@ const Hero = forwardRef((props, ref: any) => {
             </Column>
             <Layout flexBasis={[16, 16, 900]} />
           </Row>
-          <Layout flexBasis={[20, 20, 240]} />
+          <Layout flexBasis={[20, 20, 0]} />
         </Box>
       </Box>
     </>

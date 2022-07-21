@@ -7,7 +7,9 @@ const GET_FORMS = gql`
         title
         fields {
           nodes {
+            type
             label
+            required
           }
         }
       }

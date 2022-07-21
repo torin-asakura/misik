@@ -53,7 +53,7 @@ export const Reviews = forwardRef((props, ref) => {
     >
       <Layout width='100%' maxWidth={1830}>
         <Column justifyContent='center' width='100%'>
-          <Layout flexBasis={120} />
+          <Layout flexBasis={240} />
           <Row alignItems='center'>
             <Text
               fontFamily='secondary'
