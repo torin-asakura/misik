@@ -39,14 +39,15 @@ const ProgressBar: FC<ProgressBarProps> = ({
 
   useEffect(() => {
     const scrollHostElement = scrollHostRef!.current
-    const { clientHeight, scrollHeight } = scrollHostElement
-    const scrollThumbPercentage = clientHeight / scrollHeight
-    const scrollThumbHeight = Math.max(scrollThumbPercentage * clientHeight, SCROLL_BOX_MIN_HEIGHT)
+    const { clientHeight: ch, scrollHeight } = scrollHostElement
+    const coefficient = ch / scrollHeight
+    const scrollThumbHeight = heightProgressBar * coefficient
     setScrollBoxHeight(scrollThumbHeight)
     scrollHostElement!.addEventListener('scroll', handleScroll, true)
     return function cleanup() {
       scrollHostElement!.removeEventListener('scroll', handleScroll, true)
     }
+    // eslint-disable-next-line
   }, [handleScroll])
 
   return (
@@ -60,12 +61,12 @@ const ProgressBar: FC<ProgressBarProps> = ({
           top={171}
           right={31}
           width={2}
-          height={230}
+          height={heightProgressBar}
           position='absolute'
         >
           <Box
             top={scrollBoxTop}
-            height={120}
+            height={scrollBoxHeight}
             backgroundColor='black'
             width={2}
             position='absolute'
