@@ -7,6 +7,8 @@ const labelToHref = {
   'формат работы': '#work_format',
   отзывы: '#reviews',
   контакты: '/contacts',
+  переезд: '/relocation',
+  relocation: '/relocation',
 }
 
 const mapHref = (items) =>
