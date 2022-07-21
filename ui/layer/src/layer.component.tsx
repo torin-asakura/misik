@@ -1,28 +1,29 @@
-import React             from 'react'
-import ScrollLock        from 'react-scrolllock'
-import document          from 'global/document'
-import { FC }            from 'react'
-import { useAnimation }  from 'framer-motion'
-import { nanoid }        from 'nanoid'
-import { useEffect }     from 'react'
-import { useCallback }   from 'react'
-import { createPortal }  from 'react-dom'
+import React                from 'react'
+import ScrollLock           from 'react-scrolllock'
+import document             from 'global/document'
+import { FC }               from 'react'
+import { useAnimation }     from 'framer-motion'
+import { nanoid }           from 'nanoid'
+import { useEffect }        from 'react'
+import { useCallback }      from 'react'
+import { createPortal }     from 'react-dom'
 
-import { Button }        from '@ui/button'
-import { Condition }     from '@ui/condition'
-import { Form }          from '@ui/form'
-import { Box }           from '@ui/layout'
-import { Column }        from '@ui/layout'
-import { Layout }        from '@ui/layout'
-import { Row }           from '@ui/layout'
-import { Text }          from '@ui/text'
-import { useData }       from '@globals/data'
-import { extractObject } from '@globals/data'
-import { useLanguage }   from '@globals/language'
+import { Button }           from '@ui/button'
+import { Condition }        from '@ui/condition'
+import { Form }             from '@ui/form'
+import { Box }              from '@ui/layout'
+import { Column }           from '@ui/layout'
+import { Layout }           from '@ui/layout'
+import { Row }              from '@ui/layout'
+import { Text }             from '@ui/text'
+import { useData }          from '@globals/data'
+import { extractObject }    from '@globals/data'
+import { useLanguage }      from '@globals/language'
 
-import { Container }     from './container'
-import { CrossIcon }     from './icons'
-import { LayerProps }    from './layer.interface'
+import { Container }        from './container'
+import { CrossIcon }        from './icons'
+import { LayerProps }       from './layer.interface'
+import { descriptionsMock } from '../descriptions.mock'
 
 export const Layer: FC<LayerProps> = ({
   children,
@@ -47,7 +48,6 @@ export const Layer: FC<LayerProps> = ({
   let privacyTitle: string = ''
   let privacyContent: string = ''
   const relocationTitle: string = 'описание услуги переезда'
-  const relocationContent: string = 'text'
 
   if (fragments) {
     const titleObj = extractObject('drawer', fragments.feedback[language])
@@ -206,13 +206,33 @@ export const Layer: FC<LayerProps> = ({
                     </Layout>
                     <Layout flexBasis={48} flexShrink={0} />
                     <Column height='auto'>
-                      <Column fill>
-                        <Row>
-                          <Text style={{ fontVariantNumeric: 'lining-nums' }} lineHeight='primary'>
-                            {relocationContent}
-                          </Text>
-                        </Row>
-                      </Column>
+                      {descriptionsMock.map(({ id, descriptionTitle, descriptionContent }) => (
+                        <Column key={id} fill>
+                          <Row>
+                            <Text
+                              fontSize='semiLarge'
+                              style={{ fontVariantNumeric: 'lining-nums' }}
+                              lineHeight='primary'
+                              textTransform='uppercase'
+                              fontFamily='secondary'
+                            >
+                              {descriptionTitle}
+                            </Text>
+                          </Row>
+                          <Layout flexBasis={16} />
+                          <Row>
+                            <Text
+                              style={{ fontVariantNumeric: 'lining-nums' }}
+                              lineHeight='primary'
+                              color='text.secondary'
+                              fontSize='tiny'
+                            >
+                              {descriptionContent}
+                            </Text>
+                          </Row>
+                          <Layout flexBasis={40} />
+                        </Column>
+                      ))}
                     </Column>
                   </Column>
                 </Condition>
