@@ -9,22 +9,41 @@ import { Row }           from '@ui/layout'
 import { AnimateOnLoad } from '@ui/preloader'
 import { Text }          from '@ui/text'
 import { Space }         from '@ui/text'
+import { useData }       from '@globals/data'
+import { extractObject } from '@globals/data'
+import { useLanguage }   from '@globals/language'
 
 const RelocationOurRole: FC = () => {
+  const { fragments } = useData()
+  const [language] = useLanguage()
+
   const mainText = {
-    title: 'Наша роль и ответсвтенность в',
-    highlighted: 'Вашем переезде',
+    title: '',
+    highlighted: '',
   }
 
   const image = {
-    imageUrl: 'https://wp.misik.pro/wp-content/uploads/2022/07/our-role.png',
-    altText: 'Наша роль и ответсвтенность',
+    imageUrl: '',
+    altText: '',
   }
 
-  const content =
-    'Мы занимаемся как организацией переезда, так и решением любого вопроса на территории США.'
-  const additionalContent =
-    'Мы понимаем, что кардинальное изменение жизни — это стресс. Поэтому мы всегда выслушаем, поможем, поддержим и выполним свою работу вовремя и без вовлечения вас в сам процесс.'
+  let content = ''
+  let additionalContent = ''
+
+  if (fragments && fragments.relocationourrole) {
+    const titleObj = extractObject('title', fragments.relocationourrole[language])
+    const contentObj = extractObject('content', fragments.relocationourrole[language])
+    const additionalContentObj = extractObject(
+      'additional-content',
+      fragments.relocationourrole[language]
+    )
+    mainText.title = titleObj?.title
+    mainText.highlighted = titleObj?.fragmentParams.highlightedText
+    content = contentObj?.title
+    additionalContent = additionalContentObj?.title
+    image.imageUrl = titleObj?.featuredImage?.node.sourceUrl
+    image.altText = titleObj?.featuredImage?.node.altText
+  }
 
   return (
     <Box width='100%' backgroundColor='background.lightBeige' justifyContent='center'>

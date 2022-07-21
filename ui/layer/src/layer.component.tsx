@@ -1,29 +1,29 @@
-import React                from 'react'
-import ScrollLock           from 'react-scrolllock'
-import document             from 'global/document'
-import { FC }               from 'react'
-import { useAnimation }     from 'framer-motion'
-import { nanoid }           from 'nanoid'
-import { useEffect }        from 'react'
-import { useCallback }      from 'react'
-import { createPortal }     from 'react-dom'
+import React                      from 'react'
+import ScrollLock                 from 'react-scrolllock'
+import document                   from 'global/document'
+import { FC }                     from 'react'
+import { useAnimation }           from 'framer-motion'
+import { nanoid }                 from 'nanoid'
+import { useEffect }              from 'react'
+import { useCallback }            from 'react'
+import { createPortal }           from 'react-dom'
 
-import { Button }           from '@ui/button'
-import { Condition }        from '@ui/condition'
-import { Form }             from '@ui/form'
-import { Box }              from '@ui/layout'
-import { Column }           from '@ui/layout'
-import { Layout }           from '@ui/layout'
-import { Row }              from '@ui/layout'
-import { Text }             from '@ui/text'
-import { useData }          from '@globals/data'
-import { extractObject }    from '@globals/data'
-import { useLanguage }      from '@globals/language'
+import { Button }                 from '@ui/button'
+import { Condition }              from '@ui/condition'
+import { Form }                   from '@ui/form'
+import { Box }                    from '@ui/layout'
+import { Column }                 from '@ui/layout'
+import { Layout }                 from '@ui/layout'
+import { Row }                    from '@ui/layout'
+import { Text }                   from '@ui/text'
+import { useData }                from '@globals/data'
+import { extractObject }          from '@globals/data'
+import { useLanguage }            from '@globals/language'
 
-import { Container }        from './container'
-import { CrossIcon }        from './icons'
-import { LayerProps }       from './layer.interface'
-import { descriptionsMock } from '../descriptions.mock'
+import { Container }              from './container'
+import { CrossIcon }              from './icons'
+import { LayerProps }             from './layer.interface'
+import { useServiceDescriptions } from './data'
 
 export const Layer: FC<LayerProps> = ({
   children,
@@ -42,19 +42,24 @@ export const Layer: FC<LayerProps> = ({
   const main = useAnimation()
   const [language] = useLanguage()
   const { fragments } = useData()
+  const serviceDescriptions = useServiceDescriptions()
 
-  let title: string = ''
-  let content: string = ''
+  let titleFeedback: string = ''
+  let contentFeedback: string = ''
   let privacyTitle: string = ''
   let privacyContent: string = ''
-  const relocationTitle: string = 'описание услуги переезда'
+  let relocationTitle: string = ''
 
   if (fragments) {
     const titleObj = extractObject('drawer', fragments.feedback[language])
     const privacyObj = extractObject('privacy-policy', fragments.feedback[language])
-
-    title = titleObj?.title
-    content = titleObj?.content
+    const relocationTitleObj = extractObject(
+      'drawer-title',
+      fragments.relocationhowmovetous[language]
+    )
+    relocationTitle = relocationTitleObj?.title
+    titleFeedback = titleObj?.title
+    contentFeedback = titleObj?.content
     privacyTitle = privacyObj?.title
     privacyContent = privacyObj?.content
   }
@@ -159,12 +164,12 @@ export const Layer: FC<LayerProps> = ({
                         lineHeight={['normal', 'normal', 'medium']}
                         textTransform='uppercase'
                       >
-                        {title}
+                        {titleFeedback}
                       </Text>
                     </Layout>
                     <Layout flexBasis={16} />
                     <Text color='text.secondary' fontSize={['tiny', 'tiny', 'regular']}>
-                      {content}
+                      {contentFeedback}
                     </Text>
                     <Layout />
                     <Layout flexBasis={50} />
@@ -206,7 +211,7 @@ export const Layer: FC<LayerProps> = ({
                     </Layout>
                     <Layout flexBasis={48} flexShrink={0} />
                     <Column height='auto'>
-                      {descriptionsMock.map(({ id, descriptionTitle, descriptionContent }) => (
+                      {serviceDescriptions[language].map(({ id, title, content }) => (
                         <Column key={id} fill>
                           <Row>
                             <Text
@@ -216,7 +221,7 @@ export const Layer: FC<LayerProps> = ({
                               textTransform='uppercase'
                               fontFamily='secondary'
                             >
-                              {descriptionTitle}
+                              {title}
                             </Text>
                           </Row>
                           <Layout flexBasis={16} />
@@ -227,7 +232,7 @@ export const Layer: FC<LayerProps> = ({
                               color='text.secondary'
                               fontSize='tiny'
                             >
-                              {descriptionContent}
+                              {content}
                             </Text>
                           </Row>
                           <Layout flexBasis={40} />

@@ -10,15 +10,27 @@ import { Column }        from '@ui/layout'
 import { AnimateOnLoad } from '@ui/preloader'
 import { Text }          from '@ui/text'
 import { Space }         from '@ui/text'
+import { useData }       from '@globals/data'
+import { extractObject } from '@globals/data'
+import { useLanguage }   from '@globals/language'
 
-import { useQuestions }  from './data'
+import { useFAQ }        from './data'
 
 const RelocationFaq: FC = () => {
-  const { questions } = useQuestions()
+  const { fragments } = useData()
+  const [language] = useLanguage()
+
+  const faqs = useFAQ()
 
   const mainText = {
-    title: 'Часто задаваемые',
-    highlighted: 'Вопросы',
+    title: '',
+    highlighted: '',
+  }
+
+  if (fragments && fragments.relocationfaq) {
+    const titleObj = extractObject('title', fragments.relocationfaq[language])
+    mainText.title = titleObj?.title
+    mainText.highlighted = titleObj?.fragmentParams.highlightedText
   }
 
   return (
@@ -59,7 +71,7 @@ const RelocationFaq: FC = () => {
               <Layout flexBasis={40} flexShrink={0} />
               <Box width={['100%', '100%', 660]} height='min-content'>
                 <Column>
-                  {questions.map(({ id, title, content }) => (
+                  {faqs[language].map(({ id, title, content }) => (
                     <Column key={id} fill>
                       <Divider />
                       <Layout flexBasis={40} />

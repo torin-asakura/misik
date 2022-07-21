@@ -1,37 +1,54 @@
-import React            from 'react'
-import { FC }           from 'react'
-import { useState }     from 'react'
+import React             from 'react'
+import { FC }            from 'react'
+import { useState }      from 'react'
 
-import { Button }       from '@ui/button'
-import { Divider }      from '@ui/divider'
-import { Drawer }       from '@ui/drawer'
-import { Image }        from '@ui/image'
-import { Layer }        from '@ui/layer'
-import { Column }       from '@ui/layout'
-import { Layout }       from '@ui/layout'
-import { Box }          from '@ui/layout'
-import { Row }          from '@ui/layout'
-import { Text }         from '@ui/text'
-import { Space }        from '@ui/text'
-import { messages }     from '@globals/messages'
+import { Button }        from '@ui/button'
+import { Divider }       from '@ui/divider'
+import { Drawer }        from '@ui/drawer'
+import { Image }         from '@ui/image'
+import { Layer }         from '@ui/layer'
+import { Column }        from '@ui/layout'
+import { Layout }        from '@ui/layout'
+import { Box }           from '@ui/layout'
+import { Row }           from '@ui/layout'
+import { Text }          from '@ui/text'
+import { Space }         from '@ui/text'
+import { useData }       from '@globals/data'
+import { extractObject } from '@globals/data'
+import { useLanguage }   from '@globals/language'
+import { messages }      from '@globals/messages'
 
-import { MisikLawIcon } from './icons'
-import { Price }        from './price'
+import { MisikLawIcon }  from './icons'
+import { Price }         from './price'
 
 const RelocationHowMoveToAmerica: FC = () => {
+  const { fragments } = useData()
+  const [language] = useLanguage()
+
   const [visibleConsult, setVisibleConsult] = useState<boolean>(false)
   const [visibleDescription, setVisibleDescription] = useState<boolean>(false)
 
-  const language = 'RU'
   const image = {
-    imageUrl: 'https://wp.misik.pro/wp-content/uploads/2022/07/how-to-move-to-america.png',
-    altText: 'Как переехать в Америку',
+    url: '',
+    altText: '',
   }
 
-  const title = 'Как переехать в'
-  const highlightedText = 'Америку?'
-  const content =
-    'Если вам нужно срочно переехать, то мы предлагаем надежные решения по быстрой и легальной иммиграции в США на основании получение статуса беженца или иных специальных обстоятельств (например, воссоединение с семьей).'
+  let title = ''
+  let highlightedText = ''
+  let content = ''
+  let description = ''
+
+  if (fragments && fragments.relocationhowmovetous) {
+    const titleObj = extractObject('title', fragments.relocationhowmovetous[language])
+    const contentObj = extractObject('title', fragments.relocationhowmovetous[language])
+    const descriptionObj = extractObject('description', fragments.relocationhowmovetous[language])
+    title = titleObj?.title
+    content = contentObj?.content
+    description = descriptionObj?.title
+    highlightedText = titleObj?.fragmentParams.highlightedText
+    image.url = titleObj?.featuredImage?.node.sourceUrl
+    image.altText = titleObj?.featuredImage?.node.altText
+  }
 
   return (
     <>
@@ -63,7 +80,7 @@ const RelocationHowMoveToAmerica: FC = () => {
             <Layout flexBasis={[64, 64, 160]} flexShrink={0} />
             <Layout flexDirection={['column', 'column', 'row']}>
               <Box position='relative' width={[335, 335, 480]} height={[335, 335, 480]}>
-                <Image alt={image.altText} src={image.imageUrl} contain />
+                <Image alt={image.altText} src={image.url} contain />
                 <Box position='absolute' top='30%' left={-16}>
                   <Layout display={['none', 'none', 'flex']}>
                     <MisikLawIcon size={141} />
@@ -113,7 +130,7 @@ const RelocationHowMoveToAmerica: FC = () => {
                 </Layout>
                 <Layout flexBasis={32} />
                 <Layout>
-                  <Price />
+                  <Price description={description} />
                 </Layout>
                 <Layout flexBasis={32} />
                 <Layout flexDirection={['column', 'column', 'row']} alignItems='center'>

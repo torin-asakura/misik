@@ -1,20 +1,30 @@
-import React                from 'react'
-import { FC }               from 'react'
+import React                       from 'react'
+import { FC }                      from 'react'
 
-import { Divider }          from '@ui/divider'
-import { Row }              from '@ui/layout'
-import { Box }              from '@ui/layout'
-import { Layout }           from '@ui/layout'
-import { Column }           from '@ui/layout'
-import { AnimateOnLoad }    from '@ui/preloader'
-import { Text }             from '@ui/text'
+import { Divider }                 from '@ui/divider'
+import { Row }                     from '@ui/layout'
+import { Box }                     from '@ui/layout'
+import { Layout }                  from '@ui/layout'
+import { Column }                  from '@ui/layout'
+import { AnimateOnLoad }           from '@ui/preloader'
+import { Text }                    from '@ui/text'
+import { useData }                 from '@globals/data'
+import { extractObject }           from '@globals/data'
+import { useLanguage }             from '@globals/language'
 
-import { useGroundsStatus } from './data'
+import { useGroundsRefugeeStatus } from './data'
 
 const RelocationGroundsStatus: FC = () => {
-  const { groundsStatus } = useGroundsStatus()
+  const { fragments } = useData()
+  const [language] = useLanguage()
+  const groundsRefugeeStatus = useGroundsRefugeeStatus()
 
-  const mainText = 'Основания для получения статуса беженца'
+  let mainText = ''
+
+  if (fragments && fragments.relocationgroundsstatus) {
+    const titleObj = extractObject('title', fragments.relocationgroundsstatus[language])
+    mainText = titleObj?.title
+  }
 
   return (
     <Box width='100%' justifyContent='center' backgroundColor='background.lightBeige'>
@@ -46,7 +56,7 @@ const RelocationGroundsStatus: FC = () => {
             </Layout>
             <Layout flexBasis={[32, 32, 64]} flexShrink={0} />
             <Row flexWrap='wrap'>
-              {groundsStatus.map(({ id, title, description }, index) => (
+              {groundsRefugeeStatus[language].map(({ id, title, content }, index) => (
                 <Column height='auto'>
                   <Column key={id} width={['100%', '100%', 600]} height={[262, 262, 319]}>
                     <Row>
@@ -62,7 +72,7 @@ const RelocationGroundsStatus: FC = () => {
                       </Text>
                     </Row>
                     <Layout flexBasis={24} />
-                    <Row>
+                    <Row width={['100%', '100%', 540]}>
                       <Text
                         color='text.primary'
                         fontSize={['semiLarge', 'semiLarge', 'enlarged']}
@@ -81,7 +91,7 @@ const RelocationGroundsStatus: FC = () => {
                         fontSize={['tiny', 'tiny', 'regular']}
                         lineHeight={['big', 'big', 'small']}
                       >
-                        {description}
+                        {content}
                       </Text>
                     </Row>
                   </Column>

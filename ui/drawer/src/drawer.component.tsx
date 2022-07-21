@@ -1,26 +1,27 @@
-import React                from 'react'
-import { FC }               from 'react'
-import { motion }           from 'framer-motion'
+import React                      from 'react'
+import { FC }                     from 'react'
+import { motion }                 from 'framer-motion'
 
-import { Button }           from '@ui/button'
-import { Condition }        from '@ui/condition'
-import { Form }             from '@ui/form'
-import { Column }           from '@ui/layout'
-import { Layout }           from '@ui/layout'
-import { Row }              from '@ui/layout'
-import { Box }              from '@ui/layout'
-import { Text }             from '@ui/text'
-import { useData }          from '@globals/data'
-import { extractObject }    from '@globals/data'
-import { useLanguage }      from '@globals/language'
+import { Button }                 from '@ui/button'
+import { Condition }              from '@ui/condition'
+import { Form }                   from '@ui/form'
+import { Column }                 from '@ui/layout'
+import { Layout }                 from '@ui/layout'
+import { Row }                    from '@ui/layout'
+import { Box }                    from '@ui/layout'
+import { Text }                   from '@ui/text'
+import { useData }                from '@globals/data'
+import { normalizeString }        from '@globals/data'
+import { extractObject }          from '@globals/data'
+import { useLanguage }            from '@globals/language'
 
-import { Backdrop }         from './backdrop'
-import { Container }        from './container'
-import { DrawerProps }      from './drawer.interfaces'
-import { CrossIcon }        from './icons'
-import { ProgressBar }      from './progress-bar'
-import { Renderer }         from './renderer'
-import { descriptionsMock } from './descriptions.mock'
+import { Backdrop }               from './backdrop'
+import { Container }              from './container'
+import { DrawerProps }            from './drawer.interfaces'
+import { CrossIcon }              from './icons'
+import { ProgressBar }            from './progress-bar'
+import { Renderer }               from './renderer'
+import { useServiceDescriptions } from './data'
 
 const Drawer: FC<DrawerProps> = ({
   active,
@@ -32,19 +33,24 @@ const Drawer: FC<DrawerProps> = ({
 }) => {
   const [language] = useLanguage()
   const { fragments } = useData()
+  const serviceDescriptions = useServiceDescriptions()
 
-  let title: string = ''
-  let content: string = ''
+  let titleFeedback: string = ''
+  let contentFeedback: string = ''
   let privacyTitle: string = ''
   let privacyContent: string = ''
-  const relocationTitle: string = 'Описание услуги переезда'
+  let relocationTitle: string = ''
 
   if (fragments) {
     const titleObj = extractObject('drawer', fragments.feedback[language])
     const privacyObj = extractObject('privacy-policy', fragments.feedback[language])
-
-    title = titleObj?.title
-    content = titleObj?.content
+    const relocationTitleObj = extractObject(
+      'drawer-title',
+      fragments.relocationhowmovetous[language]
+    )
+    relocationTitle = relocationTitleObj?.title
+    titleFeedback = titleObj?.title
+    contentFeedback = titleObj?.content
     privacyTitle = privacyObj?.title
     privacyContent = privacyObj?.content
   }
@@ -101,12 +107,12 @@ const Drawer: FC<DrawerProps> = ({
                         lineHeight={['normal', 'normal', 'medium']}
                         textTransform='uppercase'
                       >
-                        {title}
+                        {titleFeedback}
                       </Text>
                     </Layout>
                     <Layout flexBasis={16} />
                     <Text color='text.secondary' fontSize={['tiny', 'tiny', 'regular']}>
-                      {content}
+                      {contentFeedback}
                     </Text>
                     <Layout />
                     <Layout flexBasis={50} />
@@ -148,8 +154,7 @@ const Drawer: FC<DrawerProps> = ({
                   </Layout>
                   <Layout flexBasis={64} flexShrink={0} />
                   <Column height='auto'>
-                    {/* eslint-disable-next-line */}
-                    {descriptionsMock.map(({ id, title, content }) => (
+                    {serviceDescriptions[language].map(({ id, title, content }) => (
                       <Column key={id}>
                         <Row>
                           <Text
@@ -166,7 +171,7 @@ const Drawer: FC<DrawerProps> = ({
                         <Layout flexBasis={16} />
                         <Row>
                           <Text fontSize='regular' lineHeight='primary' color='text.secondary'>
-                            {content}
+                            {normalizeString(content)}
                           </Text>
                         </Row>
                         <Layout flexBasis={40} />

@@ -1,3 +1,4 @@
+import DOMPurify            from 'dompurify'
 import React                from 'react'
 import { FC }               from 'react'
 import { useAnimation }     from 'framer-motion'
@@ -31,6 +32,7 @@ const Accordeon: FC<AccordeonProps> = ({
   content,
   isService = true,
   variant = 'primary',
+  image,
 }) => {
   const [active, setActive] = useState<boolean>(false)
   const [language] = useLanguage()
@@ -108,7 +110,7 @@ const Accordeon: FC<AccordeonProps> = ({
           <Column>
             <Row>
               <Box width={72} height={72} borderRadius='max' border='1 px solid black'>
-                <Image />
+                <Image alt={image?.node?.altText} src={image?.node?.sourceUrl} />
               </Box>
             </Row>
             <Layout flexBasis={24} />
@@ -132,7 +134,7 @@ const Accordeon: FC<AccordeonProps> = ({
                   fontSize={['tiny', 'tiny', 'regular']}
                   lineHeight='big'
                 >
-                  {content}
+                  <Column dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(content) }} />
                 </Text>
               </Row>
               <Condition match={!hiddenContent}>

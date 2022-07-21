@@ -3,21 +3,35 @@ import { FC }            from 'react'
 
 import { Layout }        from '@ui/layout'
 import { AnimateOnLoad } from '@ui/preloader'
+import { useData }       from '@globals/data'
+import { extractObject } from '@globals/data'
+import { useLanguage }   from '@globals/language'
 
 import { Container }     from './container'
 import { Content }       from './content'
 import { Description }   from './description'
 
 const RelocationHero: FC = () => {
-  const language = 'RU'
-  const title = 'Ваша программа переезда в'
-  const highlighted = 'США'
-  const description =
-    'Убежище в Америке для себя и всей семьи. Гарантируем подачу документов с первого раза.'
+  const { fragments } = useData()
+  const [language] = useLanguage()
+
+  let title = ''
+  let highlighted = ''
+  let description = ''
 
   const image = {
-    url: 'https://wp.misik.pro/wp-content/uploads/2022/07/background.png',
-    alt: 'Переезд в США',
+    url: '',
+    alt: '',
+  }
+
+  if (fragments && fragments.relocationhero) {
+    const titleObj = extractObject('title', fragments.relocationhero[language])
+    const contentObj = extractObject('content', fragments.relocationhero[language])
+    description = contentObj?.title
+    title = titleObj?.title
+    highlighted = titleObj?.fragmentParams.highlightedText
+    image.url = titleObj?.featuredImage?.node.sourceUrl
+    image.alt = titleObj?.featuredImage?.node.altText
   }
 
   return (
@@ -28,7 +42,7 @@ const RelocationHero: FC = () => {
           transition={{ duration: 1 }}
           animation={{ y: 0, opacity: 1 }}
         >
-          <Content language='RU' highlightedText={highlighted}>
+          <Content language={language} highlightedText={highlighted}>
             {title}
           </Content>
         </AnimateOnLoad>
@@ -43,7 +57,7 @@ const RelocationHero: FC = () => {
           <Description>{description}</Description>
         </AnimateOnLoad>
       </Layout>
-      <Layout flexBasis={[106, 106, 120]} flexShrink={0} />
+      <Layout flexBasis={[106, 106, 120]} />
     </Container>
   )
 }
