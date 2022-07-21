@@ -1502,6 +1502,7 @@ __metadata:
     "@globals/language": "workspace:0.0.1"
     "@landing/contacts-page": "workspace:0.0.1"
     "@landing/index-page": "workspace:0.0.1"
+    "@landing/relocation-page": "workspace:0.0.1"
     "@types/events": ^3
     "@types/express": ^4
     "@types/mapbox-gl": ^2
@@ -1778,6 +1779,258 @@ __metadata:
     "@emotion/styled": "*"
     "@globals/language": "*"
     "@ui/preloader": "workspace:^"
+    "@ui/spy-scroll": "*"
+    next: "*"
+    react: "*"
+    react-dom: "*"
+    styled-system: "*"
+  languageName: unknown
+  linkType: soft
+
+"@landing/relocation-faq-fragment@workspace:0.0.1, @landing/relocation-faq-fragment@workspace:landing/relocation-faq-fragment":
+  version: 0.0.0-use.local
+  resolution: "@landing/relocation-faq-fragment@workspace:landing/relocation-faq-fragment"
+  dependencies:
+    "@apollo/client": ^3.6.9
+    "@emotion/react": ^11.9.3
+    "@emotion/styled": ^11.9.3
+    "@globals/data": "workspace:0.0.1"
+    "@globals/language": "workspace:0.0.1"
+    "@types/styled-system": ^5
+    "@ui/accordeon": "workspace:0.0.1"
+    "@ui/divider": "workspace:0.0.1"
+    "@ui/layout": "workspace:0.0.1"
+    "@ui/preloader": "workspace:0.0.1"
+    "@ui/spy-scroll": "workspace:0.0.1"
+    "@ui/text": "workspace:0.0.1"
+    react: ^17.0.2
+    react-dom: ^17.0.2
+    styled-system: ^5.1.5
+  peerDependencies:
+    "@apollo/client": "*"
+    "@emotion/react": "*"
+    "@emotion/styled": "*"
+    "@globals/data": "*"
+    "@globals/language": "*"
+    "@ui/preloader": "*"
+    "@ui/spy-scroll": "*"
+    next: "*"
+    react: "*"
+    react-dom: "*"
+    styled-system: "*"
+  languageName: unknown
+  linkType: soft
+
+"@landing/relocation-grounds-status-fragment@workspace:0.0.1, @landing/relocation-grounds-status-fragment@workspace:landing/relocation-grounds-status-fragment":
+  version: 0.0.0-use.local
+  resolution: "@landing/relocation-grounds-status-fragment@workspace:landing/relocation-grounds-status-fragment"
+  dependencies:
+    "@apollo/client": ^3.6.9
+    "@emotion/react": ^11.9.3
+    "@emotion/styled": ^11.9.3
+    "@globals/data": "workspace:0.0.1"
+    "@globals/language": "workspace:0.0.1"
+    "@types/styled-system": ^5
+    "@ui/divider": "workspace:0.0.1"
+    "@ui/layout": "workspace:0.0.1"
+    "@ui/preloader": "workspace:0.0.1"
+    "@ui/spy-scroll": "workspace:0.0.1"
+    "@ui/text": "workspace:0.0.1"
+    react: ^17.0.2
+    react-dom: ^17.0.2
+    styled-system: ^5.1.5
+  peerDependencies:
+    "@apollo/client": "*"
+    "@emotion/react": "*"
+    "@emotion/styled": "*"
+    "@globals/data": "*"
+    "@globals/language": "*"
+    "@ui/preloader": "*"
+    "@ui/spy-scroll": "*"
+    next: "*"
+    react: "*"
+    react-dom: "*"
+    styled-system: "*"
+  languageName: unknown
+  linkType: soft
+
+"@landing/relocation-hero-fragment@workspace:0.0.1, @landing/relocation-hero-fragment@workspace:landing/relocation-hero-fragment":
+  version: 0.0.0-use.local
+  resolution: "@landing/relocation-hero-fragment@workspace:landing/relocation-hero-fragment"
+  dependencies:
+    "@apollo/client": ^3.6.9
+    "@emotion/react": ^11.9.3
+    "@emotion/styled": ^11.9.3
+    "@globals/data": "workspace:0.0.1"
+    "@globals/language": "workspace:0.0.1"
+    "@globals/messages": "workspace:0.0.1"
+    "@types/styled-system": ^5
+    "@ui/button": "workspace:0.0.1"
+    "@ui/condition": "workspace:0.0.1"
+    "@ui/drawer": "workspace:0.0.1"
+    "@ui/image": "workspace:0.0.1"
+    "@ui/layer": "workspace:0.0.1"
+    "@ui/layout": "workspace:0.0.1"
+    "@ui/link": "workspace:0.0.1"
+    "@ui/preloader": "workspace:0.0.1"
+    "@ui/spy-scroll": "workspace:0.0.1"
+    "@ui/text": "workspace:0.0.1"
+    react: ^17.0.2
+    react-dom: ^17.0.2
+    styled-system: ^5.1.5
+  peerDependencies:
+    "@apollo/client": "*"
+    "@emotion/react": "*"
+    "@emotion/styled": "*"
+    "@globals/data": "*"
+    "@globals/language": "*"
+    "@ui/preloader": "*"
+    "@ui/spy-scroll": "*"
+    next: "*"
+    react: "*"
+    react-dom: "*"
+    styled-system: "*"
+  languageName: unknown
+  linkType: soft
+
+"@landing/relocation-how-move-to-america-fragment@workspace:0.0.1, @landing/relocation-how-move-to-america-fragment@workspace:landing/relocation-how-move-to-america-fragment":
+  version: 0.0.0-use.local
+  resolution: "@landing/relocation-how-move-to-america-fragment@workspace:landing/relocation-how-move-to-america-fragment"
+  dependencies:
+    "@apollo/client": ^3.6.9
+    "@emotion/react": ^11.9.3
+    "@emotion/styled": ^11.9.3
+    "@globals/data": "workspace:0.0.1"
+    "@globals/language": "workspace:0.0.1"
+    "@globals/messages": "workspace:0.0.1"
+    "@types/styled-system": ^5
+    "@ui/button": "workspace:0.0.1"
+    "@ui/divider": "workspace:0.0.1"
+    "@ui/drawer": "workspace:0.0.1"
+    "@ui/image": "workspace:0.0.1"
+    "@ui/layer": "workspace:0.0.1"
+    "@ui/layout": "workspace:0.0.1"
+    "@ui/preloader": "workspace:0.0.1"
+    "@ui/spy-scroll": "workspace:0.0.1"
+    "@ui/text": "workspace:0.0.1"
+    framer-motion: ^6.5.1
+    react: ^17.0.2
+    react-dom: ^17.0.2
+    styled-system: ^5.1.5
+  peerDependencies:
+    "@apollo/client": "*"
+    "@emotion/react": "*"
+    "@emotion/styled": "*"
+    "@globals/data": "*"
+    "@globals/language": "*"
+    "@ui/preloader": "*"
+    "@ui/spy-scroll": "*"
+    next: "*"
+    react: "*"
+    react-dom: "*"
+    styled-system: "*"
+  languageName: unknown
+  linkType: soft
+
+"@landing/relocation-our-role-fragment@workspace:0.0.1, @landing/relocation-our-role-fragment@workspace:landing/relocation-our-role-fragment":
+  version: 0.0.0-use.local
+  resolution: "@landing/relocation-our-role-fragment@workspace:landing/relocation-our-role-fragment"
+  dependencies:
+    "@apollo/client": ^3.6.9
+    "@emotion/react": ^11.9.3
+    "@emotion/styled": ^11.9.3
+    "@globals/data": "workspace:0.0.1"
+    "@globals/language": "workspace:0.0.1"
+    "@types/styled-system": ^5
+    "@ui/image": "workspace:0.0.1"
+    "@ui/layout": "workspace:0.0.1"
+    "@ui/preloader": "workspace:0.0.1"
+    "@ui/spy-scroll": "workspace:0.0.1"
+    "@ui/text": "workspace:0.0.1"
+    react: ^17.0.2
+    react-dom: ^17.0.2
+    styled-system: ^5.1.5
+  peerDependencies:
+    "@apollo/client": "*"
+    "@emotion/react": "*"
+    "@emotion/styled": "*"
+    "@globals/data": "*"
+    "@globals/language": "*"
+    "@ui/preloader": "*"
+    "@ui/spy-scroll": "*"
+    next: "*"
+    react: "*"
+    react-dom: "*"
+    styled-system: "*"
+  languageName: unknown
+  linkType: soft
+
+"@landing/relocation-page@workspace:0.0.1, @landing/relocation-page@workspace:landing/relocation-page":
+  version: 0.0.0-use.local
+  resolution: "@landing/relocation-page@workspace:landing/relocation-page"
+  dependencies:
+    "@apollo/client": ^3.6.9
+    "@emotion/react": ^11.9.3
+    "@emotion/styled": ^11.9.3
+    "@globals/data": "workspace:0.0.1"
+    "@globals/language": "workspace:0.0.1"
+    "@landing/feedback-fragment": "workspace:0.0.1"
+    "@landing/footer-fragment": "workspace:0.0.1"
+    "@landing/map-fragment": "workspace:0.0.1"
+    "@landing/navigation-fragment": "workspace:0.0.1"
+    "@landing/relocation-faq-fragment": "workspace:0.0.1"
+    "@landing/relocation-grounds-status-fragment": "workspace:0.0.1"
+    "@landing/relocation-hero-fragment": "workspace:0.0.1"
+    "@landing/relocation-how-move-to-america-fragment": "workspace:0.0.1"
+    "@landing/relocation-our-role-fragment": "workspace:0.0.1"
+    "@landing/relocation-program-benefits-fragment": "workspace:0.0.1"
+    "@types/react-helmet": ^6
+    "@types/styled-system": ^5
+    "@ui/layout": "workspace:0.0.1"
+    "@ui/preloader": "workspace:0.0.1"
+    react: ^17.0.2
+    react-dom: ^17.0.2
+    react-helmet: ^6.1.0
+    styled-system: ^5.1.5
+  peerDependencies:
+    "@apollo/client": "*"
+    "@emotion/react": "*"
+    "@emotion/styled": "*"
+    next: "*"
+    react: "*"
+    react-dom: "*"
+    react-helmet: "*"
+    styled-system: "*"
+  languageName: unknown
+  linkType: soft
+
+"@landing/relocation-program-benefits-fragment@workspace:0.0.1, @landing/relocation-program-benefits-fragment@workspace:landing/relocation-program-benefits-fragment":
+  version: 0.0.0-use.local
+  resolution: "@landing/relocation-program-benefits-fragment@workspace:landing/relocation-program-benefits-fragment"
+  dependencies:
+    "@apollo/client": ^3.6.9
+    "@emotion/react": ^11.9.3
+    "@emotion/styled": ^11.9.3
+    "@globals/data": "workspace:0.0.1"
+    "@globals/language": "workspace:0.0.1"
+    "@types/styled-system": ^5
+    "@ui/accordeon": "workspace:0.0.1"
+    "@ui/divider": "workspace:0.0.1"
+    "@ui/image": "workspace:0.0.1"
+    "@ui/layout": "workspace:0.0.1"
+    "@ui/preloader": "workspace:0.0.1"
+    "@ui/spy-scroll": "workspace:0.0.1"
+    "@ui/text": "workspace:0.0.1"
+    react: ^17.0.2
+    react-dom: ^17.0.2
+    styled-system: ^5.1.5
+  peerDependencies:
+    "@apollo/client": "*"
+    "@emotion/react": "*"
+    "@emotion/styled": "*"
+    "@globals/data": "*"
+    "@globals/language": "*"
+    "@ui/preloader": "*"
     "@ui/spy-scroll": "*"
     next: "*"
     react: "*"
@@ -2432,6 +2685,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/dompurify@npm:^2":
+  version: 2.3.3
+  resolution: "@types/dompurify@npm:2.3.3"
+  dependencies:
+    "@types/trusted-types": "*"
+  checksum: 427e2dc60d94d13d7860a293b926b376727cb2f545a3334a3f2e7de695a2bb23058dd15108e49e0651378229b443ee8ae0028034b6f2df9a9008c04fb7ad6f8f
+  languageName: node
+  linkType: hard
+
 "@types/emscripten@npm:^1.38.0":
   version: 1.39.5
   resolution: "@types/emscripten@npm:1.39.5"
@@ -2764,6 +3026,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/trusted-types@npm:*":
+  version: 2.0.2
+  resolution: "@types/trusted-types@npm:2.0.2"
+  checksum: 3371eef5f1c50e1c3c07a127c1207b262ba65b83dd167a1c460fc1b135a3fb0c97b9f508efebd383f239cc5dd5b7169093686a692a501fde9c3f7208657d9b0d
+  languageName: node
+  linkType: hard
+
 "@types/yargs-parser@npm:*":
   version: 20.2.1
   resolution: "@types/yargs-parser@npm:20.2.1"
@@ -2797,14 +3066,17 @@ __metadata:
     "@emotion/styled": ^11.9.3
     "@globals/language": "workspace:0.0.1"
     "@globals/messages": "workspace:0.0.1"
+    "@types/dompurify": ^2
     "@types/styled-system": ^5
     "@ui/button": "workspace:0.0.1"
     "@ui/condition": "workspace:0.0.1"
     "@ui/drawer": "workspace:0.0.1"
+    "@ui/image": "workspace:0.0.1"
     "@ui/layer": "workspace:0.0.1"
     "@ui/layout": "workspace:0.0.1"
     "@ui/link": "workspace:0.0.1"
     "@ui/text": "workspace:0.0.1"
+    dompurify: ^2.3.10
     framer-motion: ^4.1.17
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -2914,6 +3186,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ui/drawer@workspace:ui/drawer"
   dependencies:
+    "@apollo/client": ^3.6.9
     "@emotion/react": ^11.4.1
     "@emotion/styled": ^11.3.0
     "@globals/data": "workspace:0.0.1"
@@ -4887,6 +5160,13 @@ __metadata:
   dependencies:
     ssr-window: ^4.0.0
   checksum: b38604f74e915b4d05b6634f9ff239a708c468180f498a28ff67f2a61233697d9bd7192703b788a24541c3591e7f1a6e83a2cbf70bc871a85e033f82e19abc31
+  languageName: node
+  linkType: hard
+
+"dompurify@npm:^2.3.10":
+  version: 2.3.10
+  resolution: "dompurify@npm:2.3.10"
+  checksum: ee343876b4c065e82d194818c66af76a6d2290264c7db583ad71761c11781fd626f0245f9f4670175d5707c4b8fcfb89adae80bed0418a9426a47ee7f36b0ffc
   languageName: node
   linkType: hard
 

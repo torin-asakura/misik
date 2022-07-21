@@ -16,8 +16,8 @@ const getNormalSizeStyles = (theme): styleFn => {
     border: colors === 'secondary' && '0px',
     borderBottom: colors === 'secondary' && '2px solid',
     borderRadius: colors === 'secondary' ? '0px' : '100px',
-    paddingLeft: colors === 'secondary' && 0,
-    paddingRight: colors === 'secondary' && 0,
+    paddingLeft: colors === 'secondary' ? 0 : 24,
+    paddingRight: colors === 'secondary' ? 0 : 24,
     paddingBottom: colors === 'secondary' && '12px',
   })
 }

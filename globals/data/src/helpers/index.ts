@@ -1,3 +1,5 @@
 export * from './extractObject'
 export * from './extractObjects'
 export * from './sortByOrder'
+export * from './normalizer'
+export * from './filter'

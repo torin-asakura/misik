@@ -1,28 +1,29 @@
-import React             from 'react'
-import ScrollLock        from 'react-scrolllock'
-import document          from 'global/document'
-import { FC }            from 'react'
-import { useAnimation }  from 'framer-motion'
-import { nanoid }        from 'nanoid'
-import { useEffect }     from 'react'
-import { useCallback }   from 'react'
-import { createPortal }  from 'react-dom'
+import React                      from 'react'
+import ScrollLock                 from 'react-scrolllock'
+import document                   from 'global/document'
+import { FC }                     from 'react'
+import { useAnimation }           from 'framer-motion'
+import { nanoid }                 from 'nanoid'
+import { useEffect }              from 'react'
+import { useCallback }            from 'react'
+import { createPortal }           from 'react-dom'
 
-import { Button }        from '@ui/button'
-import { Condition }     from '@ui/condition'
-import { Form }          from '@ui/form'
-import { Box }           from '@ui/layout'
-import { Column }        from '@ui/layout'
-import { Layout }        from '@ui/layout'
-import { Row }           from '@ui/layout'
-import { Text }          from '@ui/text'
-import { useData }       from '@globals/data'
-import { extractObject } from '@globals/data'
-import { useLanguage }   from '@globals/language'
+import { Button }                 from '@ui/button'
+import { Condition }              from '@ui/condition'
+import { Form }                   from '@ui/form'
+import { Box }                    from '@ui/layout'
+import { Column }                 from '@ui/layout'
+import { Layout }                 from '@ui/layout'
+import { Row }                    from '@ui/layout'
+import { Text }                   from '@ui/text'
+import { useData }                from '@globals/data'
+import { extractObject }          from '@globals/data'
+import { useLanguage }            from '@globals/language'
 
-import { Container }     from './container'
-import { CrossIcon }     from './icons'
-import { LayerProps }    from './layer.interface'
+import { Container }              from './container'
+import { CrossIcon }              from './icons'
+import { LayerProps }             from './layer.interface'
+import { useServiceDescriptions } from './data'
 
 export const Layer: FC<LayerProps> = ({
   children,
@@ -33,7 +34,7 @@ export const Layer: FC<LayerProps> = ({
   center = false,
   top = 0,
   left = 0,
-  privacyPolicy = false,
+  display = 'form',
   ...props
 }) => {
   const blackoutId = nanoid()
@@ -41,18 +42,24 @@ export const Layer: FC<LayerProps> = ({
   const main = useAnimation()
   const [language] = useLanguage()
   const { fragments } = useData()
+  const serviceDescriptions = useServiceDescriptions()
 
-  let title: string = ''
-  let content: string = ''
+  let titleFeedback: string = ''
+  let contentFeedback: string = ''
   let privacyTitle: string = ''
   let privacyContent: string = ''
+  let relocationTitle: string = ''
 
   if (fragments) {
     const titleObj = extractObject('drawer', fragments.feedback[language])
     const privacyObj = extractObject('privacy-policy', fragments.feedback[language])
-
-    title = titleObj?.title
-    content = titleObj?.content
+    const relocationTitleObj = extractObject(
+      'drawer-title',
+      fragments.relocationhowmovetous[language]
+    )
+    relocationTitle = relocationTitleObj?.title
+    titleFeedback = titleObj?.title
+    contentFeedback = titleObj?.content
     privacyTitle = privacyObj?.title
     privacyContent = privacyObj?.content
   }
@@ -114,7 +121,7 @@ export const Layer: FC<LayerProps> = ({
             <Box
               position='absolute'
               top='20px'
-              right='20px'
+              left='20px'
               display={['flex', 'flex', 'none']}
               onClick={close}
               style={{
@@ -140,7 +147,6 @@ export const Layer: FC<LayerProps> = ({
               width={['100%', '100%', 'auto']}
               height={['100%', '100%', 'auto']}
               justifyContent={['center', 'center', 'auto']}
-              alignItems={['center', 'center', 'auto']}
             >
               <Box
                 width={['100%', '100%', 720]}
@@ -148,7 +154,7 @@ export const Layer: FC<LayerProps> = ({
                 backgroundColor='background.beige'
                 borderRadius='atomic'
               >
-                <Condition match={!privacyPolicy}>
+                <Condition match={display === 'form'}>
                   <Column fill>
                     <Layout flexBasis={64} />
                     <Layout>
@@ -158,12 +164,12 @@ export const Layer: FC<LayerProps> = ({
                         lineHeight={['normal', 'normal', 'medium']}
                         textTransform='uppercase'
                       >
-                        {title}
+                        {titleFeedback}
                       </Text>
                     </Layout>
                     <Layout flexBasis={16} />
                     <Text color='text.secondary' fontSize={['tiny', 'tiny', 'regular']}>
-                      {content}
+                      {contentFeedback}
                     </Text>
                     <Layout />
                     <Layout flexBasis={50} />
@@ -172,7 +178,7 @@ export const Layer: FC<LayerProps> = ({
                     </Layout>
                   </Column>
                 </Condition>
-                <Condition match={privacyPolicy}>
+                <Condition match={display === 'privacy-policy'}>
                   <Column fill>
                     <Layout flexBasis={64} />
                     <Layout>
@@ -193,6 +199,46 @@ export const Layer: FC<LayerProps> = ({
                       </Button>
                     </Row>
                     <Layout flexBasis={32} />
+                  </Column>
+                </Condition>
+                <Condition match={display === 'relocation-description'}>
+                  <Column fill>
+                    <Layout flexBasis={80} flexShrink={0} />
+                    <Layout>
+                      <Text textTransform='uppercase' fontFamily='secondary' fontSize='semiBig'>
+                        {relocationTitle}
+                      </Text>
+                    </Layout>
+                    <Layout flexBasis={48} flexShrink={0} />
+                    <Column height='auto'>
+                      {serviceDescriptions[language].map(({ id, title, content }) => (
+                        <Column key={id} fill>
+                          <Row>
+                            <Text
+                              fontSize='semiLarge'
+                              style={{ fontVariantNumeric: 'lining-nums' }}
+                              lineHeight='primary'
+                              textTransform='uppercase'
+                              fontFamily='secondary'
+                            >
+                              {title}
+                            </Text>
+                          </Row>
+                          <Layout flexBasis={16} />
+                          <Row>
+                            <Text
+                              style={{ fontVariantNumeric: 'lining-nums' }}
+                              lineHeight='primary'
+                              color='text.secondary'
+                              fontSize='tiny'
+                            >
+                              {content}
+                            </Text>
+                          </Row>
+                          <Layout flexBasis={40} />
+                        </Column>
+                      ))}
+                    </Column>
                   </Column>
                 </Condition>
               </Box>

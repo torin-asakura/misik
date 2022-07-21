@@ -26,7 +26,7 @@ const colors = {
   background: {
     transparentWhite: 'rgba(255, 255, 255, 0.8)',
     transparentBlack: 'rgba(105, 103, 102, 0.5)',
-    lightBeige: 'rgba(247,242,237,1)',
+    lightBeige: 'rgba(246,242,237,1)',
     beige: 'rgb(241,234,226)',
     lightGray: 'rgba(18, 18, 19, 0.1)',
     white: 'rgb(255, 255, 255)',

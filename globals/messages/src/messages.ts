@@ -17,6 +17,10 @@ export const messages: Messages = {
     RU: 'Заказать услугу',
     EN: 'Order a service',
   },
+  servicesDescription: {
+    RU: 'Описание услуги',
+    EN: 'Service description',
+  },
   getConsult: {
     RU: 'Получить консультацию',
     EN: 'Get in touch',
@@ -40,5 +44,9 @@ export const messages: Messages = {
   reviews: {
     RU: 'Отзывы',
     EN: 'Reviews',
+  },
+  more: {
+    RU: 'Подробнее',
+    EN: 'More',
   },
 }

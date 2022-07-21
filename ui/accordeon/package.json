@@ -8,10 +8,12 @@
     "@ui/button": "workspace:0.0.1",
     "@ui/condition": "workspace:0.0.1",
     "@ui/drawer": "workspace:0.0.1",
+    "@ui/image": "workspace:0.0.1",
     "@ui/layer": "workspace:0.0.1",
     "@ui/layout": "workspace:0.0.1",
     "@ui/link": "workspace:0.0.1",
     "@ui/text": "workspace:0.0.1",
+    "dompurify": "^2.3.10",
     "framer-motion": "^4.1.17"
   },
   "devDependencies": {
@@ -19,6 +21,7 @@
     "@emotion/css": "^11.9.0",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
+    "@types/dompurify": "^2",
     "@types/styled-system": "^5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

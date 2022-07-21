@@ -13,6 +13,7 @@
     "styled-system": "^5.1.5"
   },
   "devDependencies": {
+    "@apollo/client": "^3.6.9",
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
     "@globals/data": "workspace:0.0.1",
