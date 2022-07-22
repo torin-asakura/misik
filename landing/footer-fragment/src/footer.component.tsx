@@ -1,27 +1,21 @@
-import React                 from 'react'
-import { FC }                from 'react'
+import React             from 'react'
+import { FC }            from 'react'
 
-import { Button }            from '@ui/button'
-import { Condition }         from '@ui/condition'
-import { Divider }           from '@ui/divider'
-import { Image }             from '@ui/image'
-import { Box }               from '@ui/layout'
-import { Layout }            from '@ui/layout'
-import { Row }               from '@ui/layout'
-import { Column }            from '@ui/layout'
-import { Link }              from '@ui/link'
-import { Logo }              from '@ui/logo'
-import { Text }              from '@ui/text'
-import { Space }             from '@ui/text'
-import { useData }           from '@globals/data'
-import { extractObject }     from '@globals/data'
-import { normalizeString }   from '@globals/data'
-
-import { useSocialNetworks } from './data'
+import { Divider }       from '@ui/divider'
+import { Box }           from '@ui/layout'
+import { Layout }        from '@ui/layout'
+import { Row }           from '@ui/layout'
+import { Column }        from '@ui/layout'
+import { Link }          from '@ui/link'
+import { Logo }          from '@ui/logo'
+import { Socials }       from '@ui/socials'
+import { Text }          from '@ui/text'
+import { Space }         from '@ui/text'
+import { useData }       from '@globals/data'
+import { extractObject } from '@globals/data'
 
 const Footer: FC = () => {
   const { fragments } = useData()
-  const socialNetworks = useSocialNetworks()
 
   const by = {
     title: '',
@@ -51,28 +45,7 @@ const Footer: FC = () => {
               <Logo />
             </Layout>
             <Layout flexGrow={1} />
-            {socialNetworks.map(({ content, featuredImage }, index) => (
-              <>
-                <Condition match={index !== 0}>
-                  <Layout flexBasis={24} />
-                </Condition>
-                <Layout>
-                  <Link href={normalizeString(content)} target='_blank'>
-                    <Button px={0} width={[40, 40, 48]} height={[40, 40, 48]}>
-                      <Layout width={21} height={21}>
-                        <Image
-                          width={21}
-                          height={21}
-                          src={featuredImage.node.sourceUrl}
-                          alt={featuredImage.node.altText}
-                          contain
-                        />
-                      </Layout>
-                    </Button>
-                  </Link>
-                </Layout>
-              </>
-            ))}
+            <Socials />
           </Row>
           <Layout flexBasis={24} />
           <Row>
