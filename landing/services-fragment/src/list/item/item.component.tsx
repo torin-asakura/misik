@@ -105,14 +105,25 @@ const Item: FC<ItemProps> = ({ image, title, content, link, reverse = false }) =
                   </>
                 ))}
                 <Layout>
-                  <Button
-                    colors='secondary'
-                    width={119}
-                    height={18}
-                    onClick={() => setVisible(true)}
-                  >
-                    {messages.orderService[language]}
-                  </Button>
+                  <Condition match={!link}>
+                    <Button
+                      colors='secondary'
+                      width={119}
+                      height={18}
+                      onClick={() => setVisible(true)}
+                    >
+                      {messages.orderService[language]}
+                    </Button>
+                  </Condition>
+                  <Condition match={link}>
+                    <Layout>
+                      <NextLink path={link}>
+                        <Button colors='secondary' height={18}>
+                          {messages.moreAboutService[language]}
+                        </Button>
+                      </NextLink>
+                    </Layout>
+                  </Condition>
                 </Layout>
               </Column>
               <Layout flexBasis={134} />
@@ -151,9 +162,25 @@ const Item: FC<ItemProps> = ({ image, title, content, link, reverse = false }) =
               ))}
               <Layout flexBasis={[24, 24, 70]} />
               <Layout>
-                <Button colors='secondary' width={119} height={18} onClick={() => setVisible(true)}>
-                  {messages.orderService[language]}
-                </Button>
+                <Condition match={!link}>
+                  <Button
+                    colors='secondary'
+                    width={119}
+                    height={18}
+                    onClick={() => setVisible(true)}
+                  >
+                    {messages.orderService[language]}
+                  </Button>
+                </Condition>
+                <Condition match={link}>
+                  <Layout>
+                    <NextLink path={link}>
+                      <Button colors='secondary' height={18}>
+                        {messages.moreAboutService[language]}
+                      </Button>
+                    </NextLink>
+                  </Layout>
+                </Condition>
               </Layout>
             </Column>
           </Layout>
