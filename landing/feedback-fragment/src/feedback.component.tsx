@@ -18,6 +18,8 @@ import { extractObject } from '@globals/data'
 import { useLanguage }   from '@globals/language'
 
 import { FeedbackProps } from './feedback.interface'
+import { useContacts }   from './data'
+import { extractType }   from './helpers'
 
 const Feedback: FC<FeedbackProps> = forwardRef((
   props,
@@ -27,6 +29,7 @@ const Feedback: FC<FeedbackProps> = forwardRef((
 ) => {
   const { fragments } = useData()
   const [language] = useLanguage()
+  const contactsData = useContacts()
 
   const title = {
     text: '',
@@ -34,21 +37,21 @@ const Feedback: FC<FeedbackProps> = forwardRef((
   }
   let content: string = ''
   let email: string = ''
-  let phones: string = ''
-  let workingHours: string = ''
+  let branchInRussia: string = ''
 
   if (fragments) {
     const titleFragment = extractObject('title', fragments.feedback[language])
     const emailFragment = extractObject('email', fragments.feedback.RU)
-    const phoneFragment = extractObject('phone', fragments.feedback.RU)
-    const workingHoursFragment = extractObject('workingHours', fragments.feedback[language])
+    const branchInRussiaFragment = extractType(
+      'phone',
+      contactsData?.contactAddons?.address[language]
+    )
 
     title.text = titleFragment?.title
     title.highlighted = titleFragment?.fragmentParams.highlightedText
     content = titleFragment?.content
     email = emailFragment?.content
-    phones = phoneFragment?.content
-    workingHours = workingHoursFragment?.content
+    branchInRussia = branchInRussiaFragment
   }
 
   return (
@@ -129,7 +132,7 @@ const Feedback: FC<FeedbackProps> = forwardRef((
                     </Text>
                   </Layout>
                 </AnimateOnLoad>
-                <Layout flexBasis={[32, 32, 155]} />
+                <Layout flexBasis={[32, 32, 180]} flexShrink={0} />
                 <AnimateOnLoad
                   initial={{ opacity: 0, y: '100%' }}
                   transition={{ duration: 1 }}
@@ -154,55 +157,18 @@ const Feedback: FC<FeedbackProps> = forwardRef((
                     </Layout>
                   </Row>
                 </AnimateOnLoad>
-                <Layout flexBasis={32} />
-                {phones
-                  .split('\n')
-                  .filter((string) => string.trim() !== '')
-                  .map((phone) => (
-                    <>
-                      <AnimateOnLoad
-                        initial={{ opacity: 0, y: '100%' }}
-                        transition={{ duration: 1 }}
-                        animation={{ y: 0, opacity: 1 }}
-                        delay={600}
-                      >
-                        <Row>
-                          <Layout>
-                            <Link
-                              href={`tel:${phone}`}
-                              fontSize={['large', 'large', 'enlarged']}
-                              fontWeight='thin'
-                              itemProp='telephone'
-                              fontFamily='secondary'
-                              style={{ fontVariantNumeric: 'lining-nums' }}
-                            >
-                              {phone}
-                            </Link>
-                          </Layout>
-                          <Layout flexBasis={16} />
-                          <Layout display={['none', 'none', 'flex']}>
-                            <Copy content={phone} />
-                          </Layout>
-                        </Row>
-                      </AnimateOnLoad>
-                      <Layout flexBasis={12} />
-                    </>
-                  ))}
-                <Layout flexBasis={12} />
-                <AnimateOnLoad
-                  initial={{ opacity: 0, y: '100%' }}
-                  transition={{ duration: 1 }}
-                  animation={{ y: 0, opacity: 1 }}
-                  delay={700}
-                >
+                <Layout flexBasis={44} />
+                <Row>
+                  <Layout>
+                    <Text>TEXT</Text>
+                  </Layout>
+                </Row>
+                <Layout flexBasis={160} />
+                <Column>
                   <Row>
-                    <Layout>
-                      <Text fontSize='small' color='text.secondary'>
-                        {workingHours}
-                      </Text>
-                    </Layout>
+                    <Text>{branchInRussia}</Text>
                   </Row>
-                </AnimateOnLoad>
+                </Column>
               </Column>
               <Layout flexGrow={1} />
               <Form />
