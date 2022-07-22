@@ -53,6 +53,17 @@ services:
     ports:
       - 3000:3000
 
+  landing-start:
+    image: node:16
+    working_dir: /workspace
+    volumes:
+      - ./:/workspace
+    entrypoint: yarn workspace @landing/app start
+    environment:
+      - WP_ENDPOINT=https://wp.misik.pro/graphql
+    ports:
+      - 3000:3000
+
 volumes:
   wordpress:
   db:
