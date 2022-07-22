@@ -23,7 +23,7 @@ const ContactsPage: FC = () => {
         <DataProvider>
           <Seo language={languageContext} />
           <Box backgroundColor='background.beige'>
-            <Navigation contacts />
+            <Navigation />
           </Box>
           <Feedback background='background.beige' contacts />
           <Map />

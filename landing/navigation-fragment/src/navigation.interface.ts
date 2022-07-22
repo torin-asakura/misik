@@ -1,3 +1,3 @@
 export interface NavigationProps {
-  contacts?: boolean
+  home?: boolean
 }
