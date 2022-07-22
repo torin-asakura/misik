@@ -46,7 +46,7 @@ const About = forwardRef((props, ref: any) => {
       justifyContent='center'
       ref={ref}
     >
-      <Layout flexBasis={[0, 0, 616]} />
+      <Layout flexBasis={[0, 0, 616]} minWidth={['auto', 'auto', 430]} />
       <Layout width='100%' maxWidth={1830}>
         <Column width='100%'>
           <Divider />
@@ -63,7 +63,7 @@ const About = forwardRef((props, ref: any) => {
             <Layout flexBasis={[40, 40, 204]} />
             <Layout maxWidth={980}>
               <Layout flexBasis={[20, 20, 0]} flexShrink={0} />
-              <Column width='100%' height='auto'>
+              <Column width='100%'>
                 <Layout width='100%'>
                   <Text
                     display='inline'
@@ -102,10 +102,16 @@ const About = forwardRef((props, ref: any) => {
             </Layout>
           </Layout>
           <Layout flexBasis={[0, 0, 160]} />
-          <Layout maxWidth={1830}>
-            <Column width='100%' justifyContent={['center', 'center', 'flex-start']}>
+          <Layout width='100%'>
+            <Column
+              width='100%'
+              alignItems='center'
+              justifyContent={['center', 'center', 'flex-start']}
+            >
               <Layout flexBasis={[64, 64, 0]} />
-              <Divider />
+              <Layout width='100%' maxWidth={1243}>
+                <Divider />
+              </Layout>
               <Layout flexBasis={80} />
               <Carousel>
                 {partners.map(({ featuredImage, clientsParameters }) => (

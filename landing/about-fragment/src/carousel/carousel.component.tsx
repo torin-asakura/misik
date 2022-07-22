@@ -12,7 +12,7 @@ const Desktop: FC = ({ children }) => (
     spaceBetween={40}
     loop
     height={90}
-    width={1830}
+    width={1243}
     touchEventsTarget='container'
     preventClicks={false}
   >

@@ -52,8 +52,8 @@ export const Reviews = forwardRef((props, ref) => {
       backgroundColor='background.lightBeige'
       justifyContent='center'
     >
-      <Layout flexBasis={[20, 20, 450]} flexShrink={[0, 0, 1]} />
-      <Layout width='100%' maxWidth={1830}>
+      <Layout flexBasis={[20, 20, 0]} />
+      <Layout width='100%' maxWidth={1243}>
         <Column justifyContent='center' width='100%'>
           <Layout flexBasis={[56, 56, 240]} flexShrink={0} />
           <Row alignItems='center'>
@@ -90,6 +90,7 @@ export const Reviews = forwardRef((props, ref) => {
               slidesPerView={2}
               spaceBetween={40}
               height={300}
+              width={1243}
               touchEventsTarget='container'
               grabCursor
               loop

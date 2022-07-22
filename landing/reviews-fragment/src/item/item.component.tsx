@@ -47,7 +47,7 @@ const Content = ({ content }) => (
 
 const Item: FC<ItemProps> = ({ title, content, description, imageUrl }) => (
   <Box
-    width={['100%', '100%', 895]}
+    width={['100%', '100%', 601]}
     height={276}
     backgroundColor='background.lightBeige'
     borderRadius='normal'
