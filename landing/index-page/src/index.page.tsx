@@ -36,7 +36,7 @@ const IndexPage: FC = () => {
   useEffect(() => {
     setTimeout(() => {
       setActive(0)
-    })
+    }, 1000)
   }, [])
 
   return (
