@@ -11,12 +11,15 @@ import { Column }        from '@ui/layout'
 import { Row }           from '@ui/layout'
 import { Link }          from '@ui/link'
 import { AnimateOnLoad } from '@ui/preloader'
+import { Socials }       from '@ui/socials'
 import { Text }          from '@ui/text'
 import { Space }         from '@ui/text'
 import { useData }       from '@globals/data'
 import { extractObject } from '@globals/data'
 import { useLanguage }   from '@globals/language'
+import { messages }      from '@globals/messages'
 
+import { Branch }        from './branch'
 import { FeedbackProps } from './feedback.interface'
 import { useContacts }   from './data'
 import { extractType }   from './helpers'
@@ -37,28 +40,28 @@ const Feedback: FC<FeedbackProps> = forwardRef((
   }
   let content: string = ''
   let email: string = ''
-  let branchInRussia: string = ''
+  let branches: Array<any> = []
+  let workingHours: string = ''
 
   if (fragments) {
     const titleFragment = extractObject('title', fragments.feedback[language])
     const emailFragment = extractObject('email', fragments.feedback.RU)
-    const branchInRussiaFragment = extractType(
-      'phone',
-      contactsData?.contactAddons?.address[language]
-    )
+    const branchesFragment = extractType('phone', contactsData[language])
+    const workingHoursFragment = extractObject('workingHours', fragments.feedback[language])
 
     title.text = titleFragment?.title
     title.highlighted = titleFragment?.fragmentParams.highlightedText
     content = titleFragment?.content
     email = emailFragment?.content
-    branchInRussia = branchInRussiaFragment
+    branches = branchesFragment
+    workingHours = workingHoursFragment?.content
   }
 
   return (
     <Box
       id='feedback'
       width='100%'
-      height={[877, 877, '100%']}
+      height={['auto', 'auto', '100%']}
       backgroundColor={background}
       ref={ref}
       itemScope
@@ -158,20 +161,39 @@ const Feedback: FC<FeedbackProps> = forwardRef((
                   </Row>
                 </AnimateOnLoad>
                 <Layout flexBasis={44} />
-                <Row>
-                  <Layout>
-                    <Text>TEXT</Text>
+                <Row alignItems='center'>
+                  <Layout flexDirection={['column', 'column', 'row']}>
+                    <Text fontSize={['semiRegular', 'semiRegular', 'small']} color='text.secondary'>
+                      {messages.weAreInSocialNetworks[language]}
+                    </Text>
                   </Layout>
+                  <Layout flexBasis={24} />
+                  <Socials />
                 </Row>
-                <Layout flexBasis={160} />
-                <Column>
-                  <Row>
-                    <Text>{branchInRussia}</Text>
-                  </Row>
-                </Column>
               </Column>
               <Layout flexGrow={1} />
               <Form />
+            </Layout>
+            <Layout flexBasis={160} />
+            <Layout flexDirection={['column', 'column', 'row']} width='100%'>
+              {branches.reverse().map((
+                { title: branchTitle, content: branchContent, contactAddons, fragmentParams },
+                index
+              ) => (
+                <>
+                  <Condition match={index !== 0}>
+                    <Layout flexBasis={40} />
+                  </Condition>
+                  <Branch
+                    title={branchTitle}
+                    highlighted={fragmentParams?.highlightedText}
+                    address={contactAddons?.address}
+                    messengers={contactAddons?.messengers}
+                    phone={branchContent}
+                    workingHours={workingHours}
+                  />
+                </>
+              ))}
             </Layout>
             <Layout flexBasis={160} />
           </Column>
