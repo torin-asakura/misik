@@ -87,6 +87,7 @@ const WorkFormat = forwardRef((props, ref: any) => {
               </>
             ))}
           </Layout>
+          <Layout flexBasis={[64, 64, 160]} />
         </Column>
       </Layout>
       <Layout flexBasis={[20, 20, 280]} flexShrink={[0, 0, 1]} />
