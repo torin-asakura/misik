@@ -75,7 +75,7 @@ const Services = forwardRef((props, ref: any) => {
                 <Divider />
               </Column>
             </Box>
-            <Layout flexBasis={40} />
+            <Layout flexBasis={40} flexShrink={0} />
             <Box height='min-content' width='100%'>
               <Column fill>
                 {rightSide?.map(({ title, content }) => (

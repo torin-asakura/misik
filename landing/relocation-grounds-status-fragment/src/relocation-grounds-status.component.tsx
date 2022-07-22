@@ -37,7 +37,6 @@ const RelocationGroundsStatus: FC = () => {
         <Layout maxWidth={1243}>
           <Column fill height='auto'>
             <Layout flexBasis={[64, 64, 160]} flexShrink={0} />
-
             <Row>
               <Text
                 color='text.primary'
@@ -89,7 +88,7 @@ const RelocationGroundsStatus: FC = () => {
                       <Text
                         color='text.secondary'
                         fontSize={['tiny', 'tiny', 'regular']}
-                        lineHeight={['big', 'big', 'small']}
+                        lineHeight='big'
                       >
                         {content}
                       </Text>

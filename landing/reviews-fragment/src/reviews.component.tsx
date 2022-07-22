@@ -68,7 +68,7 @@ export const Reviews = forwardRef((props, ref) => {
             <Layout flexGrow={1} flexBasis={[64, 64, 0]} />
             <Layout width={128}>
               <Layout display={['none', 'none', 'flex']}>
-                <Button width={44} onClick={() => swiper?.slidePrev()}>
+                <Button width={56} height={56} onClick={() => swiper?.slidePrev()}>
                   <Layout>
                     <ArrowLeftIcon />
                   </Layout>
@@ -76,7 +76,7 @@ export const Reviews = forwardRef((props, ref) => {
               </Layout>
               <Layout flexBasis={16} />
               <Layout display={['none', 'none', 'flex']}>
-                <Button width={44} onClick={() => swiper?.slideNext()}>
+                <Button width={56} height={56} onClick={() => swiper?.slideNext()}>
                   <Layout>
                     <ArrowRightIcon />
                   </Layout>

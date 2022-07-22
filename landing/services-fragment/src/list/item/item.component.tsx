@@ -133,9 +133,9 @@ const Item: FC<ItemProps> = ({ image, title, content, reverse = false }) => {
               </Layout>
               <Layout flexBasis={16} />
               {content.split('\n').map((piece) => (
-                  <Text color='text.secondary' lineHeight='primary'>
-                    {piece}
-                  </Text>
+                <Text color='text.secondary' lineHeight='primary'>
+                  {piece}
+                </Text>
               ))}
               <Layout flexBasis={[24, 24, 70]} />
               <Layout>

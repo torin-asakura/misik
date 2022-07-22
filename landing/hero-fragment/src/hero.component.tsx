@@ -59,7 +59,7 @@ const Hero = forwardRef((props, ref: any) => {
             <Box zIndex={-1} display={['flex', 'flex', 'none']}>
               <Image background src={image.url} alt={image.alt} />
             </Box>
-            <Layout flexBasis={[36, 36, 450]} />
+            <Layout flexBasis={[20, 20, 450]} flexShrink={[0, 0, 1]} />
             <Column>
               <Layout flexBasis={[88, 88, 160]} />
               <Layout maxWidth={1300}>
