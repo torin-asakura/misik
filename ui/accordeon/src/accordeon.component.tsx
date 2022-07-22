@@ -77,6 +77,7 @@ const Accordeon: FC<AccordeonProps> = ({
                 fontSize={['semiLarge', 'semiLarge', 'large']}
                 fontFamily='secondary'
                 textTransform='uppercase'
+                lineHeight='small'
               >
                 {title}
               </Text>
@@ -88,7 +89,7 @@ const Accordeon: FC<AccordeonProps> = ({
               <Layout flexShrink={0}>
                 <Column>
                   {content.split('<point>').map((point) => (
-                    <Text fontSize='regular' color='text.secondary' lineHeight='medium'>
+                    <Text fontSize='regular' color='text.secondary' lineHeight='big'>
                       {point.replace('</point>', '')}
                     </Text>
                   ))}

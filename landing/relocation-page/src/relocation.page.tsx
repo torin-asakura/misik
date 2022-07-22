@@ -18,6 +18,8 @@ import { RelocationProgramBenefits }  from '@landing/relocation-program-benefits
 import { Box }                        from '@ui/layout'
 import { Preloader }                  from '@ui/preloader'
 
+import { Seo }                        from './seo.component'
+
 const RelocationPage: FC = () => {
   const languageContext = useState<Language>('RU')
 
@@ -25,6 +27,7 @@ const RelocationPage: FC = () => {
     <Preloader>
       <LanguageProvider value={languageContext}>
         <DataProvider>
+          <Seo language={languageContext} />
           <Box backgroundColor='background.beige'>
             <Navigation />
           </Box>

@@ -43,8 +43,8 @@ const Services = forwardRef((props, ref: any) => {
       justifyContent='center'
       ref={ref}
     >
+      <Layout flexBasis={[20, 20, 450]} flexShrink={[0, 0, 1]} />
       <Layout width='100%' maxWidth={1830}>
-        <Layout flexBasis={[20, 20, 0]} />
         <Column fill>
           <Layout flexBasis={[64, 64, 160]} />
           <Layout width={['100%', '100%', 242]}>
@@ -58,44 +58,43 @@ const Services = forwardRef((props, ref: any) => {
               {title}
             </Text>
           </Layout>
-          <Layout flexBasis={[32, 32, 64]} />
           <Layout>
             <List items={items.sort(sortByOrder)} />
           </Layout>
-          <Layout flexBasis={120} />
+          <Layout flexBasis={[48, 48, 120]} />
           <Row flexWrap={['wrap', 'wrap', 'nowrap']}>
             <Box height='min-content' width='100%'>
               <Column fill>
                 {leftSide?.map(({ title, content }) => (
                   <Column fill>
                     <Divider />
-                    <Layout flexBasis={40} />
+                    <Layout flexBasis={[28, 28, 40]} />
                     <Accordeon title={title} content={content} />
-                    <Layout flexBasis={40} />
+                    <Layout flexBasis={[28, 28, 40]} />
                   </Column>
                 ))}
                 <Divider />
               </Column>
             </Box>
-            <Layout flexBasis={40} />
+            <Layout flexBasis={40} flexShrink={0} />
             <Box height='min-content' width='100%'>
               <Column fill>
                 {rightSide?.map(({ title, content }) => (
                   <Column fill>
                     <Divider />
-                    <Layout flexBasis={40} />
+                    <Layout flexBasis={[28, 28, 40]} />
                     <Accordeon title={title} content={content} />
-                    <Layout flexBasis={40} />
+                    <Layout flexBasis={[28, 28, 40]} />
                   </Column>
                 ))}
                 <Divider />
               </Column>
             </Box>
           </Row>
-          <Layout flexBasis={120} />
+          <Layout flexBasis={[64, 64, 160]} />
         </Column>
       </Layout>
-      <Layout flexBasis={[20, 20, 0]} />
+      <Layout flexBasis={[20, 20, 280]} flexShrink={[0, 0, 1]} />
     </Box>
   )
 })
