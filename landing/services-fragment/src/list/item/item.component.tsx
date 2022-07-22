@@ -133,14 +133,11 @@ const Item: FC<ItemProps> = ({ image, title, content, reverse = false }) => {
               </Layout>
               <Layout flexBasis={16} />
               {content.split('\n').map((piece) => (
-                <>
                   <Text color='text.secondary' lineHeight='primary'>
                     {piece}
                   </Text>
-                  <Layout flexBasis={16} />
-                </>
               ))}
-              <Layout flexBasis={70} />
+              <Layout flexBasis={[24, 24, 70]} />
               <Layout>
                 <Button colors='secondary' width={119} height={18} onClick={() => setVisible(true)}>
                   {messages.orderService[language]}

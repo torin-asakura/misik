@@ -47,13 +47,15 @@ export const Reviews = forwardRef((props, ref) => {
   return (
     <Box
       ref={ref as any}
-      px={['32px', '32px', '0px']}
+      px={['20px', '20px', '0px']}
+      width='100%'
       backgroundColor='background.lightBeige'
       justifyContent='center'
     >
+      <Layout flexBasis={[20, 20, 450]} flexShrink={[0, 0, 1]} />
       <Layout width='100%' maxWidth={1830}>
         <Column justifyContent='center' width='100%'>
-          <Layout flexBasis={240} />
+          <Layout flexBasis={[56, 56, 240]} flexShrink={0} />
           <Row alignItems='center'>
             <Text
               fontFamily='secondary'
@@ -116,6 +118,7 @@ export const Reviews = forwardRef((props, ref) => {
           <Layout flexBasis={120} />
         </Column>
       </Layout>
+      <Layout flexBasis={[20, 20, 280]} flexShrink={[0, 0, 1]} />
     </Box>
   )
 })
