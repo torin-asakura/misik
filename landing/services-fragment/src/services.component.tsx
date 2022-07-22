@@ -13,6 +13,7 @@ import { Text }           from '@ui/text'
 import { useData }        from '@globals/data'
 import { extractObject }  from '@globals/data'
 import { extractObjects } from '@globals/data'
+import { sortByOrder }    from '@globals/data'
 import { useLanguage }    from '@globals/language'
 
 import { List }           from './list'
@@ -59,7 +60,7 @@ const Services = forwardRef((props, ref: any) => {
           </Layout>
           <Layout flexBasis={[32, 32, 64]} />
           <Layout>
-            <List items={items} />
+            <List items={items.sort(sortByOrder)} />
           </Layout>
           <Layout flexBasis={120} />
           <Row flexWrap={['wrap', 'wrap', 'nowrap']}>

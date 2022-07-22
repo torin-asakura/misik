@@ -6,6 +6,7 @@ const GET_FRAGMENTS = gql`
       nodes {
         title
         content
+        menuOrder
         featuredImage {
           node {
             altText
