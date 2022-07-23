@@ -49,4 +49,12 @@ export const messages: Messages = {
     RU: 'Подробнее',
     EN: 'More',
   },
+  moreAboutService: {
+    RU: 'Подробнее об услуге',
+    EN: 'More about service',
+  },
+  weAreInSocialNetworks: {
+    RU: 'Мы в социальных сетях:',
+    EN: 'We are in social networks:',
+  },
 }

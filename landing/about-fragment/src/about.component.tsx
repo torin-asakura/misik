@@ -43,27 +43,26 @@ const About = forwardRef((props, ref: any) => {
       width='100%'
       height='100%'
       backgroundColor='background.lightBeige'
-      minHeight={[1703, 1703, 'auto']}
       justifyContent='center'
       ref={ref}
     >
+      <Layout flexBasis={[0, 0, 616]} minWidth={['auto', 'auto', 430]} />
       <Layout width='100%' maxWidth={1830}>
-        <Layout flexBasis={[20, 20, 210]} />
         <Column width='100%'>
           <Divider />
-          <Layout flexBasis={160} />
+          <Layout flexBasis={[64, 64, 160]} flexShrink={0} />
           <Layout height={['100%', '100%', 'auto']} flexDirection={['column', 'column', 'row']}>
-            <Layout>
-              <Box position='relative' width={['100%', '100%', 480]} height={480}>
+            <Layout justifyContent='center'>
+              <Box position='relative' width={['100%', '100%', 480]} height={['100%', '100%', 480]}>
                 <Image alt={alt} src={imageUrl} contain />
                 <Box position='absolute' top='30%' left={-16}>
                   <MisikLawIcon />
                 </Box>
               </Box>
             </Layout>
-            <Layout flexBasis={225} />
-            <Layout height={['auto', 'auto', '100%']} maxWidth={980}>
-              <Layout flexBasis={[20, 20, 0]} />
+            <Layout flexBasis={[40, 40, 204]} />
+            <Layout maxWidth={980}>
+              <Layout flexBasis={[20, 20, 0]} flexShrink={0} />
               <Column width='100%'>
                 <Layout width='100%'>
                   <Text
@@ -88,7 +87,7 @@ const About = forwardRef((props, ref: any) => {
                 </Layout>
                 <Layout flexBasis={[24, 24, 72]} />
                 <Divider />
-                <Layout flexBasis={32} />
+                <Layout flexBasis={[24, 24, 32]} />
                 <Layout width='100%'>
                   <Text
                     fontSize={['tiny', 'tiny', 'regular']}
@@ -99,14 +98,20 @@ const About = forwardRef((props, ref: any) => {
                   </Text>
                 </Layout>
               </Column>
-              <Layout flexBasis={[20, 20, 0]} />
+              <Layout flexBasis={[20, 20, 0]} flexShrink={0} />
             </Layout>
           </Layout>
           <Layout flexBasis={[0, 0, 160]} />
-          <Layout maxWidth={1830}>
-            <Column width='100%' justifyContent={['center', 'center', 'flex-start']}>
+          <Layout width='100%'>
+            <Column
+              width='100%'
+              alignItems='center'
+              justifyContent={['center', 'center', 'flex-start']}
+            >
               <Layout flexBasis={[64, 64, 0]} />
-              <Divider />
+              <Layout width='100%' maxWidth={1243}>
+                <Divider />
+              </Layout>
               <Layout flexBasis={80} />
               <Carousel>
                 {partners.map(({ featuredImage, clientsParameters }) => (
@@ -124,10 +129,10 @@ const About = forwardRef((props, ref: any) => {
               <Layout flexBasis={[32, 32, 0]} />
             </Column>
           </Layout>
-          <Layout flexBasis={80} />
+          <Layout flexBasis={[0, 0, 80]} />
         </Column>
       </Layout>
-      <Layout flexBasis={[16, 16, 240]} />
+      <Layout flexBasis={[0, 0, 280]} />
     </Box>
   )
 })

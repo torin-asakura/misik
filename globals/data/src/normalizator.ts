@@ -10,6 +10,7 @@ const normalizeString = (string) =>
     .replace(/<br\/>/g, '')
     .replace(/<br \/>/g, '')
     .replace(/&nbsp;/g, ' ')
+    .replace(/(<strong>|<\/strong>)/g, '')
 
 const validateField = (field) =>
   typeof field === 'string'

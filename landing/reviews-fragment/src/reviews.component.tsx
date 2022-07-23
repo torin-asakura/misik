@@ -47,13 +47,15 @@ export const Reviews = forwardRef((props, ref) => {
   return (
     <Box
       ref={ref as any}
-      px={['32px', '32px', '0px']}
+      px={['20px', '20px', '0px']}
+      width='100%'
       backgroundColor='background.lightBeige'
       justifyContent='center'
     >
-      <Layout width='100%' maxWidth={1830}>
+      <Layout flexBasis={[20, 20, 0]} />
+      <Layout width='100%' maxWidth={1243}>
         <Column justifyContent='center' width='100%'>
-          <Layout flexBasis={240} />
+          <Layout flexBasis={[56, 56, 240]} flexShrink={0} />
           <Row alignItems='center'>
             <Text
               fontFamily='secondary'
@@ -66,7 +68,7 @@ export const Reviews = forwardRef((props, ref) => {
             <Layout flexGrow={1} flexBasis={[64, 64, 0]} />
             <Layout width={128}>
               <Layout display={['none', 'none', 'flex']}>
-                <Button width={44} onClick={() => swiper?.slidePrev()}>
+                <Button width={56} height={56} onClick={() => swiper?.slidePrev()}>
                   <Layout>
                     <ArrowLeftIcon />
                   </Layout>
@@ -74,7 +76,7 @@ export const Reviews = forwardRef((props, ref) => {
               </Layout>
               <Layout flexBasis={16} />
               <Layout display={['none', 'none', 'flex']}>
-                <Button width={44} onClick={() => swiper?.slideNext()}>
+                <Button width={56} height={56} onClick={() => swiper?.slideNext()}>
                   <Layout>
                     <ArrowRightIcon />
                   </Layout>
@@ -88,6 +90,7 @@ export const Reviews = forwardRef((props, ref) => {
               slidesPerView={2}
               spaceBetween={40}
               height={300}
+              width={1243}
               touchEventsTarget='container'
               grabCursor
               loop
@@ -116,6 +119,7 @@ export const Reviews = forwardRef((props, ref) => {
           <Layout flexBasis={120} />
         </Column>
       </Layout>
+      <Layout flexBasis={[20, 20, 280]} flexShrink={[0, 0, 1]} />
     </Box>
   )
 })

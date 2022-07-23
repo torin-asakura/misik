@@ -11,13 +11,18 @@ import { Column }        from '@ui/layout'
 import { Row }           from '@ui/layout'
 import { Link }          from '@ui/link'
 import { AnimateOnLoad } from '@ui/preloader'
+import { Socials }       from '@ui/socials'
 import { Text }          from '@ui/text'
 import { Space }         from '@ui/text'
 import { useData }       from '@globals/data'
 import { extractObject } from '@globals/data'
 import { useLanguage }   from '@globals/language'
+import { messages }      from '@globals/messages'
 
+import { Branch }        from './branch'
 import { FeedbackProps } from './feedback.interface'
+import { useContacts }   from './data'
+import { extractType }   from './helpers'
 
 const Feedback: FC<FeedbackProps> = forwardRef((
   props,
@@ -27,6 +32,7 @@ const Feedback: FC<FeedbackProps> = forwardRef((
 ) => {
   const { fragments } = useData()
   const [language] = useLanguage()
+  const contactsData = useContacts()
 
   const title = {
     text: '',
@@ -34,20 +40,20 @@ const Feedback: FC<FeedbackProps> = forwardRef((
   }
   let content: string = ''
   let email: string = ''
-  let phones: string = ''
+  let branches: Array<any> = []
   let workingHours: string = ''
 
   if (fragments) {
     const titleFragment = extractObject('title', fragments.feedback[language])
     const emailFragment = extractObject('email', fragments.feedback.RU)
-    const phoneFragment = extractObject('phone', fragments.feedback.RU)
+    const branchesFragment = extractType('phone', contactsData[language])
     const workingHoursFragment = extractObject('workingHours', fragments.feedback[language])
 
     title.text = titleFragment?.title
     title.highlighted = titleFragment?.fragmentParams.highlightedText
     content = titleFragment?.content
     email = emailFragment?.content
-    phones = phoneFragment?.content
+    branches = branchesFragment
     workingHours = workingHoursFragment?.content
   }
 
@@ -55,7 +61,7 @@ const Feedback: FC<FeedbackProps> = forwardRef((
     <Box
       id='feedback'
       width='100%'
-      height={[877, 877, '100%']}
+      height={['auto', 'auto', '100%']}
       backgroundColor={background}
       ref={ref}
       itemScope
@@ -68,7 +74,7 @@ const Feedback: FC<FeedbackProps> = forwardRef((
         borderRadius={['topMedium', 'topMedium', 'topHuge']}
         justifyContent='center'
       >
-        <Layout flexBasis={[20, 20, 0]} />
+        <Layout flexBasis={[20, 20, 616]} minWidth={['auto', 'auto', 430]} />
         <Layout width='100%' height='100%' maxWidth={1830}>
           <Column width='100%'>
             <Layout flexBasis={[0, 0, 160]} />
@@ -129,7 +135,7 @@ const Feedback: FC<FeedbackProps> = forwardRef((
                     </Text>
                   </Layout>
                 </AnimateOnLoad>
-                <Layout flexBasis={[32, 32, 155]} />
+                <Layout flexBasis={[32, 32, 180]} flexShrink={0} />
                 <AnimateOnLoad
                   initial={{ opacity: 0, y: '100%' }}
                   transition={{ duration: 1 }}
@@ -154,63 +160,45 @@ const Feedback: FC<FeedbackProps> = forwardRef((
                     </Layout>
                   </Row>
                 </AnimateOnLoad>
-                <Layout flexBasis={32} />
-                {phones
-                  .split('\n')
-                  .filter((string) => string.trim() !== '')
-                  .map((phone) => (
-                    <>
-                      <AnimateOnLoad
-                        initial={{ opacity: 0, y: '100%' }}
-                        transition={{ duration: 1 }}
-                        animation={{ y: 0, opacity: 1 }}
-                        delay={600}
-                      >
-                        <Row>
-                          <Layout>
-                            <Link
-                              href={`tel:${phone}`}
-                              fontSize={['large', 'large', 'enlarged']}
-                              fontWeight='thin'
-                              itemProp='telephone'
-                              fontFamily='secondary'
-                              style={{ fontVariantNumeric: 'lining-nums' }}
-                            >
-                              {phone}
-                            </Link>
-                          </Layout>
-                          <Layout flexBasis={16} />
-                          <Layout display={['none', 'none', 'flex']}>
-                            <Copy content={phone} />
-                          </Layout>
-                        </Row>
-                      </AnimateOnLoad>
-                      <Layout flexBasis={12} />
-                    </>
-                  ))}
-                <Layout flexBasis={12} />
-                <AnimateOnLoad
-                  initial={{ opacity: 0, y: '100%' }}
-                  transition={{ duration: 1 }}
-                  animation={{ y: 0, opacity: 1 }}
-                  delay={700}
-                >
-                  <Row>
-                    <Layout>
-                      <Text fontSize='small' color='text.secondary'>
-                        {workingHours}
-                      </Text>
-                    </Layout>
-                  </Row>
-                </AnimateOnLoad>
+                <Layout flexBasis={44} />
+                <Row alignItems='center'>
+                  <Layout flexDirection={['column', 'column', 'row']}>
+                    <Text fontSize={['semiRegular', 'semiRegular', 'small']} color='text.secondary'>
+                      {messages.weAreInSocialNetworks[language]}
+                    </Text>
+                  </Layout>
+                  <Layout flexBasis={24} />
+                  <Socials />
+                </Row>
               </Column>
               <Layout flexGrow={1} />
               <Form />
             </Layout>
             <Layout flexBasis={160} />
+            <Layout flexDirection={['column', 'column', 'row']} width='100%'>
+              {branches.reverse().map((
+                { title: branchTitle, content: branchContent, contactAddons, fragmentParams },
+                index
+              ) => (
+                <>
+                  <Condition match={index !== 0}>
+                    <Layout flexBasis={40} />
+                  </Condition>
+                  <Branch
+                    title={branchTitle}
+                    highlighted={fragmentParams?.highlightedText}
+                    address={contactAddons?.address}
+                    messengers={contactAddons?.messengers}
+                    phone={branchContent}
+                    workingHours={workingHours}
+                  />
+                </>
+              ))}
+            </Layout>
+            <Layout flexBasis={160} />
           </Column>
         </Layout>
-        <Layout flexBasis={[16, 16, 0]} />
+        <Layout flexBasis={[20, 20, 280]} flexShrink={[0, 0, 1]} />
       </Box>
     </Box>
   )

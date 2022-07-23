@@ -21,7 +21,7 @@ import { messages }           from '@globals/messages'
 import { NavigationProps }    from './navigation.interface'
 import { useMenus }           from './data'
 
-const Navigation: FC<NavigationProps> = ({ contacts }) => {
+const Navigation: FC<NavigationProps> = ({ home }) => {
   const [language, setLanguage] = useLanguage()
   const [visible, setVisible] = useState<boolean>(false)
   const menus = useMenus()
@@ -47,7 +47,7 @@ const Navigation: FC<NavigationProps> = ({ contacts }) => {
         initial={{ y: '-100%' }}
         transition={{ duration: 1 }}
       >
-        <Layout flexBasis={[16, 16, 40]} flexShrink={0} />
+        <Layout flexBasis={[20, 20, 40]} flexShrink={0} />
         <Column width='100%'>
           <Layout flexBasis={21} />
           <Layout width='100%' height='100%'>
@@ -57,7 +57,7 @@ const Navigation: FC<NavigationProps> = ({ contacts }) => {
               </Box>
               <Layout flexGrow={1} flexBasis={150} />
               <Row
-                maxWidth={797}
+                maxWidth={707}
                 alignItems='center'
                 justifyContent='flex-start'
                 display={['none', 'none', 'flex']}
@@ -66,7 +66,7 @@ const Navigation: FC<NavigationProps> = ({ contacts }) => {
                   <>
                     <Layout>
                       <Condition match={Array.from(href)[0] === '#'}>
-                        <Condition match={!contacts}>
+                        <Condition match={home}>
                           <ScrollLink spy smooth to={href.replace('#', '')}>
                             {/* eslint-disable-next-line */}
                             <Link fontSize='semiRegular' onClick={(e) => e.preventDefault()}>
@@ -74,7 +74,7 @@ const Navigation: FC<NavigationProps> = ({ contacts }) => {
                             </Link>
                           </ScrollLink>
                         </Condition>
-                        <Condition match={contacts}>
+                        <Condition match={!home}>
                           <NextLink fontSize='semiRegular' path='/'>
                             {label}
                           </NextLink>

@@ -11,13 +11,14 @@ import { Box }         from '@ui/layout'
 import { Layout }      from '@ui/layout'
 import { Row }         from '@ui/layout'
 import { Column }      from '@ui/layout'
+import { NextLink }    from '@ui/link'
 import { Text }        from '@ui/text'
 import { useLanguage } from '@globals/language'
 import { messages }    from '@globals/messages'
 
 import { ItemProps }   from './item.interface'
 
-const Item: FC<ItemProps> = ({ image, title, content, reverse = false }) => {
+const Item: FC<ItemProps> = ({ image, title, content, link, reverse = false }) => {
   const [language] = useLanguage()
   const [visible, setVisible] = useState(false)
 
@@ -59,16 +60,27 @@ const Item: FC<ItemProps> = ({ image, title, content, reverse = false }) => {
                     <Layout flexBasis={16} />
                   </>
                 ))}
-                <Layout>
-                  <Button
-                    colors='secondary'
-                    width={119}
-                    height={18}
-                    onClick={() => setVisible(true)}
-                  >
-                    {messages.orderService[language]}
-                  </Button>
-                </Layout>
+                <Condition match={!link}>
+                  <Layout>
+                    <Button
+                      colors='secondary'
+                      width={119}
+                      height={18}
+                      onClick={() => setVisible(true)}
+                    >
+                      {messages.orderService[language]}
+                    </Button>
+                  </Layout>
+                </Condition>
+                <Condition match={link}>
+                  <Layout>
+                    <NextLink path={link}>
+                      <Button colors='secondary' height={18}>
+                        {messages.moreAboutService[language]}
+                      </Button>
+                    </NextLink>
+                  </Layout>
+                </Condition>
               </Column>
             </Row>
           </Condition>
@@ -93,14 +105,25 @@ const Item: FC<ItemProps> = ({ image, title, content, reverse = false }) => {
                   </>
                 ))}
                 <Layout>
-                  <Button
-                    colors='secondary'
-                    width={119}
-                    height={18}
-                    onClick={() => setVisible(true)}
-                  >
-                    {messages.orderService[language]}
-                  </Button>
+                  <Condition match={!link}>
+                    <Button
+                      colors='secondary'
+                      width={119}
+                      height={18}
+                      onClick={() => setVisible(true)}
+                    >
+                      {messages.orderService[language]}
+                    </Button>
+                  </Condition>
+                  <Condition match={link}>
+                    <Layout>
+                      <NextLink path={link}>
+                        <Button colors='secondary' height={18}>
+                          {messages.moreAboutService[language]}
+                        </Button>
+                      </NextLink>
+                    </Layout>
+                  </Condition>
                 </Layout>
               </Column>
               <Layout flexBasis={134} />
@@ -133,18 +156,31 @@ const Item: FC<ItemProps> = ({ image, title, content, reverse = false }) => {
               </Layout>
               <Layout flexBasis={16} />
               {content.split('\n').map((piece) => (
-                <>
-                  <Text color='text.secondary' lineHeight='primary'>
-                    {piece}
-                  </Text>
-                  <Layout flexBasis={16} />
-                </>
+                <Text color='text.secondary' lineHeight='primary'>
+                  {piece}
+                </Text>
               ))}
-              <Layout flexBasis={70} />
+              <Layout flexBasis={[24, 24, 70]} />
               <Layout>
-                <Button colors='secondary' width={119} height={18} onClick={() => setVisible(true)}>
-                  {messages.orderService[language]}
-                </Button>
+                <Condition match={!link}>
+                  <Button
+                    colors='secondary'
+                    width={119}
+                    height={18}
+                    onClick={() => setVisible(true)}
+                  >
+                    {messages.orderService[language]}
+                  </Button>
+                </Condition>
+                <Condition match={link}>
+                  <Layout>
+                    <NextLink path={link}>
+                      <Button colors='secondary' height={18}>
+                        {messages.moreAboutService[language]}
+                      </Button>
+                    </NextLink>
+                  </Layout>
+                </Condition>
               </Layout>
             </Column>
           </Layout>

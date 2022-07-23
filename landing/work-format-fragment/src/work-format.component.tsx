@@ -34,10 +34,10 @@ const WorkFormat = forwardRef((props, ref: any) => {
       justifyContent='center'
       ref={ref}
     >
+      <Layout flexBasis={[20, 20, 616]} minWidth={['auto', 'auto', 430]} />
       <Layout maxWidth={1830}>
-        <Layout flexBasis={[20, 20, 0]} flexShrink={0} />
         <Column width='100%'>
-          <Layout flexBasis={120} />
+          <Layout flexBasis={[64, 64, 160]} />
           <Layout>
             <Text
               fontFamily='secondary'
@@ -48,9 +48,9 @@ const WorkFormat = forwardRef((props, ref: any) => {
               {title}
             </Text>
           </Layout>
-          <Layout flexBasis={64} />
+          <Layout flexBasis={[32, 32, 64]} />
           <Divider />
-          <Layout flexBasis={64} />
+          <Layout flexBasis={[32, 32, 64]} />
           <Layout width='100%' flexDirection={['column', 'column', 'row']}>
             {workFormats.sort(sortByOrder).map(({ title, content }, idx) => (
               <>
@@ -69,7 +69,7 @@ const WorkFormat = forwardRef((props, ref: any) => {
                         <Text fontSize='tiny'>{`0${idx + 1}`}</Text>
                       </Layout>
                     </Box>
-                    <Layout flexBasis={32} />
+                    <Layout flexBasis={[24, 24, 32]} />
                     <Layout>
                       <Text fontFamily='secondary' fontSize='enlarged' textTransform='uppercase'>
                         {title}
@@ -83,13 +83,14 @@ const WorkFormat = forwardRef((props, ref: any) => {
                     </Layout>
                   </Column>
                 </Box>
-                <Layout flexBasis={40} />
+                <Layout flexBasis={40} flexShrink={0} />
               </>
             ))}
           </Layout>
+          <Layout flexBasis={[64, 64, 160]} />
         </Column>
       </Layout>
-      <Layout flexBasis={[16, 16, 0]} />
+      <Layout flexBasis={[20, 20, 280]} flexShrink={[0, 0, 1]} />
     </Box>
   )
 })

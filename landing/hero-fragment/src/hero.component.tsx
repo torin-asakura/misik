@@ -44,7 +44,13 @@ const Hero = forwardRef((props, ref: any) => {
     <>
       <Layer visible={visible} onClose={() => setVisible(false)} />
       <Drawer active={visible} onClose={() => setVisible(false)} />
-      <Box width='100%' height='100vh' backgroundColor='background.lightBeige' zIndex={1} ref={ref}>
+      <Box
+        width='100%'
+        height={['100%', '100%', '100vh']}
+        backgroundColor='background.lightBeige'
+        zIndex={1}
+        ref={ref}
+      >
         <Box
           position='relative'
           width='100%'
@@ -55,13 +61,13 @@ const Hero = forwardRef((props, ref: any) => {
           overflow='hidden'
           zIndex={3}
         >
-          <Layout flexBasis={[36, 36, 0]} />
           <Row height='100%' justifyContent='center'>
             <Box zIndex={-1} display={['flex', 'flex', 'none']}>
               <Image background src={image.url} alt={image.alt} />
             </Box>
+            <Layout flexBasis={[20, 20, 450]} flexShrink={[0, 0, 1]} />
             <Column>
-              <Layout flexBasis={[160, 160, 240]} />
+              <Layout flexBasis={[88, 88, 160]} />
               <Layout maxWidth={1300}>
                 <AnimateOnLoad
                   initial={{ opacity: 0, y: '30%' }}
@@ -163,7 +169,7 @@ const Hero = forwardRef((props, ref: any) => {
                   </Column>
                 </AnimateOnLoad>
               </Layout>
-              <Layout flexBasis={[289, 289, 0]} flexGrow={[0, 0, 1]} />
+              <Layout flexBasis={[289, 289, 438]} />
               <Layout display={['none', 'none', 'flex']}>
                 <Button
                   colors='secondary'
@@ -184,9 +190,9 @@ const Hero = forwardRef((props, ref: any) => {
                   {messages.getConsult[language]}
                 </Button>
               </Layout>
-              <Layout flexBasis={[40, 40, 160]} />
+              <Layout flexBasis={[40, 40, 80]} />
             </Column>
-            <Layout flexBasis={[16, 16, 900]} />
+            <Layout flexBasis={[16, 16, 1246]} />
           </Row>
           <Layout flexBasis={[20, 20, 0]} />
         </Box>
