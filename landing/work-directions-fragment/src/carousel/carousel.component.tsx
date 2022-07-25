@@ -50,7 +50,7 @@ const Tablet: FC = ({ children }) => (
 const Mobile: FC = ({ children }) => (
   <Swiper
     modules={[Autoplay]}
-    spaceBetween={40}
+    spaceBetween={120}
     slidesPerView={2}
     width={375}
     height={220}

@@ -17,9 +17,9 @@ const WorkDirections: FC = () => {
   const [language] = useLanguage()
 
   return (
-    <Box width='100%' height={[290, 290, 380]} backgroundColor='background.lightBeige'>
+    <Box width='100%' height={['auto', 'auto', 380]} backgroundColor='background.lightBeige'>
       <Column fill alignItems='center'>
-        <Layout flexBasis={80} />
+        <Layout flexBasis={[40, 40, 80]} />
         <Box width='100%' overflow='hidden' justifyContent='center'>
           <Carousel>
             {workDirections[language].map(({ title, featuredImage }) => (
@@ -50,7 +50,7 @@ const WorkDirections: FC = () => {
             ))}
           </Carousel>
         </Box>
-        <Layout flexBasis={80} />
+        <Layout flexBasis={[40, 40, 80]} />
         <Layout>
           <Divider />
         </Layout>

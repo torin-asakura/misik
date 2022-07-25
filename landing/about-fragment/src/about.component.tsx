@@ -46,14 +46,14 @@ const About = forwardRef((props, ref: any) => {
       justifyContent='center'
       ref={ref}
     >
-      <Layout flexBasis={[0, 0, 616]} minWidth={['auto', 'auto', 430]} />
+      <Layout flexBasis={[0, 0, 616]} maxWidth={['auto', 'auto', 430]} />
       <Layout width='100%' maxWidth={1830}>
         <Column width='100%'>
           <Divider />
           <Layout flexBasis={[64, 64, 160]} flexShrink={0} />
           <Layout height={['100%', '100%', 'auto']} flexDirection={['column', 'column', 'row']}>
             <Layout justifyContent='center'>
-              <Box position='relative' width={['100%', '100%', 480]} height={['100%', '100%', 480]}>
+              <Box position='relative' width={[320, 320, 480]} maxHeight={[320, 320, 480]}>
                 <Image alt={alt} src={imageUrl} contain />
                 <Box position='absolute' top='30%' left={-16}>
                   <MisikLawIcon />
