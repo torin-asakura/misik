@@ -113,19 +113,21 @@ const About = forwardRef((props, ref: any) => {
                 <Divider />
               </Layout>
               <Layout flexBasis={80} />
-              <Carousel>
-                {partners.map(({ featuredImage, clientsParameters }) => (
-                  <Box width={180} height={90}>
-                    <Link href={clientsParameters?.ssylka} target='_blank'>
-                      <Image
-                        src={featuredImage?.node.sourceUrl}
-                        alt={featuredImage?.node.altText}
-                        contain
-                      />
-                    </Link>
-                  </Box>
-                ))}
-              </Carousel>
+              <Box width='100%' overflow='hidden'>
+                <Carousel>
+                  {partners.map(({ featuredImage, clientsParameters }) => (
+                    <Box width={180} height={90}>
+                      <Link href={clientsParameters?.ssylka} target='_blank'>
+                        <Image
+                          src={featuredImage?.node.sourceUrl}
+                          alt={featuredImage?.node.altText}
+                          contain
+                        />
+                      </Link>
+                    </Box>
+                  ))}
+                </Carousel>
+              </Box>
               <Layout flexBasis={[32, 32, 0]} />
             </Column>
           </Layout>
