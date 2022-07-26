@@ -36,13 +36,8 @@ const WorkFormat = forwardRef((props, ref: any) => {
       justifyContent='center'
       ref={ref}
     >
-<<<<<<< HEAD
-      <Layout flexBasis={[20, 20, 616]} flexShrink={[0, 0, 1]} minWidth={['auto', 'auto', 430]} />
-      <Layout width='100%' maxWidth={1243}>
-=======
       <Layout flexBasis={[20, 20, 616]} maxWidth={['auto', 'auto', 430]} />
-      <Layout maxWidth={1830}>
->>>>>>> master
+      <Layout width='100%' maxWidth={1243}>
         <Column width='100%'>
           <Layout flexBasis={[64, 64, 160]} flexShrink={0} />
           <Layout>
