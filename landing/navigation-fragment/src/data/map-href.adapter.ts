@@ -1,13 +1,7 @@
 const labelToHref = {
-  services: '#services',
-  'work format': '#work_format',
-  reviews: '#reviews',
   contacts: '/contacts',
-  услуги: '#services',
-  'формат работы': '#work_format',
-  отзывы: '#reviews',
   контакты: '/contacts',
-  переезд: '/relocation',
+  'переезд в сша': '/relocation',
   relocation: '/relocation',
 }
 

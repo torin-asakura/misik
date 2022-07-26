@@ -3,8 +3,10 @@
 import React              from 'react'
 import { forwardRef }     from 'react'
 
+import { Reviews }        from '@landing/reviews-fragment'
 import { Divider }        from '@ui/divider'
 import { Box }            from '@ui/layout'
+import { Row }            from '@ui/layout'
 import { Layout }         from '@ui/layout'
 import { Column }         from '@ui/layout'
 import { Text }           from '@ui/text'
@@ -34,10 +36,10 @@ const WorkFormat = forwardRef((props, ref: any) => {
       justifyContent='center'
       ref={ref}
     >
-      <Layout flexBasis={[20, 20, 616]} minWidth={['auto', 'auto', 430]} />
-      <Layout maxWidth={1830}>
+      <Layout flexBasis={[20, 20, 616]} flexShrink={[0, 0, 1]} minWidth={['auto', 'auto', 430]} />
+      <Layout width='100%' maxWidth={1243}>
         <Column width='100%'>
-          <Layout flexBasis={[64, 64, 160]} />
+          <Layout flexBasis={[64, 64, 160]} flexShrink={0} />
           <Layout>
             <Text
               fontFamily='secondary'
@@ -48,46 +50,50 @@ const WorkFormat = forwardRef((props, ref: any) => {
               {title}
             </Text>
           </Layout>
-          <Layout flexBasis={[32, 32, 64]} />
-          <Divider />
-          <Layout flexBasis={[32, 32, 64]} />
-          <Layout width='100%' flexDirection={['column', 'column', 'row']}>
+          <Layout flexBasis={[60, 60, 64]} flexShrink={0} />
+          <Column width='100%'>
             {workFormats.sort(sortByOrder).map(({ title, content }, idx) => (
               <>
-                <Box width='100%'>
-                  <Column width='100%'>
+                <Divider />
+                <Layout flexBasis={32} />
+                <Box width='100%' height={['auto', 'auto', 172]}>
+                  <Layout width='100%' flexDirection={['column', 'column', 'row']}>
                     <Box
                       border='1px solid'
                       borderColor='background.lightGray'
                       borderRadius='huge'
-                      width={[56, 56, 72]}
-                      height={[56, 56, 72]}
+                      minWidth={[56, 56, 52]}
+                      maxWidth={[56, 56, 52]}
+                      height={[56, 56, 52]}
                       justifyContent='center'
                       alignItems='center'
                     >
-                      <Layout>
+                      <Row justifyContent='center'>
                         <Text fontSize='tiny'>{`0${idx + 1}`}</Text>
-                      </Layout>
+                      </Row>
                     </Box>
-                    <Layout flexBasis={[24, 24, 32]} />
-                    <Layout>
+                    <Layout flexBasis={[24, 24, 181]} />
+                    <Row maxWidth={200}>
                       <Text fontFamily='secondary' fontSize='enlarged' textTransform='uppercase'>
                         {title}
                       </Text>
-                    </Layout>
-                    <Layout flexBasis={16} />
-                    <Layout>
+                    </Row>
+                    <Layout flexBasis={[16, 16, 300]} />
+                    <Row maxWidth={544}>
                       <Text color='text.secondary' fontSize='regular' lineHeight='primary'>
                         {content}
                       </Text>
-                    </Layout>
-                  </Column>
+                    </Row>
+                  </Layout>
                 </Box>
-                <Layout flexBasis={40} flexShrink={0} />
+                <Layout flexBasis={[40, 40, 0]} flexShrink={0} />
               </>
             ))}
-          </Layout>
-          <Layout flexBasis={[64, 64, 160]} />
+          </Column>
+          <Row>
+            <Reviews />
+          </Row>
+          <Layout flexBasis={[64, 64, 160]} flexShrink={0} />
         </Column>
       </Layout>
       <Layout flexBasis={[20, 20, 280]} flexShrink={[0, 0, 1]} />

@@ -6,7 +6,7 @@ const createBaseStyles = (): styleFn =>
     height: '100%',
     position: 'fixed',
     display: 'flex',
-    zIndex: 15,
+    zIndex: 9999,
     top: 0,
     left: 0,
     right: 0,

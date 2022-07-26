@@ -42,12 +42,17 @@ const Feedback: FC<FeedbackProps> = forwardRef((
   let email: string = ''
   let branches: Array<any> = []
   let workingHours: string = ''
+  let workingHoursHighlighted: string = ''
 
   if (fragments) {
     const titleFragment = extractObject('title', fragments.feedback[language])
     const emailFragment = extractObject('email', fragments.feedback.RU)
     const branchesFragment = extractType('phone', contactsData[language])
     const workingHoursFragment = extractObject('workingHours', fragments.feedback[language])
+    const workingHoursHighlightedFragment = extractObject(
+      'workingHours',
+      fragments.feedback[language]
+    )
 
     title.text = titleFragment?.title
     title.highlighted = titleFragment?.fragmentParams.highlightedText
@@ -55,6 +60,7 @@ const Feedback: FC<FeedbackProps> = forwardRef((
     email = emailFragment?.content
     branches = branchesFragment
     workingHours = workingHoursFragment?.content
+    workingHoursHighlighted = workingHoursHighlightedFragment?.fragmentParams?.highlightedText
   }
 
   return (
@@ -155,7 +161,7 @@ const Feedback: FC<FeedbackProps> = forwardRef((
                       </Link>
                     </Layout>
                     <Layout flexBasis={16} />
-                    <Layout display={['none', 'none', 'flex']}>
+                    <Layout display={['flex', 'flex', 'none']}>
                       <Copy content={email} />
                     </Layout>
                   </Row>
@@ -174,7 +180,7 @@ const Feedback: FC<FeedbackProps> = forwardRef((
               <Layout flexGrow={1} />
               <Form />
             </Layout>
-            <Layout flexBasis={160} />
+            <Layout flexBasis={[48, 48, 160]} />
             <Layout flexDirection={['column', 'column', 'row']} width='100%'>
               {branches.reverse().map((
                 { title: branchTitle, content: branchContent, contactAddons, fragmentParams },
@@ -191,11 +197,13 @@ const Feedback: FC<FeedbackProps> = forwardRef((
                     messengers={contactAddons?.messengers}
                     phone={branchContent}
                     workingHours={workingHours}
+                    workingHoursHighlighted={workingHoursHighlighted}
+                    index={index}
                   />
                 </>
               ))}
             </Layout>
-            <Layout flexBasis={160} />
+            <Layout flexBasis={[48, 48, 160]} />
           </Column>
         </Layout>
         <Layout flexBasis={[20, 20, 280]} flexShrink={[0, 0, 1]} />

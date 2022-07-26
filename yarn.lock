@@ -1765,6 +1765,7 @@ __metadata:
     "@types/styled-system": ^5
     "@ui/button": "workspace:0.0.1"
     "@ui/condition": "workspace:0.0.1"
+    "@ui/divider": "workspace:0.0.1"
     "@ui/drawer": "workspace:0.0.1"
     "@ui/layer": "workspace:0.0.1"
     "@ui/layout": "workspace:0.0.1"
@@ -1772,6 +1773,7 @@ __metadata:
     "@ui/logo": "workspace:0.0.1"
     "@ui/preloader": "workspace:0.0.1"
     "@ui/spy-scroll": "workspace:0.0.1"
+    "@ui/text": "workspace:0.0.1"
     framer-motion: ^6.5.1
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -2165,6 +2167,7 @@ __metadata:
     "@emotion/styled": ^11.9.3
     "@globals/data": "workspace:0.0.1"
     "@globals/language": "workspace:0.0.1"
+    "@landing/reviews-fragment": "workspace:0.0.1"
     "@types/styled-system": ^5
     "@ui/carousel": "workspace:0.0.1"
     "@ui/divider": "workspace:0.0.1"

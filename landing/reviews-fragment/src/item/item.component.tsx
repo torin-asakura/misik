@@ -1,38 +1,40 @@
-import React         from 'react'
-import { FC }        from 'react'
+import React              from 'react'
+import { FC }             from 'react'
 
-import { Divider }   from '@ui/divider'
-import { Image }     from '@ui/image'
-import { Layout }    from '@ui/layout'
-import { Column }    from '@ui/layout'
-import { Box }       from '@ui/layout'
-import { Row }       from '@ui/layout'
-import { Text }      from '@ui/text'
+import { Button }         from '@ui/button'
+import { Divider }        from '@ui/divider'
+import { Image }          from '@ui/image'
+import { Layout }         from '@ui/layout'
+import { Column }         from '@ui/layout'
+import { Box }            from '@ui/layout'
+import { Row }            from '@ui/layout'
+import { Text }           from '@ui/text'
 
-import { ItemProps } from './item.interface'
+import { ArrowRightIcon } from '../icons'
+import { ArrowLeftIcon }  from '../icons'
+import { ItemProps }      from './item.interface'
 
 const Avatar = ({ imageUrl }) => (
-  <Box
-    width={[56, 56, 64]}
-    height={[56, 56, 64]}
-    borderRadius='max'
-    overflow='hidden'
-    backgroundColor='red'
-  >
+  <Box width={[56, 56, 50]} height={[56, 56, 50]} borderRadius='max' overflow='hidden'>
     <Image src={imageUrl} />
   </Box>
 )
 
 const Name = ({ title, description }) => (
-  <Column>
+  <Column width={159}>
     <Row>
-      <Text fontFamily='secondary' fontSize='semiLarge' textTransform='uppercase'>
+      <Text
+        fontFamily='secondary'
+        lineHeight='extra'
+        fontWeight='medium'
+        fontSize='semiLarge'
+        textTransform='uppercase'
+      >
         {title}
       </Text>
     </Row>
-    <Layout flexBasis={8} />
     <Row>
-      <Text color='text.secondary' fontSize='small'>
+      <Text color='text.secondary' lineHeight='extra' fontSize='small'>
         {description}
       </Text>
     </Row>
@@ -45,35 +47,61 @@ const Content = ({ content }) => (
   </Text>
 )
 
-const Item: FC<ItemProps> = ({ title, content, description, imageUrl }) => (
+const Item: FC<ItemProps> = ({ title, content, description, imageUrl, swiper }) => (
   <Box
-    width={['100%', '100%', 601]}
-    height={276}
-    backgroundColor='background.lightBeige'
-    borderRadius='normal'
-    overflow='hidden'
+    width='100%'
+    height={[444, 444, 372]}
+    backgroundColor='background.beige'
+    borderRadius='big'
+    overflow={['visible', 'visible', 'hidden']}
     itemScope
     itemType='https://schema.org/Review'
   >
+    <Layout flexBasis={[20, 20, 52]} flexShrink={0} />
     <Column fill>
+      <Layout flexBasis={[20, 20, 52]} flexShrink={0} />
+      <Row>
+        <Layout flexGrow={1} />
+        <Row width={558} height={[242, 242, 113]} overflow='hidden'>
+          <Content content={content} />
+        </Row>
+      </Row>
+      <Layout flexBasis={[20, 20, 40]} flexShrink={0} />
       <Row>
         <Divider />
       </Row>
-      <Layout flexBasis={[24, 24, 40]} />
+      <Layout flexBasis={[20, 20, 40]} flexShrink={0} />
       <Row height={[355, 355, 257]}>
         <Column display={['none', 'none', 'flex']}>
           <Avatar imageUrl={imageUrl} />
         </Column>
-        <Layout flexBasis={[0, 0, 24]} />
-        <Column fill display={['none', 'none', 'flex']}>
+        <Layout flexBasis={[0, 0, 16]} flexShrink={0} />
+        <Row fill display={['none', 'none', 'flex']}>
           <Layout>
             <Name title={title} description={description} />
           </Layout>
-          <Layout flexBasis={29} />
-          <Row>
-            <Content content={content} />
+          <Layout flexBasis={[56, 56, 373]} flexShrink={[0, 0, 0]} />
+          <Row alignItems='center'>
+            <Layout width={128}>
+              <Layout display={['none', 'none', 'flex']}>
+                <Button width={56} height={56} onClick={() => swiper?.slidePrev()}>
+                  <Layout>
+                    <ArrowLeftIcon />
+                  </Layout>
+                </Button>
+              </Layout>
+              <Layout flexBasis={16} />
+              <Layout display={['none', 'none', 'flex']}>
+                <Button width={56} height={56} onClick={() => swiper?.slideNext()}>
+                  <Layout>
+                    <ArrowRightIcon />
+                  </Layout>
+                </Button>
+              </Layout>
+            </Layout>
           </Row>
-        </Column>
+          <Layout flexBasis={48} />
+        </Row>
         <Column fill display={['flex', 'flex', 'none']}>
           <Row>
             <Layout>
@@ -84,13 +112,29 @@ const Item: FC<ItemProps> = ({ title, content, description, imageUrl }) => (
               <Name title={title} description={description} />
             </Layout>
           </Row>
-          <Layout flexBasis={24} />
-          <Row>
-            <Content content={content} />
+          <Layout flexGrow={1} />
+          <Row justifyContent='center'>
+            <Layout>
+              <Button size='medium' width={40} height={40} onClick={() => swiper?.slidePrev()}>
+                <Layout>
+                  <ArrowLeftIcon />
+                </Layout>
+              </Button>
+            </Layout>
+            <Layout flexBasis={16} />
+            <Layout>
+              <Button size='medium' width={40} height={40} onClick={() => swiper?.slideNext()}>
+                <Layout>
+                  <ArrowRightIcon />
+                </Layout>
+              </Button>
+            </Layout>
           </Row>
         </Column>
       </Row>
+      <Layout flexBasis={[20, 20, 58]} flexShrink={0} />
     </Column>
+    <Layout flexBasis={[20, 20, 35]} flexShrink={0} />
   </Box>
 )
 export { Item }

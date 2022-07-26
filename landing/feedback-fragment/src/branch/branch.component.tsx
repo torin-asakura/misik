@@ -1,6 +1,7 @@
 import React                from 'react'
 
 import { Button }           from '@ui/button'
+import { Condition }        from '@ui/condition'
 import { Copy }             from '@ui/copy'
 import { Divider }          from '@ui/divider'
 import { Image }            from '@ui/image'
@@ -14,7 +15,16 @@ import { Space }            from '@ui/text'
 
 import { useMessengerIcon } from '../data'
 
-export const Branch = ({ title, highlighted, address, phone, messengers, workingHours }) => {
+export const Branch = ({
+  title,
+  highlighted,
+  address,
+  phone,
+  messengers,
+  workingHours,
+  workingHoursHighlighted,
+  index,
+}) => {
   const messengerIcons = new Map()
 
   // eslint-disable-next-line
@@ -62,10 +72,9 @@ export const Branch = ({ title, highlighted, address, phone, messengers, working
           <Divider />
         </Row>
         <Layout flexBasis={[16, 16, 32]} />
-        <Layout
+        <Row
           alignItems={messengers?.length > 0 ? 'flex-start' : ['center', 'center', 'flex-start']}
           width='100%'
-          flexDirection={messengers?.length > 0 ? ['column', 'column', 'row'] : 'row'}
         >
           <Link
             href={`tel:${phone}`}
@@ -77,16 +86,16 @@ export const Branch = ({ title, highlighted, address, phone, messengers, working
           >
             {phone}
           </Link>
-          <Layout flexBasis={16} />
+          <Layout flexBasis={16} flexShrink={0} />
           <Row>
-            <Layout>
+            <Layout display={['flex', 'flex', 'none']}>
               <Copy content={phone} />
             </Layout>
             {messengers?.map((messenger) => (
               <>
                 <Layout flexBasis={16} />
                 <Link href={getMessengerLink(messenger)} target='_blank'>
-                  <Box width={40} height={40}>
+                  <Box width={[32, 32, 40]} height={[32, 32, 40]}>
                     <Button width='100%' height='100%' px={0}>
                       <Layout>
                         <Image
@@ -101,13 +110,38 @@ export const Branch = ({ title, highlighted, address, phone, messengers, working
               </>
             ))}
           </Row>
-        </Layout>
+        </Row>
         <Layout flexBasis={[8, 8, 12]} />
-        <Layout>
-          <Text fontSize={['semiRegular', 'semiRegular', 'regular']} color='text.secondary'>
-            {workingHours}
-          </Text>
-        </Layout>
+        <Condition match={index === 0}>
+          <Row>
+            <Layout>
+              <Text fontSize={['semiRegular', 'semiRegular', 'regular']} color='text.secondary'>
+                {workingHours}
+              </Text>
+            </Layout>
+            <Space />
+            <Layout>
+              <Text fontSize={['semiRegular', 'semiRegular', 'regular']} color='text.accent'>
+                {workingHoursHighlighted.substr(0, workingHoursHighlighted.indexOf(' '))}
+              </Text>
+            </Layout>
+          </Row>
+        </Condition>
+        <Condition match={index === 1}>
+          <Row>
+            <Layout>
+              <Text fontSize={['semiRegular', 'semiRegular', 'regular']} color='text.secondary'>
+                {workingHours}
+              </Text>
+            </Layout>
+            <Space />
+            <Layout>
+              <Text fontSize={['semiRegular', 'semiRegular', 'regular']} color='text.accent'>
+                {workingHoursHighlighted.substr(8, workingHoursHighlighted.indexOf(' '))}
+              </Text>
+            </Layout>
+          </Row>
+        </Condition>
       </Column>
     </Box>
   )

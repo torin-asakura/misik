@@ -19,7 +19,7 @@ const Copy: FC<CopyProps> = ({ content }) => {
   if (success) setTimeout(() => setSuccess(false), 3000)
 
   return (
-    <Box width={40} height={40}>
+    <Box width={[32, 32, 40]} height={[32, 32, 40]}>
       <Button
         width='100%'
         height='100%'

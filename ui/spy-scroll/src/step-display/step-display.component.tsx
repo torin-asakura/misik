@@ -14,6 +14,12 @@ import { useSteps }    from '../data'
 const VerticalText: FC = styled(Text)({
   transform: 'rotate(-90deg)',
   whiteSpace: 'nowrap',
+  backgroundColor: 'white',
+  paddingTop: 6,
+  paddingBottom: 6,
+  paddingLeft: 9,
+  paddingRight: 9,
+  borderRadius: 24,
 })
 
 const TransitionBox = styled(Box)({
