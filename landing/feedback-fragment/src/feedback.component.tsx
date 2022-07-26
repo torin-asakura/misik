@@ -74,12 +74,12 @@ const Feedback: FC<FeedbackProps> = forwardRef((
         borderRadius={['topMedium', 'topMedium', 'topHuge']}
         justifyContent='center'
       >
-        <Layout flexBasis={[20, 20, 616]} minWidth={['auto', 'auto', 430]} />
+        <Layout flexBasis={[20, 20, 616]} maxWidth={['auto', 'auto', 430]} />
         <Layout width='100%' height='100%' maxWidth={1830}>
           <Column width='100%'>
             <Layout flexBasis={[0, 0, 160]} />
             <Layout flexDirection={['column', 'column', 'row']} width='100%'>
-              <Column width='100%'>
+              <Column width='100%' maxWidth={895}>
                 <Layout flexBasis={[48, 48, 0]} />
                 <Layout maxWidth={620}>
                   <AnimateOnLoad
@@ -171,7 +171,7 @@ const Feedback: FC<FeedbackProps> = forwardRef((
                   <Socials />
                 </Row>
               </Column>
-              <Layout flexGrow={1} />
+              <Layout flexShrink={0} flexBasis={40} />
               <Form />
             </Layout>
             <Layout flexBasis={160} />
@@ -182,7 +182,7 @@ const Feedback: FC<FeedbackProps> = forwardRef((
               ) => (
                 <>
                   <Condition match={index !== 0}>
-                    <Layout flexBasis={40} />
+                    <Layout flexBasis={40} flexShrink={0} />
                   </Condition>
                   <Branch
                     title={branchTitle}

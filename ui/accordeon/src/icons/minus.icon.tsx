@@ -10,7 +10,7 @@ const Path = styled.path({
 })
 
 const Minus: FC = () => (
-  <svg width='18' height='2' viewBox='0 0 18 2' fill='none' xmlns='http://www.w3.org/2000/svg'>
+  <svg width='24' height='2' viewBox='0 0 18 2' fill='none' xmlns='http://www.w3.org/2000/svg'>
     <Path pathLength={1} strokeLinecap='round' d='M0 1H9H18' stroke='black' stroke-width='1.25' />
   </svg>
 )

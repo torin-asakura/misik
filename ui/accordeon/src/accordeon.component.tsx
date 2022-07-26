@@ -87,6 +87,7 @@ const Accordeon: FC<AccordeonProps> = ({
             <ContentContainer animate={controls} transition={{ duration: 0.2 }}>
               <Layout flexBasis={20} flexShrink={0} />
               <Layout flexShrink={0}>
+                <Layout flexBasis={44} flexShrink={0} />
                 <Column>
                   {content.split('<point>').map((point) => (
                     <Text fontSize='regular' color='text.secondary' lineHeight='big'>
@@ -98,6 +99,7 @@ const Accordeon: FC<AccordeonProps> = ({
               <Condition match={isService}>
                 <Layout flexBasis={20} flexShrink={0} />
                 <Layout flexShrink={0}>
+                  <Layout flexBasis={44} flexShrink={0} />
                   <Button
                     colors='secondary'
                     width={119}
