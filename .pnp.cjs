@@ -7592,7 +7592,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react-dom", "npm:17.0.17"],\
             ["@types/styled-system", "npm:5.1.13"],\
             ["react", "npm:17.0.2"],\
-            ["react-dom", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:17.0.2"]\
+            ["react-dom", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:17.0.2"],\
+            ["swiper", "npm:8.3.1"]\
           ],\
           "packagePeers": [\
             "@emotion/react",\
@@ -7620,7 +7621,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react-dom", null],\
             ["@types/styled-system", "npm:5.1.13"],\
             ["react", "npm:17.0.2"],\
-            ["react-dom", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#npm:17.0.2"]\
+            ["react-dom", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#npm:17.0.2"],\
+            ["swiper", "npm:8.3.1"]\
           ],\
           "packagePeers": [\
             "@emotion/react",\
@@ -7644,7 +7646,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@emotion/styled", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#npm:11.9.3"],\
             ["@types/styled-system", "npm:5.1.13"],\
             ["react", "npm:17.0.2"],\
-            ["react-dom", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#npm:17.0.2"]\
+            ["react-dom", "virtual:dc2ef611a2dbd7ff96b700cb053c4afad43f40b975ac4170335a1ae11a74a8cef023e91ba7202e4ee46acc78de80aadd165188475be69e9763beef6263569906#npm:17.0.2"],\
+            ["swiper", "npm:8.3.1"]\
           ],\
           "linkType": "SOFT"\
         }]\

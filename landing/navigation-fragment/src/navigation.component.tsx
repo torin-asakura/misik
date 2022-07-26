@@ -52,6 +52,7 @@ const Navigation: FC = () => {
         initial={{ y: '-100%' }}
         transition={{ duration: 1 }}
       >
+<<<<<<< HEAD
         <Box
           width='100%'
           backgroundColor={isMobileNav ? 'white' : 'transparent'}
@@ -96,6 +97,42 @@ const Navigation: FC = () => {
                   {menus[language][0]?.map(({ label, href }) => (
                     <>
                       <Layout>
+=======
+        <Layout flexBasis={[20, 20, 40]} flexShrink={0} />
+        <Column width='100%'>
+          <Layout flexBasis={21} />
+          <Layout width='100%' height='100%'>
+            <Row alignItems='center'>
+              <Box>
+                <Logo />
+              </Box>
+              <Layout flexGrow={1} flexBasis={150} />
+              <Row
+                maxWidth={707}
+                alignItems='center'
+                justifyContent='flex-start'
+                display={['none', 'none', 'flex']}
+              >
+                {menus[language][0]?.map(({ label, href }) => (
+                  <>
+                    <Layout>
+                      <Condition match={Array.isArray(href) && Array.from(href)[0] === '#'}>
+                        <Condition match={home}>
+                          <ScrollLink spy smooth to={href.replace('#', '')}>
+                            {/* eslint-disable-next-line */}
+                            <Link fontSize='semiRegular' onClick={(e) => e.preventDefault()}>
+                              {label}
+                            </Link>
+                          </ScrollLink>
+                        </Condition>
+                        <Condition match={!home}>
+                          <NextLink fontSize='semiRegular' path='/'>
+                            {label}
+                          </NextLink>
+                        </Condition>
+                      </Condition>
+                      <Condition match={Array.isArray(href) && Array.from(href)[0] !== '#'}>
+>>>>>>> master
                         <NextLink path={href} fontSize='semiRegular'>
                           {label}
                         </NextLink>

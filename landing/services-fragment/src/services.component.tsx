@@ -43,7 +43,7 @@ const Services = forwardRef((props, ref: any) => {
       justifyContent='center'
       ref={ref}
     >
-      <Layout flexBasis={[20, 20, 616]} minWidth={['auto', 'auto', 430]} />
+      <Layout flexBasis={[20, 20, 616]} maxWidth={['auto', 'auto', 430]} />
       <Layout width='100%' maxWidth={1830}>
         <Column fill>
           <Layout flexBasis={[64, 64, 160]} />

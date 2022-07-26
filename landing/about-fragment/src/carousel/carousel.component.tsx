@@ -4,16 +4,21 @@ import { Children }    from 'react'
 
 import { Swiper }      from '@ui/carousel'
 import { SwiperSlide } from '@ui/carousel'
+import { Autoplay }    from '@ui/carousel'
 import { Layout }      from '@ui/layout'
 
 const Desktop: FC = ({ children }) => (
   <Swiper
+    modules={[Autoplay]}
     slidesPerView={6}
     spaceBetween={40}
     loop
     height={90}
     width={1243}
     touchEventsTarget='container'
+    autoplay={{
+      delay: 2000,
+    }}
     preventClicks={false}
   >
     {Children.map(children, (child) => (
@@ -30,6 +35,9 @@ const Mobile: FC = ({ children }) => (
     height={60}
     width={375}
     touchEventsTarget='container'
+    autoplay={{
+      delay: 2000,
+    }}
     preventClicks={false}
   >
     {Children.map(children, (child) => (
