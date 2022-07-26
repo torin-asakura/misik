@@ -65,7 +65,7 @@ const Navigation: FC<NavigationProps> = ({ home }) => {
                 {menus[language][0]?.map(({ label, href }) => (
                   <>
                     <Layout>
-                      <Condition match={Array.from(href)[0] === '#'}>
+                      <Condition match={Array.isArray(href) && Array.from(href)[0] === '#'}>
                         <Condition match={home}>
                           <ScrollLink spy smooth to={href.replace('#', '')}>
                             {/* eslint-disable-next-line */}
@@ -80,7 +80,7 @@ const Navigation: FC<NavigationProps> = ({ home }) => {
                           </NextLink>
                         </Condition>
                       </Condition>
-                      <Condition match={Array.from(href)[0] !== '#'}>
+                      <Condition match={Array.isArray(href) && Array.from(href)[0] !== '#'}>
                         <NextLink path={href} fontSize='semiRegular'>
                           {label}
                         </NextLink>
