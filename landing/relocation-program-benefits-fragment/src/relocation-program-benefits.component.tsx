@@ -1,7 +1,6 @@
 import React                  from 'react'
 import { FC }                 from 'react'
 
-import { Accordeon }          from '@ui/accordeon'
 import { Divider }            from '@ui/divider'
 import { Image }              from '@ui/image'
 import { Layout }             from '@ui/layout'
@@ -107,12 +106,39 @@ const RelocationProgramBenefits: FC = () => {
                 {programBenefits[language].map(({ id, title, content, featuredImage }) => (
                   <Column key={id} width='100%' height='auto'>
                     <Layout flexBasis={40} />
-                    <Accordeon
-                      title={title}
-                      content={content}
-                      image={featuredImage}
-                      variant='secondary'
-                    />
+                    <Column>
+                      <Row>
+                        <Box width={72} height={72} borderRadius='max' border='1 px solid black'>
+                          <Image
+                            alt={featuredImage?.node?.altText}
+                            src={featuredImage?.node?.sourceUrl}
+                          />
+                        </Box>
+                      </Row>
+                      <Layout flexBasis={24} />
+                      <Row>
+                        <Text
+                          color='text.primary'
+                          fontSize='large'
+                          lineHeight='small'
+                          fontFamily='secondary'
+                          textTransform='uppercase'
+                          fontWeight='medium'
+                        >
+                          {title}
+                        </Text>
+                      </Row>
+                      <Layout flexBasis={16} />
+                      <Row>
+                        <Text
+                          color='text.secondary'
+                          fontSize={['tiny', 'tiny', 'regular']}
+                          lineHeight='big'
+                        >
+                          <Column dangerouslySetInnerHTML={{ __html: content }} />
+                        </Text>
+                      </Row>
+                    </Column>
                   </Column>
                 ))}
               </Column>

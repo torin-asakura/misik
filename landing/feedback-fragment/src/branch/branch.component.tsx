@@ -13,6 +13,7 @@ import { Text }             from '@ui/text'
 import { Space }            from '@ui/text'
 
 import { useMessengerIcon } from '../data'
+import { normalizeString }  from '../helpers'
 
 export const Branch = ({ title, highlighted, address, phone, messengers, workingHours }) => {
   const messengerIcons = new Map()
@@ -22,8 +23,8 @@ export const Branch = ({ title, highlighted, address, phone, messengers, working
 
   const getMessengerLink = (messenger) =>
     ({
-      whatsapp: `https://wa.me/${phone}`,
-      viber: `viber://chat?number=%2B${phone}`,
+      whatsapp: `https://wa.me/${normalizeString(phone)}`,
+      viber: `viber://chat?number=%2B${normalizeString(phone)}`,
     }[messenger])
 
   return (
