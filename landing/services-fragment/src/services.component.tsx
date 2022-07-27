@@ -2,6 +2,7 @@
 
 import React              from 'react'
 import { forwardRef }     from 'react'
+import { useMemo }        from 'react'
 
 import { Accordeon }      from '@ui/accordeon'
 import { Divider }        from '@ui/divider'
@@ -25,13 +26,19 @@ const Services = forwardRef((props, ref: any) => {
   const [language] = useLanguage()
   const services = useServices()
 
-  let items = []
-  let title: string = ''
+  let { items, title } = useMemo(() => {
+    if (!fragments) {
+      return { items: [], title: '' }
+    }
 
-  if (fragments) {
     items = extractObjects('item', fragments.services[language])
     title = extractObject('title', fragments.services[language])?.title
-  }
+
+    return {
+      items,
+      title,
+    }
+  }, [fragments, language])
 
   const [leftSide, rightSide] = splitItems(services[language])
 

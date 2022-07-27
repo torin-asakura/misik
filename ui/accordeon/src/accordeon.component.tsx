@@ -18,6 +18,7 @@ import { Layout }           from '@ui/layout'
 import { Text }             from '@ui/text'
 import { useLanguage }      from '@globals/language'
 import { messages }         from '@globals/messages'
+import { useHover }         from '@ui/utils'
 
 import { AccordeonProps }   from './accordeon.interface'
 import { ArrowContainer }   from './arrow-container'
@@ -39,6 +40,7 @@ const Accordeon: FC<AccordeonProps> = ({
   const [visible, setVisible] = useState<boolean>(false)
   const controls = useAnimation()
   const [hiddenContent, setHiddenContent] = useState<boolean>(false)
+  const [hover, hoverProps] = useHover()
 
   const contentRef = useRef(null as null | HTMLDivElement)
 
@@ -63,21 +65,23 @@ const Accordeon: FC<AccordeonProps> = ({
       <Column width='100%'>
         <Condition match={variant === 'primary'}>
           <TriggerContainer onClick={() => setActive(!active)}>
-            <Layout width={24}>
+            <Layout width={24} {...hoverProps}>
               <Condition match={!active}>
-                <Plus />
+                <Plus hover={hover} />
               </Condition>
               <Condition match={active}>
                 <Minus />
               </Condition>
             </Layout>
             <Layout flexBasis={20} />
-            <Layout>
+            <Layout {...hoverProps}>
               <Text
                 fontSize={['semiLarge', 'semiLarge', 'large']}
                 fontFamily='secondary'
                 textTransform='uppercase'
                 lineHeight='small'
+                color={hover && !active ? 'text.accent' : 'text.primary'}
+                style={{ transition: '.2s' }}
               >
                 {title}
               </Text>

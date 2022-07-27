@@ -57,4 +57,20 @@ export const messages: Messages = {
     RU: 'Мы в социальных сетях:',
     EN: 'We are in social networks:',
   },
+  goBack: {
+    RU: 'Вернуться на главную',
+    EN: 'Go back to the main page',
+  },
+  thisPageDoesNotExist: {
+    RU: 'Такой страницы не существует, или она была удалена',
+    EN: 'This page does not exist, or has been deleted',
+  },
+  pageNotFound: {
+    RU: 'Страница не найдена',
+    EN: 'Page not found',
+  },
+  error404: {
+    RU: 'Ошибка 404',
+    EN: 'Error 404',
+  },
 }

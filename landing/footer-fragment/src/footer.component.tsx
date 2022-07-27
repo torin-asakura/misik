@@ -1,5 +1,6 @@
 import React             from 'react'
 import { FC }            from 'react'
+import { useMemo }       from 'react'
 
 import { Divider }       from '@ui/divider'
 import { Box }           from '@ui/layout'
@@ -17,16 +18,20 @@ import { extractObject } from '@globals/data'
 const Footer: FC = () => {
   const { fragments } = useData()
 
-  const by = {
-    title: '',
-    content: '',
-  }
+  let { title, content } = useMemo(() => {
+    if (!fragments) {
+      return { title: '', content: '' }
+    }
 
-  if (fragments) {
     const byObj = extractObject('copyright', fragments.about.RU)
-    by.title = byObj?.title
-    by.content = byObj?.content
-  }
+    title = byObj?.title
+    content = byObj?.content
+
+    return {
+      title,
+      content,
+    }
+  }, [fragments])
 
   return (
     <Box
@@ -34,6 +39,7 @@ const Footer: FC = () => {
       justifyContent='center'
       width='100%'
       height={221}
+      marginTop='auto'
       backgroundColor='background.beige'
     >
       <Layout flexBasis={20} />
@@ -56,18 +62,18 @@ const Footer: FC = () => {
             <Layout flexGrow={1} />
             <Layout>
               <Text color='text.secondary' fontSize='regular'>
-                {by.title}
+                {title}
               </Text>
               <Space />
               <Link
                 href='https://torinasakura.name/'
                 target='_blank'
                 rel='me'
-                title={by.content}
+                title={content}
                 color='text.secondary'
                 fontSize='regular'
               >
-                {by.content}
+                {content}
               </Link>
             </Layout>
           </Row>

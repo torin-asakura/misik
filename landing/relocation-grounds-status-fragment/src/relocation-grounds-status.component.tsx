@@ -1,5 +1,6 @@
 import React                       from 'react'
 import { FC }                      from 'react'
+import { useMemo }                 from 'react'
 
 import { Divider }                 from '@ui/divider'
 import { Row }                     from '@ui/layout'
@@ -19,12 +20,16 @@ const RelocationGroundsStatus: FC = () => {
   const [language] = useLanguage()
   const groundsRefugeeStatus = useGroundsRefugeeStatus()
 
-  let mainText = ''
+  let { mainText } = useMemo(() => {
+    if (!(fragments && fragments.relocationgroundsstatus)) {
+      return { mainText: '' }
+    }
 
-  if (fragments && fragments.relocationgroundsstatus) {
     const titleObj = extractObject('title', fragments.relocationgroundsstatus[language])
     mainText = titleObj?.title
-  }
+
+    return { mainText }
+  }, [fragments, language])
 
   return (
     <Box width='100%' justifyContent='center' backgroundColor='background.lightBeige'>

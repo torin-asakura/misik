@@ -1,5 +1,6 @@
 import React             from 'react'
 import { forwardRef }    from 'react'
+import { useMemo }       from 'react'
 
 import { Divider }       from '@ui/divider'
 import { Image }         from '@ui/image'
@@ -21,22 +22,26 @@ const About = forwardRef((props, ref: any) => {
   const [language] = useLanguage()
   const partners = usePartners()
 
-  const title = {
-    text: '',
-    highlighted: '',
-  }
-  let content: string = ''
-  let imageUrl: string = ''
-  let alt: string = ''
+  let { title, highlighted, content, imageUrl, alt } = useMemo(() => {
+    if (!fragments) {
+      return { title: '', highlighted: '', content: '', imageUrl: '', alt: '' }
+    }
 
-  if (fragments) {
     const titleObject = extractObject('title', fragments.about[language])
-    title.text = titleObject?.title
-    title.highlighted = titleObject?.fragmentParams.highlightedText
+    title = titleObject?.title
+    highlighted = titleObject?.fragmentParams.highlightedText
     content = titleObject?.content
     imageUrl = titleObject?.featuredImage?.node.sourceUrl
     alt = titleObject?.featuredImage?.node.altText
-  }
+
+    return {
+      title,
+      highlighted,
+      content,
+      imageUrl,
+      alt,
+    }
+  }, [fragments, language])
 
   return (
     <Box
@@ -73,7 +78,7 @@ const About = forwardRef((props, ref: any) => {
                     color='text.primary'
                     textTransform='uppercase'
                   >
-                    {title.text?.replace(title.highlighted, '')}
+                    {title?.replace(title.highlighted, '')}
                     <Text
                       fontFamily='secondary'
                       fontSize={['semiBig', 'semiBig', 'semiGiant']}
@@ -81,7 +86,7 @@ const About = forwardRef((props, ref: any) => {
                       fontWeight='thin'
                       fontStyle='italic'
                     >
-                      {title.highlighted}
+                      {highlighted}
                     </Text>
                   </Text>
                 </Layout>

@@ -1,5 +1,6 @@
 import React             from 'react'
 import { FC }            from 'react'
+import { useMemo }       from 'react'
 
 import { Layout }        from '@ui/layout'
 import { AnimateOnLoad } from '@ui/preloader'
@@ -15,27 +16,30 @@ const RelocationHero: FC = () => {
   const { fragments } = useData()
   const [language] = useLanguage()
 
-  let title = ''
-  let highlighted = ''
-  let description = ''
+  let { title, highlighted, description, imageUrl, imageAlt } = useMemo(() => {
+    if (!(fragments && fragments.relocationhero)) {
+      return { title: '', highlighted: '', description: '', imageUrl: '', imageAlt: '' }
+    }
 
-  const image = {
-    url: '',
-    alt: '',
-  }
-
-  if (fragments && fragments.relocationhero) {
     const titleObj = extractObject('title', fragments.relocationhero[language])
     const contentObj = extractObject('content', fragments.relocationhero[language])
     description = contentObj?.title
     title = titleObj?.title
     highlighted = titleObj?.fragmentParams.highlightedText
-    image.url = titleObj?.featuredImage?.node.sourceUrl
-    image.alt = titleObj?.featuredImage?.node.altText
-  }
+    imageUrl = titleObj?.featuredImage?.node.sourceUrl
+    imageAlt = titleObj?.featuredImage?.node.altText
+
+    return {
+      title,
+      highlighted,
+      description,
+      imageUrl,
+      imageAlt,
+    }
+  }, [fragments, language])
 
   return (
-    <Container backgroundUrl={image.url} altText={image.alt} language={language} height={668}>
+    <Container backgroundUrl={imageUrl} altText={imageAlt} language={language} height={668}>
       <Layout>
         <AnimateOnLoad
           initial={{ opacity: 0, y: '100%' }}

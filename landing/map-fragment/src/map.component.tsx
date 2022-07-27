@@ -4,6 +4,7 @@ import { Marker }         from 'mapbox-gl'
 import { FC }             from 'react'
 import { useRef }         from 'react'
 import { useEffect }      from 'react'
+import { useMemo }        from 'react'
 
 import { Box }            from '@ui/layout'
 import { useData }        from '@globals/data'
@@ -13,13 +14,16 @@ const Map: FC = () => {
   const ref = useRef(null)
   const { fragments } = useData()
 
-  let accessToken: string = ''
-  let geoObjects: string = ''
+  let { accessToken, geoObjects } = useMemo(() => {
+    if (!fragments) {
+      return { accessToken: '', geoObjects: '' }
+    }
 
-  if (fragments) {
     accessToken = extractObject('map', fragments.about.RU)?.fragmentParams.highlightedText
     geoObjects = extractObject('map', fragments.about.RU)?.content
-  }
+
+    return { accessToken, geoObjects }
+  }, [fragments])
 
   useEffect(() => {
     if (accessToken) {

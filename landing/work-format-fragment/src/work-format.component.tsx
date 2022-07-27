@@ -2,6 +2,7 @@
 
 import React              from 'react'
 import { forwardRef }     from 'react'
+import { useMemo }        from 'react'
 
 import { Reviews }        from '@landing/reviews-fragment'
 import { Divider }        from '@ui/divider'
@@ -20,13 +21,19 @@ const WorkFormat = forwardRef((props, ref: any) => {
   const { fragments } = useData()
   const [language] = useLanguage()
 
-  let workFormats = []
-  let title: string = ''
+  let { workFormats, title } = useMemo(() => {
+    if (!fragments) {
+      return { workFormats: [], title: '' }
+    }
 
-  if (fragments) {
     workFormats = extractObjects('format', fragments.workformat[language])
     title = extractObject('title', fragments.workformat[language])?.title
-  }
+
+    return {
+      workFormats,
+      title,
+    }
+  }, [fragments, language])
 
   return (
     <Box

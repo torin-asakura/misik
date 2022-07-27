@@ -45,6 +45,7 @@ export const Branch = ({
             display='inline'
             fontFamily='secondary'
             fontWeight='thin'
+            lineHeight='extra'
             fontSize={['moderate', 'moderate', 'increased']}
             textTransform='uppercase'
           >
@@ -54,6 +55,7 @@ export const Branch = ({
             fontFamily='secondary'
             color='text.accent'
             fontWeight='thin'
+            lineHeight='extra'
             fontSize={['moderate', 'moderate', 'increased']}
             textTransform='uppercase'
             fontStyle='italic'
@@ -64,7 +66,11 @@ export const Branch = ({
         </Row>
         <Layout flexBasis={[8, 8, 16]} />
         <Row>
-          <Text fontSize={['semiRegular', 'semiRegular', 'regular']} color='text.secondary'>
+          <Text
+            lineHeight='extra'
+            fontSize={['semiRegular', 'semiRegular', 'regular']}
+            color='text.secondary'
+          >
             {address}
           </Text>
         </Row>
@@ -123,7 +129,7 @@ export const Branch = ({
             <Space />
             <Layout>
               <Text fontSize={['semiRegular', 'semiRegular', 'regular']} color='text.accent'>
-                {workingHoursHighlighted.substr(0, workingHoursHighlighted.indexOf(' '))}
+                {workingHoursHighlighted?.substr(0, workingHoursHighlighted.indexOf(' '))}
               </Text>
             </Layout>
           </Row>
@@ -138,7 +144,7 @@ export const Branch = ({
             <Space />
             <Layout>
               <Text fontSize={['semiRegular', 'semiRegular', 'regular']} color='text.accent'>
-                {workingHoursHighlighted.substr(8, workingHoursHighlighted.indexOf(' '))}
+                {workingHoursHighlighted?.substr(8, workingHoursHighlighted.indexOf(' '))}
               </Text>
             </Layout>
           </Row>

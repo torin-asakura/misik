@@ -1,6 +1,7 @@
 import React             from 'react'
 import { FC }            from 'react'
 import { useState }      from 'react'
+import { useMemo }       from 'react'
 
 import { Button }        from '@ui/button'
 import { Divider }       from '@ui/divider'
@@ -28,17 +29,11 @@ const RelocationHowMoveToAmerica: FC = () => {
   const [visibleConsult, setVisibleConsult] = useState<boolean>(false)
   const [visibleDescription, setVisibleDescription] = useState<boolean>(false)
 
-  const image = {
-    url: '',
-    altText: '',
-  }
+  let { title, highlightedText, content, description, imageUrl, imageAlt } = useMemo(() => {
+    if (!(fragments && fragments.relocationhowmovetous)) {
+      return { title: '', highlightedText: '', content: '', description: '' }
+    }
 
-  let title = ''
-  let highlightedText = ''
-  let content = ''
-  let description = ''
-
-  if (fragments && fragments.relocationhowmovetous) {
     const titleObj = extractObject('title', fragments.relocationhowmovetous[language])
     const contentObj = extractObject('title', fragments.relocationhowmovetous[language])
     const descriptionObj = extractObject('description', fragments.relocationhowmovetous[language])
@@ -46,9 +41,18 @@ const RelocationHowMoveToAmerica: FC = () => {
     content = contentObj?.content
     description = descriptionObj?.title
     highlightedText = titleObj?.fragmentParams.highlightedText
-    image.url = titleObj?.featuredImage?.node.sourceUrl
-    image.altText = titleObj?.featuredImage?.node.altText
-  }
+    imageUrl = titleObj?.featuredImage?.node.sourceUrl
+    imageAlt = titleObj?.featuredImage?.node.altText
+
+    return {
+      title,
+      highlightedText,
+      content,
+      description,
+      imageUrl,
+      imageAlt,
+    }
+  }, [fragments, language])
 
   return (
     <>
@@ -80,7 +84,7 @@ const RelocationHowMoveToAmerica: FC = () => {
             <Layout flexBasis={[64, 64, 160]} flexShrink={0} />
             <Layout flexDirection={['column', 'column', 'row']}>
               <Box position='relative' width={[335, 335, 480]} height={[335, 335, 480]}>
-                <Image alt={image.altText} src={image.url} contain />
+                <Image alt={imageAlt} src={imageUrl} contain />
                 <Box position='absolute' top='30%' left={-16}>
                   <Layout display={['none', 'none', 'flex']}>
                     <MisikLawIcon size={141} />

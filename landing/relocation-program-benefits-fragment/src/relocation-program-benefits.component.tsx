@@ -1,5 +1,6 @@
 import React                  from 'react'
 import { FC }                 from 'react'
+import { useMemo }            from 'react'
 
 import { Divider }            from '@ui/divider'
 import { Image }              from '@ui/image'
@@ -20,13 +21,18 @@ const RelocationProgramBenefits: FC = () => {
   const [language] = useLanguage()
   const programBenefits = useProgramBenefits()
 
-  let mainText = ''
+  let { mainText } = useMemo(() => {
+    if (!(fragments && fragments.relocationprogrambenefits)) {
+      return { mainText: '' }
+    }
 
-  if (fragments && fragments.relocationprogrambenefits) {
     const titleObj = extractObject('title', fragments.relocationprogrambenefits[language])
-
     mainText = titleObj?.title
-  }
+
+    return {
+      mainText,
+    }
+  }, [fragments, language])
 
   return (
     <Box width='100%' justifyContent='center' backgroundColor='background.beige'>

@@ -1,25 +1,21 @@
-import React                    from 'react'
-import { Children }             from 'react'
-import { Swiper as SwiperCore } from 'swiper'
-import { forwardRef }           from 'react'
-import { useState }             from 'react'
+import React               from 'react'
+import { Children }        from 'react'
+import { forwardRef }      from 'react'
 
-import { Swiper }               from '@ui/carousel'
-import { SwiperSlide }          from '@ui/carousel'
-import { Box }                  from '@ui/layout'
-import { Layout }               from '@ui/layout'
-import { Column }               from '@ui/layout'
-import { normalizeString }      from '@globals/data'
-import { useLanguage }          from '@globals/language'
-import { useSwiper }            from '@ui/carousel'
+import { Swiper }          from '@ui/carousel'
+import { SwiperSlide }     from '@ui/carousel'
+import { Box }             from '@ui/layout'
+import { Layout }          from '@ui/layout'
+import { Column }          from '@ui/layout'
+import { normalizeString } from '@globals/data'
+import { useLanguage }     from '@globals/language'
 
-import { Item }                 from './item'
-import { useReviews }           from './data'
+import { Item }            from './item'
+import { useReviews }      from './data'
 
 export const Reviews = forwardRef((props, ref) => {
   const [language] = useLanguage()
   const reviews = useReviews()
-  const [swiper, setSwiper] = useState<SwiperCore | null>(null)
 
   const carouselChildren = reviews[language].map((review) => (
     <Item
@@ -27,17 +23,8 @@ export const Reviews = forwardRef((props, ref) => {
       description={normalizeString(review.excerpt)}
       content={normalizeString(review.content)}
       imageUrl={review.featuredImage?.node?.mediaItemUrl}
-      swiper={swiper}
     />
   ))
-
-  const CarouselControlsExporter = () => {
-    const swiperInstance = useSwiper()
-
-    if (!swiper) setSwiper(swiperInstance)
-
-    return null
-  }
 
   return (
     <Box
@@ -47,7 +34,6 @@ export const Reviews = forwardRef((props, ref) => {
       backgroundColor='background.beige'
       justifyContent='center'
     >
-      <Layout flexBasis={[20, 20, 0]} />
       <Layout width='100%' maxWidth={1243}>
         <Column justifyContent='center' width='100%'>
           <Layout display={['none', 'none', 'flex']}>
@@ -61,10 +47,7 @@ export const Reviews = forwardRef((props, ref) => {
               loop
             >
               {Children.map(carouselChildren, (child) => (
-                <SwiperSlide>
-                  <CarouselControlsExporter />
-                  {child}
-                </SwiperSlide>
+                <SwiperSlide>{child}</SwiperSlide>
               ))}
             </Swiper>
           </Layout>
@@ -79,10 +62,7 @@ export const Reviews = forwardRef((props, ref) => {
               loop
             >
               {Children.map(carouselChildren, (child) => (
-                <SwiperSlide>
-                  <CarouselControlsExporter />
-                  {child}
-                </SwiperSlide>
+                <SwiperSlide>{child}</SwiperSlide>
               ))}
             </Swiper>
           </Layout>

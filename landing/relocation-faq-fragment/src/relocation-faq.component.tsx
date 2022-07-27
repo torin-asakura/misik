@@ -1,5 +1,6 @@
 import React             from 'react'
 import { FC }            from 'react'
+import { useMemo }       from 'react'
 
 import { Accordeon }     from '@ui/accordeon'
 import { Divider }       from '@ui/divider'
@@ -22,16 +23,20 @@ const RelocationFaq: FC = () => {
 
   const faqs = useFAQ()
 
-  const mainText = {
-    title: '',
-    highlighted: '',
-  }
+  let { title, highlighted } = useMemo(() => {
+    if (!(fragments && fragments.relocationfaq)) {
+      return { title: '', highlighted: '' }
+    }
 
-  if (fragments && fragments.relocationfaq) {
     const titleObj = extractObject('title', fragments.relocationfaq[language])
-    mainText.title = titleObj?.title
-    mainText.highlighted = titleObj?.fragmentParams.highlightedText
-  }
+    title = titleObj?.title
+    highlighted = titleObj?.fragmentParams.highlightedText
+
+    return {
+      title,
+      highlighted,
+    }
+  }, [fragments, language])
 
   return (
     <Box width='100%' height='100%' justifyContent='center' backgroundColor='background.beige'>
@@ -54,7 +59,7 @@ const RelocationFaq: FC = () => {
                   fontSize={['semiBig', 'semiBig', 'semiGiant']}
                   lineHeight='small'
                 >
-                  {mainText.title}
+                  {title}
                   <Space />
                   <Text
                     display='inline'
@@ -64,18 +69,18 @@ const RelocationFaq: FC = () => {
                     fontSize={['semiBig', 'semiBig', 'semiGiant']}
                     lineHeight='small'
                   >
-                    {mainText.highlighted}
+                    {highlighted}
                   </Text>
                 </Text>
               </Row>
               <Layout flexBasis={40} flexShrink={0} />
               <Box width={['100%', '100%', 660]} height='min-content'>
                 <Column>
-                  {faqs[language].map(({ id, title, content }) => (
+                  {faqs[language].map(({ id, title: titleFaq, content }) => (
                     <Column key={id} fill>
                       <Divider />
                       <Layout flexBasis={40} />
-                      <Accordeon title={title} content={content} isService={false} />
+                      <Accordeon title={titleFaq} content={content} isService={false} />
                       <Layout flexBasis={40} />
                     </Column>
                   ))}

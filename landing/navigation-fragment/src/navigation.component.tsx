@@ -55,7 +55,7 @@ const Navigation: FC = () => {
         <Box
           width='100%'
           backgroundColor={isMobileNav ? 'white' : 'transparent'}
-          style={{ transition: isMobileNav ? '0s' : '0.5s' }}
+          style={{ transition: isMobileNav ? '0.4s' : '0.4s' }}
         >
           <Layout flexBasis={[20, 20, 40]} flexShrink={0} />
           <Column width='100%'>

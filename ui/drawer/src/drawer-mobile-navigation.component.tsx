@@ -19,9 +19,10 @@ const DrawerMobileNavigation: FC<DrawerProps> = ({ children, active, onClose }) 
     </motion.div>
     <motion.div
       style={{ position: 'fixed', left: 0, top: 0, width: '100%', height: '100%', zIndex: 3000 }}
+      initial={{ top: '-40%' }}
       animate={{ top: 85 }}
-      exit={{ top: '-50%' }}
-      transition={{ duration: 0.3 }}
+      exit={{ top: '-70%' }}
+      transition={{ duration: 0.4 }}
     >
       {children}
     </motion.div>

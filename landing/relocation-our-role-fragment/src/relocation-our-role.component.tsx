@@ -1,5 +1,6 @@
 import React             from 'react'
 import { FC }            from 'react'
+import { useMemo }       from 'react'
 
 import { Image }         from '@ui/image'
 import { Box }           from '@ui/layout'
@@ -17,33 +18,40 @@ const RelocationOurRole: FC = () => {
   const { fragments } = useData()
   const [language] = useLanguage()
 
-  const mainText = {
-    title: '',
-    highlighted: '',
-  }
+  let { title, highlighted, imageUrl, imageAlt, content, additionalContent } = useMemo(() => {
+    if (!(fragments && fragments.relocationourrole)) {
+      return {
+        title: '',
+        highlighted: '',
+        imageUrl: '',
+        imageAlt: '',
+        content: '',
+        additionalContent: '',
+      }
+    }
 
-  const image = {
-    imageUrl: '',
-    altText: '',
-  }
-
-  let content = ''
-  let additionalContent = ''
-
-  if (fragments && fragments.relocationourrole) {
     const titleObj = extractObject('title', fragments.relocationourrole[language])
     const contentObj = extractObject('content', fragments.relocationourrole[language])
     const additionalContentObj = extractObject(
       'additional-content',
       fragments.relocationourrole[language]
     )
-    mainText.title = titleObj?.title
-    mainText.highlighted = titleObj?.fragmentParams.highlightedText
+    title = titleObj?.title
+    highlighted = titleObj?.fragmentParams.highlightedText
     content = contentObj?.title
     additionalContent = additionalContentObj?.title
-    image.imageUrl = titleObj?.featuredImage?.node.sourceUrl
-    image.altText = titleObj?.featuredImage?.node.altText
-  }
+    imageUrl = titleObj?.featuredImage?.node.sourceUrl
+    imageAlt = titleObj?.featuredImage?.node.altText
+
+    return {
+      title,
+      highlighted,
+      imageUrl,
+      imageAlt,
+      content,
+      additionalContent,
+    }
+  }, [fragments, language])
 
   return (
     <Box width='100%' backgroundColor='background.lightBeige' justifyContent='center'>
@@ -70,7 +78,7 @@ const RelocationOurRole: FC = () => {
                     fontSize={['semiBig', 'semiBig', 'semiGiant']}
                     lineHeight='small'
                   >
-                    {mainText.title}
+                    {title}
                     <Space />
                     <Text
                       display='inline'
@@ -80,7 +88,7 @@ const RelocationOurRole: FC = () => {
                       fontSize={['semiBig', 'semiBig', 'semiGiant']}
                       lineHeight='small'
                     >
-                      {mainText.highlighted}
+                      {highlighted}
                     </Text>
                   </Text>
                 </Layout>
@@ -109,7 +117,7 @@ const RelocationOurRole: FC = () => {
               </Column>
               <Layout flexBasis={40} flexShrink={0} />
               <Box width={[335, 335, 543]} height={[216, 216, 350]}>
-                <Image alt={image.altText} src={image.imageUrl} contain />
+                <Image alt={imageAlt} src={imageUrl} contain />
               </Box>
             </Layout>
             <Layout flexBasis={[64, 64, 160]} />

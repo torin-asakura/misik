@@ -1,6 +1,7 @@
 import React             from 'react'
 import { useState }      from 'react'
 import { forwardRef }    from 'react'
+import { useMemo }       from 'react'
 
 import { Button }        from '@ui/button'
 import { Condition }     from '@ui/condition'
@@ -24,21 +25,25 @@ const Hero = forwardRef((props, ref: any) => {
   const [language] = useLanguage()
   const [visible, setVisible] = useState(false)
 
-  let title: string = ''
-  let highlighted: string = ''
-  const image = {
-    url: '',
-    alt: '',
-  }
+  let { title, highlighted, imageUrl, imageAlt } = useMemo(() => {
+    if (!(fragments && fragments.hero)) {
+      return { title: '', highlighted: '', imageUrl: '', imageAlt: '' }
+    }
 
-  if (fragments && fragments.hero) {
     const titleObj = extractObject('title', fragments.hero[language])
 
     title = titleObj?.title
     highlighted = titleObj?.fragmentParams.highlightedText
-    image.url = titleObj?.featuredImage?.node.sourceUrl
-    image.alt = titleObj?.featuredImage?.node.altText
-  }
+    imageUrl = titleObj?.featuredImage?.node.sourceUrl
+    imageAlt = titleObj?.featuredImage?.node.altText
+
+    return {
+      title,
+      highlighted,
+      imageAlt,
+      imageUrl,
+    }
+  }, [fragments, language])
 
   return (
     <>
@@ -56,14 +61,14 @@ const Hero = forwardRef((props, ref: any) => {
           width='100%'
           height='100%'
           borderRadius={['bottomMedium', 'bottomMedium', 'bottomHuge']}
-          backgroundImage={['none', 'none', `url(${image.url})`]}
+          backgroundImage={['none', 'none', `url(${imageUrl})`]}
           backgroundSize='cover'
           overflow='hidden'
           zIndex={3}
         >
           <Row height='100%' justifyContent='center'>
             <Box zIndex={-1} display={['flex', 'flex', 'none']}>
-              <Image background src={image.url} alt={image.alt} />
+              <Image background src={imageUrl} alt={imageAlt} />
             </Box>
             <Layout flexBasis={[20, 20, 450]} flexShrink={[0, 0, 1]} />
             <Column>
