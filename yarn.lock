@@ -3175,7 +3175,7 @@ __metadata:
     "@ui/text": "workspace:0.0.1"
     "@ui/utils": "workspace:0.0.1"
     dompurify: ^2.3.10
-    framer-motion: ^4.1.17
+    framer-motion: ^4.1.7
     react: ^17.0.2
     react-dom: ^17.0.2
     styled-system: ^5.1.5
@@ -5923,7 +5923,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:^4.1.17":
+"framer-motion@npm:^4.1.17, framer-motion@npm:^4.1.7":
   version: 4.1.17
   resolution: "framer-motion@npm:4.1.17"
   dependencies:
