@@ -82,7 +82,10 @@ const RelocationHowMoveToAmerica: FC = () => {
           <Layout flexBasis={[20, 20, 397]} flexShrink={[0, 0, 1]} />
           <Column fill>
             <Layout flexBasis={[64, 64, 160]} flexShrink={0} />
-            <Layout flexDirection={['column', 'column', 'row']}>
+            <Layout
+              alignItems={['center', 'center', 'flex-start']}
+              flexDirection={['column', 'column', 'row']}
+            >
               <Box position='relative' width={[335, 335, 480]} height={[335, 335, 480]}>
                 <Image alt={imageAlt} src={imageUrl} contain />
                 <Box position='absolute' top='30%' left={-16}>

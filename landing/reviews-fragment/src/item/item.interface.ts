@@ -3,4 +3,5 @@ export interface ItemProps {
   description: string
   content: string
   imageUrl: string
+  onClick: () => any
 }

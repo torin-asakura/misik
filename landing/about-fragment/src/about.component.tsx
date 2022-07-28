@@ -52,7 +52,7 @@ const About = forwardRef((props, ref: any) => {
       ref={ref}
     >
       <Layout flexBasis={[0, 0, 616]} maxWidth={['auto', 'auto', 430]} />
-      <Layout width='100%' maxWidth={1830}>
+      <Layout width='100%' maxWidth={1243}>
         <Column width='100%'>
           <Divider />
           <Layout flexBasis={[64, 64, 160]} flexShrink={0} />

@@ -3,6 +3,7 @@ import { FC }            from 'react'
 import { forwardRef }    from 'react'
 import { useMemo }       from 'react'
 
+import { Branches }      from '@landing/branches-fragment'
 import { Condition }     from '@ui/condition'
 import { Copy }          from '@ui/copy'
 import { Form }          from '@ui/form'
@@ -20,62 +21,39 @@ import { extractObject } from '@globals/data'
 import { useLanguage }   from '@globals/language'
 import { messages }      from '@globals/messages'
 
-import { Branch }        from './branch'
 import { FeedbackProps } from './feedback.interface'
-import { useContacts }   from './data'
-import { extractType }   from './helpers'
 
 const Feedback: FC<FeedbackProps> = forwardRef((
-  props,
-  ref: any,
-  background = 'background.lightBeige',
-  contacts = false
+  { background = 'background.lightBeige', contacts = false, props },
+  ref: any
 ) => {
   const { fragments } = useData()
   const [language] = useLanguage()
-  const contactsData = useContacts()
 
-  let { text, highlighted, content, email, branches, workingHours, workingHoursHighlighted } =
-    useMemo(() => {
-      if (!fragments) {
-        return {
-          text: '',
-          highlighted: '',
-          content: '',
-          email: '',
-          branches: [],
-          workingHours: '',
-          workingHoursHighlighted: '',
-        }
-      }
-
-      const titleFragment = extractObject('title', fragments.feedback[language])
-      const emailFragment = extractObject('email', fragments.feedback.RU)
-      const branchesFragment = extractType('phone', contactsData[language])
-      const workingHoursFragment = extractObject('workingHours', fragments.feedback[language])
-      const workingHoursHighlightedFragment = extractObject(
-        'workingHours',
-        fragments.feedback[language]
-      )
-
-      text = titleFragment?.title
-      highlighted = titleFragment?.fragmentParams.highlightedText
-      content = titleFragment?.content
-      email = emailFragment?.content
-      branches = branchesFragment
-      workingHours = workingHoursFragment?.content
-      workingHoursHighlighted = workingHoursHighlightedFragment?.fragmentParams?.highlightedText
-
+  let { text, highlighted, content, email } = useMemo(() => {
+    if (!fragments) {
       return {
-        text,
-        highlighted,
-        content,
-        email,
-        branches,
-        workingHours,
-        workingHoursHighlighted,
+        text: '',
+        highlighted: '',
+        content: '',
+        email: '',
       }
-    }, [fragments, language, contactsData])
+    }
+    const titleFragment = extractObject('title', fragments.feedback[language])
+    const emailFragment = extractObject('email', fragments.feedback.RU)
+
+    text = titleFragment?.title
+    highlighted = titleFragment?.fragmentParams.highlightedText
+    content = titleFragment?.content
+    email = emailFragment?.content
+
+    return {
+      text,
+      highlighted,
+      content,
+      email,
+    }
+  }, [fragments, language])
 
   return (
     <Box
@@ -196,28 +174,7 @@ const Feedback: FC<FeedbackProps> = forwardRef((
             </Layout>
             <Condition match={contacts}>
               <Layout flexBasis={[48, 48, 160]} />
-              <Layout flexDirection={['column', 'column', 'row']} width='100%'>
-                {branches.reverse().map((
-                  { title: branchTitle, content: branchContent, contactAddons, fragmentParams },
-                  index
-                ) => (
-                  <>
-                    <Condition match={index !== 0}>
-                      <Layout flexBasis={40} flexShrink={0} />
-                    </Condition>
-                    <Branch
-                      title={branchTitle}
-                      highlighted={fragmentParams?.highlightedText}
-                      address={contactAddons?.address}
-                      messengers={contactAddons?.messengers}
-                      phone={branchContent}
-                      workingHours={workingHours}
-                      workingHoursHighlighted={workingHoursHighlighted}
-                      index={index}
-                    />
-                  </>
-                ))}
-              </Layout>
+              <Branches contacts={false} />
             </Condition>
             <Layout flexBasis={[48, 48, 160]} />
           </Column>

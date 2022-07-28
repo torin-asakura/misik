@@ -50,7 +50,7 @@ const IndexPage: FC = () => {
             <About {...getObserverOptions('about', 0.6)} />
             <Services {...getObserverOptions('services', 0.6)} />
             <WorkFormat {...getObserverOptions('work-format', 0.3)} />
-            <Feedback {...getObserverOptions('feedback', 0.7)} />
+            <Feedback {...getObserverOptions('feedback', 0.7)} contacts />
             <Map />
             <Footer />
           </SpyScroll>

@@ -20,13 +20,13 @@ import { messages }               from '@globals/messages'
 import { BurgerIcon }             from './icons'
 import { CloseIcon }              from './icons'
 import { NavigationListMobile }   from './navigation-list-mobile'
-import { useMenus }               from './data'
+import { useNavigation }          from './data'
 
 const Navigation: FC = () => {
   const [language, setLanguage] = useLanguage()
   const [visible, setVisible] = useState<boolean>(false)
   const [isMobileNav, setIsMobileNav] = useState<boolean>(false)
-  const menus = useMenus()
+  const navigation = useNavigation()
 
   const switchLanguage = () => {
     setLanguage(language === 'RU' ? 'EN' : 'RU')
@@ -93,11 +93,11 @@ const Navigation: FC = () => {
                   justifyContent='flex-start'
                   display={['none', 'none', 'flex']}
                 >
-                  {menus[language][0]?.map(({ label, href }) => (
+                  {navigation[language]?.reverse().map(({ title, content }) => (
                     <>
                       <Layout>
-                        <NextLink path={href} fontSize='semiRegular'>
-                          {label}
+                        <NextLink path={content} fontSize='semiRegular'>
+                          {title}
                         </NextLink>
                       </Layout>
                       <Layout flexBasis={40} />

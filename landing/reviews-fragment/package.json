@@ -12,6 +12,7 @@
     "@ui/layer": "workspace:0.0.1",
     "@ui/layout": "workspace:0.0.1",
     "@ui/link": "workspace:0.0.1",
+    "@ui/plast": "workspace:0.0.1",
     "@ui/text": "workspace:0.0.1",
     "swiper": "^8.3.1"
   },

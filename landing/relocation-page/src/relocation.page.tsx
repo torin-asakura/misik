@@ -37,7 +37,7 @@ const RelocationPage: FC = () => {
           <RelocationHowMoveToAmerica />
           <RelocationFaq />
           <RelocationOurRole />
-          <Feedback />
+          <Feedback contacts />
           <Map />
           <Footer />
         </DataProvider>

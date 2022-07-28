@@ -11,8 +11,12 @@ import { Column }               from '@ui/layout'
 import { Box }                  from '@ui/layout'
 import { Row }                  from '@ui/layout'
 import { Text }                 from '@ui/text'
+import { TextEllipsis }         from '@ui/text'
+import { useLanguage }          from '@globals/language'
+import { messages }             from '@globals/messages'
 import { useSwiper }            from '@ui/carousel'
 
+import { PlusIcon }             from '../icons'
 import { ArrowRightIcon }       from '../icons'
 import { ArrowLeftIcon }        from '../icons'
 import { ItemProps }            from './item.interface'
@@ -50,7 +54,7 @@ const Name = ({ description }) => (
   </Column>
 )
 
-const Content = ({ title, content }) => (
+const Content = ({ title, content, language, onClick }) => (
   <Layout width='100%' flexDirection={['column', 'column', 'row']}>
     <Row>
       <Text
@@ -63,22 +67,35 @@ const Content = ({ title, content }) => (
         {title}
       </Text>
     </Row>
-    <Layout flexGrow={1} flexBasis={[20, 20, 0]} flexShrink={[0, 0, 1]} />
+    <Layout flexGrow={1} />
     <Row>
-      <Text
-        color='text.secondary'
-        fontSize={['tiny', 'tiny', 'regular']}
-        lineHeight='primary'
-        itemProp='reviewBody'
-      >
-        {content}
-      </Text>
+      <Column>
+        <Layout height={60} overflow='hidden' display={['none', 'none', 'flex']}>
+          <TextEllipsis
+            color='text.secondary'
+            fontSize='regular'
+            lineHeight='primary'
+            itemProp='reviewBody'
+            lineClamp={2}
+          >
+            {content}
+          </TextEllipsis>
+        </Layout>
+        <Layout flexBasis={[0, 0, 16]} />
+        <Layout>
+          <Button size='normal' colors='ternary' p={0} onClick={onClick}>
+            <PlusIcon />
+            {messages.more[language]}
+          </Button>
+        </Layout>
+      </Column>
     </Row>
   </Layout>
 )
 
-const Item: FC<ItemProps> = ({ title, content, description, imageUrl }) => {
+const Item: FC<ItemProps> = ({ title, content, description, imageUrl, onClick }) => {
   const [swiper, setSwiper] = useState<SwiperCore | null>(null)
+  const [language] = useLanguage()
 
   const swiperInstance = useSwiper()
 
@@ -89,7 +106,7 @@ const Item: FC<ItemProps> = ({ title, content, description, imageUrl }) => {
   return (
     <Box
       width='100%'
-      height={[444, 444, 372]}
+      height={[304, 304, 372]}
       backgroundColor='background.beige'
       borderRadius='big'
       overflow={['visible', 'visible', 'hidden']}
@@ -100,8 +117,8 @@ const Item: FC<ItemProps> = ({ title, content, description, imageUrl }) => {
       <Column fill>
         <Layout flexBasis={[20, 20, 52]} flexShrink={0} />
         <Row>
-          <Row height={[242, 242, 135]} overflow='hidden'>
-            <Content title={title} content={content} />
+          <Row height={[110, 110, 135]} overflow='hidden'>
+            <Content onClick={onClick} title={title} content={content} language={language} />
           </Row>
         </Row>
         <Layout flexBasis={[20, 20, 40]} flexShrink={0} />

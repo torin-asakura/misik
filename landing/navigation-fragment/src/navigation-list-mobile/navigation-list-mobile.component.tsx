@@ -1,24 +1,24 @@
-import React           from 'react'
-import { FC }          from 'react'
-import { useState }    from 'react'
+import React             from 'react'
+import { FC }            from 'react'
+import { useState }      from 'react'
 
-import { Button }      from '@ui/button'
-import { Condition }   from '@ui/condition'
-import { Divider }     from '@ui/divider'
-import { Layer }       from '@ui/layer'
-import { Box }         from '@ui/layout'
-import { Layout }      from '@ui/layout'
-import { Column }      from '@ui/layout'
-import { NextLink }    from '@ui/link'
-import { Text }        from '@ui/text'
-import { useLanguage } from '@globals/language'
-import { messages }    from '@globals/messages'
+import { Button }        from '@ui/button'
+import { Condition }     from '@ui/condition'
+import { Divider }       from '@ui/divider'
+import { Layer }         from '@ui/layer'
+import { Box }           from '@ui/layout'
+import { Layout }        from '@ui/layout'
+import { Column }        from '@ui/layout'
+import { NextLink }      from '@ui/link'
+import { Text }          from '@ui/text'
+import { useLanguage }   from '@globals/language'
+import { messages }      from '@globals/messages'
 
-import { useMenus }    from '../data'
+import { useNavigation } from '../data'
 
 const NavigationListMobile: FC = () => {
   const [language] = useLanguage()
-  const menus = useMenus()
+  const navigation = useNavigation()
   const [visible, setVisible] = useState<boolean>(false)
 
   return (
@@ -28,23 +28,23 @@ const NavigationListMobile: FC = () => {
         <Layout flexBasis={24} flexShrink={0} />
         <Column fill>
           <Layout flexShrink={0} flexBasis={4} />
-          {menus[language][0]?.map(({ label, href }, index) => (
+          {navigation[language]?.reverse().map(({ title, content }, index) => (
             <>
               <Layout flexBasis={16} />
               <Layout>
-                <NextLink path={href} fontSize='semiRegular'>
+                <NextLink path={content} fontSize='semiRegular'>
                   <Text
                     fontSize='large'
                     textTransform='uppercase'
                     lineHeight='small'
                     fontFamily='secondary'
                   >
-                    {label}
+                    {title}
                   </Text>
                 </NextLink>
               </Layout>
               <Layout flexBasis={16} />
-              <Condition match={index !== menus[language][0].length - 1}>
+              <Condition match={index !== navigation[language].length - 1}>
                 <Divider />
               </Condition>
             </>

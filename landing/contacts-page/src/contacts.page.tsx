@@ -5,7 +5,7 @@ import { useState }         from 'react'
 import { DataProvider }     from '@globals/data'
 import { LanguageProvider } from '@globals/language'
 import { Language }         from '@globals/language'
-import { Contacts }         from '@landing/contacts-fragment'
+import { Branches }         from '@landing/branches-fragment'
 import { Feedback }         from '@landing/feedback-fragment'
 import { Footer }           from '@landing/footer-fragment'
 import { Map }              from '@landing/map-fragment'
@@ -26,8 +26,8 @@ const ContactsPage: FC = () => {
           <Box backgroundColor='background.beige'>
             <Navigation />
           </Box>
-          <Contacts />
-          <Feedback background='background.beige' contacts />
+          <Branches contacts />
+          <Feedback background='background.beige' />
           <Map />
           <Footer />
         </DataProvider>

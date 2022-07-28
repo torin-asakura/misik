@@ -1581,19 +1581,23 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@landing/contacts-fragment@workspace:0.0.1, @landing/contacts-fragment@workspace:landing/contacts-fragment":
+"@landing/branches-fragment@workspace:0.0.1, @landing/branches-fragment@workspace:landing/branches-fragment":
   version: 0.0.0-use.local
-  resolution: "@landing/contacts-fragment@workspace:landing/contacts-fragment"
+  resolution: "@landing/branches-fragment@workspace:landing/branches-fragment"
   dependencies:
     "@apollo/client": ^3.6.9
     "@emotion/react": ^11.9.3
     "@emotion/styled": ^11.9.3
     "@globals/data": "workspace:0.0.1"
     "@globals/language": "workspace:0.0.1"
-    "@landing/feedback-fragment": "workspace:0.0.1"
     "@types/styled-system": ^5
+    "@ui/button": "workspace:0.0.1"
     "@ui/condition": "workspace:0.0.1"
+    "@ui/copy": "workspace:0.0.1"
+    "@ui/divider": "workspace:0.0.1"
+    "@ui/image": "workspace:0.0.1"
     "@ui/layout": "workspace:0.0.1"
+    "@ui/link": "workspace:0.0.1"
     "@ui/preloader": "workspace:0.0.1"
     "@ui/spy-scroll": "workspace:0.0.1"
     "@ui/text": "workspace:0.0.1"
@@ -1624,7 +1628,7 @@ __metadata:
     "@emotion/styled": ^11.9.3
     "@globals/data": "workspace:0.0.1"
     "@globals/language": "workspace:0.0.1"
-    "@landing/contacts-fragment": "workspace:0.0.1"
+    "@landing/branches-fragment": "workspace:0.0.1"
     "@landing/feedback-fragment": "workspace:0.0.1"
     "@landing/footer-fragment": "workspace:0.0.1"
     "@landing/map-fragment": "workspace:0.0.1"
@@ -1661,6 +1665,7 @@ __metadata:
     "@globals/data": "workspace:0.0.1"
     "@globals/language": "workspace:0.0.1"
     "@globals/messages": "workspace:0.0.1"
+    "@landing/branches-fragment": "workspace:0.0.1"
     "@types/styled-system": ^5
     "@ui/button": "workspace:0.0.1"
     "@ui/condition": "workspace:0.0.1"
@@ -1849,6 +1854,7 @@ __metadata:
     "@apollo/client": ^3.6.9
     "@emotion/react": ^11.9.3
     "@emotion/styled": ^11.9.3
+    "@globals/data": "workspace:0.0.1"
     "@globals/language": "workspace:0.0.1"
     "@globals/messages": "workspace:0.0.1"
     "@types/react-scroll": ^1
@@ -2155,6 +2161,7 @@ __metadata:
     "@ui/layer": "workspace:0.0.1"
     "@ui/layout": "workspace:0.0.1"
     "@ui/link": "workspace:0.0.1"
+    "@ui/plast": "workspace:0.0.1"
     "@ui/spy-scroll": "workspace:0.0.1"
     "@ui/text": "workspace:0.0.1"
     react: ^17.0.2
@@ -3495,6 +3502,32 @@ __metadata:
     react: "*"
     react-dom: "*"
     styled-system: "*"
+  languageName: unknown
+  linkType: soft
+
+"@ui/plast@workspace:0.0.1, @ui/plast@workspace:ui/plast":
+  version: 0.0.0-use.local
+  resolution: "@ui/plast@workspace:ui/plast"
+  dependencies:
+    "@emotion/react": ^11.9.3
+    "@emotion/styled": ^11.9.3
+    "@types/react": ^17
+    "@types/react-dom": ^17
+    "@ui/button": "workspace:0.0.1"
+    "@ui/layout": "workspace:0.0.1"
+    framer-motion: ^4.1.17
+    global: 4.4.0
+    nanoid: ^3.1.25
+    react: ^17
+    react-dom: ^17
+    react-scrolllock: 5.0.1
+    styled-system: 5.1.5
+    styled-tools: ^1.7.2
+  peerDependencies:
+    "@emotion/react": "*"
+    "@emotion/styled": "*"
+    react: "*"
+    react-dom: "*"
   languageName: unknown
   linkType: soft
 

@@ -65,7 +65,7 @@ const RelocationOurRole: FC = () => {
           <Column>
             <Layout flexBasis={[64, 64, 160]} />
             <Layout
-              alignItems='flex-end'
+              alignItems={['center', 'center', 'flex-end']}
               flexDirection={['column-reverse', 'column-reverse', 'row']}
             >
               <Column height='auto' width={['100%', '100%', 660]}>
