@@ -116,7 +116,7 @@ const RelocationOurRole: FC = () => {
                 </Column>
               </Column>
               <Layout flexBasis={40} flexShrink={0} />
-              <Box width={[335, 335, 543]} height={[216, 216, 350]}>
+              <Box width={['100%', 335, 543]} height={[216, 216, 350]}>
                 <Image alt={imageAlt} src={imageUrl} contain />
               </Box>
             </Layout>
