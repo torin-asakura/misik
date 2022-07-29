@@ -67,23 +67,40 @@ const Content = ({ title, content, language, onClick }) => (
         {title}
       </Text>
     </Row>
-    <Layout flexGrow={1} />
+    <Layout flexGrow={[0, 0, 1]} flexBasis={[20, 20, 0]} flexShrink={[0, 0, 1]} />
     <Row>
       <Column>
-        <Layout height={60} overflow='hidden' display={['none', 'none', 'flex']}>
+        <Layout height={90} overflow='hidden' display={['none', 'none', 'flex']}>
           <TextEllipsis
             color='text.secondary'
             fontSize='regular'
             lineHeight='primary'
             itemProp='reviewBody'
-            lineClamp={2}
+            lineClamp={3}
           >
             {content}
           </TextEllipsis>
         </Layout>
-        <Layout flexBasis={[0, 0, 16]} />
-        <Layout>
+        <Layout height={100} overflow='hidden' display={['flex', 'flex', 'none']}>
+          <TextEllipsis
+            color='text.secondary'
+            fontSize='tiny'
+            lineHeight='primary'
+            itemProp='reviewBody'
+            lineClamp={4}
+          >
+            {content}
+          </TextEllipsis>
+        </Layout>
+        <Layout flexBasis={[20, 20, 8]} />
+        <Layout display={['none', 'none', 'flex']}>
           <Button size='normal' colors='ternary' p={0} onClick={onClick}>
+            <PlusIcon />
+            {messages.more[language]}
+          </Button>
+        </Layout>
+        <Layout display={['flex', 'flex', 'none']}>
+          <Button size='small' colors='ternary' p={0} onClick={onClick}>
             <PlusIcon />
             {messages.more[language]}
           </Button>
@@ -106,7 +123,7 @@ const Item: FC<ItemProps> = ({ title, content, description, imageUrl, onClick })
   return (
     <Box
       width='100%'
-      height={[304, 304, 372]}
+      height={[424, 424, 372]}
       backgroundColor='background.beige'
       borderRadius='big'
       overflow={['visible', 'visible', 'hidden']}
@@ -117,7 +134,7 @@ const Item: FC<ItemProps> = ({ title, content, description, imageUrl, onClick })
       <Column fill>
         <Layout flexBasis={[20, 20, 52]} flexShrink={0} />
         <Row>
-          <Row height={[110, 110, 135]} overflow='hidden'>
+          <Row height={['100%', '100%', 135]} overflow='hidden'>
             <Content onClick={onClick} title={title} content={content} language={language} />
           </Row>
         </Row>
@@ -126,7 +143,7 @@ const Item: FC<ItemProps> = ({ title, content, description, imageUrl, onClick })
           <Divider />
         </Row>
         <Layout flexBasis={[20, 20, 40]} flexShrink={0} />
-        <Row height={[355, 355, 257]}>
+        <Row height={[424, 424, 257]}>
           <Column display={['none', 'none', 'flex']}>
             <Avatar imageUrl={imageUrl} />
           </Column>
@@ -158,7 +175,7 @@ const Item: FC<ItemProps> = ({ title, content, description, imageUrl, onClick })
               <Layout flexGrow={[0, 0, 1]} flexBasis={[0, 0, 80]} flexShrink={0} />
             </Row>
           </Row>
-          <Column fill display={['flex', 'flex', 'none']}>
+          <Column fill justifyContent='flex-end' display={['flex', 'flex', 'none']}>
             <Row>
               <Layout>
                 <Avatar imageUrl={imageUrl} />
@@ -168,7 +185,7 @@ const Item: FC<ItemProps> = ({ title, content, description, imageUrl, onClick })
                 <Name description={description} />
               </Layout>
             </Row>
-            <Layout flexGrow={1} />
+            <Layout flexGrow={1} flexBasis={[24, 24, 0]} />
             <Row justifyContent='center'>
               <Layout>
                 <Button size='medium' width={40} height={40} onClick={() => swiper?.slidePrev()}>

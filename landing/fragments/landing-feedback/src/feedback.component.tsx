@@ -24,7 +24,7 @@ import { messages }      from '@globals/messages'
 import { FeedbackProps } from './feedback.interface'
 
 const Feedback: FC<FeedbackProps> = forwardRef((
-  { background = 'background.lightBeige', contacts = false, props },
+  { background = 'background.lightBeige', contacts = false },
   ref: any
 ) => {
   const { fragments } = useData()

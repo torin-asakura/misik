@@ -1,16 +1,15 @@
 import React          from 'react'
 import Helmet         from 'react-helmet'
 
-import { usePreview } from './preview.data'
+import { usePreview } from '@globals/data'
+
 import { useSeo }     from './seo.data'
 
 const Seo = ({ language }) => {
   const SEO = useSeo()
 
   const { title } = SEO[language] || { title: 'Boris Misik' }
-  const { preview } = usePreview() || {
-    preview: 'https://wp.misik.pro/wp-content/uploads/2022/07/main-preview.jpg',
-  }
+  const { preview } = usePreview('main-preview')
 
   return (
     <Helmet

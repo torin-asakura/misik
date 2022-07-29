@@ -10,7 +10,7 @@ import { normalize }        from './normalizator'
 
 const DataProvider: FC = ({ children }) => {
   const { data, loading, error } = useQuery(GET_FRAGMENTS)
-  let fragments
+  let fragments: any
 
   if (error) {
     throw new Error(error.message)
