@@ -1,5 +1,3 @@
-/* eslint-disable max-classes-per-file */
-
 import { ApolloClient }  from '@apollo/client'
 import { InMemoryCache } from '@apollo/client'
 import { gql }           from '@apollo/client'
@@ -54,42 +52,7 @@ const withIcons = () => (TargetComponent) =>
     }
   }
 
-const withOpenGraph = () => (TargetComponent) =>
-  class WithOpenGraph extends TargetComponent {
-    static async getInitialProps(context) {
-      const props = await super.getInitialProps(context)
-
-      const coverResponse = await client.query({
-        query: gql`
-          query GetCover {
-            mediaItemBy(uri: "/cover/") {
-              sourceUrl
-            }
-          }
-        `,
-      })
-
-      props.head.push(
-        <meta
-          property='og:image'
-          content={
-            coverResponse.data.mediaItemBy?.sourceUrl ||
-            'https://wp.misik.pro/wp-content/uploads/2022/07/cover.jpg'
-          }
-        />
-      )
-
-      return props
-    }
-
-    static renderDocument(...args) {
-      // @ts-ignore
-      return Document.renderDocument(...args)
-    }
-  }
-
 const withProviders = compose(
-  withOpenGraph(),
   withIcons(),
   withHelmet(),
   withGtag(process.env.GA_TRACKING_ID || 'GTM-KGZLL27')

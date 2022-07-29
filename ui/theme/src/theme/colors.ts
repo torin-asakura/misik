@@ -15,6 +15,12 @@ const colors = {
       active: 'rgba(206, 116, 19, 1)',
       disabled: 'rgba(182,185,201,0.25)',
     },
+    ternary: {
+      default: 'rgba(234, 134, 27, 1)',
+      hover: 'rgba(234, 134, 27, 1)',
+      active: 'rgba(206, 116, 19, 1)',
+      disabled: 'rgba(182,185,201,0.25)',
+    },
   },
   text: {
     primary: 'rgba(18, 18, 19, 1)',
@@ -44,6 +50,9 @@ const colors = {
   },
   drawer: {
     backdrop: 'rgba(105,103,102, 0.5)',
+  },
+  plast: {
+    backdrop: 'rgba(105, 103, 102, 0.5)',
   },
 }
 

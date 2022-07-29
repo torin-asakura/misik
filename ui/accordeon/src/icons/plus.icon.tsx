@@ -1,24 +1,32 @@
-import styled from '@emotion/styled'
+import React          from 'react'
+import { FC }         from 'react'
+import { motion }     from 'framer-motion'
 
-import React  from 'react'
-import { FC } from 'react'
+import { IconsProps } from './icons.interface'
 
-const Path = styled.path({
-  strokeDasharray: 1,
-  animationName: 'draw',
-  animationDuration: '1s',
-})
-
-const Plus: FC = () => (
-  <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
-    <Path
-      pathLength={1}
-      strokeLinecap='round'
-      d='M0 12H12M24 12H12M12 0V12M12 24L12 12'
-      stroke='black'
-      stroke-width='1.25'
-    />
-  </svg>
+const Plus: FC<IconsProps> = ({ hover }) => (
+  <motion.div
+    style={{ width: 24, height: 24 }}
+    animate={{ rotate: hover ? 90 : 0 }}
+    transition={{ duration: 0.3, ease: 'linear' }}
+  >
+    <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+      <motion.path
+        d='M24 12L0 12'
+        stroke={hover ? '#EA861B' : '#121213'}
+        animate={{ d: 'M12 0L12 24' }}
+        transition={{ duration: 0.3 }}
+        style={{ transition: '.3s' }}
+      />
+      <motion.path
+        d='M24 12L0 12'
+        stroke={hover ? '#EA861B' : '#121213'}
+        strokeWidth='1.2'
+        transition={{ duration: 0.3 }}
+        style={{ transition: '.3s' }}
+      />
+    </svg>
+  </motion.div>
 )
 
 export { Plus }

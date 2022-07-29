@@ -1,0 +1,27 @@
+{
+  "name": "@landing/404-page",
+  "version": "0.0.1",
+  "license": "BSD-3-Clause",
+  "main": "src/index.ts",
+  "dependencies": {
+    "@globals/data": "workspace:0.0.1",
+    "@globals/language": "workspace:0.0.1",
+    "@landing/404-fragment": "workspace:0.0.1",
+    "@landing/footer-fragment": "workspace:0.0.1",
+    "@landing/navigation-fragment": "workspace:0.0.1",
+    "@ui/layout": "workspace:0.0.1"
+  },
+  "devDependencies": {
+    "@emotion/styled": "^11.9.3",
+    "@ui/preloader": "workspace:0.0.1",
+    "react": "^17.0.2",
+    "react-helmet": "^6.1.0"
+  },
+  "peerDependencies": {
+    "@apollo/client": "*",
+    "@emotion/styled": "*",
+    "next": "*",
+    "react": "*",
+    "react-helmet": "*"
+  }
+}
