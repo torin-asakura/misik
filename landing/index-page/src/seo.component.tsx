@@ -1,12 +1,16 @@
-import React      from 'react'
-import Helmet     from 'react-helmet'
+import React          from 'react'
+import Helmet         from 'react-helmet'
 
-import { useSeo } from './seo.data'
+import { usePreview } from './preview.data'
+import { useSeo }     from './seo.data'
 
 const Seo = ({ language }) => {
   const SEO = useSeo()
 
   const { title } = SEO[language] || { title: 'Boris Misik' }
+  const { preview } = usePreview() || {
+    preview: 'https://wp.misik.pro/wp-content/uploads/2022/07/main-preview.jpg',
+  }
 
   return (
     <Helmet
@@ -35,6 +39,10 @@ const Seo = ({ language }) => {
           property: 'og:description',
           lang: 'en',
           content: SEO.EN.metaDesc,
+        },
+        {
+          property: 'og:image',
+          content: preview,
         },
         {
           property: 'og:type',
