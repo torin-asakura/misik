@@ -4,7 +4,6 @@ import React              from 'react'
 import { forwardRef }     from 'react'
 import { useMemo }        from 'react'
 
-import { Reviews }        from '@landing/reviews-fragment'
 import { Divider }        from '@ui/divider'
 import { Box }            from '@ui/layout'
 import { Row }            from '@ui/layout'
@@ -43,7 +42,7 @@ const WorkFormat = forwardRef((props, ref: any) => {
       justifyContent='center'
       ref={ref}
     >
-      <Layout flexBasis={[20, 20, 616]} maxWidth={['auto', 'auto', 430]} />
+      <Layout flexBasis={[20, 20, 397]} flexShrink={[0, 0, 1]} maxWidth={['auto', 'auto', 430]} />
       <Layout width='100%' maxWidth={1243}>
         <Column width='100%'>
           <Layout flexBasis={[64, 64, 160]} flexShrink={0} />
@@ -97,13 +96,9 @@ const WorkFormat = forwardRef((props, ref: any) => {
               </>
             ))}
           </Column>
-          <Row>
-            <Reviews />
-          </Row>
-          <Layout flexBasis={[64, 64, 160]} flexShrink={0} />
         </Column>
       </Layout>
-      <Layout flexBasis={[20, 20, 280]} flexShrink={[0, 0, 1]} />
+      <Layout flexBasis={[20, 20, 280]} flexShrink={[0, 1, 1]} />
     </Box>
   )
 })

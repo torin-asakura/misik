@@ -66,14 +66,14 @@ const Hero = forwardRef((props, ref: any) => {
           overflow='hidden'
           zIndex={3}
         >
-          <Row height='100%' justifyContent='center'>
+          <Row height='100%' justifyContent={['flex-start', 'flex-start', 'center']}>
             <Box zIndex={-1} display={['flex', 'flex', 'none']}>
               <Image background src={imageUrl} alt={imageAlt} />
             </Box>
-            <Layout flexBasis={[20, 20, 450]} flexShrink={[0, 0, 1]} />
+            <Layout flexBasis={[20, 80, 397]} flexShrink={[0, 0, 1]} />
             <Column>
               <Layout flexBasis={[88, 88, 160]} />
-              <Layout maxWidth={1300}>
+              <Layout maxWidth={864} width='100%'>
                 <AnimateOnLoad
                   initial={{ opacity: 0, y: '30%' }}
                   transition={{ duration: 1 }}
@@ -174,7 +174,7 @@ const Hero = forwardRef((props, ref: any) => {
                   </Column>
                 </AnimateOnLoad>
               </Layout>
-              <Layout flexBasis={[289, 289, 438]} />
+              <Layout flexBasis={[289, 289, 438]} flexGrow={1} />
               <Layout display={['none', 'none', 'flex']}>
                 <Button
                   colors='secondary'
@@ -195,9 +195,9 @@ const Hero = forwardRef((props, ref: any) => {
                   {messages.getConsult[language]}
                 </Button>
               </Layout>
-              <Layout flexBasis={[40, 40, 80]} />
+              <Layout flexBasis={[40, 40, 80]} flexShrink={0} />
             </Column>
-            <Layout flexBasis={[16, 16, 1246]} />
+            <Layout flexBasis={[16, 16, 715]} />
           </Row>
           <Layout flexBasis={[20, 20, 0]} />
         </Box>

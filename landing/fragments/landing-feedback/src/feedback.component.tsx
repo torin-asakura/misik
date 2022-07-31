@@ -57,7 +57,6 @@ const Feedback: FC<FeedbackProps> = forwardRef((
 
   return (
     <Box
-      id='feedback'
       width='100%'
       height={['auto', 'auto', '100%']}
       backgroundColor={background}

@@ -59,7 +59,6 @@ const Navigation: FC = () => {
         >
           <Layout flexBasis={[20, 20, 40]} flexShrink={0} />
           <Column width='100%'>
-            <Layout flexBasis={21} />
             <Layout width='100%' height='100%'>
               <Row alignItems='center'>
                 <Layout display={['flex', 'flex', 'none']}>
@@ -86,9 +85,8 @@ const Navigation: FC = () => {
                 <Box>
                   <Logo />
                 </Box>
-                <Layout flexGrow={1} flexBasis={150} />
+                <Layout flexGrow={1} flexBasis={168} flexShrink={0} />
                 <Row
-                  maxWidth={707}
                   alignItems='center'
                   justifyContent='flex-start'
                   display={['none', 'none', 'flex']}
@@ -105,8 +103,8 @@ const Navigation: FC = () => {
                   ))}
                   <Layout flexBasis={40} />
                 </Row>
-                <Layout flexGrow={1} flexBasis={[16, 16, 1120]} />
-                <Box position='absolute' right={[30, 30, 40]}>
+                <Layout flexGrow={1} />
+                <Box width='100%' justifyContent='flex-end'>
                   <Layout display={['none', 'none', 'flex']}>
                     <Button width={227} height={46} onClick={() => setVisible(true)}>
                       {messages.getConsult[language]}
@@ -126,9 +124,8 @@ const Navigation: FC = () => {
                 </Box>
               </Row>
             </Layout>
-            <Layout flexBasis={21} />
           </Column>
-          <Layout flexBasis={[20, 20, 240]} />
+          <Layout flexBasis={[20, 20, 40]} flexShrink={0} />
         </Box>
       </AnimateOnLoad>
     </>

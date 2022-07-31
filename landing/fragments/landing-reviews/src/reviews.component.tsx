@@ -41,10 +41,10 @@ export const Reviews = forwardRef((props, ref) => {
       <Box
         ref={ref as any}
         width='100%'
-        borderRadius='big'
-        backgroundColor='background.beige'
+        backgroundColor='background.lightBeige'
         justifyContent='center'
       >
+        <Layout flexBasis={[20, 20, 397]} flexShrink={1} maxWidth={['auto', 'auto', 430]} />
         <Layout width='100%' maxWidth={1243}>
           <Column justifyContent='center' width='100%'>
             <Layout display={['none', 'none', 'flex']}>
@@ -62,7 +62,11 @@ export const Reviews = forwardRef((props, ref) => {
                 ))}
               </Swiper>
             </Layout>
-            <Layout display={['flex', 'flex', 'none']}>
+            <Box
+              backgroundColor='background.beige'
+              borderRadius='big'
+              display={['flex', 'flex', 'none']}
+            >
               <Swiper
                 slidesPerView={1}
                 spaceBetween={40}
@@ -76,10 +80,11 @@ export const Reviews = forwardRef((props, ref) => {
                   <SwiperSlide>{child}</SwiperSlide>
                 ))}
               </Swiper>
-            </Layout>
+            </Box>
+            <Layout flexBasis={[64, 64, 160]} flexShrink={0} />
           </Column>
         </Layout>
-        <Layout flexBasis={[0, 0, 280]} flexShrink={[0, 0, 1]} />
+        <Layout flexBasis={[20, 20, 280]} flexShrink={[0, 0, 1]} />
       </Box>
     </>
   )

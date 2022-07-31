@@ -28,21 +28,22 @@ const Item: FC<ItemProps> = ({ image, title, content, link, reverse = false }) =
       <Drawer active={visible} onClose={() => setVisible(false)} />
       <Box
         width='100%'
-        height={['auto', 'auto', 520]}
+        height={['auto', 'auto', 350]}
         itemScope
         itemType='https://schema.org/Thing'
       >
         <Column width='100%' display={['none', 'none', 'flex']}>
           <Condition match={!reverse}>
             <Row height='100%'>
-              <Layout width='100%'>
-                <Box width='100%' height='100%'>
+              <Layout>
+                <Box width={['100%', '100%', 543]} height='100%'>
                   <Image src={image?.sourceUrl} alt={image?.altText} contain />
                 </Box>
               </Layout>
-              <Layout flexBasis={134} />
+              <Layout flexBasis={40} flexShrink={0} />
               <Column width='100%' justifyContent='center'>
                 <Text
+                  lineHeight='small'
                   fontFamily='secondary'
                   fontSize='increased'
                   color='text.primary'
@@ -54,7 +55,7 @@ const Item: FC<ItemProps> = ({ image, title, content, link, reverse = false }) =
                 <Layout flexBasis={16} />
                 {content.split('\n').map((piece) => (
                   <>
-                    <Text color='text.secondary' lineHeight='primary' itemProp='description'>
+                    <Text color='text.secondary' lineHeight='big' itemProp='description'>
                       {piece}
                     </Text>
                     <Layout flexBasis={16} />
@@ -98,7 +99,7 @@ const Item: FC<ItemProps> = ({ image, title, content, link, reverse = false }) =
                 <Layout flexBasis={16} />
                 {content.split('\n').map((piece) => (
                   <>
-                    <Text color='text.secondary' lineHeight='primary'>
+                    <Text color='text.secondary' lineHeight='big'>
                       {piece}
                     </Text>
                     <Layout flexBasis={16} />
@@ -126,9 +127,9 @@ const Item: FC<ItemProps> = ({ image, title, content, link, reverse = false }) =
                   </Condition>
                 </Layout>
               </Column>
-              <Layout flexBasis={134} />
-              <Layout width='100%'>
-                <Box width='100%' height='100%'>
+              <Layout flexBasis={40} flexShrink={0} />
+              <Layout justifyContent='flex-end'>
+                <Box width={['100%', '100%', 543]} height='100%'>
                   <Image src={image?.sourceUrl} alt={image?.altText} contain />
                 </Box>
               </Layout>
