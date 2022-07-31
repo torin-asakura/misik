@@ -51,7 +51,7 @@ const About = forwardRef((props, ref: any) => {
       justifyContent='center'
       ref={ref}
     >
-      <Layout flexBasis={[0, 0, 616]} maxWidth={['auto', 'auto', 430]} />
+      <Layout flexBasis={[0, 0, 430]} />
       <Layout width='100%' maxWidth={1243}>
         <Column width='100%'>
           <Layout flexBasis={[64, 64, 160]} flexShrink={0} />
@@ -72,7 +72,7 @@ const About = forwardRef((props, ref: any) => {
               </Box>
             </Layout>
             <Layout flexBasis={[40, 40, 70]} flexShrink={0} />
-            <Layout maxWidth={980}>
+            <Layout maxWidth={660}>
               <Layout flexBasis={[20, 20, 0]} flexShrink={0} />
               <Column width='100%'>
                 <Layout width='100%'>
@@ -145,7 +145,7 @@ const About = forwardRef((props, ref: any) => {
           <Layout flexBasis={[0, 0, 64]} />
         </Column>
       </Layout>
-      <Layout flexBasis={[0, 0, 280]} flexShrink={0} />
+      <Layout flexBasis={[0, 0, 280]} flexShrink={1} />
     </Box>
   )
 })
