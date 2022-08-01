@@ -13,12 +13,15 @@ import { useSteps }    from '../data'
 
 const VerticalText: FC = styled(Text)({
   transform: 'rotate(-90deg)',
+  display: 'inline-block',
+  textAlign: 'start',
   whiteSpace: 'nowrap',
   backgroundColor: 'white',
   paddingTop: 6,
   paddingBottom: 6,
   paddingLeft: 9,
   paddingRight: 9,
+  marginBottom: 16,
   borderRadius: 24,
 })
 
@@ -33,7 +36,7 @@ const StepDisplay = ({ activeDot }) => {
   return (
     <Column fill alignItems='center'>
       <VerticalText>{steps[language][activeDot]?.title}</VerticalText>
-      <Layout flexGrow={1} flexBasis={32} />
+      <Layout flexBasis={48} flexShrink={0} />
       <Box backgroundColor='background.lightGray' width={2} height={240}>
         <TransitionBox
           height={`${((activeDot + 1) / steps[language].length) * 100}%`}

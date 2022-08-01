@@ -1,6 +1,7 @@
 import React         from 'react'
 import { FC }        from 'react'
 
+import { Condition } from '@ui/condition'
 import { Divider }   from '@ui/divider'
 import { Column }    from '@ui/layout'
 import { Layout }    from '@ui/layout'
@@ -12,7 +13,12 @@ const List: FC<ListProps> = ({ items }) => (
   <Column width='100%'>
     {items.map(({ title, content, featuredImage, fragmentParams }, index) => (
       <Column width='100%'>
-        <Layout flexBasis={[32, 32, 64]} />
+        <Condition match={index === 0}>
+          <Layout flexBasis={[32, 32, 64]} />
+        </Condition>
+        <Condition match={index !== 0}>
+          <Layout flexBasis={[32, 32, 120]} />
+        </Condition>
         <Divider />
         <Layout flexBasis={[50, 50, 120]} />
         <Item

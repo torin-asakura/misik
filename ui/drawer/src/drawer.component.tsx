@@ -67,7 +67,7 @@ const Drawer: FC<DrawerProps> = ({
         <Backdrop onClick={onClose} />
       </motion.div>
       <motion.div
-        style={{ position: 'fixed', right: '-100%', top: 0, height: '100%', zIndex: 1000 }}
+        style={{ position: 'fixed', right: '-100%', top: 0, height: '100%', zIndex: 9999 }}
         animate={{ right: 0 }}
         exit={{ right: '-100%' }}
         transition={{ duration: 0.5 }}

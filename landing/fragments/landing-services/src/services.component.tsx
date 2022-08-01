@@ -43,14 +43,8 @@ const Services = forwardRef((props, ref: any) => {
   const [leftSide, rightSide] = splitItems(services[language])
 
   return (
-    <Box
-      width='100%'
-      backgroundColor='background.beige'
-      id='services'
-      justifyContent='center'
-      ref={ref}
-    >
-      <Layout flexBasis={[20, 20, 616]} maxWidth={['auto', 'auto', 430]} />
+    <Box width='100%' backgroundColor='background.beige' justifyContent='center' ref={ref}>
+      <Layout flexBasis={[20, 20, 397]} flexShrink={[0, 0, 1]} />
       <Layout width='100%' maxWidth={1243}>
         <Column fill>
           <Layout flexBasis={[64, 64, 160]} />

@@ -1,14 +1,14 @@
 import React      from 'react'
 import { motion } from 'framer-motion'
 
-export const MisikLawIcon = () => (
+export const MisikLawIcon = ({ width, height }) => (
   <motion.div
     animate={{ rotate: 360 }}
     transition={{ duration: 7, repeat: Infinity, ease: 'linear' }}
   >
     <svg
-      width='141'
-      height='141'
+      width={width}
+      height={height}
       viewBox='0 0 141 141'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'

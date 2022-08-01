@@ -13,8 +13,7 @@ export interface StepDotsProps {
 const SpyScroll = ({ children, activeDot }: StepDotsProps) => (
   <>
     <Box
-      height={333}
-      width={18}
+      width={30}
       position='fixed'
       bottom={64}
       left={32}
