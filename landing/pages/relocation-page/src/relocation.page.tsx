@@ -5,6 +5,7 @@ import { useState }                   from 'react'
 import { useRef }                     from 'react'
 
 import { DataProvider }               from '@globals/data'
+import { GET_PREVIEW }                from '@globals/data'
 import { LanguageProvider }           from '@globals/language'
 import { Language }                   from '@globals/language'
 import { Feedback }                   from '@landing/feedback-fragment'
@@ -19,10 +20,17 @@ import { RelocationOurRole }          from '@landing/relocation-our-role-fragmen
 import { RelocationProgramBenefits }  from '@landing/relocation-program-benefits-fragment'
 import { Box }                        from '@ui/layout'
 import { Preloader }                  from '@ui/preloader'
+import { getClient }                  from '@globals/data'
 
 import { Seo }                        from './seo.component'
+import { GET_RELOCATION_SEO }         from './seo.data'
 
-const RelocationPage: FC = () => {
+interface Props {
+  ogCover: string
+  SEO: any
+}
+
+const RelocationPage: FC<Props> = ({ ogCover, SEO = { RU: {}, EN: {} } }) => {
   const languageContext = useState<Language>('RU')
   const containerRef = useRef(null)
 
@@ -36,7 +44,7 @@ const RelocationPage: FC = () => {
             watch={[]}
           >
             <main data-scroll-container ref={containerRef}>
-              <Seo language={languageContext} />
+              <Seo language={languageContext} ogCover={ogCover} SEO={SEO} />
               <Box backgroundColor='background.beige'>
                 <Navigation />
               </Box>
@@ -55,6 +63,34 @@ const RelocationPage: FC = () => {
       </LanguageProvider>
     </Preloader>
   )
+}
+
+export const getServerSideProps = async () => {
+  const client = getClient()
+
+  let SEO
+
+  const { data: seoData } = await client.query({
+    query: GET_RELOCATION_SEO,
+  })
+
+  const { data: previewData } = await client.query({
+    query: GET_PREVIEW,
+    variables: {
+      uri: '/relocation-preview/',
+    },
+  })
+
+  if (seoData) {
+    SEO = {
+      RU: seoData.pageBy.seo,
+      EN: seoData.pageBy.translation.seo,
+    }
+  } else SEO = { RU: {}, EN: {} }
+
+  const ogCover = previewData?.mediaItemBy.sourceUrl
+
+  return { props: { SEO, ogCover } }
 }
 
 export default RelocationPage

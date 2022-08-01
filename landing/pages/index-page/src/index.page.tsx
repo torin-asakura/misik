@@ -6,6 +6,7 @@ import { useState }                 from 'react'
 import { useRef }                   from 'react'
 
 import { DataProvider }             from '@globals/data'
+import { GET_PREVIEW }              from '@globals/data'
 import { LanguageProvider }         from '@globals/language'
 import { Language }                 from '@globals/language'
 import { About }                    from '@landing/about-fragment'
@@ -20,11 +21,18 @@ import { WorkDirections }           from '@landing/work-directions-fragment'
 import { WorkFormat }               from '@landing/work-format-fragment'
 import { Preloader }                from '@ui/preloader'
 import { SpyScroll }                from '@ui/spy-scroll'
+import { getClient }                from '@globals/data'
 import { useIntersectionObserver }  from '@ui/intersection-observer'
 
 import { Seo }                      from './seo.component'
+import { GET_INDEX_SEO }            from './seo.data'
 
-const IndexPage: FC = () => {
+interface Props {
+  ogCover: string
+  SEO: any
+}
+
+const IndexPage: FC<Props> = ({ ogCover, SEO = { RU: {}, EN: {} } }) => {
   const languageContext = useState<Language>('RU')
   const [active, setActive] = useState<number>(0)
   const containerRef = useRef(null)
@@ -52,7 +60,7 @@ const IndexPage: FC = () => {
           >
             <main data-scroll-container ref={containerRef}>
               <SpyScroll activeDot={active}>
-                <Seo language={languageContext} />
+                <Seo language={languageContext} ogCover={ogCover} SEO={SEO} />
                 <Navigation />
                 <Hero {...getObserverOptions('hero', 0.6)} />
                 <WorkDirections />
@@ -71,4 +79,33 @@ const IndexPage: FC = () => {
     </Preloader>
   )
 }
+
+export const getServerSideProps = async () => {
+  const client = getClient()
+
+  let SEO
+
+  const { data: seoData } = await client.query({
+    query: GET_INDEX_SEO,
+  })
+
+  const { data: previewData } = await client.query({
+    query: GET_PREVIEW,
+    variables: {
+      uri: '/main-preview/',
+    },
+  })
+
+  if (seoData) {
+    SEO = {
+      RU: seoData.pageBy.seo,
+      EN: seoData.pageBy.translation.seo,
+    }
+  } else SEO = { RU: {}, EN: {} }
+
+  const ogCover = previewData?.mediaItemBy.sourceUrl
+
+  return { props: { SEO, ogCover } }
+}
+
 export default IndexPage

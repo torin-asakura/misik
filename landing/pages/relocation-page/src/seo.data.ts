@@ -1,7 +1,6 @@
-import { gql }      from '@apollo/client'
-import { useQuery } from '@apollo/client'
+import { gql } from '@apollo/client'
 
-const GET_RELOCATION_SEO = gql`
+export const GET_RELOCATION_SEO = gql`
   query GetRelocationSeo {
     pageBy(uri: "/relocation") {
       seo {
@@ -17,18 +16,3 @@ const GET_RELOCATION_SEO = gql`
     }
   }
 `
-
-const useSeo = () => {
-  const { data } = useQuery(GET_RELOCATION_SEO)
-
-  if (data) {
-    return {
-      RU: data.pageBy.seo,
-      EN: data.pageBy.translation.seo,
-    }
-  }
-
-  return { RU: {}, EN: {} }
-}
-
-export { useSeo }

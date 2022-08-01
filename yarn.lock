@@ -1555,6 +1555,7 @@ __metadata:
     "@emotion/css": ^11.9.0
     "@emotion/react": ^11.9.3
     "@emotion/styled": ^11.9.3
+    "@globals/data": "workspace:0.0.1"
     "@globals/language": "workspace:0.0.1"
     "@landing/404-page": "workspace:0.0.1"
     "@landing/contacts-page": "workspace:0.0.1"
