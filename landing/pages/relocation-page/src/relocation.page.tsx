@@ -1,6 +1,8 @@
 import React                          from 'react'
 import { FC }                         from 'react'
+import { LocomotiveScrollProvider }   from 'react-locomotive-scroll'
 import { useState }                   from 'react'
+import { useRef }                     from 'react'
 
 import { DataProvider }               from '@globals/data'
 import { LanguageProvider }           from '@globals/language'
@@ -22,24 +24,33 @@ import { Seo }                        from './seo.component'
 
 const RelocationPage: FC = () => {
   const languageContext = useState<Language>('RU')
+  const containerRef = useRef(null)
 
   return (
     <Preloader>
       <LanguageProvider value={languageContext}>
         <DataProvider>
-          <Seo language={languageContext} />
-          <Box backgroundColor='background.beige'>
-            <Navigation />
-          </Box>
-          <RelocationHero />
-          <RelocationGroundsStatus />
-          <RelocationProgramBenefits />
-          <RelocationHowMoveToAmerica />
-          <RelocationFaq />
-          <RelocationOurRole />
-          <Feedback contacts />
-          <Map />
-          <Footer />
+          <LocomotiveScrollProvider
+            options={{ smooth: true }}
+            containerRef={containerRef}
+            watch={[]}
+          >
+            <main data-scroll-container ref={containerRef}>
+              <Seo language={languageContext} />
+              <Box backgroundColor='background.beige'>
+                <Navigation />
+              </Box>
+              <RelocationHero />
+              <RelocationGroundsStatus />
+              <RelocationProgramBenefits />
+              <RelocationHowMoveToAmerica />
+              <RelocationFaq />
+              <RelocationOurRole />
+              <Feedback contacts />
+              <Map />
+              <Footer />
+            </main>
+          </LocomotiveScrollProvider>
         </DataProvider>
       </LanguageProvider>
     </Preloader>

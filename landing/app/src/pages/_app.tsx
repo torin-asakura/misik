@@ -1,4 +1,5 @@
 import 'mapbox-gl/dist/mapbox-gl.css'
+import 'locomotive-scroll/dist/locomotive-scroll.css'
 
 import { ApolloProvider } from '@apollo/client'
 import { ApolloClient }   from '@apollo/client'
