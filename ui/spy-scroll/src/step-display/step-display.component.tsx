@@ -13,7 +13,8 @@ import { useSteps }    from '../data'
 
 const VerticalText: FC = styled(Text)({
   transform: 'rotate(-90deg)',
-  textAlign: 'left',
+  display: 'inline-block',
+  textAlign: 'start',
   whiteSpace: 'nowrap',
   backgroundColor: 'white',
   paddingTop: 6,

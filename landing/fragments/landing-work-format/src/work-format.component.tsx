@@ -4,6 +4,7 @@ import React              from 'react'
 import { forwardRef }     from 'react'
 import { useMemo }        from 'react'
 
+import { Condition }      from '@ui/condition'
 import { Divider }        from '@ui/divider'
 import { Box }            from '@ui/layout'
 import { Row }            from '@ui/layout'
@@ -35,14 +36,8 @@ const WorkFormat = forwardRef((props, ref: any) => {
   }, [fragments, language])
 
   return (
-    <Box
-      width='100%'
-      backgroundColor='background.lightBeige'
-      id='work_format'
-      justifyContent='center'
-      ref={ref}
-    >
-      <Layout flexBasis={[20, 20, 397]} flexShrink={[0, 0, 1]} maxWidth={['auto', 'auto', 430]} />
+    <Box width='100%' backgroundColor='background.lightBeige' justifyContent='center' ref={ref}>
+      <Layout flexBasis={[20, 20, 397]} flexShrink={[0, 0, 1]} />
       <Layout width='100%' maxWidth={1243}>
         <Column width='100%'>
           <Layout flexBasis={[64, 64, 160]} flexShrink={0} />
@@ -62,7 +57,7 @@ const WorkFormat = forwardRef((props, ref: any) => {
               <>
                 <Divider />
                 <Layout flexBasis={32} />
-                <Box width='100%' height={['auto', 'auto', 172]}>
+                <Box width='100%' height={['auto', 'auto', 140]}>
                   <Layout width='100%' flexDirection={['column', 'column', 'row']}>
                     <Box
                       border='1px solid'
@@ -93,6 +88,9 @@ const WorkFormat = forwardRef((props, ref: any) => {
                   </Layout>
                 </Box>
                 <Layout flexBasis={[40, 40, 0]} flexShrink={0} />
+                <Condition match={idx === workFormats.length - 1}>
+                  <Layout flexBasis={[0, 0, 50]} flexShrink={0} />
+                </Condition>
               </>
             ))}
           </Column>

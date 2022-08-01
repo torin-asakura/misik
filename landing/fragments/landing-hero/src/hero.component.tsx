@@ -71,7 +71,7 @@ const Hero = forwardRef((props, ref: any) => {
               <Image background src={imageUrl} alt={imageAlt} />
             </Box>
             <Layout flexBasis={[20, 80, 397]} flexShrink={[0, 0, 1]} />
-            <Column>
+            <Column maxWidth={864} width='100%'>
               <Layout flexBasis={[88, 88, 160]} />
               <Layout maxWidth={864} width='100%'>
                 <AnimateOnLoad
@@ -197,7 +197,7 @@ const Hero = forwardRef((props, ref: any) => {
               </Layout>
               <Layout flexBasis={[40, 40, 80]} flexShrink={0} />
             </Column>
-            <Layout flexBasis={[16, 16, 715]} />
+            <Layout flexBasis={[16, 16, 659]} />
           </Row>
           <Layout flexBasis={[20, 20, 0]} />
         </Box>

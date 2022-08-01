@@ -85,7 +85,7 @@ const Navigation: FC = () => {
                 <Box>
                   <Logo />
                 </Box>
-                <Layout flexGrow={1} flexBasis={168} flexShrink={0} />
+                <Layout flexGrow={1} flexBasis={[0, 0, 168]} flexShrink={0} />
                 <Row
                   alignItems='center'
                   justifyContent='flex-start'
