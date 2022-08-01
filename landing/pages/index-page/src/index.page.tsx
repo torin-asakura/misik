@@ -58,10 +58,10 @@ const IndexPage: FC<Props> = ({ ogCover, SEO = { RU: {}, EN: {} } }) => {
             containerRef={containerRef}
             watch={[]}
           >
+            <Navigation />
             <main data-scroll-container ref={containerRef}>
               <SpyScroll activeDot={active}>
                 <Seo language={languageContext} ogCover={ogCover} SEO={SEO} />
-                <Navigation />
                 <Hero {...getObserverOptions('hero', 0.6)} />
                 <WorkDirections />
                 <About {...getObserverOptions('about', 0.6)} />

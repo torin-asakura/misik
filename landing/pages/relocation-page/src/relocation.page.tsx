@@ -43,11 +43,11 @@ const RelocationPage: FC<Props> = ({ ogCover, SEO = { RU: {}, EN: {} } }) => {
             containerRef={containerRef}
             watch={[]}
           >
+            <Box backgroundColor='background.beige'>
+              <Navigation />
+            </Box>
             <main data-scroll-container ref={containerRef}>
               <Seo language={languageContext} ogCover={ogCover} SEO={SEO} />
-              <Box backgroundColor='background.beige'>
-                <Navigation />
-              </Box>
               <RelocationHero />
               <RelocationGroundsStatus />
               <RelocationProgramBenefits />
