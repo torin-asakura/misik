@@ -8918,9 +8918,6 @@ __metadata:
     eslint: ^8.18.0
     husky: ^8.0.1
     typescript: 4.4.4
-  dependenciesMeta:
-    react-locomotive-scroll@0.2.2:
-      unplugged: true
   languageName: unknown
   linkType: soft
 
