@@ -1,17 +1,18 @@
-import React           from 'react'
-import { ReactNode }   from 'react'
+import React            from 'react'
+import { useState }     from 'react'
 
-import { Box }         from '@ui/layout'
+import { Box }          from '@ui/layout'
 
-import { StepDisplay } from './step-display'
+import { StepDisplay }  from './step-display'
+import { useSpyScroll } from './context'
 
-export interface StepDotsProps {
-  children?: ReactNode
-  activeDot: number
-}
+const SpyScroll = () => {
+  const spyScrollStore = useSpyScroll()
+  const [active, setActive] = useState<number>(0)
 
-const SpyScroll = ({ children, activeDot }: StepDotsProps) => (
-  <>
+  spyScrollStore.setFunction(setActive)
+
+  return (
     <Box
       width={30}
       position='fixed'
@@ -20,10 +21,8 @@ const SpyScroll = ({ children, activeDot }: StepDotsProps) => (
       zIndex={10}
       display={['none', 'none', 'flex']}
     >
-      <StepDisplay activeDot={activeDot} />
+      <StepDisplay activeDot={active} />
     </Box>
-    {children}
-  </>
-)
-
+  )
+}
 export { SpyScroll }
