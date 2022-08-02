@@ -1520,6 +1520,7 @@ __metadata:
     "@ui/spy-scroll": "workspace:0.0.1"
     "@ui/text": "workspace:0.0.1"
     framer-motion: ^6.5.1
+    nanoid: ^4.0.0
     react: ^17.0.2
     react-dom: ^17.0.2
     styled-system: ^5.1.5

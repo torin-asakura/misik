@@ -3661,6 +3661,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@ui/spy-scroll", "virtual:6efc7307c64eb843935f28570918834352d46694051adccf1bd81feaccc2915256fb6f4bb1828750e8b3f26f0b02c77530075d5cf95eec16c8f9f288120e3450#workspace:ui/spy-scroll"],\
             ["@ui/text", "virtual:6fccc6636a99735150f7a95de98354e2e88ccef42fb2886a92690e8dfbb90370a3e835d916e6848a710f9eac482f009aa843321cf79b18a1b18fc7f6de21c204#workspace:ui/text"],\
             ["framer-motion", "virtual:6efc7307c64eb843935f28570918834352d46694051adccf1bd81feaccc2915256fb6f4bb1828750e8b3f26f0b02c77530075d5cf95eec16c8f9f288120e3450#npm:6.5.1"],\
+            ["nanoid", "npm:4.0.0"],\
             ["next", null],\
             ["react", "npm:17.0.2"],\
             ["react-dom", "virtual:6fccc6636a99735150f7a95de98354e2e88ccef42fb2886a92690e8dfbb90370a3e835d916e6848a710f9eac482f009aa843321cf79b18a1b18fc7f6de21c204#npm:17.0.2"],\
@@ -3718,6 +3719,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@ui/spy-scroll", "virtual:f4abbbc6dd85809bcb39bb6e1510519ef9f1b9c2335240272799819dd61a494a2c9e64b4d0330c55ec83186a17b7b21305c78ea84f04f946a63112ba950fa53a#workspace:ui/spy-scroll"],\
             ["@ui/text", "virtual:e6c26e1f83a6ea6e7dcf4dc7b2e6c6756b4a8a85c79c76d42b41e710fca8e427a04799ec5f1b722876125240455467942f44cdcd30816aa11b611db3a943c8b1#workspace:ui/text"],\
             ["framer-motion", "virtual:23a7e7e8afad891e0ec26f69f3f479ff4076de736679e12e42811bd1a82621977d536ac7ac12558daaa51aa4844e735c45b451d9adbdb933999c9898ad39f57d#npm:6.5.1"],\
+            ["nanoid", "npm:4.0.0"],\
             ["next", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:12.1.0"],\
             ["react", "npm:17.0.2"],\
             ["react-dom", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:17.0.2"],\
@@ -3766,6 +3768,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@ui/spy-scroll", "virtual:6efc7307c64eb843935f28570918834352d46694051adccf1bd81feaccc2915256fb6f4bb1828750e8b3f26f0b02c77530075d5cf95eec16c8f9f288120e3450#workspace:ui/spy-scroll"],\
             ["@ui/text", "virtual:6fccc6636a99735150f7a95de98354e2e88ccef42fb2886a92690e8dfbb90370a3e835d916e6848a710f9eac482f009aa843321cf79b18a1b18fc7f6de21c204#workspace:ui/text"],\
             ["framer-motion", "virtual:6efc7307c64eb843935f28570918834352d46694051adccf1bd81feaccc2915256fb6f4bb1828750e8b3f26f0b02c77530075d5cf95eec16c8f9f288120e3450#npm:6.5.1"],\
+            ["nanoid", "npm:4.0.0"],\
             ["react", "npm:17.0.2"],\
             ["react-dom", "virtual:6fccc6636a99735150f7a95de98354e2e88ccef42fb2886a92690e8dfbb90370a3e835d916e6848a710f9eac482f009aa843321cf79b18a1b18fc7f6de21c204#npm:17.0.2"],\
             ["styled-system", "npm:5.1.5"],\
