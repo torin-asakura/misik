@@ -1,1 +1,1 @@
-export { default } from '@landing/relocation-page'
+export { default, getServerSideProps } from '@landing/relocation-page'

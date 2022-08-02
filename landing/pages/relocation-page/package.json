@@ -15,7 +15,9 @@
     "@landing/relocation-how-move-to-america-fragment": "workspace:0.0.1",
     "@landing/relocation-our-role-fragment": "workspace:0.0.1",
     "@landing/relocation-program-benefits-fragment": "workspace:0.0.1",
-    "@ui/layout": "workspace:0.0.1"
+    "@ui/layout": "workspace:0.0.1",
+    "locomotive-scroll": "^4.1.4",
+    "react-locomotive-scroll": "^0.2.2"
   },
   "devDependencies": {
     "@apollo/client": "^3.6.9",

@@ -24,6 +24,7 @@
     "events": "^3.3.0",
     "express": "^4.17.1",
     "graphql": "^15.5.1",
+    "locomotive-scroll": "^4.1.4",
     "mapbox-gl": "2.6.1",
     "next": "^12.2.0",
     "react": "^17.0.2",
@@ -35,6 +36,7 @@
   },
   "devDependencies": {
     "@atls/next-sitemap-generator": "^0.0.3",
+    "@globals/data": "workspace:0.0.1",
     "@globals/language": "workspace:0.0.1",
     "@landing/404-page": "workspace:0.0.1",
     "@landing/contacts-page": "workspace:0.0.1",

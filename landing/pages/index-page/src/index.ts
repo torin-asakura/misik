@@ -1,1 +1,1 @@
-export { default } from './index.page'
+export { default, getServerSideProps } from './index.page'
