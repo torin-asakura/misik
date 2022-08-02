@@ -4,14 +4,14 @@
   "license": "BSD-3-Clause",
   "main": "src/index.ts",
   "dependencies": {
+    "@forks/react-locomotive-scroll": "workspace:0.0.1",
     "@globals/data": "workspace:0.0.1",
     "@globals/language": "workspace:0.0.1",
     "@landing/404-fragment": "workspace:0.0.1",
     "@landing/footer-fragment": "workspace:0.0.1",
     "@landing/navigation-fragment": "workspace:0.0.1",
     "@ui/layout": "workspace:0.0.1",
-    "locomotive-scroll": "^4.1.4",
-    "react-locomotive-scroll": "^0.2.2"
+    "locomotive-scroll": "^4.1.4"
   },
   "devDependencies": {
     "@emotion/styled": "^11.9.3",

@@ -1,9 +1,9 @@
 import React                        from 'react'
 import { FC }                       from 'react'
-import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 import { useState }                 from 'react'
 import { useRef }                   from 'react'
 
+import { LocomotiveScrollProvider } from '@forks/react-locomotive-scroll'
 import { DataProvider }             from '@globals/data'
 import { GET_PREVIEW }              from '@globals/data'
 import { LanguageProvider }         from '@globals/language'

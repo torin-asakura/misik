@@ -21,6 +21,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:."\
       },\
       {\
+        "name": "@forks/react-locomotive-scroll",\
+        "reference": "workspace:forks/react-locomotive-scroll"\
+      },\
+      {\
         "name": "@globals/data",\
         "reference": "workspace:globals/data"\
       },\
@@ -220,6 +224,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     "enableTopLevelFallback": true,\
     "ignorePatternData": "(^(?:\\\\.yarn\\\\/sdks(?:\\\\/(?!\\\\.{1,2}(?:\\\\/|$))(?:(?:(?!(?:^|\\\\/)\\\\.{1,2}(?:\\\\/|$)).)*?)|$))$)",\
     "fallbackExclusionList": [\
+      ["@forks/react-locomotive-scroll", ["virtual:8f5d885ffdcaa26d276207b96be4a9867ae77d551055cb6a6dbe8d3172cb3aada58dde638836b57d2c81bb902706dd53e70b7843ea8e8e66ac0da643596597d4#workspace:forks/react-locomotive-scroll", "workspace:forks/react-locomotive-scroll"]],\
       ["@globals/data", ["virtual:4b5968a5419c29d6c0887b0079ffe87d114f05871e99e4372d9d69ecb7b8ad3ed9bcdd231a1542edbfdcf43c4c0f649ae653069948f2809a3343fd0a1a865126#workspace:globals/data", "virtual:6fccc6636a99735150f7a95de98354e2e88ccef42fb2886a92690e8dfbb90370a3e835d916e6848a710f9eac482f009aa843321cf79b18a1b18fc7f6de21c204#workspace:globals/data", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#workspace:globals/data", "virtual:eddf1f6fdbec549def3153883280e6ae6c22e15cb6c8fafdc1331684b9c89c544c4f679012ff0fce314333ca13afa1a12445e93d11d15ff4348a1800d8930ece#workspace:globals/data", "workspace:globals/data"]],\
       ["@globals/dom", ["workspace:globals/dom"]],\
       ["@globals/language", ["virtual:6fccc6636a99735150f7a95de98354e2e88ccef42fb2886a92690e8dfbb90370a3e835d916e6848a710f9eac482f009aa843321cf79b18a1b18fc7f6de21c204#workspace:globals/language", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#workspace:globals/language", "workspace:globals/language"]],\
@@ -2924,6 +2929,38 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@forks/react-locomotive-scroll", [\
+        ["virtual:8f5d885ffdcaa26d276207b96be4a9867ae77d551055cb6a6dbe8d3172cb3aada58dde638836b57d2c81bb902706dd53e70b7843ea8e8e66ac0da643596597d4#workspace:forks/react-locomotive-scroll", {\
+          "packageLocation": "./.yarn/__virtual__/@forks-react-locomotive-scroll-virtual-8771076c94/1/forks/react-locomotive-scroll/",\
+          "packageDependencies": [\
+            ["@forks/react-locomotive-scroll", "virtual:8f5d885ffdcaa26d276207b96be4a9867ae77d551055cb6a6dbe8d3172cb3aada58dde638836b57d2c81bb902706dd53e70b7843ea8e8e66ac0da643596597d4#workspace:forks/react-locomotive-scroll"],\
+            ["@types/locomotive-scroll", null],\
+            ["@types/react", "npm:17.0.47"],\
+            ["locomotive-scroll", "npm:4.1.4"],\
+            ["react", "npm:17.0.2"],\
+            ["use-debounce", "virtual:8771076c9417c2bd2457a8a7c616577de2796c5996de64fa86b36886114c8c96cf7cf89e74698fe68decaa4900c45a2614893d89a94eaa092e63a21972019dd9#npm:6.0.1"],\
+            ["use-resize-observer", "virtual:8771076c9417c2bd2457a8a7c616577de2796c5996de64fa86b36886114c8c96cf7cf89e74698fe68decaa4900c45a2614893d89a94eaa092e63a21972019dd9#npm:6.1.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/locomotive-scroll",\
+            "@types/react",\
+            "locomotive-scroll",\
+            "react"\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["workspace:forks/react-locomotive-scroll", {\
+          "packageLocation": "./forks/react-locomotive-scroll/",\
+          "packageDependencies": [\
+            ["@forks/react-locomotive-scroll", "workspace:forks/react-locomotive-scroll"],\
+            ["@types/react", "npm:17.0.47"],\
+            ["locomotive-scroll", "npm:4.1.4"],\
+            ["use-debounce", "virtual:9c4f1e0859cc9b2c9a9dfa2cd3d7552d442f4d122696559e0a7d5a40d79bae5eff609d3a7aa1a341d96549f702fee471ce762e9241f2024d0c4fb39d2f4bd454#npm:6.0.1"],\
+            ["use-resize-observer", "virtual:9c4f1e0859cc9b2c9a9dfa2cd3d7552d442f4d122696559e0a7d5a40d79bae5eff609d3a7aa1a341d96549f702fee471ce762e9241f2024d0c4fb39d2f4bd454#npm:6.1.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }]\
+      ]],\
       ["@globals/data", [\
         ["virtual:4b5968a5419c29d6c0887b0079ffe87d114f05871e99e4372d9d69ecb7b8ad3ed9bcdd231a1542edbfdcf43c4c0f649ae653069948f2809a3343fd0a1a865126#workspace:globals/data", {\
           "packageLocation": "./.yarn/__virtual__/@globals-data-virtual-a95b236b39/1/globals/data/",\
@@ -3581,6 +3618,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@landing/404-page", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#workspace:landing/pages/404-page"],\
             ["@apollo/client", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:3.6.9"],\
             ["@emotion/styled", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:11.9.3"],\
+            ["@forks/react-locomotive-scroll", "virtual:8f5d885ffdcaa26d276207b96be4a9867ae77d551055cb6a6dbe8d3172cb3aada58dde638836b57d2c81bb902706dd53e70b7843ea8e8e66ac0da643596597d4#workspace:forks/react-locomotive-scroll"],\
             ["@globals/data", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#workspace:globals/data"],\
             ["@globals/language", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#workspace:globals/language"],\
             ["@landing/404-fragment", "virtual:8f5d885ffdcaa26d276207b96be4a9867ae77d551055cb6a6dbe8d3172cb3aada58dde638836b57d2c81bb902706dd53e70b7843ea8e8e66ac0da643596597d4#workspace:landing/fragments/landing-404"],\
@@ -3596,8 +3634,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["locomotive-scroll", "npm:4.1.4"],\
             ["next", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:12.1.0"],\
             ["react", "npm:17.0.2"],\
-            ["react-helmet", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:6.1.0"],\
-            ["react-locomotive-scroll", "virtual:8f5d885ffdcaa26d276207b96be4a9867ae77d551055cb6a6dbe8d3172cb3aada58dde638836b57d2c81bb902706dd53e70b7843ea8e8e66ac0da643596597d4#npm:0.2.2"]\
+            ["react-helmet", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:6.1.0"]\
           ],\
           "packagePeers": [\
             "@apollo/client",\
@@ -3618,6 +3655,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@landing/404-page", "workspace:landing/pages/404-page"],\
             ["@emotion/styled", "virtual:4b5968a5419c29d6c0887b0079ffe87d114f05871e99e4372d9d69ecb7b8ad3ed9bcdd231a1542edbfdcf43c4c0f649ae653069948f2809a3343fd0a1a865126#npm:11.9.3"],\
+            ["@forks/react-locomotive-scroll", "virtual:8f5d885ffdcaa26d276207b96be4a9867ae77d551055cb6a6dbe8d3172cb3aada58dde638836b57d2c81bb902706dd53e70b7843ea8e8e66ac0da643596597d4#workspace:forks/react-locomotive-scroll"],\
             ["@globals/data", "virtual:4b5968a5419c29d6c0887b0079ffe87d114f05871e99e4372d9d69ecb7b8ad3ed9bcdd231a1542edbfdcf43c4c0f649ae653069948f2809a3343fd0a1a865126#workspace:globals/data"],\
             ["@globals/language", "virtual:6fccc6636a99735150f7a95de98354e2e88ccef42fb2886a92690e8dfbb90370a3e835d916e6848a710f9eac482f009aa843321cf79b18a1b18fc7f6de21c204#workspace:globals/language"],\
             ["@landing/404-fragment", "virtual:4b5968a5419c29d6c0887b0079ffe87d114f05871e99e4372d9d69ecb7b8ad3ed9bcdd231a1542edbfdcf43c4c0f649ae653069948f2809a3343fd0a1a865126#workspace:landing/fragments/landing-404"],\
@@ -3627,8 +3665,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@ui/preloader", "virtual:4b5968a5419c29d6c0887b0079ffe87d114f05871e99e4372d9d69ecb7b8ad3ed9bcdd231a1542edbfdcf43c4c0f649ae653069948f2809a3343fd0a1a865126#workspace:ui/preoader"],\
             ["locomotive-scroll", "npm:4.1.4"],\
             ["react", "npm:17.0.2"],\
-            ["react-helmet", "virtual:4b5968a5419c29d6c0887b0079ffe87d114f05871e99e4372d9d69ecb7b8ad3ed9bcdd231a1542edbfdcf43c4c0f649ae653069948f2809a3343fd0a1a865126#npm:6.1.0"],\
-            ["react-locomotive-scroll", "virtual:4b5968a5419c29d6c0887b0079ffe87d114f05871e99e4372d9d69ecb7b8ad3ed9bcdd231a1542edbfdcf43c4c0f649ae653069948f2809a3343fd0a1a865126#npm:0.2.2"]\
+            ["react-helmet", "virtual:4b5968a5419c29d6c0887b0079ffe87d114f05871e99e4372d9d69ecb7b8ad3ed9bcdd231a1542edbfdcf43c4c0f649ae653069948f2809a3343fd0a1a865126#npm:6.1.0"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -3984,6 +4021,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@apollo/client", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:3.6.9"],\
             ["@emotion/react", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:11.9.3"],\
             ["@emotion/styled", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:11.9.3"],\
+            ["@forks/react-locomotive-scroll", "virtual:8f5d885ffdcaa26d276207b96be4a9867ae77d551055cb6a6dbe8d3172cb3aada58dde638836b57d2c81bb902706dd53e70b7843ea8e8e66ac0da643596597d4#workspace:forks/react-locomotive-scroll"],\
             ["@globals/data", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#workspace:globals/data"],\
             ["@globals/language", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#workspace:globals/language"],\
             ["@landing/branches-fragment", "virtual:f4abbbc6dd85809bcb39bb6e1510519ef9f1b9c2335240272799819dd61a494a2c9e64b4d0330c55ec83186a17b7b21305c78ea84f04f946a63112ba950fa53a#workspace:landing/fragments/landing-branches"],\
@@ -4008,7 +4046,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:17.0.2"],\
             ["react-dom", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:17.0.2"],\
             ["react-helmet", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:6.1.0"],\
-            ["react-locomotive-scroll", "virtual:8f5d885ffdcaa26d276207b96be4a9867ae77d551055cb6a6dbe8d3172cb3aada58dde638836b57d2c81bb902706dd53e70b7843ea8e8e66ac0da643596597d4#npm:0.2.2"],\
             ["styled-system", "npm:5.1.5"]\
           ],\
           "packagePeers": [\
@@ -4038,6 +4075,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@apollo/client", "virtual:6fccc6636a99735150f7a95de98354e2e88ccef42fb2886a92690e8dfbb90370a3e835d916e6848a710f9eac482f009aa843321cf79b18a1b18fc7f6de21c204#npm:3.6.9"],\
             ["@emotion/react", "virtual:6fccc6636a99735150f7a95de98354e2e88ccef42fb2886a92690e8dfbb90370a3e835d916e6848a710f9eac482f009aa843321cf79b18a1b18fc7f6de21c204#npm:11.9.3"],\
             ["@emotion/styled", "virtual:6fccc6636a99735150f7a95de98354e2e88ccef42fb2886a92690e8dfbb90370a3e835d916e6848a710f9eac482f009aa843321cf79b18a1b18fc7f6de21c204#npm:11.9.3"],\
+            ["@forks/react-locomotive-scroll", "virtual:8f5d885ffdcaa26d276207b96be4a9867ae77d551055cb6a6dbe8d3172cb3aada58dde638836b57d2c81bb902706dd53e70b7843ea8e8e66ac0da643596597d4#workspace:forks/react-locomotive-scroll"],\
             ["@globals/data", "virtual:6fccc6636a99735150f7a95de98354e2e88ccef42fb2886a92690e8dfbb90370a3e835d916e6848a710f9eac482f009aa843321cf79b18a1b18fc7f6de21c204#workspace:globals/data"],\
             ["@globals/language", "virtual:6fccc6636a99735150f7a95de98354e2e88ccef42fb2886a92690e8dfbb90370a3e835d916e6848a710f9eac482f009aa843321cf79b18a1b18fc7f6de21c204#workspace:globals/language"],\
             ["@landing/branches-fragment", "virtual:3becf4e35f7ebb1a186d81ee6cf85657e6bbceef83665f35245282843689b21d03ec1b33fa15291ac8e18348750ef4d997cc371a72f76d7e4d5d958b998863ea#workspace:landing/fragments/landing-branches"],\
@@ -4054,7 +4092,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:17.0.2"],\
             ["react-dom", "virtual:6fccc6636a99735150f7a95de98354e2e88ccef42fb2886a92690e8dfbb90370a3e835d916e6848a710f9eac482f009aa843321cf79b18a1b18fc7f6de21c204#npm:17.0.2"],\
             ["react-helmet", "virtual:4b5968a5419c29d6c0887b0079ffe87d114f05871e99e4372d9d69ecb7b8ad3ed9bcdd231a1542edbfdcf43c4c0f649ae653069948f2809a3343fd0a1a865126#npm:6.1.0"],\
-            ["react-locomotive-scroll", "virtual:4b5968a5419c29d6c0887b0079ffe87d114f05871e99e4372d9d69ecb7b8ad3ed9bcdd231a1542edbfdcf43c4c0f649ae653069948f2809a3343fd0a1a865126#npm:0.2.2"],\
             ["styled-system", "npm:5.1.5"]\
           ],\
           "linkType": "SOFT"\
@@ -4753,6 +4790,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@apollo/client", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:3.6.9"],\
             ["@emotion/react", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:11.9.3"],\
             ["@emotion/styled", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:11.9.3"],\
+            ["@forks/react-locomotive-scroll", "virtual:8f5d885ffdcaa26d276207b96be4a9867ae77d551055cb6a6dbe8d3172cb3aada58dde638836b57d2c81bb902706dd53e70b7843ea8e8e66ac0da643596597d4#workspace:forks/react-locomotive-scroll"],\
             ["@globals/data", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#workspace:globals/data"],\
             ["@globals/language", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#workspace:globals/language"],\
             ["@landing/about-fragment", "virtual:1f4266679b8d7c19680ce32317be5dac8a6d2ffc217caf41e0ab598a47c7492bfe8d6e66a42c3c3997753a31e2771cad6b17445563197e25cd778b26630b688a#workspace:landing/fragments/landing-about"],\
@@ -4784,7 +4822,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:17.0.2"],\
             ["react-dom", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:17.0.2"],\
             ["react-helmet", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:6.1.0"],\
-            ["react-locomotive-scroll", "virtual:8f5d885ffdcaa26d276207b96be4a9867ae77d551055cb6a6dbe8d3172cb3aada58dde638836b57d2c81bb902706dd53e70b7843ea8e8e66ac0da643596597d4#npm:0.2.2"],\
             ["styled-system", "npm:5.1.5"]\
           ],\
           "packagePeers": [\
@@ -4814,6 +4851,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@apollo/client", "virtual:6fccc6636a99735150f7a95de98354e2e88ccef42fb2886a92690e8dfbb90370a3e835d916e6848a710f9eac482f009aa843321cf79b18a1b18fc7f6de21c204#npm:3.6.9"],\
             ["@emotion/react", "virtual:6fccc6636a99735150f7a95de98354e2e88ccef42fb2886a92690e8dfbb90370a3e835d916e6848a710f9eac482f009aa843321cf79b18a1b18fc7f6de21c204#npm:11.9.3"],\
             ["@emotion/styled", "virtual:6fccc6636a99735150f7a95de98354e2e88ccef42fb2886a92690e8dfbb90370a3e835d916e6848a710f9eac482f009aa843321cf79b18a1b18fc7f6de21c204#npm:11.9.3"],\
+            ["@forks/react-locomotive-scroll", "virtual:8f5d885ffdcaa26d276207b96be4a9867ae77d551055cb6a6dbe8d3172cb3aada58dde638836b57d2c81bb902706dd53e70b7843ea8e8e66ac0da643596597d4#workspace:forks/react-locomotive-scroll"],\
             ["@globals/data", "virtual:6fccc6636a99735150f7a95de98354e2e88ccef42fb2886a92690e8dfbb90370a3e835d916e6848a710f9eac482f009aa843321cf79b18a1b18fc7f6de21c204#workspace:globals/data"],\
             ["@globals/language", "virtual:6fccc6636a99735150f7a95de98354e2e88ccef42fb2886a92690e8dfbb90370a3e835d916e6848a710f9eac482f009aa843321cf79b18a1b18fc7f6de21c204#workspace:globals/language"],\
             ["@landing/about-fragment", "virtual:09e125a7dbc99b48dbd8b6d8e8ecfabc4199e657267e2eacea44267006e849cacafe5bb631c40c7ca29ca9de5eb91410e8e961ae61edd55b7a34ddaff952bf2c#workspace:landing/fragments/landing-about"],\
@@ -4837,7 +4875,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:17.0.2"],\
             ["react-dom", "virtual:6fccc6636a99735150f7a95de98354e2e88ccef42fb2886a92690e8dfbb90370a3e835d916e6848a710f9eac482f009aa843321cf79b18a1b18fc7f6de21c204#npm:17.0.2"],\
             ["react-helmet", "virtual:4b5968a5419c29d6c0887b0079ffe87d114f05871e99e4372d9d69ecb7b8ad3ed9bcdd231a1542edbfdcf43c4c0f649ae653069948f2809a3343fd0a1a865126#npm:6.1.0"],\
-            ["react-locomotive-scroll", "virtual:4b5968a5419c29d6c0887b0079ffe87d114f05871e99e4372d9d69ecb7b8ad3ed9bcdd231a1542edbfdcf43c4c0f649ae653069948f2809a3343fd0a1a865126#npm:0.2.2"],\
             ["styled-system", "npm:5.1.5"]\
           ],\
           "linkType": "SOFT"\
@@ -6177,6 +6214,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@apollo/client", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:3.6.9"],\
             ["@emotion/react", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:11.9.3"],\
             ["@emotion/styled", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:11.9.3"],\
+            ["@forks/react-locomotive-scroll", "virtual:8f5d885ffdcaa26d276207b96be4a9867ae77d551055cb6a6dbe8d3172cb3aada58dde638836b57d2c81bb902706dd53e70b7843ea8e8e66ac0da643596597d4#workspace:forks/react-locomotive-scroll"],\
             ["@globals/data", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#workspace:globals/data"],\
             ["@globals/language", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#workspace:globals/language"],\
             ["@landing/feedback-fragment", "virtual:794431eec24ec20f0f6d412b6f09b3c31aa765c1ef640ca16810c411a8b75e942e5aab339a040c008e6d4a69832bd64d4196fc41dfcbb48ad04e6ec9085d337b#workspace:landing/fragments/landing-feedback"],\
@@ -6204,7 +6242,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:17.0.2"],\
             ["react-dom", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:17.0.2"],\
             ["react-helmet", "virtual:a91d0d8c8cb20e2d440f0f87e74f4e44e9c01728b87d756c6fc8df12d8c966210fa01a48ca0446a0f9ca556912cbead1eb3ad1e0addb71643513d5e9a7a68692#npm:6.1.0"],\
-            ["react-locomotive-scroll", "virtual:8f5d885ffdcaa26d276207b96be4a9867ae77d551055cb6a6dbe8d3172cb3aada58dde638836b57d2c81bb902706dd53e70b7843ea8e8e66ac0da643596597d4#npm:0.2.2"],\
             ["styled-system", "npm:5.1.5"]\
           ],\
           "packagePeers": [\
@@ -6233,6 +6270,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@apollo/client", "virtual:6fccc6636a99735150f7a95de98354e2e88ccef42fb2886a92690e8dfbb90370a3e835d916e6848a710f9eac482f009aa843321cf79b18a1b18fc7f6de21c204#npm:3.6.9"],\
             ["@emotion/react", "virtual:6fccc6636a99735150f7a95de98354e2e88ccef42fb2886a92690e8dfbb90370a3e835d916e6848a710f9eac482f009aa843321cf79b18a1b18fc7f6de21c204#npm:11.9.3"],\
             ["@emotion/styled", "virtual:6fccc6636a99735150f7a95de98354e2e88ccef42fb2886a92690e8dfbb90370a3e835d916e6848a710f9eac482f009aa843321cf79b18a1b18fc7f6de21c204#npm:11.9.3"],\
+            ["@forks/react-locomotive-scroll", "virtual:8f5d885ffdcaa26d276207b96be4a9867ae77d551055cb6a6dbe8d3172cb3aada58dde638836b57d2c81bb902706dd53e70b7843ea8e8e66ac0da643596597d4#workspace:forks/react-locomotive-scroll"],\
             ["@globals/data", "virtual:6fccc6636a99735150f7a95de98354e2e88ccef42fb2886a92690e8dfbb90370a3e835d916e6848a710f9eac482f009aa843321cf79b18a1b18fc7f6de21c204#workspace:globals/data"],\
             ["@globals/language", "virtual:6fccc6636a99735150f7a95de98354e2e88ccef42fb2886a92690e8dfbb90370a3e835d916e6848a710f9eac482f009aa843321cf79b18a1b18fc7f6de21c204#workspace:globals/language"],\
             ["@landing/feedback-fragment", "virtual:8b32dd4734923a876e0ab6d9d4800655c28e42d285e6c446b8cc5cfc9a37f41ff5824d17858e58eb01de430087a91b6f5beb346d3fd117766d1e2449ba72b010#workspace:landing/fragments/landing-feedback"],\
@@ -6253,7 +6291,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:17.0.2"],\
             ["react-dom", "virtual:6fccc6636a99735150f7a95de98354e2e88ccef42fb2886a92690e8dfbb90370a3e835d916e6848a710f9eac482f009aa843321cf79b18a1b18fc7f6de21c204#npm:17.0.2"],\
             ["react-helmet", "virtual:4b5968a5419c29d6c0887b0079ffe87d114f05871e99e4372d9d69ecb7b8ad3ed9bcdd231a1542edbfdcf43c4c0f649ae653069948f2809a3343fd0a1a865126#npm:6.1.0"],\
-            ["react-locomotive-scroll", "virtual:4b5968a5419c29d6c0887b0079ffe87d114f05871e99e4372d9d69ecb7b8ad3ed9bcdd231a1542edbfdcf43c4c0f649ae653069948f2809a3343fd0a1a865126#npm:0.2.2"],\
             ["styled-system", "npm:5.1.5"]\
           ],\
           "linkType": "SOFT"\
@@ -18931,55 +18968,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
-      ["react-locomotive-scroll", [\
-        ["npm:0.2.2", {\
-          "packageLocation": "./.yarn/cache/react-locomotive-scroll-npm-0.2.2-3bc7203fc8-06a1bf798f.zip/node_modules/react-locomotive-scroll/",\
-          "packageDependencies": [\
-            ["react-locomotive-scroll", "npm:0.2.2"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:4b5968a5419c29d6c0887b0079ffe87d114f05871e99e4372d9d69ecb7b8ad3ed9bcdd231a1542edbfdcf43c4c0f649ae653069948f2809a3343fd0a1a865126#npm:0.2.2", {\
-          "packageLocation": "./.yarn/__virtual__/react-locomotive-scroll-virtual-500bb22b60/0/cache/react-locomotive-scroll-npm-0.2.2-3bc7203fc8-06a1bf798f.zip/node_modules/react-locomotive-scroll/",\
-          "packageDependencies": [\
-            ["react-locomotive-scroll", "virtual:4b5968a5419c29d6c0887b0079ffe87d114f05871e99e4372d9d69ecb7b8ad3ed9bcdd231a1542edbfdcf43c4c0f649ae653069948f2809a3343fd0a1a865126#npm:0.2.2"],\
-            ["@types/locomotive-scroll", null],\
-            ["@types/react", null],\
-            ["locomotive-scroll", "npm:4.1.4"],\
-            ["react", "npm:17.0.2"],\
-            ["tslib", "npm:2.4.0"],\
-            ["use-debounce", "virtual:500bb22b60ad2eefb6722a497bd08d7726a69b9bb92e6e13619fca6ae56700692ebda7853d5ade6e70532df8dd4f36da7a0297f3764ba4034ab2fba9d7b3b299#npm:6.0.1"],\
-            ["use-resize-observer", "virtual:500bb22b60ad2eefb6722a497bd08d7726a69b9bb92e6e13619fca6ae56700692ebda7853d5ade6e70532df8dd4f36da7a0297f3764ba4034ab2fba9d7b3b299#npm:6.1.0"]\
-          ],\
-          "packagePeers": [\
-            "@types/locomotive-scroll",\
-            "@types/react",\
-            "locomotive-scroll",\
-            "react"\
-          ],\
-          "linkType": "HARD"\
-        }],\
-        ["virtual:8f5d885ffdcaa26d276207b96be4a9867ae77d551055cb6a6dbe8d3172cb3aada58dde638836b57d2c81bb902706dd53e70b7843ea8e8e66ac0da643596597d4#npm:0.2.2", {\
-          "packageLocation": "./.yarn/__virtual__/react-locomotive-scroll-virtual-1f0486f93a/0/cache/react-locomotive-scroll-npm-0.2.2-3bc7203fc8-06a1bf798f.zip/node_modules/react-locomotive-scroll/",\
-          "packageDependencies": [\
-            ["react-locomotive-scroll", "virtual:8f5d885ffdcaa26d276207b96be4a9867ae77d551055cb6a6dbe8d3172cb3aada58dde638836b57d2c81bb902706dd53e70b7843ea8e8e66ac0da643596597d4#npm:0.2.2"],\
-            ["@types/locomotive-scroll", null],\
-            ["@types/react", "npm:17.0.47"],\
-            ["locomotive-scroll", "npm:4.1.4"],\
-            ["react", "npm:17.0.2"],\
-            ["tslib", "npm:2.4.0"],\
-            ["use-debounce", "virtual:1f0486f93a9c5e1e28ecb91a8520286204ef27a1bcdfc3b33901a8dddd1d47bb1fb155f760b807e787f01be45d98157ff2f59240e949a7c85291b0c41483338e#npm:6.0.1"],\
-            ["use-resize-observer", "virtual:1f0486f93a9c5e1e28ecb91a8520286204ef27a1bcdfc3b33901a8dddd1d47bb1fb155f760b807e787f01be45d98157ff2f59240e949a7c85291b0c41483338e#npm:6.1.0"]\
-          ],\
-          "packagePeers": [\
-            "@types/locomotive-scroll",\
-            "@types/react",\
-            "locomotive-scroll",\
-            "react"\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
       ["react-scroll", [\
         ["npm:1.8.7", {\
           "packageLocation": "./.yarn/cache/react-scroll-npm-1.8.7-4647484c33-37714995f1.zip/node_modules/react-scroll/",\
@@ -20582,10 +20570,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:1f0486f93a9c5e1e28ecb91a8520286204ef27a1bcdfc3b33901a8dddd1d47bb1fb155f760b807e787f01be45d98157ff2f59240e949a7c85291b0c41483338e#npm:6.0.1", {\
-          "packageLocation": "./.yarn/__virtual__/use-debounce-virtual-79c5b13f68/0/cache/use-debounce-npm-6.0.1-6203424700-9f81107565.zip/node_modules/use-debounce/",\
+        ["virtual:8771076c9417c2bd2457a8a7c616577de2796c5996de64fa86b36886114c8c96cf7cf89e74698fe68decaa4900c45a2614893d89a94eaa092e63a21972019dd9#npm:6.0.1", {\
+          "packageLocation": "./.yarn/__virtual__/use-debounce-virtual-d125138e3a/0/cache/use-debounce-npm-6.0.1-6203424700-9f81107565.zip/node_modules/use-debounce/",\
           "packageDependencies": [\
-            ["use-debounce", "virtual:1f0486f93a9c5e1e28ecb91a8520286204ef27a1bcdfc3b33901a8dddd1d47bb1fb155f760b807e787f01be45d98157ff2f59240e949a7c85291b0c41483338e#npm:6.0.1"],\
+            ["use-debounce", "virtual:8771076c9417c2bd2457a8a7c616577de2796c5996de64fa86b36886114c8c96cf7cf89e74698fe68decaa4900c45a2614893d89a94eaa092e63a21972019dd9#npm:6.0.1"],\
             ["@types/react", "npm:17.0.47"],\
             ["react", "npm:17.0.2"]\
           ],\
@@ -20595,12 +20583,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["virtual:500bb22b60ad2eefb6722a497bd08d7726a69b9bb92e6e13619fca6ae56700692ebda7853d5ade6e70532df8dd4f36da7a0297f3764ba4034ab2fba9d7b3b299#npm:6.0.1", {\
-          "packageLocation": "./.yarn/__virtual__/use-debounce-virtual-7727265892/0/cache/use-debounce-npm-6.0.1-6203424700-9f81107565.zip/node_modules/use-debounce/",\
+        ["virtual:9c4f1e0859cc9b2c9a9dfa2cd3d7552d442f4d122696559e0a7d5a40d79bae5eff609d3a7aa1a341d96549f702fee471ce762e9241f2024d0c4fb39d2f4bd454#npm:6.0.1", {\
+          "packageLocation": "./.yarn/__virtual__/use-debounce-virtual-71f13d11f1/0/cache/use-debounce-npm-6.0.1-6203424700-9f81107565.zip/node_modules/use-debounce/",\
           "packageDependencies": [\
-            ["use-debounce", "virtual:500bb22b60ad2eefb6722a497bd08d7726a69b9bb92e6e13619fca6ae56700692ebda7853d5ade6e70532df8dd4f36da7a0297f3764ba4034ab2fba9d7b3b299#npm:6.0.1"],\
-            ["@types/react", null],\
-            ["react", "npm:17.0.2"]\
+            ["use-debounce", "virtual:9c4f1e0859cc9b2c9a9dfa2cd3d7552d442f4d122696559e0a7d5a40d79bae5eff609d3a7aa1a341d96549f702fee471ce762e9241f2024d0c4fb39d2f4bd454#npm:6.0.1"],\
+            ["@types/react", "npm:17.0.47"],\
+            ["react", null]\
           ],\
           "packagePeers": [\
             "@types/react",\
@@ -20617,10 +20605,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:1f0486f93a9c5e1e28ecb91a8520286204ef27a1bcdfc3b33901a8dddd1d47bb1fb155f760b807e787f01be45d98157ff2f59240e949a7c85291b0c41483338e#npm:6.1.0", {\
-          "packageLocation": "./.yarn/__virtual__/use-resize-observer-virtual-03474e837b/0/cache/use-resize-observer-npm-6.1.0-5ee3475eb2-a4135446ed.zip/node_modules/use-resize-observer/",\
+        ["virtual:8771076c9417c2bd2457a8a7c616577de2796c5996de64fa86b36886114c8c96cf7cf89e74698fe68decaa4900c45a2614893d89a94eaa092e63a21972019dd9#npm:6.1.0", {\
+          "packageLocation": "./.yarn/__virtual__/use-resize-observer-virtual-6f0ee78f43/0/cache/use-resize-observer-npm-6.1.0-5ee3475eb2-a4135446ed.zip/node_modules/use-resize-observer/",\
           "packageDependencies": [\
-            ["use-resize-observer", "virtual:1f0486f93a9c5e1e28ecb91a8520286204ef27a1bcdfc3b33901a8dddd1d47bb1fb155f760b807e787f01be45d98157ff2f59240e949a7c85291b0c41483338e#npm:6.1.0"],\
+            ["use-resize-observer", "virtual:8771076c9417c2bd2457a8a7c616577de2796c5996de64fa86b36886114c8c96cf7cf89e74698fe68decaa4900c45a2614893d89a94eaa092e63a21972019dd9#npm:6.1.0"],\
             ["@types/react", "npm:17.0.47"],\
             ["@types/react-dom", null],\
             ["react", "npm:17.0.2"],\
@@ -20635,13 +20623,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["virtual:500bb22b60ad2eefb6722a497bd08d7726a69b9bb92e6e13619fca6ae56700692ebda7853d5ade6e70532df8dd4f36da7a0297f3764ba4034ab2fba9d7b3b299#npm:6.1.0", {\
-          "packageLocation": "./.yarn/__virtual__/use-resize-observer-virtual-e647250598/0/cache/use-resize-observer-npm-6.1.0-5ee3475eb2-a4135446ed.zip/node_modules/use-resize-observer/",\
+        ["virtual:9c4f1e0859cc9b2c9a9dfa2cd3d7552d442f4d122696559e0a7d5a40d79bae5eff609d3a7aa1a341d96549f702fee471ce762e9241f2024d0c4fb39d2f4bd454#npm:6.1.0", {\
+          "packageLocation": "./.yarn/__virtual__/use-resize-observer-virtual-c567c092a7/0/cache/use-resize-observer-npm-6.1.0-5ee3475eb2-a4135446ed.zip/node_modules/use-resize-observer/",\
           "packageDependencies": [\
-            ["use-resize-observer", "virtual:500bb22b60ad2eefb6722a497bd08d7726a69b9bb92e6e13619fca6ae56700692ebda7853d5ade6e70532df8dd4f36da7a0297f3764ba4034ab2fba9d7b3b299#npm:6.1.0"],\
-            ["@types/react", null],\
+            ["use-resize-observer", "virtual:9c4f1e0859cc9b2c9a9dfa2cd3d7552d442f4d122696559e0a7d5a40d79bae5eff609d3a7aa1a341d96549f702fee471ce762e9241f2024d0c4fb39d2f4bd454#npm:6.1.0"],\
+            ["@types/react", "npm:17.0.47"],\
             ["@types/react-dom", null],\
-            ["react", "npm:17.0.2"],\
+            ["react", null],\
             ["react-dom", null],\
             ["resize-observer-polyfill", "npm:1.5.1"]\
           ],\

@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "main": "src/index.ts",
   "dependencies": {
+    "@forks/react-locomotive-scroll": "workspace:0.0.1",
     "@globals/data": "workspace:0.0.1",
     "@globals/language": "workspace:0.0.1",
     "@landing/feedback-fragment": "workspace:0.0.1",
@@ -16,8 +17,7 @@
     "@landing/relocation-our-role-fragment": "workspace:0.0.1",
     "@landing/relocation-program-benefits-fragment": "workspace:0.0.1",
     "@ui/layout": "workspace:0.0.1",
-    "locomotive-scroll": "^4.1.4",
-    "react-locomotive-scroll": "^0.2.2"
+    "locomotive-scroll": "^4.1.4"
   },
   "devDependencies": {
     "@apollo/client": "^3.6.9",

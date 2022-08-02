@@ -1,8 +1,8 @@
 import React                        from 'react'
-import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 import { useState }                 from 'react'
 import { useRef }                   from 'react'
 
+import { LocomotiveScrollProvider } from '@forks/react-locomotive-scroll'
 import { DataProvider }             from '@globals/data'
 import { LanguageProvider }         from '@globals/language'
 import { Language }                 from '@globals/language'

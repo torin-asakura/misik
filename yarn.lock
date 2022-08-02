@@ -1081,6 +1081,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@forks/react-locomotive-scroll@workspace:0.0.1, @forks/react-locomotive-scroll@workspace:forks/react-locomotive-scroll":
+  version: 0.0.0-use.local
+  resolution: "@forks/react-locomotive-scroll@workspace:forks/react-locomotive-scroll"
+  dependencies:
+    "@types/react": 17.0.1
+    locomotive-scroll: ^4.1.4
+    use-debounce: 6.0.1
+    use-resize-observer: 6.1.0
+  peerDependencies:
+    locomotive-scroll: ^4.1.4
+    react: ^18.0.2
+  languageName: unknown
+  linkType: soft
+
 "@globals/data@workspace:0.0.1, @globals/data@workspace:globals/data":
   version: 0.0.0-use.local
   resolution: "@globals/data@workspace:globals/data"
@@ -1482,6 +1496,7 @@ __metadata:
   resolution: "@landing/404-page@workspace:landing/pages/404-page"
   dependencies:
     "@emotion/styled": ^11.9.3
+    "@forks/react-locomotive-scroll": "workspace:0.0.1"
     "@globals/data": "workspace:0.0.1"
     "@globals/language": "workspace:0.0.1"
     "@landing/404-fragment": "workspace:0.0.1"
@@ -1492,7 +1507,6 @@ __metadata:
     locomotive-scroll: ^4.1.4
     react: ^17.0.2
     react-helmet: ^6.1.0
-    react-locomotive-scroll: ^0.2.2
   peerDependencies:
     "@apollo/client": "*"
     "@emotion/styled": "*"
@@ -1631,6 +1645,7 @@ __metadata:
     "@apollo/client": ^3.6.9
     "@emotion/react": ^11.9.3
     "@emotion/styled": ^11.9.3
+    "@forks/react-locomotive-scroll": "workspace:0.0.1"
     "@globals/data": "workspace:0.0.1"
     "@globals/language": "workspace:0.0.1"
     "@landing/branches-fragment": "workspace:0.0.1"
@@ -1647,7 +1662,6 @@ __metadata:
     react: ^17.0.2
     react-dom: ^17.0.2
     react-helmet: ^6.1.0
-    react-locomotive-scroll: ^0.2.2
     styled-system: ^5.1.5
   peerDependencies:
     "@apollo/client": "*"
@@ -1787,6 +1801,7 @@ __metadata:
     "@apollo/client": ^3.6.9
     "@emotion/react": ^11.9.3
     "@emotion/styled": ^11.9.3
+    "@forks/react-locomotive-scroll": "workspace:0.0.1"
     "@globals/data": "workspace:0.0.1"
     "@globals/language": "workspace:0.0.1"
     "@landing/about-fragment": "workspace:0.0.1"
@@ -1810,7 +1825,6 @@ __metadata:
     react: ^17.0.2
     react-dom: ^17.0.2
     react-helmet: ^6.1.0
-    react-locomotive-scroll: ^0.2.2
     styled-system: ^5.1.5
   peerDependencies:
     "@apollo/client": "*"
@@ -2083,6 +2097,7 @@ __metadata:
     "@apollo/client": ^3.6.9
     "@emotion/react": ^11.9.3
     "@emotion/styled": ^11.9.3
+    "@forks/react-locomotive-scroll": "workspace:0.0.1"
     "@globals/data": "workspace:0.0.1"
     "@globals/language": "workspace:0.0.1"
     "@landing/feedback-fragment": "workspace:0.0.1"
@@ -2103,7 +2118,6 @@ __metadata:
     react: ^17.0.2
     react-dom: ^17.0.2
     react-helmet: ^6.1.0
-    react-locomotive-scroll: ^0.2.2
     styled-system: ^5.1.5
   peerDependencies:
     "@apollo/client": "*"
@@ -8686,19 +8700,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-locomotive-scroll@npm:^0.2.2":
-  version: 0.2.2
-  resolution: "react-locomotive-scroll@npm:0.2.2"
-  dependencies:
-    use-debounce: 6.0.1
-    use-resize-observer: 6.1.0
-  peerDependencies:
-    locomotive-scroll: ^4.1.4
-    react: ^18.0.2
-  checksum: 06a1bf798f58244c0110512394ab80ae10a7b7227efbf3dfab81d56eeec1dc914a03410b5083b62a81dd4843fa4142dc6410ab7bfa239cd10a7b318a36820d08
-  languageName: node
-  linkType: hard
-
 "react-scroll@npm:^1.8.7":
   version: 1.8.7
   resolution: "react-scroll@npm:1.8.7"
@@ -9788,13 +9789,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:*, tslib@npm:^2.3.1":
-  version: 2.4.0
-  resolution: "tslib@npm:2.4.0"
-  checksum: 8c4aa6a3c5a754bf76aefc38026134180c053b7bd2f81338cb5e5ebf96fefa0f417bff221592bf801077f5bf990562f6264fecbc42cd3309b33872cb6fc3b113
-  languageName: node
-  linkType: hard
-
 "tslib@npm:^1.13.0, tslib@npm:^1.9.3":
   version: 1.14.1
   resolution: "tslib@npm:1.14.1"
@@ -9806,6 +9800,13 @@ __metadata:
   version: 2.3.1
   resolution: "tslib@npm:2.3.1"
   checksum: de17a98d4614481f7fcb5cd53ffc1aaf8654313be0291e1bfaee4b4bb31a20494b7d218ff2e15017883e8ea9626599b3b0e0229c18383ba9dce89da2adf15cb9
+  languageName: node
+  linkType: hard
+
+"tslib@npm:^2.3.1":
+  version: 2.4.0
+  resolution: "tslib@npm:2.4.0"
+  checksum: 8c4aa6a3c5a754bf76aefc38026134180c053b7bd2f81338cb5e5ebf96fefa0f417bff221592bf801077f5bf990562f6264fecbc42cd3309b33872cb6fc3b113
   languageName: node
   linkType: hard
 
