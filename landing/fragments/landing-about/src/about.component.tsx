@@ -51,27 +51,27 @@ const About = forwardRef((props, ref: any) => {
       justifyContent='center'
       ref={ref}
     >
-      <Layout flexBasis={[0, 0, 430]} />
+      <Layout flexBasis={[0, 0, 397]} />
       <Layout width='100%' maxWidth={1243}>
         <Column width='100%'>
           <Layout flexBasis={[64, 64, 160]} flexShrink={0} />
           <Layout height={['100%', '100%', 'auto']} flexDirection={['column', 'column', 'row']}>
             <Layout justifyContent='center'>
-              <Box position='relative' width={[320, 320, 480]} maxHeight={[320, 320, 480]}>
+              <Box position='relative' width={[320, 320, 530]} maxHeight={[320, 320, 480]}>
                 <Image alt={alt} src={imageUrl} contain />
                 <Layout display={['none', 'none', 'flex']}>
-                  <Box position='absolute' top='30%' left={-16}>
+                  <Box width={141} height={141} position='absolute' top='30%' left={-16}>
                     <MisikLawIcon width={141} height={141} />
                   </Box>
                 </Layout>
                 <Layout display={['flex', 'flex', 'none']}>
-                  <Box position='absolute' top='30%' left={-10}>
+                  <Box width={96} height={96} position='absolute' top='30%' left={-10}>
                     <MisikLawIcon width={96} height={96} />
                   </Box>
                 </Layout>
               </Box>
             </Layout>
-            <Layout flexBasis={[40, 40, 70]} flexShrink={0} />
+            <Layout flexBasis={40} flexShrink={0} />
             <Layout maxWidth={660}>
               <Layout flexBasis={[20, 20, 0]} flexShrink={0} />
               <Column width='100%'>
@@ -82,6 +82,7 @@ const About = forwardRef((props, ref: any) => {
                     fontSize={['semiBig', 'semiBig', 'semiGiant']}
                     fontWeight='thin'
                     color='text.primary'
+                    lineHeight='small'
                     textTransform='uppercase'
                   >
                     {title?.replace(highlighted, '')}
@@ -89,6 +90,7 @@ const About = forwardRef((props, ref: any) => {
                       fontFamily='secondary'
                       fontSize={['semiBig', 'semiBig', 'semiGiant']}
                       color='text.accent'
+                      lineHeight='small'
                       fontWeight='thin'
                       fontStyle='italic'
                     >
@@ -145,7 +147,7 @@ const About = forwardRef((props, ref: any) => {
           <Layout flexBasis={[0, 0, 64]} />
         </Column>
       </Layout>
-      <Layout flexBasis={[0, 0, 280]} flexShrink={1} />
+      <Layout flexBasis={[0, 0, 280]} />
     </Box>
   )
 })
