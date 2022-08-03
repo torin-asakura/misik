@@ -4,6 +4,7 @@ import React              from 'react'
 import { forwardRef }     from 'react'
 import { useMemo }        from 'react'
 
+import { Reviews }        from '@landing/reviews-fragment'
 import { Condition }      from '@ui/condition'
 import { Divider }        from '@ui/divider'
 import { Box }            from '@ui/layout'
@@ -94,6 +95,9 @@ const WorkFormat = forwardRef((props, ref: any) => {
               </>
             ))}
           </Column>
+          <Layout>
+            <Reviews />
+          </Layout>
         </Column>
       </Layout>
       <Layout flexBasis={[20, 20, 280]} flexShrink={[0, 1, 1]} />

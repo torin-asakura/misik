@@ -15,7 +15,6 @@ import { Footer }                   from '@landing/footer-fragment'
 import { Hero }                     from '@landing/hero-fragment'
 import { Map }                      from '@landing/map-fragment'
 import { Navigation }               from '@landing/navigation-fragment'
-import { Reviews }                  from '@landing/reviews-fragment'
 import { Services }                 from '@landing/services-fragment'
 import { WorkDirections }           from '@landing/work-directions-fragment'
 import { WorkFormat }               from '@landing/work-format-fragment'
@@ -37,7 +36,7 @@ interface Props {
 const Fragments = () => {
   const spyScrollStore = useSpyScroll()
   const { getObserverOptions } = useIntersectionObserver((id) => {
-    const order = ['hero', 'about', 'services', 'work-format', 'reviews', 'feedback']
+    const order = ['hero', 'about', 'services', 'work-format', 'feedback']
 
     spyScrollStore.setActive(order.indexOf(id))
   })
@@ -55,8 +54,7 @@ const Fragments = () => {
       <WorkDirections />
       <About {...getObserverOptions('about', 0.6)} />
       <Services {...getObserverOptions('services', 0.3)} />
-      <WorkFormat {...getObserverOptions('work-format', 1)} />
-      <Reviews {...getObserverOptions('reviews', 1)} />
+      <WorkFormat {...getObserverOptions('work-format', 0.5)} />
       <Feedback {...getObserverOptions('feedback', 0.8)} contacts />
       <Map />
       <Footer />

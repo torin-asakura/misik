@@ -143,7 +143,7 @@ const Item: FC<ItemProps> = ({ title, content, description, imageUrl, onClick })
           <Divider />
         </Row>
         <Layout flexBasis={[20, 20, 40]} flexShrink={0} />
-        <Row height={[424, 424, 257]}>
+        <Row height='100%'>
           <Column display={['none', 'none', 'flex']}>
             <Avatar imageUrl={imageUrl} />
           </Column>
@@ -175,7 +175,12 @@ const Item: FC<ItemProps> = ({ title, content, description, imageUrl, onClick })
               <Layout flexGrow={[0, 0, 1]} flexBasis={[0, 0, 80]} flexShrink={0} />
             </Row>
           </Row>
-          <Column fill justifyContent='flex-end' display={['flex', 'flex', 'none']}>
+          <Column
+            fill
+            justifyContent='flex-end'
+            alignItems='flex-end'
+            display={['flex', 'flex', 'none']}
+          >
             <Row>
               <Layout>
                 <Avatar imageUrl={imageUrl} />
