@@ -25,15 +25,17 @@ import { getClient }                from '@globals/data'
 import { useIntersectionObserver }  from '@ui/intersection-observer'
 import { useSpyScroll }             from '@ui/spy-scroll'
 
+import { GET_HERO }                 from './data'
+import { GET_INDEX_SEO }            from './data'
 import { Seo }                      from './seo.component'
-import { GET_INDEX_SEO }            from './seo.data'
 
 interface Props {
   ogCover: string
   SEO: any
+  hero: any
 }
 
-const Fragments = () => {
+const Fragments = ({ heroData }) => {
   const spyScrollStore = useSpyScroll()
   const { getObserverOptions } = useIntersectionObserver((id) => {
     const order = ['hero', 'about', 'services', 'work-format', 'feedback']
@@ -50,7 +52,7 @@ const Fragments = () => {
 
   return (
     <>
-      <Hero {...getObserverOptions('hero', 0.6)} />
+      <Hero heroData={heroData} {...getObserverOptions('hero', 0.6)} />
       <WorkDirections />
       <About {...getObserverOptions('about', 0.6)} />
       <Services {...getObserverOptions('services', 0.3)} />
@@ -62,7 +64,7 @@ const Fragments = () => {
   )
 }
 
-const IndexPage: FC<Props> = ({ ogCover, SEO = { RU: {}, EN: {} } }) => {
+const IndexPage: FC<Props> = ({ ogCover, SEO = { RU: {}, EN: {} }, hero = { RU: [], EN: [] } }) => {
   const languageContext = useState<Language>('RU')
   const containerRef = useRef(null)
 
@@ -80,7 +82,7 @@ const IndexPage: FC<Props> = ({ ogCover, SEO = { RU: {}, EN: {} } }) => {
               <SpyScroll />
               <Seo language={languageContext} ogCover={ogCover} SEO={SEO} />
               <main data-scroll-container ref={containerRef}>
-                <Fragments />
+                <Fragments heroData={hero} />
               </main>
             </SpyScrollProvider>
           </LocomotiveScrollProvider>
@@ -94,6 +96,7 @@ export const getServerSideProps = async () => {
   const client = getClient()
 
   let SEO
+  let hero
 
   const { data: seoData } = await client.query({
     query: GET_INDEX_SEO,
@@ -106,6 +109,17 @@ export const getServerSideProps = async () => {
     },
   })
 
+  const { data: heroData } = await client.query({
+    query: GET_HERO,
+  })
+
+  if (heroData) {
+    hero = {
+      RU: heroData.heroItems.nodes.filter((heroFragment) => heroFragment.language.code === 'RU'),
+      EN: heroData.heroItems.nodes.filter((heroFragment) => heroFragment.language.code === 'EN'),
+    }
+  } else hero = { RU: [], EN: [] }
+
   if (seoData) {
     SEO = {
       RU: seoData.pageBy.seo,
@@ -115,7 +129,7 @@ export const getServerSideProps = async () => {
 
   const ogCover = previewData?.mediaItemBy.sourceUrl
 
-  return { props: { SEO, ogCover } }
+  return { props: { SEO, ogCover, hero } }
 }
 
 export default IndexPage

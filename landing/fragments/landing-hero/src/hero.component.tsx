@@ -1,49 +1,40 @@
-import React             from 'react'
-import { useState }      from 'react'
-import { forwardRef }    from 'react'
-import { useMemo }       from 'react'
+import React               from 'react'
+import { useState }        from 'react'
+import { forwardRef }      from 'react'
 
-import { Button }        from '@ui/button'
-import { Condition }     from '@ui/condition'
-import { Drawer }        from '@ui/drawer'
-import { Image }         from '@ui/image'
-import { Layer }         from '@ui/layer'
-import { Box }           from '@ui/layout'
-import { Column }        from '@ui/layout'
-import { Row }           from '@ui/layout'
-import { Layout }        from '@ui/layout'
-import { AnimateOnLoad } from '@ui/preloader'
-import { Text }          from '@ui/text'
-import { Space }         from '@ui/text'
-import { useData }       from '@globals/data'
-import { extractObject } from '@globals/data'
-import { useLanguage }   from '@globals/language'
-import { messages }      from '@globals/messages'
+import { Button }          from '@ui/button'
+import { Condition }       from '@ui/condition'
+import { Drawer }          from '@ui/drawer'
+import { Image }           from '@ui/image'
+import { Layer }           from '@ui/layer'
+import { Box }             from '@ui/layout'
+import { Column }          from '@ui/layout'
+import { Row }             from '@ui/layout'
+import { Layout }          from '@ui/layout'
+import { AnimateOnLoad }   from '@ui/preloader'
+import { Text }            from '@ui/text'
+import { Space }           from '@ui/text'
+import { extractFragment } from '@globals/data'
+import { useLanguage }     from '@globals/language'
+import { messages }        from '@globals/messages'
 
-const Hero = forwardRef((props, ref: any) => {
-  const { fragments } = useData()
+const Hero = forwardRef(({ heroData }: any, ref: any) => {
   const [language] = useLanguage()
   const [visible, setVisible] = useState(false)
 
-  let { title, highlighted, imageUrl, imageAlt } = useMemo(() => {
-    if (!(fragments && fragments.hero)) {
-      return { title: '', highlighted: '', imageUrl: '', imageAlt: '' }
-    }
+  let title = ''
+  let highlighted = ''
+  let imageAlt = ''
+  let imageUrl = ''
 
-    const titleObj = extractObject('title', fragments.hero[language])
+  if (heroData) {
+    const titleObj = extractFragment('contentAddons', heroData[language])
 
-    title = titleObj?.title
-    highlighted = titleObj?.fragmentParams.highlightedText
-    imageUrl = titleObj?.featuredImage?.node.sourceUrl
-    imageAlt = titleObj?.featuredImage?.node.altText
-
-    return {
-      title,
-      highlighted,
-      imageAlt,
-      imageUrl,
-    }
-  }, [fragments, language])
+    title = titleObj?.content
+    highlighted = titleObj?.highlightedtext
+    imageUrl = titleObj?.image?.sourceUrl
+    imageAlt = titleObj?.image?.altText
+  }
 
   return (
     <>
@@ -72,7 +63,7 @@ const Hero = forwardRef((props, ref: any) => {
             </Box>
             <Layout flexBasis={[20, 80, 397]} flexShrink={[0, 0, 1]} />
             <Column maxWidth={864} width='100%'>
-              <Layout flexBasis={[88, 88, 160]} />
+              <Layout flexBasis={[88, 88, 160]} flexShrink={0} />
               <Layout maxWidth={864} width='100%'>
                 <AnimateOnLoad
                   initial={{ opacity: 0, y: '30%' }}
@@ -88,7 +79,7 @@ const Hero = forwardRef((props, ref: any) => {
                         fontSize={['big', 'big', 'giant']}
                         textTransform='uppercase'
                       >
-                        {title.replace(highlighted, '').split(' ')[0]}
+                        {title.replace(highlighted, '').split('|n|')[0]}
                       </Text>
                       <Text
                         display='inline'
@@ -97,7 +88,7 @@ const Hero = forwardRef((props, ref: any) => {
                         fontSize={['big', 'big', 'giant']}
                         textTransform='uppercase'
                       >
-                        {title.replace(highlighted, '').split(' ')[1]}
+                        {title.replace(highlighted, '').split('|n|')[1]}
                       </Text>
                       <Text
                         display='inline'
@@ -107,9 +98,7 @@ const Hero = forwardRef((props, ref: any) => {
                         textTransform='uppercase'
                         whiteSpace={['break-all', 'break-all', 'nowrap']}
                       >
-                        {title.replace(highlighted, '').split(' ')[2]}
-                        <Space />
-                        {title.replace(highlighted, '').split(' ')[3]}
+                        {title.replace(highlighted, '').split('|n|')[2]}
                         <Space />
                         <Text
                           fontFamily='secondary'
@@ -131,9 +120,16 @@ const Hero = forwardRef((props, ref: any) => {
                         fontSize={['big', 'big', 'giant']}
                         textTransform='uppercase'
                       >
-                        {title.replace(highlighted, '').split(' ')[0]}
-                        <Space />
-                        {title.replace(highlighted, '').split(' ')[1]}
+                        {title.replace(highlighted, '').split('|n|')[0]}
+                      </Text>
+                      <Text
+                        display='inline'
+                        fontFamily='secondary'
+                        fontWeight='thin'
+                        fontSize={['big', 'big', 'giant']}
+                        textTransform='uppercase'
+                      >
+                        {title.replace(highlighted, '').split('|n|')[1]}
                       </Text>
                       <Text
                         display='inline'
@@ -143,21 +139,7 @@ const Hero = forwardRef((props, ref: any) => {
                         textTransform='uppercase'
                         whiteSpace={['break-all', 'break-all', 'nowrap']}
                       >
-                        {title.replace(highlighted, '').split(' ')[2]}
-                        <Space />
-                        {title.replace(highlighted, '').split(' ')[3]}
-                      </Text>
-                      <Text
-                        display='inline'
-                        fontFamily='secondary'
-                        fontWeight='thin'
-                        fontSize={['big', 'big', 'giant']}
-                        textTransform='uppercase'
-                        whiteSpace={['break-all', 'break-all', 'nowrap']}
-                      >
-                        {title.replace(highlighted, '').split(' ')[4]}
-                        <Space />
-                        {title.replace(highlighted, '').split(' ')[5]}
+                        {title.replace(highlighted, '').split('|n|')[2]}
                         <Space />
                         <Text
                           fontFamily='secondary'
