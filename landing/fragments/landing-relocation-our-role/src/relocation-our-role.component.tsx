@@ -55,20 +55,21 @@ const RelocationOurRole: FC = () => {
 
   return (
     <Box width='100%' backgroundColor='background.lightBeige' justifyContent='center'>
+      <Layout flexBasis={[20, 20, 397]} flexShrink={[0, 0, 1]} />
       <Layout width='100%' maxWidth={1243}>
-        <AnimateOnLoad
-          initial={{ opacity: 0, y: '100%' }}
-          transition={{ duration: 1 }}
-          animation={{ y: 0, opacity: 1 }}
-        >
-          <Layout flexBasis={[20, 20, 397]} flexShrink={[0, 0, 1]} />
-          <Column>
-            <Layout flexBasis={[64, 64, 160]} />
+        <Column width='100%'>
+          <Layout flexBasis={[64, 64, 160]} />
+          <AnimateOnLoad
+            initial={{ opacity: 0, y: '100%' }}
+            transition={{ duration: 1 }}
+            animation={{ y: 0, opacity: 1 }}
+          >
             <Layout
+              width='100%'
               alignItems={['center', 'center', 'flex-end']}
               flexDirection={['column-reverse', 'column-reverse', 'row']}
             >
-              <Column height='auto' width={['100%', '100%', 660]}>
+              <Column width='100%' height='auto' maxWidth={['100%', '100%', 660]}>
                 <Layout>
                   <Text
                     display='inline'
@@ -85,6 +86,7 @@ const RelocationOurRole: FC = () => {
                       color='text.accent'
                       fontFamily='secondary'
                       fontWeight='thin'
+                      fontStyle='italic'
                       fontSize={['semiBig', 'semiBig', 'semiGiant']}
                       lineHeight='small'
                     >
@@ -116,15 +118,15 @@ const RelocationOurRole: FC = () => {
                 </Column>
               </Column>
               <Layout flexBasis={40} flexShrink={0} />
-              <Box width={['100%', 335, 543]} height={[216, 216, 350]}>
+              <Box width='100%' maxWidth={['100%', 335, 543]} height={[216, 216, 350]}>
                 <Image alt={imageAlt} src={imageUrl} contain />
               </Box>
             </Layout>
-            <Layout flexBasis={[64, 64, 160]} />
-          </Column>
-          <Layout flexBasis={[20, 20, 280]} flexShrink={[0, 0, 1]} />
-        </AnimateOnLoad>
+          </AnimateOnLoad>
+          <Layout flexBasis={[64, 64, 160]} />
+        </Column>
       </Layout>
+      <Layout flexBasis={[20, 20, 280]} flexShrink={[0, 0, 1]} />
     </Box>
   )
 }

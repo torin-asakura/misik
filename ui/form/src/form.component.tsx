@@ -12,6 +12,7 @@ import { Column }      from '@ui/layout'
 import { Row }         from '@ui/layout'
 import { Layout }      from '@ui/layout'
 import { NextLink }    from '@ui/link'
+import { Space }       from '@ui/text'
 import { Text }        from '@ui/text'
 import { useLanguage } from '@globals/language'
 import { messages }    from '@globals/messages'
@@ -141,14 +142,9 @@ const Form: FC = () => {
             <Layout>
               <Text color='text.secondary' display='inline' fontSize='atomic' textAlign='center'>
                 {messages.byClickingYouConfirm[language]}
-                <NextLink
-                  underline
-                  color='text.secondary'
-                  display='block'
-                  fontSize='atomic'
-                  onClick={() => setPrivacyPolicy(true)}
-                >
-                  {messages.privacyPolicy[language]}
+                <Space />
+                <NextLink underline fontSize='atomic' onClick={() => setPrivacyPolicy(true)}>
+                  <Text color='text.secondary'>{messages.privacyPolicy[language]}</Text>
                 </NextLink>
               </Text>
             </Layout>

@@ -59,16 +59,14 @@ const About = forwardRef((props, ref: any) => {
             <Layout justifyContent='center'>
               <Box position='relative' width={[320, 320, 530]} maxHeight={[320, 320, 480]}>
                 <Image alt={alt} src={imageUrl} contain />
-                <Layout display={['none', 'none', 'flex']}>
-                  <Box width={141} height={141} position='absolute' top='30%' left={-16}>
+                <Box position='absolute' top='34%' left={[-7, -7, 3]}>
+                  <Layout display={['none', 'none', 'flex']}>
                     <MisikLawIcon width={141} height={141} />
-                  </Box>
-                </Layout>
-                <Layout display={['flex', 'flex', 'none']}>
-                  <Box width={96} height={96} position='absolute' top='30%' left={-10}>
+                  </Layout>
+                  <Layout display={['flex', 'flex', 'none']}>
                     <MisikLawIcon width={96} height={96} />
-                  </Box>
-                </Layout>
+                  </Layout>
+                </Box>
               </Box>
             </Layout>
             <Layout flexBasis={40} flexShrink={0} />
@@ -98,7 +96,7 @@ const About = forwardRef((props, ref: any) => {
                     </Text>
                   </Text>
                 </Layout>
-                <Layout flexBasis={[24, 24, 72]} />
+                <Layout flexBasis={[24, 24, 101]} />
                 <Divider />
                 <Layout flexBasis={[24, 24, 32]} />
                 <Layout width='100%'>
@@ -126,7 +124,7 @@ const About = forwardRef((props, ref: any) => {
                 <Divider />
               </Layout>
               <Layout flexBasis={[32, 64, 64]} />
-              <Box width='100%' overflow='hidden'>
+              <Box width='100%' justifyContent='center' overflow='hidden'>
                 <Carousel>
                   {partners.map(({ featuredImage, clientsParameters }) => (
                     <Box width={180} height={90}>

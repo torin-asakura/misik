@@ -2,6 +2,7 @@ import React                       from 'react'
 import { FC }                      from 'react'
 import { useMemo }                 from 'react'
 
+import { Condition }               from '@ui/condition'
 import { Divider }                 from '@ui/divider'
 import { Row }                     from '@ui/layout'
 import { Box }                     from '@ui/layout'
@@ -60,50 +61,55 @@ const RelocationGroundsStatus: FC = () => {
             </Layout>
             <Layout flexBasis={[32, 32, 64]} flexShrink={0} />
             <Row flexWrap='wrap'>
-              {groundsRefugeeStatus[language].map(({ id, title, content }, index) => (
-                <Column height='auto'>
-                  <Column key={id} width={['100%', '100%', 600]} height={[262, 262, 319]}>
-                    <Row>
-                      <Text
-                        fontSize={['big', 'big', 'semiGiant']}
-                        lineHeight='small'
-                        fontFamily='secondary'
-                        color='text.accent'
-                        fontStyle='italic'
-                        style={{ fontVariantNumeric: 'lining-nums' }}
-                      >
-                        {`0${index + 1}`}
-                      </Text>
-                    </Row>
-                    <Layout flexBasis={24} />
-                    <Row width={['100%', '100%', 540]}>
-                      <Text
-                        color='text.primary'
-                        fontSize={['semiLarge', 'semiLarge', 'enlarged']}
-                        lineHeight='small'
-                        fontFamily='secondary'
-                        textTransform='uppercase'
-                        fontWeight={['medium', 'medium', 'normal']}
-                      >
-                        {title}
-                      </Text>
-                    </Row>
-                    <Layout flexBasis={16} />
-                    <Row width={['100%', '100%', 540]}>
-                      <Text
-                        color='text.secondary'
-                        fontSize={['tiny', 'tiny', 'regular']}
-                        lineHeight='big'
-                      >
-                        {content}
-                      </Text>
-                    </Row>
+              {groundsRefugeeStatus[language].reverse().map(({ id, title, content }, index) => (
+                <>
+                  <Column height='auto' key={id}>
+                    <Column width={['100%', '100%', 600]} height={[262, 262, 319]}>
+                      <Row>
+                        <Text
+                          fontSize={['big', 'big', 'semiGiant']}
+                          lineHeight='small'
+                          fontFamily='secondary'
+                          color='text.accent'
+                          fontStyle='italic'
+                          style={{ fontVariantNumeric: 'lining-nums' }}
+                        >
+                          {`0${index + 1}`}
+                        </Text>
+                      </Row>
+                      <Layout flexBasis={24} />
+                      <Row width={['100%', '100%', 520]}>
+                        <Text
+                          color='text.primary'
+                          fontSize={['semiLarge', 'semiLarge', 'enlarged']}
+                          lineHeight='small'
+                          fontFamily='secondary'
+                          textTransform='uppercase'
+                          fontWeight={['medium', 'medium', 'normal']}
+                        >
+                          {title}
+                        </Text>
+                      </Row>
+                      <Layout flexBasis={16} />
+                      <Row width={['100%', '100%', 540]}>
+                        <Text
+                          color='text.secondary'
+                          fontSize={['tiny', 'tiny', 'regular']}
+                          lineHeight='big'
+                        >
+                          {content}
+                        </Text>
+                      </Row>
+                    </Column>
+                    <Layout flexBasis={[40, 40, 80]} flexShrink={0} />
                   </Column>
-                  <Layout flexBasis={[40, 40, 0]} flexShrink={0} />
-                </Column>
+                  <Condition match={index % 2 === 0}>
+                    <Layout flexBasis={[0, 0, 40]} />
+                  </Condition>
+                </>
               ))}
             </Row>
-            <Layout flexBasis={[24, 24, 160]} flexShrink={0} />
+            <Layout flexBasis={[24, 24, 80]} flexShrink={0} />
           </Column>
         </Layout>
       </AnimateOnLoad>

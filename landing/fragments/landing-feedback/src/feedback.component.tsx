@@ -119,7 +119,7 @@ const Feedback: FC<FeedbackProps> = forwardRef((
                     </Column>
                   </AnimateOnLoad>
                 </Layout>
-                <Layout flexBasis={[16, 16, 32]} />
+                <Layout flexBasis={16} />
                 <AnimateOnLoad
                   initial={{ opacity: 0, y: '100%' }}
                   transition={{ duration: 1 }}
@@ -152,23 +152,28 @@ const Feedback: FC<FeedbackProps> = forwardRef((
                       </Link>
                     </Layout>
                     <Layout flexBasis={16} />
-                    <Layout display={['flex', 'flex', 'none']}>
+                    <Layout>
                       <Copy content={email} />
                     </Layout>
                   </Row>
                 </AnimateOnLoad>
-                <Layout flexBasis={44} />
-                <Row alignItems='center'>
-                  <Layout flexDirection={['column', 'column', 'row']}>
+                <Layout flexBasis={[26, 26, 44]} />
+                <Layout
+                  flexDirection={['column', 'column', 'row']}
+                  alignItems={['flex-start', 'flex-start', 'center']}
+                >
+                  <Layout minWidth={['100%', '100%', 160]}>
                     <Text fontSize={['semiRegular', 'semiRegular', 'small']} color='text.secondary'>
                       {messages.weAreInSocialNetworks[language]}
                     </Text>
                   </Layout>
-                  <Layout flexBasis={24} />
-                  <Socials />
-                </Row>
+                  <Layout flexBasis={[16, 16, 24]} />
+                  <Row>
+                    <Socials />
+                  </Row>
+                </Layout>
               </Column>
-              <Layout flexShrink={0} flexBasis={40} />
+              <Layout flexShrink={0} flexBasis={[48, 48, 40]} />
               <Form />
             </Layout>
             <Condition match={contacts}>

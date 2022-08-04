@@ -45,7 +45,7 @@ const RelocationProgramBenefits: FC = () => {
         <Layout maxWidth={1284}>
           <Column fill height='auto'>
             <Layout flexBasis={[64, 64, 160]} flexShrink={0} />
-            <Row>
+            <Row maxWidth={[300, 550, 860]}>
               <Text
                 color='text.primary'
                 fontWeight='thin'
@@ -67,8 +67,8 @@ const RelocationProgramBenefits: FC = () => {
                 {programBenefits[language].map(({ id, title, content, featuredImage }) => (
                   <Column
                     key={id}
-                    width={['100%', '100%', 388]}
-                    marginRight={[0, 0, 40]}
+                    width={['100%', '100%', 360]}
+                    marginRight={[0, 0, 68]}
                     height='auto'
                   >
                     <Row>

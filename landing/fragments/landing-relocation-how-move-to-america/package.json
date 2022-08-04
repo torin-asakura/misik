@@ -10,7 +10,8 @@
     "@ui/layer": "workspace:0.0.1",
     "@ui/layout": "workspace:0.0.1",
     "@ui/text": "workspace:0.0.1",
-    "framer-motion": "^6.5.1"
+    "framer-motion": "^6.5.1",
+    "nanoid": "^4.0.0"
   },
   "devDependencies": {
     "@apollo/client": "^3.6.9",

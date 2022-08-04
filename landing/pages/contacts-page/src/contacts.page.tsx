@@ -44,7 +44,7 @@ const ContactsPage: FC<Props> = ({ ogCover, SEO = { RU: {}, EN: {} } }) => {
             <main data-scroll-container ref={containerRef}>
               <Seo language={languageContext} ogCover={ogCover} SEO={SEO} />
               <Branches contacts />
-              <Feedback background='background.beige' />
+              <Feedback background='background.lightBeige' />
               <Map />
               <Footer />
             </main>

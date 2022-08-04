@@ -51,7 +51,7 @@ const Footer: FC = () => {
               <Logo />
             </Layout>
             <Layout flexGrow={1} />
-            <Socials />
+            <Socials footer />
           </Row>
           <Layout flexBasis={24} />
           <Row>
