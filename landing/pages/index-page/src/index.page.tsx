@@ -25,17 +25,18 @@ import { getClient }                from '@globals/data'
 import { useIntersectionObserver }  from '@ui/intersection-observer'
 import { useSpyScroll }             from '@ui/spy-scroll'
 
-import { GET_HERO }                 from './data'
-import { GET_INDEX_SEO }            from './data'
+import { GET_INDEX_SEO }            from './queries'
 import { Seo }                      from './seo.component'
+import { runHeroQuery }             from './queries'
+import { runAboutQuery }            from './queries'
 
 interface Props {
   ogCover: string
   SEO: any
-  hero: any
+  data: any
 }
 
-const Fragments = ({ heroData }) => {
+const Fragments = ({ data }) => {
   const spyScrollStore = useSpyScroll()
   const { getObserverOptions } = useIntersectionObserver((id) => {
     const order = ['hero', 'about', 'services', 'work-format', 'feedback']
@@ -52,7 +53,7 @@ const Fragments = ({ heroData }) => {
 
   return (
     <>
-      <Hero heroData={heroData} {...getObserverOptions('hero', 0.6)} />
+      <Hero data={data} {...getObserverOptions('hero', 0.6)} />
       <WorkDirections />
       <About {...getObserverOptions('about', 0.6)} />
       <Services {...getObserverOptions('services', 0.3)} />
@@ -64,7 +65,7 @@ const Fragments = ({ heroData }) => {
   )
 }
 
-const IndexPage: FC<Props> = ({ ogCover, SEO = { RU: {}, EN: {} }, hero = { RU: [], EN: [] } }) => {
+const IndexPage: FC<Props> = ({ ogCover, SEO = { RU: {}, EN: {} }, data }) => {
   const languageContext = useState<Language>('RU')
   const containerRef = useRef(null)
 
@@ -82,7 +83,7 @@ const IndexPage: FC<Props> = ({ ogCover, SEO = { RU: {}, EN: {} }, hero = { RU: 
               <SpyScroll />
               <Seo language={languageContext} ogCover={ogCover} SEO={SEO} />
               <main data-scroll-container ref={containerRef}>
-                <Fragments heroData={hero} />
+                <Fragments data={data} />
               </main>
             </SpyScrollProvider>
           </LocomotiveScrollProvider>
@@ -96,7 +97,6 @@ export const getServerSideProps = async () => {
   const client = getClient()
 
   let SEO
-  let hero
 
   const { data: seoData } = await client.query({
     query: GET_INDEX_SEO,
@@ -109,17 +109,6 @@ export const getServerSideProps = async () => {
     },
   })
 
-  const { data: heroData } = await client.query({
-    query: GET_HERO,
-  })
-
-  if (heroData) {
-    hero = {
-      RU: heroData.heroItems.nodes.filter((heroFragment) => heroFragment.language.code === 'RU'),
-      EN: heroData.heroItems.nodes.filter((heroFragment) => heroFragment.language.code === 'EN'),
-    }
-  } else hero = { RU: [], EN: [] }
-
   if (seoData) {
     SEO = {
       RU: seoData.pageBy.seo,
@@ -127,9 +116,15 @@ export const getServerSideProps = async () => {
     }
   } else SEO = { RU: {}, EN: {} }
 
+  const queryPromises: Array<any> = [runHeroQuery(), runAboutQuery()]
+
+  const retrievedData = await Promise.all(queryPromises)
+
   const ogCover = previewData?.mediaItemBy.sourceUrl
 
-  return { props: { SEO, ogCover, hero } }
+  const data = retrievedData.reduce((props, allData) => ({ ...props, ...allData }), {})
+
+  return { props: { SEO, ogCover, data } }
 }
 
 export default IndexPage

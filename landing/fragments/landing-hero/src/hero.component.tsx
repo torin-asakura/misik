@@ -18,7 +18,7 @@ import { extractFragment } from '@globals/data'
 import { useLanguage }     from '@globals/language'
 import { messages }        from '@globals/messages'
 
-const Hero = forwardRef(({ heroData }: any, ref: any) => {
+const Hero = forwardRef(({ data }: any, ref: any) => {
   const [language] = useLanguage()
   const [visible, setVisible] = useState(false)
 
@@ -27,8 +27,8 @@ const Hero = forwardRef(({ heroData }: any, ref: any) => {
   let imageAlt = ''
   let imageUrl = ''
 
-  if (heroData) {
-    const titleObj = extractFragment('contentAddons', heroData[language])
+  if (data) {
+    const titleObj = extractFragment('contentAddons', data.hero[language])
 
     title = titleObj?.content
     highlighted = titleObj?.highlightedtext
