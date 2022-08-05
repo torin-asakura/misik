@@ -38,14 +38,14 @@ const Footer: FC = () => {
       alignItems='center'
       justifyContent='center'
       width='100%'
-      height={221}
+      height={['100%', '100%', 221]}
       marginTop='auto'
       backgroundColor='background.beige'
     >
       <Layout flexBasis={20} />
       <Layout height='100%' width='100%' maxWidth={1280}>
-        <Column width='100%'>
-          <Layout flexBasis={62} />
+        <Column width='100%' height='auto'>
+          <Layout flexBasis={[32, 32, 48]} />
           <Row alignItems='center'>
             <Layout>
               <Logo />
@@ -53,11 +53,11 @@ const Footer: FC = () => {
             <Layout flexGrow={1} />
             <Socials footer />
           </Row>
-          <Layout flexBasis={24} />
+          <Layout flexBasis={[32, 32, 48]} flexShrink={0} />
           <Row>
             <Divider />
           </Row>
-          <Layout flexBasis={24} />
+          <Layout flexBasis={[16, 16, 24]} flexShrink={0} />
           <Row>
             <Layout flexGrow={1} />
             <Layout>
@@ -77,7 +77,7 @@ const Footer: FC = () => {
               </Link>
             </Layout>
           </Row>
-          <Layout flexBasis={24} />
+          <Layout flexBasis={[16, 16, 24]} flexShrink={0} />
         </Column>
       </Layout>
       <Layout flexBasis={20} />

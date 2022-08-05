@@ -55,46 +55,50 @@ const WorkFormat = forwardRef((props, ref: any) => {
           <Layout flexBasis={[60, 60, 64]} flexShrink={0} />
           <Column width='100%'>
             {workFormats.sort(sortByOrder).map(({ title, content }, idx) => (
-              <>
-                <Divider />
-                <Layout flexBasis={32} />
-                <Box width='100%' height={['auto', 'auto', 140]}>
-                  <Layout width='100%' flexDirection={['column', 'column', 'row']}>
-                    <Box
-                      border='1px solid'
-                      borderColor='background.lightGray'
-                      borderRadius='huge'
-                      minWidth={[56, 56, 52]}
-                      maxWidth={[56, 56, 52]}
-                      height={[56, 56, 52]}
-                      justifyContent='center'
-                      alignItems='center'
-                    >
-                      <Row justifyContent='center'>
-                        <Text fontSize='tiny'>{`0${idx + 1}`}</Text>
-                      </Row>
-                    </Box>
-                    <Layout flexBasis={[24, 24, 181]} />
-                    <Row maxWidth={200}>
-                      <Text fontFamily='secondary' fontSize='enlarged' textTransform='uppercase'>
-                        {title}
-                      </Text>
-                    </Row>
-                    <Layout flexBasis={[16, 16, 300]} />
-                    <Row maxWidth={544}>
-                      <Text color='text.secondary' fontSize='regular' lineHeight='primary'>
-                        {content}
-                      </Text>
-                    </Row>
+              <Column>
+                <Column height={['100%', '100%', 120]}>
+                  <Layout>
+                    <Divider />
                   </Layout>
-                </Box>
-                <Layout flexBasis={[40, 40, 0]} flexShrink={0} />
-                <Condition match={idx === workFormats.length - 1}>
-                  <Layout flexBasis={[0, 0, 50]} flexShrink={0} />
+                  <Layout flexBasis={32} flexShrink={0} />
+                  <Box width='100%' height={['auto', 'auto', 140]}>
+                    <Layout width='100%' flexDirection={['column', 'column', 'row']}>
+                      <Box
+                        border='1px solid'
+                        borderColor='background.lightGray'
+                        borderRadius='huge'
+                        minWidth={[56, 56, 52]}
+                        maxWidth={[56, 56, 52]}
+                        height={[56, 56, 52]}
+                        justifyContent='center'
+                        alignItems='center'
+                      >
+                        <Row justifyContent='center'>
+                          <Text fontSize='tiny'>{`0${idx + 1}`}</Text>
+                        </Row>
+                      </Box>
+                      <Layout flexBasis={[24, 24, 181]} />
+                      <Row maxWidth={200}>
+                        <Text fontFamily='secondary' fontSize='enlarged' textTransform='uppercase'>
+                          {title}
+                        </Text>
+                      </Row>
+                      <Layout flexBasis={[16, 16, 300]} />
+                      <Row maxWidth={544}>
+                        <Text color='text.secondary' fontSize='regular' lineHeight='primary'>
+                          {content}
+                        </Text>
+                      </Row>
+                    </Layout>
+                  </Box>
+                </Column>
+                <Condition match={idx !== workFormats.length - 1}>
+                  <Layout flexBasis={[40, 40, 52]} flexShrink={0} />
                 </Condition>
-              </>
+              </Column>
             ))}
           </Column>
+          <Layout flexBasis={[64, 64, 160]} flexShrink={0} />
           <Layout>
             <Reviews />
           </Layout>

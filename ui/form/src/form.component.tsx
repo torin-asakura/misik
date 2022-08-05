@@ -122,7 +122,7 @@ const Form: FC = () => {
               }`}
             />
           </Layout>
-          <Layout flexBasis={40} />
+          <Layout flexBasis={[28, 28, 40]} />
           <Layout>
             <Button
               width='100%'
@@ -137,14 +137,21 @@ const Form: FC = () => {
               <Condition match={success === null}>{messages.send[language]}</Condition>
             </Button>
           </Layout>
-          <Layout flexBasis={32} />
-          <Row justifyContent='center' display={['none', 'none', 'flex']}>
-            <Layout>
+          <Layout flexBasis={[24, 24, 32]} />
+          <Row justifyContent='center'>
+            <Layout width={[335, 335, '100%']}>
               <Text color='text.secondary' display='inline' fontSize='atomic' textAlign='center'>
                 {messages.byClickingYouConfirm[language]}
                 <Space />
-                <NextLink underline fontSize='atomic' onClick={() => setPrivacyPolicy(true)}>
-                  <Text color='text.secondary'>{messages.privacyPolicy[language]}</Text>
+                <NextLink
+                  underline
+                  fontSize='atomic'
+                  whiteSpace='normal'
+                  onClick={() => setPrivacyPolicy(true)}
+                >
+                  <Text whiteSpace='normal' color='text.secondary'>
+                    {messages.privacyPolicy[language]}
+                  </Text>
                 </NextLink>
               </Text>
             </Layout>
