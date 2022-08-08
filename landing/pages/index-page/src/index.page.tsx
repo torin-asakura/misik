@@ -27,6 +27,8 @@ import { useSpyScroll }             from '@ui/spy-scroll'
 
 import { GET_INDEX_SEO }            from './queries'
 import { Seo }                      from './seo.component'
+import { runWorkFormatsQuery }      from './queries'
+import { runServicesQuery }         from './queries'
 import { runHeroQuery }             from './queries'
 import { runAboutQuery }            from './queries'
 
@@ -55,9 +57,9 @@ const Fragments = ({ data }) => {
     <>
       <Hero data={data} {...getObserverOptions('hero', 0.6)} />
       <WorkDirections />
-      <About {...getObserverOptions('about', 0.6)} />
-      <Services {...getObserverOptions('services', 0.3)} />
-      <WorkFormat {...getObserverOptions('work-format', 0.5)} />
+      <About data={data} {...getObserverOptions('about', 0.6)} />
+      <Services data={data} {...getObserverOptions('services', 0.3)} />
+      <WorkFormat data={data} {...getObserverOptions('work-format', 0.5)} />
       <Feedback {...getObserverOptions('feedback', 0.8)} contacts />
       <Map />
       <Footer />
@@ -116,7 +118,12 @@ export const getServerSideProps = async () => {
     }
   } else SEO = { RU: {}, EN: {} }
 
-  const queryPromises: Array<any> = [runHeroQuery(), runAboutQuery()]
+  const queryPromises: Array<Promise<any>> = [
+    runHeroQuery(),
+    runAboutQuery(),
+    runServicesQuery(),
+    runWorkFormatsQuery(),
+  ]
 
   const retrievedData = await Promise.all(queryPromises)
 

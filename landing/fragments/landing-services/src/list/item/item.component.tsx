@@ -53,7 +53,7 @@ const Item: FC<ItemProps> = ({ image, title, content, link, reverse = false }) =
                   {title}
                 </Text>
                 <Layout flexBasis={16} />
-                {content.split('\n').map((piece, index) => (
+                {content.split('|n|').map((piece, index) => (
                   <>
                     <Text
                       color='text.secondary'
@@ -64,7 +64,7 @@ const Item: FC<ItemProps> = ({ image, title, content, link, reverse = false }) =
                       {piece}
                     </Text>
                     <Layout flexBasis={8} />
-                    <Condition match={index === content.split('\n').length - 1}>
+                    <Condition match={index === content.split('|n|').length - 1}>
                       <Layout flexGrow={1} />
                     </Condition>
                   </>
@@ -105,7 +105,7 @@ const Item: FC<ItemProps> = ({ image, title, content, link, reverse = false }) =
                   {title}
                 </Text>
                 <Layout flexBasis={16} />
-                {content.split('\n').map((piece, index) => (
+                {content.split('|n|').map((piece, index) => (
                   <>
                     <Text
                       color='text.secondary'
@@ -115,7 +115,7 @@ const Item: FC<ItemProps> = ({ image, title, content, link, reverse = false }) =
                       {piece}
                     </Text>
                     <Layout flexBasis={16} />
-                    <Condition match={index === content.split('\n').length - 1}>
+                    <Condition match={index === content.split('|n|').length - 1}>
                       <Layout flexGrow={1} />
                     </Condition>
                   </>
@@ -171,7 +171,7 @@ const Item: FC<ItemProps> = ({ image, title, content, link, reverse = false }) =
                 </Text>
               </Layout>
               <Layout flexBasis={16} />
-              {content.split('\n').map((piece) => (
+              {content.split('|n|').map((piece) => (
                 <Text
                   color='text.secondary'
                   lineHeight='primary'

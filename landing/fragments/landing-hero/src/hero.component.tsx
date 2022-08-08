@@ -28,12 +28,12 @@ const Hero = forwardRef(({ data }: any, ref: any) => {
   let imageUrl = ''
 
   if (data) {
-    const titleObj = extractFragment('contentAddons', data.hero[language])
+    const obj = extractFragment('contentAddons', 'lead', data.hero[language])
 
-    title = titleObj?.content
-    highlighted = titleObj?.highlightedtext
-    imageUrl = titleObj?.image?.sourceUrl
-    imageAlt = titleObj?.image?.altText
+    title = obj?.content
+    highlighted = obj?.highlightedtext
+    imageUrl = obj?.image?.sourceUrl
+    imageAlt = obj?.image?.altText
   }
 
   return (

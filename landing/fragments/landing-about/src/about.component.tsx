@@ -1,47 +1,41 @@
-import React             from 'react'
-import { forwardRef }    from 'react'
-import { useMemo }       from 'react'
+import React               from 'react'
+import { forwardRef }      from 'react'
 
-import { Divider }       from '@ui/divider'
-import { Image }         from '@ui/image'
-import { Box }           from '@ui/layout'
-import { Layout }        from '@ui/layout'
-import { Column }        from '@ui/layout'
-import { Link }          from '@ui/link'
-import { Text }          from '@ui/text'
-import { useData }       from '@globals/data'
-import { extractObject } from '@globals/data'
-import { useLanguage }   from '@globals/language'
+import { Divider }         from '@ui/divider'
+import { Image }           from '@ui/image'
+import { Box }             from '@ui/layout'
+import { Layout }          from '@ui/layout'
+import { Column }          from '@ui/layout'
+import { Link }            from '@ui/link'
+import { Text }            from '@ui/text'
+import { Space }           from '@ui/text'
+import { extractFragment } from '@globals/data'
+import { useLanguage }     from '@globals/language'
 
-import { Carousel }      from './carousel'
-import { MisikLawIcon }  from './icons'
-import { usePartners }   from './data'
+import { Carousel }        from './carousel'
+import { MisikLawIcon }    from './icons'
+import { usePartners }     from './data'
 
-const About = forwardRef((props, ref: any) => {
-  const { fragments } = useData()
+const About = forwardRef(({ data }: any, ref: any) => {
   const [language] = useLanguage()
   const partners = usePartners()
 
-  let { title, highlighted, content, imageUrl, alt } = useMemo(() => {
-    if (!fragments) {
-      return { title: '', highlighted: '', content: '', imageUrl: '', alt: '' }
-    }
+  let title = ''
+  let highlighted = ''
+  let content = ''
+  let imageAlt = ''
+  let imageUrl = ''
 
-    const titleObject = extractObject('title', fragments.about[language])
-    title = titleObject?.title
-    highlighted = titleObject?.fragmentParams.highlightedText
-    content = titleObject?.content
-    imageUrl = titleObject?.featuredImage?.node.sourceUrl
-    alt = titleObject?.featuredImage?.node.altText
+  if (data) {
+    const leadObject = extractFragment('contentAddons', 'lead', data.about[language])
+    const descObject = extractFragment('contentAddons', 'description', data.about[language])
 
-    return {
-      title,
-      highlighted,
-      content,
-      imageUrl,
-      alt,
-    }
-  }, [fragments, language])
+    title = leadObject?.content
+    highlighted = leadObject?.highlightedtext
+    content = descObject?.content
+    imageUrl = leadObject?.image?.sourceUrl
+    imageAlt = leadObject?.image?.altText
+  }
 
   return (
     <Box
@@ -58,7 +52,7 @@ const About = forwardRef((props, ref: any) => {
           <Layout height={['100%', '100%', 'auto']} flexDirection={['column', 'column', 'row']}>
             <Layout justifyContent='center'>
               <Box position='relative' width={[320, 320, 530]} maxHeight={[320, 320, 480]}>
-                <Image alt={alt} src={imageUrl} contain />
+                <Image alt={imageAlt} src={imageUrl} contain />
                 <Box position='absolute' top='34%' left={[-7, -7, 3]}>
                   <Layout display={['none', 'none', 'flex']}>
                     <MisikLawIcon width={141} height={141} />
@@ -83,7 +77,8 @@ const About = forwardRef((props, ref: any) => {
                     lineHeight='small'
                     textTransform='uppercase'
                   >
-                    {title?.replace(highlighted, '')}
+                    {title}
+                    <Space />
                     <Text
                       fontFamily='secondary'
                       fontSize={['semiBig', 'semiBig', 'semiGiant']}

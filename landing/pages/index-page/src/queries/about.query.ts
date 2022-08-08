@@ -12,6 +12,7 @@ const GET_ABOUT = gql`
             altText
             sourceUrl
           }
+          role
           highlightedtext
         }
         language {

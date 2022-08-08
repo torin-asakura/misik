@@ -11,7 +11,7 @@ import { ListProps } from './list.interface'
 
 const List: FC<ListProps> = ({ items }) => (
   <Column width='100%'>
-    {items.map(({ title, content, featuredImage, fragmentParams }, index) => (
+    {items.map(({ contentAddons: { title, content, image, highlightedtext } }, index) => (
       <Column width='100%'>
         <Condition match={index === 0}>
           <Layout flexBasis={[32, 32, 64]} />
@@ -25,8 +25,8 @@ const List: FC<ListProps> = ({ items }) => (
           reverse={index % 2 !== 0}
           title={title}
           content={content}
-          image={featuredImage.node}
-          link={fragmentParams?.highlightedText}
+          image={image}
+          link={highlightedtext}
         />
       </Column>
     ))}
