@@ -39,7 +39,7 @@ const Container: FC<ContainerProps> = ({ backgroundUrl, altText, height, languag
             </Box>
             <Layout flexBasis={[0, 0, 397]} />
             <Column>
-              <Layout flexBasis={[88, 88, 160]} flexShrink={0} />
+              <Layout flexBasis={[28, 28, 72]} flexShrink={0} />
               {children}
               <Layout>
                 <CTA setVisible={setVisible} message={messages.getConsult[language]} />

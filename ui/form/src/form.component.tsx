@@ -140,20 +140,28 @@ const Form: FC = () => {
           <Layout flexBasis={[24, 24, 32]} />
           <Row justifyContent='center'>
             <Layout width={[335, 335, '100%']}>
-              <Text color='text.secondary' display='inline' fontSize='atomic' textAlign='center'>
-                {messages.byClickingYouConfirm[language]}
-                <Space />
-                <NextLink
-                  underline
-                  fontSize='atomic'
-                  whiteSpace='normal'
-                  onClick={() => setPrivacyPolicy(true)}
-                >
-                  <Text whiteSpace='normal' color='text.secondary'>
+              <NextLink
+                fontSize='atomic'
+                textAlign='center'
+                width='100%'
+                whiteSpace='normal'
+                color='text.secondary'
+                display='flex'
+                onClick={() => setPrivacyPolicy(true)}
+              >
+                <Text color='text.secondary' display='inline' whiteSpace='normal' fontSize='atomic'>
+                  {messages.byClickingYouConfirm[language]}
+                  <Space />
+                  <Text
+                    style={{ textDecoration: 'underline' }}
+                    display='inline'
+                    whiteSpace='normal'
+                    color='text.secondary'
+                  >
                     {messages.privacyPolicy[language]}
                   </Text>
-                </NextLink>
-              </Text>
+                </Text>
+              </NextLink>
             </Layout>
           </Row>
         </Column>

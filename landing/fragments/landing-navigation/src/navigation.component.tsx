@@ -65,8 +65,9 @@ const Navigation: FC = () => {
       <AnimateOnLoad
         style={{
           width: '100%',
-          position: 'fixed',
+          position: 'sticky',
           zIndex: 3000,
+          top: 0,
         }}
         animation={{ y: 0 }}
         initial={{ y: '-100%' }}
@@ -74,8 +75,9 @@ const Navigation: FC = () => {
       >
         <Box
           width='100%'
-          position='fixed'
-          height={88}
+          position='sticky'
+          zIndex={3000}
+          height={[60, 60, 88]}
           top={scrollHeight > prevScrollHeight! ? -100 : 0}
           backgroundColor={isMobileNav ? 'white' : 'transparent'}
           style={{ transition: '0.4s' }}

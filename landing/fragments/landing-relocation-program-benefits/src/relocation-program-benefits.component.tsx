@@ -2,6 +2,7 @@ import React                  from 'react'
 import { FC }                 from 'react'
 import { useMemo }            from 'react'
 
+import { Condition }          from '@ui/condition'
 import { Divider }            from '@ui/divider'
 import { Image }              from '@ui/image'
 import { Layout }             from '@ui/layout'
@@ -61,10 +62,10 @@ const RelocationProgramBenefits: FC = () => {
             <Layout>
               <Divider />
             </Layout>
-            <Layout flexBasis={[0, 0, 64]} flexShrink={0} />
+            <Layout flexBasis={[32, 32, 80]} flexShrink={0} />
             <Layout display={['none', 'none', 'flex']}>
               <Row flexWrap='wrap'>
-                {programBenefits[language].map(({ id, title, content, featuredImage }) => (
+                {programBenefits[language].map(({ id, title, content, featuredImage }, index) => (
                   <Column
                     key={id}
                     width={['100%', '100%', 360]}
@@ -102,16 +103,20 @@ const RelocationProgramBenefits: FC = () => {
                         {content}
                       </Text>
                     </Row>
-                    <Layout flexBasis={[40, 40, 80]} />
+                    <Condition match={index !== programBenefits[language].length - 1}>
+                      <Layout flexBasis={[40, 40, 80]} />
+                    </Condition>
                   </Column>
                 ))}
               </Row>
             </Layout>
             <Layout display={['flex', 'flex', 'none']}>
               <Column height='min-content'>
-                {programBenefits[language].map(({ id, title, content, featuredImage }) => (
+                {programBenefits[language].map(({ id, title, content, featuredImage }, index) => (
                   <Column key={id} width='100%' height='auto'>
-                    <Layout flexBasis={40} />
+                    <Condition match={index !== 0}>
+                      <Layout flexBasis={40} />
+                    </Condition>
                     <Column>
                       <Row>
                         <Box width={72} height={72} borderRadius='max' border='1 px solid black'>
@@ -149,7 +154,7 @@ const RelocationProgramBenefits: FC = () => {
                 ))}
               </Column>
             </Layout>
-            <Layout flexBasis={[64, 64, 80]} flexShrink={0} />
+            <Layout flexBasis={[64, 64, 160]} flexShrink={0} />
           </Column>
         </Layout>
       </AnimateOnLoad>

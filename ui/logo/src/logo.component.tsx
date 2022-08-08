@@ -1,11 +1,13 @@
-import React         from 'react'
-import { FC }        from 'react'
-import { useRouter } from 'next/router'
+import React          from 'react'
+import { FC }         from 'react'
+import { useRouter }  from 'next/router'
 
-import { NextLink }  from '@ui/link'
-import { Link }      from '@ui/link'
+import { Layout }     from '@ui/layout'
+import { NextLink }   from '@ui/link'
+import { Link }       from '@ui/link'
 
-import { Icon }      from './icon.component'
+import { IconMobile } from './icon-mobile.component'
+import { Icon }       from './icon.component'
 
 const Logo: FC = () => {
   const router = useRouter()
@@ -14,14 +16,24 @@ const Logo: FC = () => {
     return (
       // eslint-disable-next-line
       <Link href='#'>
-        <Icon />
+        <Layout display={['none', 'none', 'flex']}>
+          <Icon />
+        </Layout>
+        <Layout display={['flex', 'flex', 'none']}>
+          <IconMobile />
+        </Layout>
       </Link>
     )
   }
 
   return (
     <NextLink path='/'>
-      <Icon />
+      <Layout display={['none', 'none', 'flex']}>
+        <Icon />
+      </Layout>
+      <Layout display={['flex', 'flex', 'none']}>
+        <IconMobile />
+      </Layout>
     </NextLink>
   )
 }
