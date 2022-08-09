@@ -20,21 +20,14 @@ import { messages }        from '@globals/messages'
 
 const Hero = forwardRef(({ data }: any, ref: any) => {
   const [language] = useLanguage()
-  const [visible, setVisible] = useState(false)
+  const [visible, setVisible] = useState<boolean>(false)
 
-  let title = ''
-  let highlighted = ''
-  let imageAlt = ''
-  let imageUrl = ''
+  const obj = extractFragment('contentAddons', 'lead', data[language])
 
-  if (data) {
-    const obj = extractFragment('contentAddons', 'lead', data[language])
-
-    title = obj?.content
-    highlighted = obj?.highlightedtext
-    imageUrl = obj?.image?.sourceUrl
-    imageAlt = obj?.image?.altText
-  }
+  const title = obj?.content
+  const highlighted = obj?.highlightedtext
+  const imageUrl = obj?.image?.sourceUrl
+  const imageAlt = obj?.image?.altText
 
   return (
     <>
