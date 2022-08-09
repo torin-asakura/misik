@@ -3,7 +3,6 @@ import { FC }             from 'react'
 import { useState }       from 'react'
 
 import { Drawer }         from '@ui/drawer'
-import { Image }          from '@ui/image'
 import { Layer }          from '@ui/layer'
 import { Box }            from '@ui/layout'
 import { Row }            from '@ui/layout'
@@ -20,23 +19,21 @@ const Container: FC<ContainerProps> = ({ backgroundUrl, altText, height, languag
   return (
     <>
       <Drawer active={visible} onClose={() => setVisible(!visible)} />
-      <Layer visible={visible} onClose={() => setVisible(!visible)} />
+      <Layer scroll visible={visible} onClose={() => setVisible(!visible)} />
       <Box width='100%' height='100%' backgroundColor='background.lightBeige' zIndex={1}>
         <Box
           position='relative'
           width='100%'
           height={['100%', '100%', height]}
           borderRadius={['bottomMedium', 'bottomMedium', 'bottomHuge']}
-          backgroundImage={['none', 'none', `url(${backgroundUrl})`]}
+          backgroundImage={`url(${backgroundUrl})`}
+          backgroundPosition='79%'
           backgroundSize='cover'
           overflow='hidden'
           zIndex={3}
         >
           <Layout flexBasis={[20, 20, 0]} flexShrink={0} />
           <Row height='100%' justifyContent='center'>
-            <Box zIndex={-1} display={['flex', 'flex', 'none']}>
-              <Image background src={backgroundUrl} alt={altText} />
-            </Box>
             <Layout flexBasis={[0, 0, 397]} />
             <Column>
               <Layout flexBasis={[88, 88, 160]} flexShrink={0} />

@@ -18,6 +18,7 @@ export const AnimateOnLoad: FC<PropsWithChildren<AnimateOnLoadProps>> = ({
   delay,
   style,
   children,
+  active,
 }) => {
   const { addListener, done } = usePreloader()
   const controls = useAnimation()
@@ -47,6 +48,14 @@ export const AnimateOnLoad: FC<PropsWithChildren<AnimateOnLoadProps>> = ({
     }
     // eslint-disable-next-line
   }, [])
+
+  useEffect(() => {
+    if (typeof active === 'boolean') {
+      if (active) controls.start(animation)
+      if (!active) controls.start(initial)
+    }
+    // eslint-disable-next-line
+  }, [active])
 
   return (
     <Motion animate={controls} transition={transition}>

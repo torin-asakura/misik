@@ -38,7 +38,7 @@ const Hero = forwardRef(({ data }: any, ref: any) => {
 
   return (
     <>
-      <Layer visible={visible} onClose={() => setVisible(false)} />
+      <Layer scroll visible={visible} onClose={() => setVisible(false)} />
       <Drawer active={visible} onClose={() => setVisible(false)} />
       <Box
         width='100%'

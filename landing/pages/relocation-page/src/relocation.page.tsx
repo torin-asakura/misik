@@ -18,7 +18,6 @@ import { RelocationHero }             from '@landing/relocation-hero-fragment'
 import { RelocationHowMoveToAmerica } from '@landing/relocation-how-move-to-america-fragment'
 import { RelocationOurRole }          from '@landing/relocation-our-role-fragment'
 import { RelocationProgramBenefits }  from '@landing/relocation-program-benefits-fragment'
-import { Box }                        from '@ui/layout'
 import { Preloader }                  from '@ui/preloader'
 import { getClient }                  from '@globals/data'
 
@@ -45,9 +44,7 @@ const RelocationPage: FC<Props> = ({ ogCover, SEO = { RU: {}, EN: {} }, data }) 
             containerRef={containerRef}
             watch={[]}
           >
-            <Box backgroundColor='background.beige'>
-              <Navigation />
-            </Box>
+            <Navigation />
             <main data-scroll-container ref={containerRef}>
               <Seo language={languageContext} ogCover={ogCover} SEO={SEO} />
               <RelocationHero />

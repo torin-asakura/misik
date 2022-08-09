@@ -61,7 +61,7 @@ const Accordeon: FC<AccordeonProps> = ({
   return (
     <>
       <Drawer active={visible} onClose={() => setVisible(false)} />
-      <Layer visible={visible} onClose={() => setVisible(false)} />
+      <Layer scroll visible={visible} onClose={() => setVisible(false)} />
       <Column width='100%'>
         <Condition match={variant === 'primary'}>
           <TriggerContainer onClick={() => setActive(!active)}>

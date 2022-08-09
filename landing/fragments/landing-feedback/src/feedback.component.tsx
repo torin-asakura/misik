@@ -64,7 +64,6 @@ const Feedback: FC<FeedbackProps> = forwardRef((
             <Layout flexBasis={[48, 48, 160]} />
             <Layout flexDirection={['column', 'column', 'row']} width='100%'>
               <Column width='100%' maxWidth={895}>
-                <Layout flexBasis={[48, 48, 0]} />
                 <Layout maxWidth={620}>
                   <AnimateOnLoad
                     initial={{ opacity: 0, y: '100%' }}
@@ -144,7 +143,7 @@ const Feedback: FC<FeedbackProps> = forwardRef((
                     </Layout>
                   </Row>
                 </AnimateOnLoad>
-                <Layout flexBasis={[26, 26, 44]} />
+                <Layout flexBasis={[24, 24, 32]} />
                 <Layout
                   flexDirection={['column', 'column', 'row']}
                   alignItems={['flex-start', 'flex-start', 'center']}
