@@ -16,13 +16,8 @@ import { useLanguage }     from '@globals/language'
 const WorkFormat = forwardRef(({ data }: any, ref: any) => {
   const [language] = useLanguage()
 
-  let items = []
-  let mainTitle = ''
-
-  if (data) {
-    items = extractObjects('item', 'contentAddons', data[language])
-    mainTitle = extractFragment('contentAddons', 'lead', data[language]).title
-  }
+  const items = extractObjects('item', 'contentAddons', data[language])
+  const mainTitle = extractFragment('contentAddons', 'lead', data[language]).title
 
   return (
     <Box width='100%' backgroundColor='background.lightBeige' justifyContent='center' ref={ref}>

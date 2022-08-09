@@ -22,13 +22,8 @@ const Services = forwardRef(({ data }: any, ref: any) => {
   const [language] = useLanguage()
   const services = useServices()
 
-  let items = []
-  let title = ''
-
-  if (data) {
-    items = extractObjects('item', 'contentAddons', data[language])
-    title = extractFragment('contentAddons', 'lead', data[language]).title
-  }
+  const items = extractObjects('item', 'contentAddons', data[language])
+  const { title } = extractFragment('contentAddons', 'lead', data[language])
 
   const [leftSide, rightSide] = splitItems(services[language])
 

@@ -20,22 +20,14 @@ const About = forwardRef(({ data }: any, ref: any) => {
   const [language] = useLanguage()
   const partners = usePartners()
 
-  let title = ''
-  let highlighted = ''
-  let content = ''
-  let imageAlt = ''
-  let imageUrl = ''
+  const leadObject = extractFragment('contentAddons', 'lead', data[language])
+  const descObject = extractFragment('contentAddons', 'description', data[language])
 
-  if (data) {
-    const leadObject = extractFragment('contentAddons', 'lead', data[language])
-    const descObject = extractFragment('contentAddons', 'description', data[language])
-
-    title = leadObject?.content
-    highlighted = leadObject?.highlightedtext
-    content = descObject?.content
-    imageUrl = leadObject?.image?.sourceUrl
-    imageAlt = leadObject?.image?.altText
-  }
+  const title = leadObject?.content
+  const highlighted = leadObject?.highlightedtext
+  const content = descObject?.content
+  const imageUrl = leadObject?.image?.sourceUrl
+  const imageAlt = leadObject?.image?.altText
 
   return (
     <Box

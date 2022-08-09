@@ -27,20 +27,13 @@ const Feedback: FC<FeedbackProps> = forwardRef((
 ) => {
   const [language] = useLanguage()
 
-  let text = ''
-  let highlighted = ''
-  let content = ''
-  let email = ''
+  const titleFragment = extractFragment('contentAddons', 'lead', data[language])
+  const emailFragment = extractFragment('contentAddons', 'email', data[language])
 
-  if (data) {
-    const titleFragment = extractFragment('contentAddons', 'lead', data[language])
-    const emailFragment = extractFragment('contentAddons', 'email', data[language])
-
-    text = titleFragment?.title
-    highlighted = titleFragment?.highlightedtext
-    content = titleFragment?.content
-    email = emailFragment?.title
-  }
+  const text = titleFragment?.title
+  const highlighted = titleFragment?.highlightedtext
+  const content = titleFragment?.content
+  const email = emailFragment?.title
 
   return (
     <Box
