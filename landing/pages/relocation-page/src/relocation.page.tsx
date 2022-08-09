@@ -19,6 +19,7 @@ import { RelocationHowMoveToAmerica } from '@landing/relocation-how-move-to-amer
 import { RelocationOurRole }          from '@landing/relocation-our-role-fragment'
 import { RelocationProgramBenefits }  from '@landing/relocation-program-benefits-fragment'
 import { Preloader }                  from '@ui/preloader'
+import { setCacheHeader }             from '@globals/data'
 import { getClient }                  from '@globals/data'
 
 import { GET_RELOCATION_SEO }         from './queries'
@@ -31,7 +32,7 @@ interface Props {
   data: any
 }
 
-const RelocationPage: FC<Props> = ({ ogCover, SEO = { RU: {}, EN: {} }, data }) => {
+const RelocationPage: FC<Props> = ({ ogCover, SEO = { RU: {}, EN: {} }, data: { feedback } }) => {
   const languageContext = useState<Language>('RU')
   const containerRef = useRef(null)
 
@@ -53,7 +54,7 @@ const RelocationPage: FC<Props> = ({ ogCover, SEO = { RU: {}, EN: {} }, data }) 
               <RelocationHowMoveToAmerica />
               <RelocationFaq />
               <RelocationOurRole />
-              <Feedback data={data} contacts />
+              <Feedback data={feedback} contacts />
               <Map />
               <Footer />
             </main>
@@ -69,7 +70,7 @@ export const getServerSideProps = async ({ res }) => {
 
   let SEO
 
-  res.setHeader('Cache-Control', 'public, s-maxage=3600, stale-while-revalidate=300')
+  setCacheHeader(res, 3600, 300)
 
   const { data: seoData } = await client.query({
     query: GET_RELOCATION_SEO,

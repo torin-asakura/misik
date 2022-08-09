@@ -22,14 +22,13 @@ const GET_FEEDBACK = gql`
 
 const runFeedbackQuery = async () => {
   const client = getClient()
-  let feedback
 
   const { data: feedbackData } = await client.query({
     query: GET_FEEDBACK,
   })
 
   if (feedbackData) {
-    feedback = {
+    return {
       feedback: {
         RU: feedbackData.contacts.nodes.filter(
           (feedbackFragment) => feedbackFragment.language.code === 'RU'
@@ -39,9 +38,9 @@ const runFeedbackQuery = async () => {
         ),
       },
     }
-  } else feedback = { feedback: { RU: [], EN: [] } }
+  }
 
-  return feedback
+  return { feedback: { RU: [], EN: [] } }
 }
 
 export { runFeedbackQuery }

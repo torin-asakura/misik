@@ -20,8 +20,8 @@ const WorkFormat = forwardRef(({ data }: any, ref: any) => {
   let mainTitle = ''
 
   if (data) {
-    items = extractObjects('item', 'contentAddons', data.workFormats[language])
-    mainTitle = extractFragment('contentAddons', 'lead', data.workFormats[language]).title
+    items = extractObjects('item', 'contentAddons', data[language])
+    mainTitle = extractFragment('contentAddons', 'lead', data[language]).title
   }
 
   return (

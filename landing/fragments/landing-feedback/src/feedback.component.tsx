@@ -33,8 +33,8 @@ const Feedback: FC<FeedbackProps> = forwardRef((
   let email = ''
 
   if (data) {
-    const titleFragment = extractFragment('contentAddons', 'lead', data.feedback[language])
-    const emailFragment = extractFragment('contentAddons', 'email', data.feedback[language])
+    const titleFragment = extractFragment('contentAddons', 'lead', data[language])
+    const emailFragment = extractFragment('contentAddons', 'email', data[language])
 
     text = titleFragment?.title
     highlighted = titleFragment?.highlightedtext

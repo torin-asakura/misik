@@ -15,6 +15,7 @@ import { Map }                      from '@landing/map-fragment'
 import { Navigation }               from '@landing/navigation-fragment'
 import { Box }                      from '@ui/layout'
 import { Preloader }                from '@ui/preloader'
+import { setCacheHeader }           from '@globals/data'
 import { getClient }                from '@globals/data'
 
 import { GET_CONTACTS_SEO }         from './queries'
@@ -27,7 +28,7 @@ interface Props {
   data: any
 }
 
-const ContactsPage: FC<Props> = ({ ogCover, SEO = { RU: {}, EN: {} }, data }) => {
+const ContactsPage: FC<Props> = ({ ogCover, SEO = { RU: {}, EN: {} }, data: { feedback } }) => {
   const languageContext = useState<Language>('RU')
   const containerRef = useRef(null)
 
@@ -46,7 +47,7 @@ const ContactsPage: FC<Props> = ({ ogCover, SEO = { RU: {}, EN: {} }, data }) =>
             <main data-scroll-container ref={containerRef}>
               <Seo language={languageContext} ogCover={ogCover} SEO={SEO} />
               <Branches contacts />
-              <Feedback data={data} background='background.lightBeige' />
+              <Feedback data={feedback} background='background.lightBeige' />
               <Map />
               <Footer />
             </main>
@@ -62,7 +63,7 @@ export const getServerSideProps = async ({ res }) => {
 
   let SEO
 
-  res.setHeader('Cache-Control', 'public, s-maxage=3600, stale-while-revalidate=300')
+  setCacheHeader(res, 3600, 300)
 
   const { data: seoData } = await client.query({
     query: GET_CONTACTS_SEO,

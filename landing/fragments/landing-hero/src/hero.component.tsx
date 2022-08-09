@@ -28,7 +28,7 @@ const Hero = forwardRef(({ data }: any, ref: any) => {
   let imageUrl = ''
 
   if (data) {
-    const obj = extractFragment('contentAddons', 'lead', data.hero[language])
+    const obj = extractFragment('contentAddons', 'lead', data[language])
 
     title = obj?.content
     highlighted = obj?.highlightedtext

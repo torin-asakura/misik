@@ -21,6 +21,7 @@ import { WorkFormat }               from '@landing/work-format-fragment'
 import { Preloader }                from '@ui/preloader'
 import { SpyScroll }                from '@ui/spy-scroll'
 import { SpyScrollProvider }        from '@ui/spy-scroll'
+import { setCacheHeader }           from '@globals/data'
 import { getClient }                from '@globals/data'
 import { useIntersectionObserver }  from '@ui/intersection-observer'
 import { useSpyScroll }             from '@ui/spy-scroll'
@@ -39,7 +40,7 @@ interface Props {
   data: any
 }
 
-const Fragments = ({ data }) => {
+const Fragments = ({ data: { hero, about, services, workFormats, feedback } }) => {
   const spyScrollStore = useSpyScroll()
   const { getObserverOptions } = useIntersectionObserver((id) => {
     const order = ['hero', 'about', 'services', 'work-format', 'feedback']
@@ -56,12 +57,12 @@ const Fragments = ({ data }) => {
 
   return (
     <>
-      <Hero data={data} {...getObserverOptions('hero', 0.6)} />
+      <Hero data={hero} {...getObserverOptions('hero', 0.6)} />
       <WorkDirections />
-      <About data={data} {...getObserverOptions('about', 0.6)} />
-      <Services data={data} {...getObserverOptions('services', 0.3)} />
-      <WorkFormat data={data} {...getObserverOptions('work-format', 0.5)} />
-      <Feedback data={data} {...getObserverOptions('feedback', 0.8)} contacts />
+      <About data={about} {...getObserverOptions('about', 0.6)} />
+      <Services data={services} {...getObserverOptions('services', 0.3)} />
+      <WorkFormat data={workFormats} {...getObserverOptions('work-format', 0.5)} />
+      <Feedback data={feedback} {...getObserverOptions('feedback', 0.8)} contacts />
       <Map />
       <Footer />
     </>
@@ -101,7 +102,7 @@ export const getServerSideProps = async ({ res }) => {
 
   let SEO
 
-  res.setHeader('Cache-Control', 'public, s-maxage=3600, stale-while-revalidate=300')
+  setCacheHeader(res, 3600, 300)
 
   const { data: seoData } = await client.query({
     query: GET_INDEX_SEO,

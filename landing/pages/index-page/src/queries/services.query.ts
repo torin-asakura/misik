@@ -26,14 +26,13 @@ const GET_SERVICES = gql`
 
 const runServicesQuery = async () => {
   const client = getClient()
-  let services
 
   const { data: servicesData } = await client.query({
     query: GET_SERVICES,
   })
 
   if (servicesData) {
-    services = {
+    return {
       services: {
         RU: servicesData.mainServices.nodes.filter(
           (servicesFragment) => servicesFragment.language.code === 'RU'
@@ -43,9 +42,9 @@ const runServicesQuery = async () => {
         ),
       },
     }
-  } else services = { services: { RU: [], EN: [] } }
+  }
 
-  return services
+  return { services: { RU: [], EN: [] } }
 }
 
 export { runServicesQuery }

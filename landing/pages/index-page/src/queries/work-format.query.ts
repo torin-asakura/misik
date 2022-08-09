@@ -26,14 +26,13 @@ const GET_WORK_FORMAT = gql`
 
 const runWorkFormatsQuery = async () => {
   const client = getClient()
-  let workFormats
 
   const { data: workFormatData } = await client.query({
     query: GET_WORK_FORMAT,
   })
 
   if (workFormatData) {
-    workFormats = {
+    return {
       workFormats: {
         RU: workFormatData.workFormats.nodes.filter(
           (workFormatFragment) => workFormatFragment.language.code === 'RU'
@@ -43,9 +42,9 @@ const runWorkFormatsQuery = async () => {
         ),
       },
     }
-  } else workFormats = { workFormats: { RU: [], EN: [] } }
+  }
 
-  return workFormats
+  return { workFormats: { RU: [], EN: [] } }
 }
 
 export { runWorkFormatsQuery }

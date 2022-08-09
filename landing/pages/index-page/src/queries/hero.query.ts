@@ -26,22 +26,21 @@ const GET_HERO = gql`
 
 const runHeroQuery = async () => {
   const client = getClient()
-  let hero
 
   const { data: heroData } = await client.query({
     query: GET_HERO,
   })
 
   if (heroData) {
-    hero = {
+    return {
       hero: {
         RU: heroData.heroItems.nodes.filter((heroFragment) => heroFragment.language.code === 'RU'),
         EN: heroData.heroItems.nodes.filter((heroFragment) => heroFragment.language.code === 'EN'),
       },
     }
-  } else hero = { hero: { RU: [], EN: [] } }
+  }
 
-  return hero
+  return { hero: { RU: [], EN: [] } }
 }
 
 export { runHeroQuery }

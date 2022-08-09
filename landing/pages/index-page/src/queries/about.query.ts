@@ -25,14 +25,13 @@ const GET_ABOUT = gql`
 
 const runAboutQuery = async () => {
   const client = getClient()
-  let about
 
   const { data: aboutData } = await client.query({
     query: GET_ABOUT,
   })
 
   if (aboutData) {
-    about = {
+    return {
       about: {
         RU: aboutData.aboutItems.nodes.filter(
           (aboutFragment) => aboutFragment.language.code === 'RU'
@@ -42,9 +41,9 @@ const runAboutQuery = async () => {
         ),
       },
     }
-  } else about = { about: { RU: [], EN: [] } }
+  }
 
-  return about
+  return { about: { RU: [], EN: [] } }
 }
 
 export { runAboutQuery }
