@@ -156,7 +156,7 @@ export const Layer: FC<LayerProps> = ({
               >
                 <Condition match={display === 'form'}>
                   <Column fill>
-                    <Layout flexBasis={64} />
+                    <Layout flexBasis={80} flexShrink={0} />
                     <Layout>
                       <Text
                         fontSize={['moderate', 'moderate', 'increased']}
@@ -176,6 +176,7 @@ export const Layer: FC<LayerProps> = ({
                     <Layout>
                       <Form />
                     </Layout>
+                    <Layout flexBasis={48} flexShrink={0} />
                   </Column>
                 </Condition>
                 <Condition match={display === 'privacy-policy'}>

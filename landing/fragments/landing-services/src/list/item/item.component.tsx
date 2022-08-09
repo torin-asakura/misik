@@ -24,7 +24,7 @@ const Item: FC<ItemProps> = ({ image, title, content, link, reverse = false }) =
 
   return (
     <>
-      <Layer visible={visible} onClose={() => setVisible(false)} />
+      <Layer scroll visible={visible} onClose={() => setVisible(false)} />
       <Drawer active={visible} onClose={() => setVisible(false)} />
       <Box
         width='100%'

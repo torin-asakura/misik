@@ -47,11 +47,11 @@ const Hero = forwardRef((props, ref: any) => {
 
   return (
     <>
-      <Layer visible={visible} onClose={() => setVisible(false)} />
+      <Layer scroll visible={visible} onClose={() => setVisible(false)} />
       <Drawer active={visible} onClose={() => setVisible(false)} />
       <Box
         width='100%'
-        height={['100%', '100%', 'calc(100vh-88px)']}
+        height={['100%', '100%', '100vh']}
         backgroundColor='background.lightBeige'
         zIndex={1}
         ref={ref}
@@ -72,7 +72,7 @@ const Hero = forwardRef((props, ref: any) => {
             </Box>
             <Layout flexBasis={[20, 80, 397]} flexShrink={[0, 0, 1]} />
             <Column maxWidth={864} width='100%'>
-              <Layout flexBasis={[28, 28, 72]} />
+              <Layout flexBasis={[88, 88, 160]} flexShrink={0} />
               <Layout maxWidth={864} width='100%'>
                 <AnimateOnLoad
                   initial={{ opacity: 0, y: '30%' }}
