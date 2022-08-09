@@ -1,59 +1,46 @@
-import React             from 'react'
-import { FC }            from 'react'
-import { forwardRef }    from 'react'
-import { useMemo }       from 'react'
+import React               from 'react'
+import { FC }              from 'react'
+import { forwardRef }      from 'react'
 
-import { Branches }      from '@landing/branches-fragment'
-import { Condition }     from '@ui/condition'
-import { Copy }          from '@ui/copy'
-import { Form }          from '@ui/form'
-import { Box }           from '@ui/layout'
-import { Layout }        from '@ui/layout'
-import { Column }        from '@ui/layout'
-import { Row }           from '@ui/layout'
-import { Link }          from '@ui/link'
-import { AnimateOnLoad } from '@ui/preloader'
-import { Socials }       from '@ui/socials'
-import { Text }          from '@ui/text'
-import { Space }         from '@ui/text'
-import { useData }       from '@globals/data'
-import { extractObject } from '@globals/data'
-import { useLanguage }   from '@globals/language'
-import { messages }      from '@globals/messages'
+import { Branches }        from '@landing/branches-fragment'
+import { Condition }       from '@ui/condition'
+import { Copy }            from '@ui/copy'
+import { Form }            from '@ui/form'
+import { Box }             from '@ui/layout'
+import { Layout }          from '@ui/layout'
+import { Column }          from '@ui/layout'
+import { Row }             from '@ui/layout'
+import { Link }            from '@ui/link'
+import { AnimateOnLoad }   from '@ui/preloader'
+import { Socials }         from '@ui/socials'
+import { Text }            from '@ui/text'
+import { Space }           from '@ui/text'
+import { extractFragment } from '@globals/data'
+import { useLanguage }     from '@globals/language'
+import { messages }        from '@globals/messages'
 
-import { FeedbackProps } from './feedback.interface'
+import { FeedbackProps }   from './feedback.interface'
 
 const Feedback: FC<FeedbackProps> = forwardRef((
-  { background = 'background.lightBeige', contacts = false },
+  { background = 'background.lightBeige', data, contacts = false },
   ref: any
 ) => {
-  const { fragments } = useData()
   const [language] = useLanguage()
 
-  let { text, highlighted, content, email } = useMemo(() => {
-    if (!fragments) {
-      return {
-        text: '',
-        highlighted: '',
-        content: '',
-        email: '',
-      }
-    }
-    const titleFragment = extractObject('title', fragments.feedback[language])
-    const emailFragment = extractObject('email', fragments.feedback.RU)
+  let text = ''
+  let highlighted = ''
+  let content = ''
+  let email = ''
+
+  if (data) {
+    const titleFragment = extractFragment('contentAddons', 'lead', data.feedback[language])
+    const emailFragment = extractFragment('contentAddons', 'email', data.feedback[language])
 
     text = titleFragment?.title
-    highlighted = titleFragment?.fragmentParams.highlightedText
+    highlighted = titleFragment?.highlightedtext
     content = titleFragment?.content
-    email = emailFragment?.content
-
-    return {
-      text,
-      highlighted,
-      content,
-      email,
-    }
-  }, [fragments, language])
+    email = emailFragment?.title
+  }
 
   return (
     <Box

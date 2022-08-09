@@ -22,15 +22,17 @@ import { Box }                        from '@ui/layout'
 import { Preloader }                  from '@ui/preloader'
 import { getClient }                  from '@globals/data'
 
+import { GET_RELOCATION_SEO }         from './queries'
 import { Seo }                        from './seo.component'
-import { GET_RELOCATION_SEO }         from './seo.data'
+import { runFeedbackQuery }           from './queries'
 
 interface Props {
   ogCover: string
   SEO: any
+  data: any
 }
 
-const RelocationPage: FC<Props> = ({ ogCover, SEO = { RU: {}, EN: {} } }) => {
+const RelocationPage: FC<Props> = ({ ogCover, SEO = { RU: {}, EN: {} }, data }) => {
   const languageContext = useState<Language>('RU')
   const containerRef = useRef(null)
 
@@ -54,7 +56,7 @@ const RelocationPage: FC<Props> = ({ ogCover, SEO = { RU: {}, EN: {} } }) => {
               <RelocationHowMoveToAmerica />
               <RelocationFaq />
               <RelocationOurRole />
-              <Feedback contacts />
+              <Feedback data={data} contacts />
               <Map />
               <Footer />
             </main>
@@ -65,10 +67,12 @@ const RelocationPage: FC<Props> = ({ ogCover, SEO = { RU: {}, EN: {} } }) => {
   )
 }
 
-export const getServerSideProps = async () => {
+export const getServerSideProps = async ({ res }) => {
   const client = getClient()
 
   let SEO
+
+  res.setHeader('Cache-Control', 'public, s-maxage=3600, stale-while-revalidate=300')
 
   const { data: seoData } = await client.query({
     query: GET_RELOCATION_SEO,
@@ -90,7 +94,13 @@ export const getServerSideProps = async () => {
 
   const ogCover = previewData?.mediaItemBy.sourceUrl
 
-  return { props: { SEO, ogCover } }
+  const queryPromises: Array<Promise<any>> = [runFeedbackQuery()]
+
+  const retrievedData = await Promise.all(queryPromises)
+
+  const data = retrievedData.reduce((props, allData) => ({ ...props, ...allData }), {})
+
+  return { props: { SEO, ogCover, data } }
 }
 
 export default RelocationPage

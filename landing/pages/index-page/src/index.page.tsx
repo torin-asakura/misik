@@ -27,6 +27,7 @@ import { useSpyScroll }             from '@ui/spy-scroll'
 
 import { GET_INDEX_SEO }            from './queries'
 import { Seo }                      from './seo.component'
+import { runFeedbackQuery }         from './queries'
 import { runWorkFormatsQuery }      from './queries'
 import { runServicesQuery }         from './queries'
 import { runHeroQuery }             from './queries'
@@ -60,7 +61,7 @@ const Fragments = ({ data }) => {
       <About data={data} {...getObserverOptions('about', 0.6)} />
       <Services data={data} {...getObserverOptions('services', 0.3)} />
       <WorkFormat data={data} {...getObserverOptions('work-format', 0.5)} />
-      <Feedback {...getObserverOptions('feedback', 0.8)} contacts />
+      <Feedback data={data} {...getObserverOptions('feedback', 0.8)} contacts />
       <Map />
       <Footer />
     </>
@@ -95,10 +96,12 @@ const IndexPage: FC<Props> = ({ ogCover, SEO = { RU: {}, EN: {} }, data }) => {
   )
 }
 
-export const getServerSideProps = async () => {
+export const getServerSideProps = async ({ res }) => {
   const client = getClient()
 
   let SEO
+
+  res.setHeader('Cache-Control', 'public, s-maxage=3600, stale-while-revalidate=300')
 
   const { data: seoData } = await client.query({
     query: GET_INDEX_SEO,
@@ -118,16 +121,17 @@ export const getServerSideProps = async () => {
     }
   } else SEO = { RU: {}, EN: {} }
 
+  const ogCover = previewData?.mediaItemBy.sourceUrl
+
   const queryPromises: Array<Promise<any>> = [
     runHeroQuery(),
     runAboutQuery(),
     runServicesQuery(),
     runWorkFormatsQuery(),
+    runFeedbackQuery(),
   ]
 
   const retrievedData = await Promise.all(queryPromises)
-
-  const ogCover = previewData?.mediaItemBy.sourceUrl
 
   const data = retrievedData.reduce((props, allData) => ({ ...props, ...allData }), {})
 
