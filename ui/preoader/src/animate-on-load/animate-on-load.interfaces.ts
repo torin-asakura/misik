@@ -9,4 +9,5 @@ export interface AnimateOnLoadProps {
   transition: Transition
   delay?: number
   style?: CSSProperties
+  active?: boolean
 }

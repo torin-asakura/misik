@@ -1,8 +1,7 @@
 import React                      from 'react'
 import { FC }                     from 'react'
-import { useEffect }              from 'react'
-import { useRef }                 from 'react'
 import { useState }               from 'react'
+import { useEffect }              from 'react'
 
 import { Button }                 from '@ui/button'
 import { Condition }              from '@ui/condition'
@@ -15,6 +14,7 @@ import { Row }                    from '@ui/layout'
 import { NextLink }               from '@ui/link'
 import { Logo }                   from '@ui/logo'
 import { AnimateOnLoad }          from '@ui/preloader'
+import { useLocomotiveScroll }    from '@forks/react-locomotive-scroll'
 import { useLanguage }            from '@globals/language'
 import { messages }               from '@globals/messages'
 
@@ -26,34 +26,28 @@ import { useNavigation }          from './data'
 const Navigation: FC = () => {
   const navigation = useNavigation()
   const [language, setLanguage] = useLanguage()
+  const { scroll } = useLocomotiveScroll()
   const [visible, setVisible] = useState<boolean>(false)
+  const [isNavVisible, setNavVisible] = useState<boolean>(true)
   const [isMobileNav, setIsMobileNav] = useState<boolean>(false)
-  const [scrollHeight, setScrollHeight] = useState<number>(0)
 
   const switchLanguage = () => {
     setLanguage(language === 'RU' ? 'EN' : 'RU')
   }
 
-  const prevScrollHeightRef = useRef<number | null>(null)
-
-  const prevScrollHeight = prevScrollHeightRef.current
-
-  const handleScroll = () => {
-    const scrollPosition =
-      (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100
-
-    setScrollHeight(scrollPosition)
-  }
-
   useEffect(() => {
-    prevScrollHeightRef.current = scrollHeight
-  }, [scrollHeight])
+    if (scroll) {
+      scroll.on('scroll', (instance) => {
+        if (instance.delta.y > instance.scroll.y && isNavVisible) {
+          setNavVisible(false)
+        }
 
-  useEffect(() => {
-    document.addEventListener('scroll', handleScroll, { passive: true })
-
-    return () => document.removeEventListener('scroll', handleScroll)
-  }, [])
+        if (instance.delta.y < instance.scroll.y && !isNavVisible) {
+          setNavVisible(true)
+        }
+      })
+    }
+  }, [scroll, isNavVisible, setNavVisible])
 
   return (
     <>
@@ -65,20 +59,20 @@ const Navigation: FC = () => {
       <AnimateOnLoad
         style={{
           width: '100%',
-          position: 'sticky',
+          position: 'fixed',
           zIndex: 3000,
           top: 0,
+          left: 0,
         }}
         animation={{ y: 0 }}
         initial={{ y: '-100%' }}
         transition={{ duration: 1 }}
+        active={isNavVisible}
       >
         <Box
           width='100%'
-          position='sticky'
           zIndex={3000}
           height={[60, 60, 88]}
-          top={scrollHeight > prevScrollHeight! ? -100 : 0}
           backgroundColor={isMobileNav ? 'white' : 'transparent'}
           style={{ transition: '0.4s' }}
         >
