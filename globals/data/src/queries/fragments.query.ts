@@ -23,6 +23,9 @@ const GET_FRAGMENTS = gql`
           highlightedText
           object
           scope
+          image {
+            sourceUrl
+          }
         }
       }
     }

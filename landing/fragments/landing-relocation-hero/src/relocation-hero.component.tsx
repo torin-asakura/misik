@@ -16,7 +16,7 @@ const RelocationHero: FC = () => {
   const { fragments } = useData()
   const [language] = useLanguage()
 
-  let { title, highlighted, description, imageUrl, imageAlt } = useMemo(() => {
+  let { title, highlighted, description, imageUrl, mobileImageUrl } = useMemo(() => {
     if (!(fragments && fragments.relocationhero)) {
       return { title: '', highlighted: '', description: '', imageUrl: '', imageAlt: '' }
     }
@@ -27,19 +27,24 @@ const RelocationHero: FC = () => {
     title = titleObj?.title
     highlighted = titleObj?.fragmentParams.highlightedText
     imageUrl = titleObj?.featuredImage?.node.sourceUrl
-    imageAlt = titleObj?.featuredImage?.node.altText
+    mobileImageUrl = titleObj?.fragmentParams?.image.sourceUrl
 
     return {
       title,
       highlighted,
       description,
       imageUrl,
-      imageAlt,
+      mobileImageUrl,
     }
   }, [fragments, language])
 
   return (
-    <Container backgroundUrl={imageUrl} altText={imageAlt} language={language} height={668}>
+    <Container
+      backgroundUrl={imageUrl}
+      mobileBackgroundUrl={mobileImageUrl}
+      language={language}
+      height={668}
+    >
       <Layout>
         <AnimateOnLoad
           initial={{ opacity: 0, y: '100%' }}

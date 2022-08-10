@@ -78,7 +78,15 @@ const IndexPage: FC<Props> = ({ ogCover, SEO = { RU: {}, EN: {} }, data }) => {
       <LanguageProvider value={languageContext}>
         <DataProvider>
           <LocomotiveScrollProvider
-            options={{ smooth: true }}
+            options={{
+              smooth: true,
+              smartphone: {
+                smooth: true,
+              },
+              tablet: {
+                smooth: true,
+              },
+            }}
             containerRef={containerRef}
             watch={[]}
           >

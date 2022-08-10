@@ -13,7 +13,13 @@ import { messages }       from '@globals/messages'
 import { CTA }            from '../CTA'
 import { ContainerProps } from './container.interface'
 
-const Container: FC<ContainerProps> = ({ backgroundUrl, altText, height, language, children }) => {
+const Container: FC<ContainerProps> = ({
+  backgroundUrl,
+  mobileBackgroundUrl,
+  height,
+  language,
+  children,
+}) => {
   const [visible, setVisible] = useState<boolean>(false)
 
   return (
@@ -26,8 +32,11 @@ const Container: FC<ContainerProps> = ({ backgroundUrl, altText, height, languag
           width='100%'
           height={['100%', '100%', height]}
           borderRadius={['bottomMedium', 'bottomMedium', 'bottomHuge']}
-          backgroundImage={`url(${backgroundUrl})`}
-          backgroundPosition='79%'
+          backgroundImage={[
+            `url(${mobileBackgroundUrl})`,
+            `url(${backgroundUrl})`,
+            `url(${backgroundUrl})`,
+          ]}
           backgroundSize='cover'
           overflow='hidden'
           zIndex={3}
