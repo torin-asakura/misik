@@ -15,17 +15,20 @@ import { Map }                      from '@landing/map-fragment'
 import { Navigation }               from '@landing/navigation-fragment'
 import { Box }                      from '@ui/layout'
 import { Preloader }                from '@ui/preloader'
+import { setCacheHeader }           from '@globals/data'
 import { getClient }                from '@globals/data'
 
+import { GET_CONTACTS_SEO }         from './queries'
 import { Seo }                      from './seo.component'
-import { GET_CONTACTS_SEO }         from './seo.data'
+import { runFeedbackQuery }         from './queries'
 
 interface Props {
   ogCover: string
   SEO: any
+  data: any
 }
 
-const ContactsPage: FC<Props> = ({ ogCover, SEO = { RU: {}, EN: {} } }) => {
+const ContactsPage: FC<Props> = ({ ogCover, SEO = { RU: {}, EN: {} }, data: { feedback } }) => {
   const languageContext = useState<Language>('RU')
   const containerRef = useRef(null)
 
@@ -44,7 +47,7 @@ const ContactsPage: FC<Props> = ({ ogCover, SEO = { RU: {}, EN: {} } }) => {
             <main data-scroll-container ref={containerRef}>
               <Seo language={languageContext} ogCover={ogCover} SEO={SEO} />
               <Branches contacts />
-              <Feedback background='background.lightBeige' />
+              <Feedback data={feedback} background='background.lightBeige' />
               <Map />
               <Footer />
             </main>
@@ -55,10 +58,12 @@ const ContactsPage: FC<Props> = ({ ogCover, SEO = { RU: {}, EN: {} } }) => {
   )
 }
 
-export const getServerSideProps = async () => {
+export const getServerSideProps = async ({ res }) => {
   const client = getClient()
 
   let SEO
+
+  setCacheHeader(res, 3600, 300)
 
   const { data: seoData } = await client.query({
     query: GET_CONTACTS_SEO,
@@ -80,7 +85,13 @@ export const getServerSideProps = async () => {
 
   const ogCover = previewData?.mediaItemBy.sourceUrl
 
-  return { props: { SEO, ogCover } }
+  const queryPromises: Array<Promise<any>> = [runFeedbackQuery()]
+
+  const retrievedData = await Promise.all(queryPromises)
+
+  const data = retrievedData.reduce((props, allData) => ({ ...props, ...allData }), {})
+
+  return { props: { SEO, ogCover, data } }
 }
 
 export default ContactsPage

@@ -21,19 +21,26 @@ import { WorkFormat }               from '@landing/work-format-fragment'
 import { Preloader }                from '@ui/preloader'
 import { SpyScroll }                from '@ui/spy-scroll'
 import { SpyScrollProvider }        from '@ui/spy-scroll'
+import { setCacheHeader }           from '@globals/data'
 import { getClient }                from '@globals/data'
 import { useIntersectionObserver }  from '@ui/intersection-observer'
 import { useSpyScroll }             from '@ui/spy-scroll'
 
+import { GET_INDEX_SEO }            from './queries'
 import { Seo }                      from './seo.component'
-import { GET_INDEX_SEO }            from './seo.data'
+import { runFeedbackQuery }         from './queries'
+import { runWorkFormatsQuery }      from './queries'
+import { runServicesQuery }         from './queries'
+import { runHeroQuery }             from './queries'
+import { runAboutQuery }            from './queries'
 
 interface Props {
   ogCover: string
   SEO: any
+  data: any
 }
 
-const Fragments = () => {
+const Fragments = ({ data: { hero, about, services, workFormats, feedback } }) => {
   const spyScrollStore = useSpyScroll()
   const { getObserverOptions } = useIntersectionObserver((id) => {
     const order = ['hero', 'about', 'services', 'work-format', 'feedback']
@@ -50,19 +57,19 @@ const Fragments = () => {
 
   return (
     <>
-      <Hero {...getObserverOptions('hero', 0.6)} />
+      <Hero data={hero} {...getObserverOptions('hero', 0.6)} />
       <WorkDirections />
-      <About {...getObserverOptions('about', 0.6)} />
-      <Services {...getObserverOptions('services', 0.3)} />
-      <WorkFormat {...getObserverOptions('work-format', 0.5)} />
-      <Feedback {...getObserverOptions('feedback', 0.8)} contacts />
+      <About data={about} {...getObserverOptions('about', 0.6)} />
+      <Services data={services} {...getObserverOptions('services', 0.3)} />
+      <WorkFormat data={workFormats} {...getObserverOptions('work-format', 0.5)} />
+      <Feedback data={feedback} {...getObserverOptions('feedback', 0.8)} contacts />
       <Map />
       <Footer />
     </>
   )
 }
 
-const IndexPage: FC<Props> = ({ ogCover, SEO = { RU: {}, EN: {} } }) => {
+const IndexPage: FC<Props> = ({ ogCover, SEO = { RU: {}, EN: {} }, data }) => {
   const languageContext = useState<Language>('RU')
   const containerRef = useRef(null)
 
@@ -80,7 +87,7 @@ const IndexPage: FC<Props> = ({ ogCover, SEO = { RU: {}, EN: {} } }) => {
               <SpyScroll />
               <Seo language={languageContext} ogCover={ogCover} SEO={SEO} />
               <main data-scroll-container ref={containerRef}>
-                <Fragments />
+                <Fragments data={data} />
               </main>
             </SpyScrollProvider>
           </LocomotiveScrollProvider>
@@ -90,10 +97,12 @@ const IndexPage: FC<Props> = ({ ogCover, SEO = { RU: {}, EN: {} } }) => {
   )
 }
 
-export const getServerSideProps = async () => {
+export const getServerSideProps = async ({ res }) => {
   const client = getClient()
 
   let SEO
+
+  setCacheHeader(res, 3600, 300)
 
   const { data: seoData } = await client.query({
     query: GET_INDEX_SEO,
@@ -115,7 +124,19 @@ export const getServerSideProps = async () => {
 
   const ogCover = previewData?.mediaItemBy.sourceUrl
 
-  return { props: { SEO, ogCover } }
+  const queryPromises: Array<Promise<any>> = [
+    runHeroQuery(),
+    runAboutQuery(),
+    runServicesQuery(),
+    runWorkFormatsQuery(),
+    runFeedbackQuery(),
+  ]
+
+  const retrievedData = await Promise.all(queryPromises)
+
+  const data = retrievedData.reduce((props, allData) => ({ ...props, ...allData }), {})
+
+  return { props: { SEO, ogCover, data } }
 }
 
 export default IndexPage

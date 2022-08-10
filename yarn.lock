@@ -1108,12 +1108,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@globals/dom@workspace:0.0.1, @globals/dom@workspace:globals/dom":
-  version: 0.0.0-use.local
-  resolution: "@globals/dom@workspace:globals/dom"
-  languageName: unknown
-  linkType: soft
-
 "@globals/language@workspace:0.0.1, @globals/language@workspace:globals/language":
   version: 0.0.0-use.local
   resolution: "@globals/language@workspace:globals/language"
@@ -3622,7 +3616,6 @@ __metadata:
     "@emotion/react": ^11.9.3
     "@emotion/styled": ^11.9.3
     "@globals/data": "workspace:0.0.1"
-    "@globals/dom": "workspace:0.0.1"
     "@globals/language": "workspace:0.0.1"
     "@types/events": ^3
     "@types/styled-system": ^5

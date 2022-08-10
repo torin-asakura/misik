@@ -1,6 +1,6 @@
 const normalizeString = (string) =>
   string
-    .replace(/(<p>|<\/p>)/g, '')
+    ?.replace(/(<p>|<\/p>)/g, '')
     .replace(/(<ol>|<\/ol>)/g, '')
     .replace(/(<li>|<\/li>)/g, '')
     .replace(/&#8211;/g, '-')

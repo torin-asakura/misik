@@ -1,40 +1,23 @@
-/* eslint-disable no-shadow */
+import React               from 'react'
+import { forwardRef }      from 'react'
 
-import React              from 'react'
-import { forwardRef }     from 'react'
-import { useMemo }        from 'react'
+import { Reviews }         from '@landing/reviews-fragment'
+import { Condition }       from '@ui/condition'
+import { Divider }         from '@ui/divider'
+import { Box }             from '@ui/layout'
+import { Row }             from '@ui/layout'
+import { Layout }          from '@ui/layout'
+import { Column }          from '@ui/layout'
+import { Text }            from '@ui/text'
+import { extractFragment } from '@globals/data'
+import { extractObjects }  from '@globals/data'
+import { useLanguage }     from '@globals/language'
 
-import { Reviews }        from '@landing/reviews-fragment'
-import { Condition }      from '@ui/condition'
-import { Divider }        from '@ui/divider'
-import { Box }            from '@ui/layout'
-import { Row }            from '@ui/layout'
-import { Layout }         from '@ui/layout'
-import { Column }         from '@ui/layout'
-import { Text }           from '@ui/text'
-import { useData }        from '@globals/data'
-import { extractObject }  from '@globals/data'
-import { extractObjects } from '@globals/data'
-import { sortByOrder }    from '@globals/data'
-import { useLanguage }    from '@globals/language'
-
-const WorkFormat = forwardRef((props, ref: any) => {
-  const { fragments } = useData()
+const WorkFormat = forwardRef(({ data }: any, ref: any) => {
   const [language] = useLanguage()
 
-  let { workFormats, title } = useMemo(() => {
-    if (!fragments) {
-      return { workFormats: [], title: '' }
-    }
-
-    workFormats = extractObjects('format', fragments.workformat[language])
-    title = extractObject('title', fragments.workformat[language])?.title
-
-    return {
-      workFormats,
-      title,
-    }
-  }, [fragments, language])
+  const items = extractObjects('item', 'contentAddons', data[language])
+  const mainTitle = extractFragment('contentAddons', 'lead', data[language]).title
 
   return (
     <Box width='100%' backgroundColor='background.lightBeige' justifyContent='center' ref={ref}>
@@ -49,12 +32,12 @@ const WorkFormat = forwardRef((props, ref: any) => {
               fontWeight='thin'
               textTransform='uppercase'
             >
-              {title}
+              {mainTitle}
             </Text>
           </Layout>
           <Layout flexBasis={[60, 60, 64]} flexShrink={0} />
           <Column width='100%'>
-            {workFormats.sort(sortByOrder).map(({ title, content }, idx) => (
+            {items.map(({ contentAddons: { title, content } }, idx) => (
               <Column>
                 <Column height={['100%', '100%', 120]}>
                   <Layout>
@@ -92,7 +75,7 @@ const WorkFormat = forwardRef((props, ref: any) => {
                     </Layout>
                   </Box>
                 </Column>
-                <Condition match={idx !== workFormats.length - 1}>
+                <Condition match={idx !== items.length - 1}>
                   <Layout flexBasis={[40, 40, 52]} flexShrink={0} />
                 </Condition>
               </Column>
