@@ -1,6 +1,6 @@
-import React        from 'react'
-import { FC }       from 'react'
-import { motion }   from 'framer-motion'
+import React         from 'react'
+import { FC }        from 'react'
+import { motion }    from 'framer-motion'
 
 import { IconProps } from './icon.interface'
 

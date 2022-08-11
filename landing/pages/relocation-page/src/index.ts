@@ -1,1 +1,2 @@
-export { default, getServerSideProps } from './relocation.page'
+export { default } from './relocation.page'
+export * from './get-server-side-props'
