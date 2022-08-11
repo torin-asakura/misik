@@ -4,7 +4,6 @@ import { useState }               from 'react'
 import { useEffect }              from 'react'
 
 import { Button }                 from '@ui/button'
-import { Condition }              from '@ui/condition'
 import { Drawer }                 from '@ui/drawer'
 import { DrawerMobileNavigation } from '@ui/drawer'
 import { Layer }                  from '@ui/layer'
@@ -78,25 +77,21 @@ const Navigation: FC = () => {
         >
           <Layout flexBasis={[20, 20, 40]} flexShrink={0} />
           <Row alignItems='center' height='100%'>
-            <Layout display={['flex', 'flex', 'none']}>
-              <Condition match={!isMobileNav}>
-                <Button
-                  colors='transparent'
-                  size='ghost'
-                  onClick={() => setIsMobileNav(!isMobileNav)}
-                >
-                  <BurgerIcon />
-                </Button>
-              </Condition>
-              <Condition match={isMobileNav}>
-                <Button
-                  colors='transparent'
-                  size='ghost'
-                  onClick={() => setIsMobileNav(!isMobileNav)}
-                >
-                  <CloseIcon />
-                </Button>
-              </Condition>
+            <Layout minWidth={34} minHeight={32} display={['flex', 'flex', 'none']}>
+              <Button
+                colors='transparent'
+                size='ghost'
+                onClick={() => setIsMobileNav(!isMobileNav)}
+              >
+                <BurgerIcon toggle={isMobileNav} />
+              </Button>
+              <Button
+                colors='transparent'
+                size='ghost'
+                onClick={() => setIsMobileNav(!isMobileNav)}
+              >
+                <CloseIcon toggle={isMobileNav} />
+              </Button>
             </Layout>
             <Layout display={['flex', 'flex', 'none']} flexBasis={24} flexShrink={0} />
             <Layout>

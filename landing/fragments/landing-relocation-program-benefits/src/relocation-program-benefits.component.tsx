@@ -66,46 +66,46 @@ const RelocationProgramBenefits: FC = () => {
             <Layout display={['none', 'none', 'flex']}>
               <Row flexWrap='wrap'>
                 {programBenefits[language].map(({ id, title, content, featuredImage }, index) => (
-                  <Column
-                    key={id}
-                    width={['100%', '100%', 360]}
-                    marginRight={[0, 0, 68]}
-                    height='auto'
-                  >
+                  <Column key={id} width={['100%', '100%', 428]} height='auto'>
                     <Row>
-                      <Box width={72} height={72} borderRadius='max' border='1 px solid black'>
-                        <Image
-                          alt={featuredImage?.node?.altText}
-                          src={featuredImage?.node?.sourceUrl}
-                        />
-                      </Box>
+                      <Column>
+                        <Row>
+                          <Box width={72} height={72} borderRadius='max' border='1 px solid black'>
+                            <Image
+                              alt={featuredImage?.node?.altText}
+                              src={featuredImage?.node?.sourceUrl}
+                            />
+                          </Box>
+                        </Row>
+                        <Layout flexBasis={24} />
+                        <Row>
+                          <Text
+                            color='text.primary'
+                            fontSize='large'
+                            lineHeight='small'
+                            fontFamily='secondary'
+                            textTransform='uppercase'
+                            fontWeight='medium'
+                          >
+                            {title}
+                          </Text>
+                        </Row>
+                        <Layout flexBasis={16} />
+                        <Row>
+                          <Text
+                            color='text.secondary'
+                            fontSize={['tiny', 'tiny', 'regular']}
+                            lineHeight='big'
+                          >
+                            {content}
+                          </Text>
+                        </Row>
+                        <Condition match={index !== programBenefits[language].length - 1}>
+                          <Layout flexBasis={[40, 40, 80]} />
+                        </Condition>
+                      </Column>
+                      <Layout flexBasis={[0, 0, 68]} flexShrink={0} />
                     </Row>
-                    <Layout flexBasis={24} />
-                    <Row>
-                      <Text
-                        color='text.primary'
-                        fontSize='large'
-                        lineHeight='small'
-                        fontFamily='secondary'
-                        textTransform='uppercase'
-                        fontWeight='medium'
-                      >
-                        {title}
-                      </Text>
-                    </Row>
-                    <Layout flexBasis={16} />
-                    <Row>
-                      <Text
-                        color='text.secondary'
-                        fontSize={['tiny', 'tiny', 'regular']}
-                        lineHeight='big'
-                      >
-                        {content}
-                      </Text>
-                    </Row>
-                    <Condition match={index !== programBenefits[language].length - 1}>
-                      <Layout flexBasis={[40, 40, 80]} />
-                    </Condition>
                   </Column>
                 ))}
               </Row>
