@@ -1,6 +1,5 @@
 import React                        from 'react'
 import { FC }                       from 'react'
-import { useEffect }                from 'react'
 import { useState }                 from 'react'
 import { useRef }                   from 'react'
 
@@ -21,6 +20,7 @@ import { Preloader }                from '@ui/preloader'
 import { SpyScroll }                from '@ui/spy-scroll'
 import { SpyScrollProvider }        from '@ui/spy-scroll'
 import { useIntersectionObserver }  from '@ui/intersection-observer'
+import { usePreloader }             from '@ui/preloader'
 import { useSpyScroll }             from '@ui/spy-scroll'
 
 import { Seo }                      from './seo.component'
@@ -33,27 +33,25 @@ interface Props {
 
 const Fragments = ({ data: { hero, about, services, workFormats, feedback } }) => {
   const spyScrollStore = useSpyScroll()
+  const preloaderStore = usePreloader()
   const { getObserverOptions } = useIntersectionObserver((id) => {
     const order = ['hero', 'about', 'services', 'work-format', 'feedback']
 
     spyScrollStore.setActive(order.indexOf(id))
   })
 
-  useEffect(() => {
-    setTimeout(() => {
-      spyScrollStore.setActive(0)
-    }, 1000)
-    // eslint-disable-next-line
-  }, [])
+  preloaderStore.addListener(() => {
+    spyScrollStore.setActive(0)
+  })
 
   return (
     <>
-      <Hero data={hero} {...getObserverOptions('hero', 0.6)} />
+      <Hero data={hero} {...getObserverOptions('hero')} />
       <WorkDirections />
-      <About data={about} {...getObserverOptions('about', 0.6)} />
-      <Services data={services} {...getObserverOptions('services', 0.3)} />
-      <WorkFormat data={workFormats} {...getObserverOptions('work-format', 0.5)} />
-      <Feedback data={feedback} {...getObserverOptions('feedback', 0.8)} contacts />
+      <About data={about} {...getObserverOptions('about')} />
+      <Services data={services} {...getObserverOptions('services')} />
+      <WorkFormat data={workFormats} {...getObserverOptions('work-format')} />
+      <Feedback data={feedback} {...getObserverOptions('feedback')} contacts />
       <Map />
       <Footer />
     </>
