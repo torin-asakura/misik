@@ -2,6 +2,7 @@ import React                  from 'react'
 import { FC }                 from 'react'
 import { useMemo }            from 'react'
 
+import { Condition }          from '@ui/condition'
 import { Divider }            from '@ui/divider'
 import { Image }              from '@ui/image'
 import { Layout }             from '@ui/layout'
@@ -45,7 +46,7 @@ const RelocationProgramBenefits: FC = () => {
         <Layout maxWidth={1284}>
           <Column fill height='auto'>
             <Layout flexBasis={[64, 64, 160]} flexShrink={0} />
-            <Row>
+            <Row maxWidth={[300, 550, 860]}>
               <Text
                 color='text.primary'
                 fontWeight='thin'
@@ -61,57 +62,61 @@ const RelocationProgramBenefits: FC = () => {
             <Layout>
               <Divider />
             </Layout>
-            <Layout flexBasis={[0, 0, 64]} flexShrink={0} />
+            <Layout flexBasis={[32, 32, 80]} flexShrink={0} />
             <Layout display={['none', 'none', 'flex']}>
               <Row flexWrap='wrap'>
-                {programBenefits[language].map(({ id, title, content, featuredImage }) => (
-                  <Column
-                    key={id}
-                    width={['100%', '100%', 388]}
-                    marginRight={[0, 0, 40]}
-                    height='auto'
-                  >
+                {programBenefits[language].map(({ id, title, content, featuredImage }, index) => (
+                  <Column key={id} width={['100%', '100%', 428]} height='auto'>
                     <Row>
-                      <Box width={72} height={72} borderRadius='max' border='1 px solid black'>
-                        <Image
-                          alt={featuredImage?.node?.altText}
-                          src={featuredImage?.node?.sourceUrl}
-                        />
-                      </Box>
+                      <Column>
+                        <Row>
+                          <Box width={72} height={72} borderRadius='max' border='1 px solid black'>
+                            <Image
+                              alt={featuredImage?.node?.altText}
+                              src={featuredImage?.node?.sourceUrl}
+                            />
+                          </Box>
+                        </Row>
+                        <Layout flexBasis={24} />
+                        <Row>
+                          <Text
+                            color='text.primary'
+                            fontSize='large'
+                            lineHeight='small'
+                            fontFamily='secondary'
+                            textTransform='uppercase'
+                            fontWeight='medium'
+                          >
+                            {title}
+                          </Text>
+                        </Row>
+                        <Layout flexBasis={16} />
+                        <Row>
+                          <Text
+                            color='text.secondary'
+                            fontSize={['tiny', 'tiny', 'regular']}
+                            lineHeight='big'
+                          >
+                            {content}
+                          </Text>
+                        </Row>
+                        <Condition match={index !== programBenefits[language].length - 1}>
+                          <Layout flexBasis={[40, 40, 80]} />
+                        </Condition>
+                      </Column>
+                      <Layout flexBasis={[0, 0, 68]} flexShrink={0} />
                     </Row>
-                    <Layout flexBasis={24} />
-                    <Row>
-                      <Text
-                        color='text.primary'
-                        fontSize='large'
-                        lineHeight='small'
-                        fontFamily='secondary'
-                        textTransform='uppercase'
-                        fontWeight='medium'
-                      >
-                        {title}
-                      </Text>
-                    </Row>
-                    <Layout flexBasis={16} />
-                    <Row>
-                      <Text
-                        color='text.secondary'
-                        fontSize={['tiny', 'tiny', 'regular']}
-                        lineHeight='big'
-                      >
-                        {content}
-                      </Text>
-                    </Row>
-                    <Layout flexBasis={[40, 40, 80]} />
                   </Column>
                 ))}
               </Row>
             </Layout>
             <Layout display={['flex', 'flex', 'none']}>
               <Column height='min-content'>
-                {programBenefits[language].map(({ id, title, content, featuredImage }) => (
+                {programBenefits[language].map(({ id, title, content, featuredImage }, index) => (
                   <Column key={id} width='100%' height='auto'>
-                    <Layout flexBasis={40} />
+                    <Condition match={index !== 0}>
+                      <Layout flexBasis={40} />
+                    </Condition>
                     <Column>
                       <Row>
                         <Box width={72} height={72} borderRadius='max' border='1 px solid black'>
@@ -149,7 +154,7 @@ const RelocationProgramBenefits: FC = () => {
                 ))}
               </Column>
             </Layout>
-            <Layout flexBasis={[64, 64, 80]} flexShrink={0} />
+            <Layout flexBasis={[64, 64, 160]} flexShrink={0} />
           </Column>
         </Layout>
       </AnimateOnLoad>

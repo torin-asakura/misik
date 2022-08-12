@@ -1,15 +1,8 @@
-import React          from 'react'
-import Helmet         from 'react-helmet'
+import React  from 'react'
+import Helmet from 'react-helmet'
 
-import { usePreview } from '@globals/data'
-
-import { useSeo }     from './seo.data'
-
-const Seo = ({ language }) => {
-  const SEO = useSeo()
-
+const Seo = ({ language, ogCover, SEO }) => {
   const { title } = SEO[language] || { title: 'Boris Misik' }
-  const { preview } = usePreview('main-preview')
 
   return (
     <Helmet
@@ -41,7 +34,7 @@ const Seo = ({ language }) => {
         },
         {
           property: 'og:image',
-          content: preview,
+          content: ogCover,
         },
         {
           property: 'og:type',

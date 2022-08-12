@@ -1,6 +1,5 @@
 import React               from 'react'
 import { Children }        from 'react'
-import { forwardRef }      from 'react'
 import { useState }        from 'react'
 
 import { Swiper }          from '@ui/carousel'
@@ -15,7 +14,7 @@ import { Item }            from './item'
 import { Popover }         from './popover'
 import { useReviews }      from './data'
 
-export const Reviews = forwardRef((props, ref) => {
+const Reviews = () => {
   const [language] = useLanguage()
   const reviews = useReviews()
   const [activeItem, setActiveItem] = useState<number | null>(null)
@@ -38,13 +37,8 @@ export const Reviews = forwardRef((props, ref) => {
         reviews={reviews}
         language={language}
       />
-      <Box
-        ref={ref as any}
-        width='100%'
-        borderRadius='big'
-        backgroundColor='background.beige'
-        justifyContent='center'
-      >
+      <Box width='100%' backgroundColor='background.lightBeige' justifyContent='center'>
+        <Layout flexBasis={[0, 0, 397]} flexShrink={1} maxWidth={['auto', 'auto', 430]} />
         <Layout width='100%' maxWidth={1243}>
           <Column justifyContent='center' width='100%'>
             <Layout display={['none', 'none', 'flex']}>
@@ -62,7 +56,11 @@ export const Reviews = forwardRef((props, ref) => {
                 ))}
               </Swiper>
             </Layout>
-            <Layout display={['flex', 'flex', 'none']}>
+            <Box
+              backgroundColor='background.beige'
+              borderRadius='big'
+              display={['flex', 'flex', 'none']}
+            >
               <Swiper
                 slidesPerView={1}
                 spaceBetween={40}
@@ -76,11 +74,14 @@ export const Reviews = forwardRef((props, ref) => {
                   <SwiperSlide>{child}</SwiperSlide>
                 ))}
               </Swiper>
-            </Layout>
+            </Box>
+            <Layout flexBasis={[64, 64, 160]} flexShrink={0} />
           </Column>
         </Layout>
-        <Layout flexBasis={[0, 0, 280]} flexShrink={[0, 0, 1]} />
+        <Layout flexBasis={[0, 0, 280]} flexShrink={1} />
       </Box>
     </>
   )
-})
+}
+
+export { Reviews }

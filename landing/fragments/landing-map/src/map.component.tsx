@@ -1,14 +1,15 @@
-import React              from 'react'
-import { Map as MBGLMap } from 'mapbox-gl'
-import { Marker }         from 'mapbox-gl'
-import { FC }             from 'react'
-import { useRef }         from 'react'
-import { useEffect }      from 'react'
-import { useMemo }        from 'react'
+import React                 from 'react'
+import { Map as MBGLMap }    from 'mapbox-gl'
+import { Marker }            from 'mapbox-gl'
+import { NavigationControl } from 'mapbox-gl'
+import { FC }                from 'react'
+import { useRef }            from 'react'
+import { useEffect }         from 'react'
+import { useMemo }           from 'react'
 
-import { Box }            from '@ui/layout'
-import { useData }        from '@globals/data'
-import { extractObject }  from '@globals/data'
+import { Box }               from '@ui/layout'
+import { useData }           from '@globals/data'
+import { extractObject }     from '@globals/data'
 
 const Map: FC = () => {
   const ref = useRef(null)
@@ -31,16 +32,18 @@ const Map: FC = () => {
         accessToken,
         container: (ref as any).current,
         center: [37.646, 55.739],
-        zoom: 9,
-        style: 'mapbox://styles/tfk70/cky2ykvih22sr14qcrc9l75mf',
+        zoom: 2.32,
+        style: 'mapbox://styles/tfk70/cl6p71gr8003q15qogjn333k2',
       })
+      const navControl = new NavigationControl()
 
       map.scrollZoom.disable()
+      map.addControl(navControl)
 
       map.on('load', () => {
         geoObjects
           .split('\n')
-          .map((obj) => obj.split('-'))
+          .map((obj) => obj.split(':'))
           .forEach(([coordinates, content]) => {
             const markerElement = document.createElement('div')
             markerElement.className = 'circle_layout'

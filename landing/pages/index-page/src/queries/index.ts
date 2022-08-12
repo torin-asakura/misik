@@ -1,0 +1,6 @@
+export * from './hero.query'
+export * from './seo.query'
+export * from './about.query'
+export * from './services.query'
+export * from './work-format.query'
+export * from './feedback.query'

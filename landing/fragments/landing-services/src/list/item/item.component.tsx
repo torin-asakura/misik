@@ -24,25 +24,26 @@ const Item: FC<ItemProps> = ({ image, title, content, link, reverse = false }) =
 
   return (
     <>
-      <Layer visible={visible} onClose={() => setVisible(false)} />
+      <Layer scroll visible={visible} onClose={() => setVisible(false)} />
       <Drawer active={visible} onClose={() => setVisible(false)} />
       <Box
         width='100%'
-        height={['auto', 'auto', 520]}
+        height={['auto', 'auto', 400]}
         itemScope
         itemType='https://schema.org/Thing'
       >
         <Column width='100%' display={['none', 'none', 'flex']}>
           <Condition match={!reverse}>
             <Row height='100%'>
-              <Layout width='100%'>
-                <Box width='100%' height='100%'>
+              <Layout>
+                <Box width={['100%', '100%', 543]} height='100%'>
                   <Image src={image?.sourceUrl} alt={image?.altText} contain />
                 </Box>
               </Layout>
-              <Layout flexBasis={134} />
+              <Layout flexBasis={40} flexShrink={0} />
               <Column width='100%' justifyContent='center'>
                 <Text
+                  lineHeight='small'
                   fontFamily='secondary'
                   fontSize='increased'
                   color='text.primary'
@@ -52,12 +53,20 @@ const Item: FC<ItemProps> = ({ image, title, content, link, reverse = false }) =
                   {title}
                 </Text>
                 <Layout flexBasis={16} />
-                {content.split('\n').map((piece) => (
+                {content.split('|n|').map((piece, index) => (
                   <>
-                    <Text color='text.secondary' lineHeight='primary' itemProp='description'>
+                    <Text
+                      color='text.secondary'
+                      lineHeight='big'
+                      itemProp='description'
+                      fontSize={['tiny', 'tiny', 'regular']}
+                    >
                       {piece}
                     </Text>
-                    <Layout flexBasis={16} />
+                    <Layout flexBasis={8} />
+                    <Condition match={index === content.split('|n|').length - 1}>
+                      <Layout flexGrow={1} />
+                    </Condition>
                   </>
                 ))}
                 <Condition match={!link}>
@@ -68,7 +77,7 @@ const Item: FC<ItemProps> = ({ image, title, content, link, reverse = false }) =
                       height={18}
                       onClick={() => setVisible(true)}
                     >
-                      {messages.orderService[language]}
+                      <Text lineHeight='small'>{messages.orderService[language]}</Text>
                     </Button>
                   </Layout>
                 </Condition>
@@ -76,7 +85,7 @@ const Item: FC<ItemProps> = ({ image, title, content, link, reverse = false }) =
                   <Layout>
                     <NextLink path={link}>
                       <Button colors='secondary' height={18}>
-                        {messages.moreAboutService[language]}
+                        <Text lineHeight='small'>{messages.moreAboutService[language]}</Text>
                       </Button>
                     </NextLink>
                   </Layout>
@@ -96,12 +105,19 @@ const Item: FC<ItemProps> = ({ image, title, content, link, reverse = false }) =
                   {title}
                 </Text>
                 <Layout flexBasis={16} />
-                {content.split('\n').map((piece) => (
+                {content.split('|n|').map((piece, index) => (
                   <>
-                    <Text color='text.secondary' lineHeight='primary'>
+                    <Text
+                      color='text.secondary'
+                      lineHeight='big'
+                      fontSize={['tiny', 'tiny', 'regular']}
+                    >
                       {piece}
                     </Text>
                     <Layout flexBasis={16} />
+                    <Condition match={index === content.split('|n|').length - 1}>
+                      <Layout flexGrow={1} />
+                    </Condition>
                   </>
                 ))}
                 <Layout>
@@ -112,23 +128,23 @@ const Item: FC<ItemProps> = ({ image, title, content, link, reverse = false }) =
                       height={18}
                       onClick={() => setVisible(true)}
                     >
-                      {messages.orderService[language]}
+                      <Text lineHeight='small'>{messages.orderService[language]}</Text>
                     </Button>
                   </Condition>
                   <Condition match={link}>
                     <Layout>
                       <NextLink path={link}>
                         <Button colors='secondary' height={18}>
-                          {messages.moreAboutService[language]}
+                          <Text lineHeight='small'>{messages.moreAboutService[language]}</Text>
                         </Button>
                       </NextLink>
                     </Layout>
                   </Condition>
                 </Layout>
               </Column>
-              <Layout flexBasis={134} />
-              <Layout width='100%'>
-                <Box width='100%' height='100%'>
+              <Layout flexBasis={40} flexShrink={0} />
+              <Layout justifyContent='flex-end'>
+                <Box width={['100%', '100%', 543]} height='100%'>
                   <Image src={image?.sourceUrl} alt={image?.altText} contain />
                 </Box>
               </Layout>
@@ -155,8 +171,12 @@ const Item: FC<ItemProps> = ({ image, title, content, link, reverse = false }) =
                 </Text>
               </Layout>
               <Layout flexBasis={16} />
-              {content.split('\n').map((piece) => (
-                <Text color='text.secondary' lineHeight='primary'>
+              {content.split('|n|').map((piece) => (
+                <Text
+                  color='text.secondary'
+                  lineHeight='primary'
+                  fontSize={['tiny', 'tiny', 'regular']}
+                >
                   {piece}
                 </Text>
               ))}
@@ -169,14 +189,14 @@ const Item: FC<ItemProps> = ({ image, title, content, link, reverse = false }) =
                     height={18}
                     onClick={() => setVisible(true)}
                   >
-                    {messages.orderService[language]}
+                    <Text lineHeight='small'>{messages.orderService[language]}</Text>
                   </Button>
                 </Condition>
                 <Condition match={link}>
                   <Layout>
                     <NextLink path={link}>
                       <Button colors='secondary' height={18}>
-                        {messages.moreAboutService[language]}
+                        <Text lineHeight='small'>{messages.moreAboutService[language]}</Text>
                       </Button>
                     </NextLink>
                   </Layout>

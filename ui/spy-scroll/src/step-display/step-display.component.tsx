@@ -12,7 +12,6 @@ import { useLanguage } from '@globals/language'
 import { useSteps }    from '../data'
 
 const VerticalText: FC = styled(Text)({
-  transform: 'rotate(-90deg)',
   whiteSpace: 'nowrap',
   backgroundColor: 'white',
   paddingTop: 6,
@@ -20,6 +19,12 @@ const VerticalText: FC = styled(Text)({
   paddingLeft: 9,
   paddingRight: 9,
   borderRadius: 24,
+})
+
+const Wrapper: FC = styled(Layout)({
+  width: '100%',
+  verticalAlign: 'text-bottom',
+  transform: 'rotate(-90deg)',
 })
 
 const TransitionBox = styled(Box)({
@@ -32,8 +37,10 @@ const StepDisplay = ({ activeDot }) => {
 
   return (
     <Column fill alignItems='center'>
-      <VerticalText>{steps[language][activeDot]?.title}</VerticalText>
-      <Layout flexGrow={1} flexBasis={32} />
+      <Wrapper>
+        <VerticalText>{steps[language][activeDot]?.title}</VerticalText>
+      </Wrapper>
+      <Layout flexBasis={32} flexShrink={0} />
       <Box backgroundColor='background.lightGray' width={2} height={240}>
         <TransitionBox
           height={`${((activeDot + 1) / steps[language].length) * 100}%`}

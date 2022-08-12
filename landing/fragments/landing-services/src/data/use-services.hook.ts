@@ -1,9 +1,10 @@
 import { useQuery }     from '@apollo/client'
 
-import { GET_SERVICES } from './services.query'
-import { filter }       from './filter'
-import { normalize }    from './normalizer'
+import { filter }       from '@globals/data'
+import { normalizer }   from '@globals/data'
 
-const useServices = () => filter(normalize(useQuery(GET_SERVICES).data?.services?.nodes || []))
+import { GET_SERVICES } from './services.query'
+
+const useServices = () => filter(normalizer(useQuery(GET_SERVICES).data?.services?.nodes || []))
 
 export { useServices }

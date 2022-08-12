@@ -86,14 +86,14 @@ const RelocationHowMoveToAmerica: FC = () => {
               alignItems={['center', 'center', 'flex-start']}
               flexDirection={['column', 'column', 'row']}
             >
-              <Box position='relative' width={['100%', 335, 480]} height={[335, 335, 480]}>
+              <Box position='relative' width={[335, 335, 480]} height={[335, 335, 480]}>
                 <Image alt={imageAlt} src={imageUrl} contain />
-                <Box position='absolute' top='30%' left={-16}>
+                <Box position='absolute' top={['42%', '42%', '40%']} left={[2, 2, -1]}>
                   <Layout display={['none', 'none', 'flex']}>
-                    <MisikLawIcon size={141} />
+                    <MisikLawIcon width={140} height={140} />
                   </Layout>
                   <Layout display={['flex', 'flex', 'none']}>
-                    <MisikLawIcon size={90} />
+                    <MisikLawIcon width={90} height={90} />
                   </Layout>
                 </Box>
               </Box>

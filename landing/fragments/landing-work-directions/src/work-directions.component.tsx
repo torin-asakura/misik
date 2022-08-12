@@ -33,10 +33,11 @@ const WorkDirections: FC = () => {
                     />
                   </Box>
                   <Layout flexBasis={24} flexShrink={0} />
-                  <Layout height={48}>
+                  <Layout height={49}>
                     <Text
                       fontFamily='secondary'
                       fontWeight='medium'
+                      lineHeight='extra'
                       fontSize={['medium', 'medium', 'semiLarge']}
                       textAlign='center'
                       textTransform='uppercase'
@@ -51,7 +52,7 @@ const WorkDirections: FC = () => {
           </Carousel>
         </Box>
         <Layout flexBasis={[40, 40, 80]} />
-        <Layout>
+        <Layout width='100%'>
           <Divider />
         </Layout>
       </Column>

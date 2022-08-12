@@ -10,9 +10,9 @@ import { Layout }      from '@ui/layout'
 const Desktop: FC = ({ children }) => (
   <Swiper
     modules={[Autoplay]}
-    slidesPerView={6}
-    spaceBetween={160}
-    width={1830}
+    slidesPerView={11}
+    spaceBetween={80}
+    width={3000}
     height={220}
     touchEventsTarget='container'
     autoplay={{

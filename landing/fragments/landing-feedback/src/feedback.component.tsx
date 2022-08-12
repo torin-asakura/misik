@@ -1,63 +1,42 @@
-import React             from 'react'
-import { FC }            from 'react'
-import { forwardRef }    from 'react'
-import { useMemo }       from 'react'
+import React               from 'react'
+import { FC }              from 'react'
+import { forwardRef }      from 'react'
 
-import { Branches }      from '@landing/branches-fragment'
-import { Condition }     from '@ui/condition'
-import { Copy }          from '@ui/copy'
-import { Form }          from '@ui/form'
-import { Box }           from '@ui/layout'
-import { Layout }        from '@ui/layout'
-import { Column }        from '@ui/layout'
-import { Row }           from '@ui/layout'
-import { Link }          from '@ui/link'
-import { AnimateOnLoad } from '@ui/preloader'
-import { Socials }       from '@ui/socials'
-import { Text }          from '@ui/text'
-import { Space }         from '@ui/text'
-import { useData }       from '@globals/data'
-import { extractObject } from '@globals/data'
-import { useLanguage }   from '@globals/language'
-import { messages }      from '@globals/messages'
+import { Branches }        from '@landing/branches-fragment'
+import { Condition }       from '@ui/condition'
+import { Copy }            from '@ui/copy'
+import { Form }            from '@ui/form'
+import { Box }             from '@ui/layout'
+import { Layout }          from '@ui/layout'
+import { Column }          from '@ui/layout'
+import { Row }             from '@ui/layout'
+import { Link }            from '@ui/link'
+import { AnimateOnLoad }   from '@ui/preloader'
+import { Socials }         from '@ui/socials'
+import { Text }            from '@ui/text'
+import { Space }           from '@ui/text'
+import { extractFragment } from '@globals/data'
+import { useLanguage }     from '@globals/language'
+import { messages }        from '@globals/messages'
 
-import { FeedbackProps } from './feedback.interface'
+import { FeedbackProps }   from './feedback.interface'
 
 const Feedback: FC<FeedbackProps> = forwardRef((
-  { background = 'background.lightBeige', contacts = false },
+  { background = 'background.lightBeige', data, contacts = false },
   ref: any
 ) => {
-  const { fragments } = useData()
   const [language] = useLanguage()
 
-  let { text, highlighted, content, email } = useMemo(() => {
-    if (!fragments) {
-      return {
-        text: '',
-        highlighted: '',
-        content: '',
-        email: '',
-      }
-    }
-    const titleFragment = extractObject('title', fragments.feedback[language])
-    const emailFragment = extractObject('email', fragments.feedback.RU)
+  const titleFragment = extractFragment('contentAddons', 'lead', data[language])
+  const emailFragment = extractFragment('contentAddons', 'email', data[language])
 
-    text = titleFragment?.title
-    highlighted = titleFragment?.fragmentParams.highlightedText
-    content = titleFragment?.content
-    email = emailFragment?.content
-
-    return {
-      text,
-      highlighted,
-      content,
-      email,
-    }
-  }, [fragments, language])
+  const text = titleFragment?.title
+  const highlighted = titleFragment?.highlightedtext
+  const content = titleFragment?.content
+  const email = emailFragment?.title
 
   return (
     <Box
-      id='feedback'
       width='100%'
       height={['auto', 'auto', '100%']}
       backgroundColor={background}
@@ -72,13 +51,12 @@ const Feedback: FC<FeedbackProps> = forwardRef((
         borderRadius={['topMedium', 'topMedium', 'topHuge']}
         justifyContent='center'
       >
-        <Layout flexBasis={[20, 20, 616]} flexShrink={[0, 0, 1]} maxWidth={['auto', 'auto', 430]} />
+        <Layout flexBasis={[20, 20, 397]} flexShrink={[0, 0, 1]} />
         <Layout width='100%' height='100%' maxWidth={1243}>
           <Column width='100%'>
             <Layout flexBasis={[48, 48, 160]} />
             <Layout flexDirection={['column', 'column', 'row']} width='100%'>
               <Column width='100%' maxWidth={895}>
-                <Layout flexBasis={[48, 48, 0]} />
                 <Layout maxWidth={620}>
                   <AnimateOnLoad
                     initial={{ opacity: 0, y: '100%' }}
@@ -120,7 +98,7 @@ const Feedback: FC<FeedbackProps> = forwardRef((
                     </Column>
                   </AnimateOnLoad>
                 </Layout>
-                <Layout flexBasis={[16, 16, 32]} />
+                <Layout flexBasis={16} />
                 <AnimateOnLoad
                   initial={{ opacity: 0, y: '100%' }}
                   transition={{ duration: 1 }}
@@ -153,23 +131,28 @@ const Feedback: FC<FeedbackProps> = forwardRef((
                       </Link>
                     </Layout>
                     <Layout flexBasis={16} />
-                    <Layout display={['flex', 'flex', 'none']}>
+                    <Layout>
                       <Copy content={email} />
                     </Layout>
                   </Row>
                 </AnimateOnLoad>
-                <Layout flexBasis={44} />
-                <Row alignItems='center'>
-                  <Layout flexDirection={['column', 'column', 'row']}>
+                <Layout flexBasis={[24, 24, 32]} />
+                <Layout
+                  flexDirection={['column', 'column', 'row']}
+                  alignItems={['flex-start', 'flex-start', 'center']}
+                >
+                  <Layout minWidth={['100%', '100%', 160]}>
                     <Text fontSize={['semiRegular', 'semiRegular', 'small']} color='text.secondary'>
                       {messages.weAreInSocialNetworks[language]}
                     </Text>
                   </Layout>
-                  <Layout flexBasis={24} />
-                  <Socials />
-                </Row>
+                  <Layout flexBasis={[16, 16, 24]} />
+                  <Row>
+                    <Socials />
+                  </Row>
+                </Layout>
               </Column>
-              <Layout flexShrink={0} flexBasis={40} />
+              <Layout flexShrink={0} flexBasis={[48, 48, 40]} />
               <Form />
             </Layout>
             <Condition match={contacts}>

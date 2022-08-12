@@ -40,9 +40,9 @@ const RelocationFaq: FC = () => {
 
   return (
     <Box width='100%' height='100%' justifyContent='center' backgroundColor='background.beige'>
+      <Layout flexBasis={[20, 20, 397]} flexShrink={[0, 0, 1]} />
       <Layout width='100%' maxWidth={1243}>
-        <Layout flexBasis={[20, 20, 397]} flexShrink={[0, 0, 1]} />
-        <Column>
+        <Column width='100%'>
           <Layout flexBasis={[64, 64, 160]} />
           <AnimateOnLoad
             initial={{ opacity: 0, y: '100%' }}
@@ -74,7 +74,7 @@ const RelocationFaq: FC = () => {
                 </Text>
               </Row>
               <Layout flexBasis={40} flexShrink={0} />
-              <Box width={['100%', '100%', 660]} height='min-content'>
+              <Box width='100%' maxWidth={['100%', '100%', 660]} height='min-content'>
                 <Column>
                   {faqs[language].map(({ id, title: titleFaq, content }) => (
                     <Column key={id} fill>
@@ -91,8 +91,8 @@ const RelocationFaq: FC = () => {
           </AnimateOnLoad>
           <Layout flexBasis={[64, 64, 160]} />
         </Column>
-        <Layout flexBasis={[20, 20, 280]} flexShrink={[0, 0, 1]} />
       </Layout>
+      <Layout flexBasis={[20, 20, 280]} flexShrink={[0, 0, 1]} />
     </Box>
   )
 }

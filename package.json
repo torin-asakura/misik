@@ -3,6 +3,7 @@
   "repository": "git@github.com:torin-asakura/misik.git",
   "license": "BSD-3-Clause",
   "workspaces": [
+    "forks/**/*",
     "landing/**/*",
     "ui/**/*",
     "globals/**/*"

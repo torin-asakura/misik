@@ -14,7 +14,7 @@ const getMediumSizeStyles = (theme): styleFn => {
   return ({ colors }) => ({
     ...mediumSizeStyles(),
     border: colors === 'secondary' && '0px',
-    borderBottom: colors === 'secondary' && '2px solid',
+    borderBottom: colors === 'secondary' && '1px solid',
     borderRadius: colors === 'secondary' ? '0px' : '100px',
     paddingLeft: colors === 'secondary' && 0,
     paddingRight: colors === 'secondary' && 0,

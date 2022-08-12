@@ -30,6 +30,51 @@ export const GlobalStyles = () => {
           display: flex;
           flex-direction: column;
         }
+        
+        .mapboxgl-ctrl-group {
+          background: none;        
+        }
+        
+        .mapboxgl-ctrl-group:not(:empty) {
+          box-shadow: none;
+        }
+        
+        .mapboxgl-ctrl-group button+button {
+          border: none;
+          margin-top: 16px;
+        }
+        
+        .mapboxgl-ctrl-group button {
+          background-color: #ffffff;
+          width: 40px;
+          height: 40px;
+          border-radius: 100%;
+          box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.08), 0px 0px 16px rgba(0, 0, 0, 0.08);
+          transition: .3s;
+          overflow: hidden;
+        }         
+        
+        .mapboxgl-ctrl-group button:focus:first-child {
+          border-radius: 100%;
+        }   
+        
+        .mapboxgl-ctrl-group button:hover {
+          transform: scale(1.2);
+          background-color: #ffffff;          
+        }
+        
+        .mapboxgl-ctrl-group button span {          
+          background-color: #ffffff;                    
+        }
+        
+        .mapboxgl-ctrl-top-right {
+          top: 50%;
+          transform: translate(0, -50%);
+        }
+        
+        .mapboxgl-ctrl-group button.mapboxgl-ctrl-compass {
+          display: none;
+        }             
 
         .circle_layout {
           display: flex;
