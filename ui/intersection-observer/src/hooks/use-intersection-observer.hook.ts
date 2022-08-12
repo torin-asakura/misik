@@ -31,31 +31,34 @@ const useIntersectionObserver = (onIntersection: (id: string) => void = doNothin
       const observer = observers.get(key)
 
       const resizeObserver = new ResizeObserver(() => {
-        const heightCoefficient =
-          document.documentElement.clientHeight /
-          observer!.ref.current.getBoundingClientRect().height
-        const observerThreshold = heightCoefficient > 1 ? 1 : heightCoefficient
+        if (observer?.ref.current) {
+          const heightCoefficient =
+            document.documentElement.clientHeight /
+            // eslint-disable-next-line no-unsafe-optional-chaining
+            observer?.ref.current.getBoundingClientRect().height
+          const observerThreshold = heightCoefficient > 1 ? 1 : heightCoefficient
 
-        if (!intersectionObservers.has(observerThreshold)) {
-          intersectionObservers.set(
-            observerThreshold,
-            new IntersectionObserver(
-              (entries) => {
-                if (entries && isExecutionAllowed) {
-                  onIntersection((entries[0].target as any).observerId)
-                }
-              },
-              { threshold: observerThreshold }
+          if (!intersectionObservers.has(observerThreshold)) {
+            intersectionObservers.set(
+              observerThreshold,
+              new IntersectionObserver(
+                (entries) => {
+                  if (entries && isExecutionAllowed) {
+                    onIntersection((entries[0].target as any).observerId)
+                  }
+                },
+                { threshold: observerThreshold }
+              )
             )
-          )
 
-          observer!.ref.current.observerId = key
+            observer!.ref.current.observerId = key
 
-          intersectionObservers.get(observerThreshold)!.observe(observer?.ref?.current)
-        } else {
-          observer!.ref.current.observerId = key
+            intersectionObservers.get(observerThreshold)!.observe(observer?.ref?.current)
+          } else {
+            observer!.ref.current.observerId = key
 
-          intersectionObservers.get(observerThreshold)!.observe(observer?.ref?.current)
+            intersectionObservers.get(observerThreshold)!.observe(observer?.ref?.current)
+          }
         }
       })
 
