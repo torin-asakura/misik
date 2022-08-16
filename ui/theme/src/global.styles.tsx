@@ -85,7 +85,6 @@ export const GlobalStyles = () => {
           align-items: center;
           justify-content: center;
           cursor: pointer;
-          transition: .4s;
         }
 
         .default-circle::before {
@@ -138,7 +137,6 @@ export const GlobalStyles = () => {
           justify-content: center;
           cursor: pointer;
           z-index: 100;
-          transition: .4s;
         }       
         
         .circle-cluster:hover::before {
