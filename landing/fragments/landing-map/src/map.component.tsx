@@ -1,3 +1,5 @@
+import { MarkerCluster }     from '@atls-ui-parts/mapbox'
+
 import React                 from 'react'
 import { Map as MBGLMap }    from 'mapbox-gl'
 import { Marker }            from 'mapbox-gl'
@@ -31,7 +33,7 @@ const Map: FC = () => {
       const map = new MBGLMap({
         accessToken,
         container: (ref as any).current,
-        center: [37.646, 55.739],
+        center: [-41.48548952913495, 41.54319473813919],
         zoom: 2.32,
         style: 'mapbox://styles/tfk70/cl6p71gr8003q15qogjn333k2',
       })
@@ -40,7 +42,20 @@ const Map: FC = () => {
       map.scrollZoom.disable()
       map.addControl(navControl)
 
+      const mapBounds = map.getBounds()
+
+      if (mapBounds.getWest() > -119 && mapBounds.getEast() < 36) {
+        map.setCenter({ lat: 55.72854006902593, lng: 37.62139049999999 })
+        map.zoomTo(9)
+      }
+
       map.on('load', () => {
+        const markerCluster = new MarkerCluster({
+          clusterClassName: 'circle-cluster',
+          baseMarkerClassName: 'circle_layout',
+          hiddenMarkerClassName: 'circle-hidden',
+        })
+
         geoObjects
           .split('\n')
           .map((obj) => obj.split(':'))
@@ -48,15 +63,20 @@ const Map: FC = () => {
             const markerElement = document.createElement('div')
             markerElement.className = 'circle_layout'
             markerElement.innerHTML = `<span>${content}</span>`
+            markerElement.classList.add('default-circle')
 
             const [lat, lng] = coordinates
               .split(',')
               .map((str) => Number(str.replace(/\[|\]/, '').trim()))
 
             if (lng && lat) {
-              new Marker(markerElement).setLngLat({ lng, lat }).addTo(map)
+              if (lng > 0)
+                markerCluster.addMarker(new Marker(markerElement).setLngLat({ lng, lat }))
+              else new Marker(markerElement).setLngLat({ lng, lat }).addTo(map)
             }
           })
+
+        markerCluster.addToMap(map)
       })
     }
   }, [accessToken, geoObjects])

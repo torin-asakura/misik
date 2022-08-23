@@ -76,7 +76,7 @@ export const GlobalStyles = () => {
           display: none;
         }             
 
-        .circle_layout {
+        .default-circle {
           display: flex;
           width: 40px;
           height: 40px;
@@ -87,7 +87,7 @@ export const GlobalStyles = () => {
           cursor: pointer;
         }
 
-        .circle_layout::before {
+        .default-circle::before {
           content: '';
           width: 16px;
           height: 16px;
@@ -95,16 +95,16 @@ export const GlobalStyles = () => {
           border-radius: 100px;
         }
 
-        .circle_layout:hover > span {
+        .default-circle:hover > span {
           width: min-content;
           opacity: 1;
         }
 
-        .circle_layout:hover {
+        .default-circle:hover {
           z-index: 100;
         }
 
-        .circle_layout > span {
+        .default-circle > span {
           display: flex;
           align-items: center;
           z-index: -1;
@@ -125,6 +125,54 @@ export const GlobalStyles = () => {
           text-transform: uppercase;
           box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.08), 0px 0px 16px rgba(0, 0, 0, 0.08);
           pointer-events: none;
+        }      
+        
+        .circle-cluster {
+          display: flex;
+          width: 70px;
+          height: 70px;
+          border-radius: 100%;
+          background-color: ${theme.colors.text.accent};
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          z-index: 100;
+        }       
+        
+        .circle-cluster:hover::before {
+          background-color: ${theme.colors.text.accent};
+        }
+        
+        .circle-cluster:hover > span {
+          color: white;
+        }
+        
+        .circle-cluster::before {
+          content: '';
+          width: 62px;
+          height: 62px;
+          background-color: white;
+          border-radius: 100%;
+          transition: .4s;
+        }
+        
+        .circle-cluster > span {
+          position: absolute;
+          left: 0;
+          top: 0;          
+          font-family: ${theme.fonts.primary};
+          font-size: ${theme.fontSizes.moderate}px;
+          font-weight: ${theme.fontWeights.medium};
+          display: flex;
+          width: 100%;
+          height: 100%; 
+          justify-content: center;
+          align-items: center;          
+          transition: .4s;       
+        }       
+        
+        .circle-hidden {
+          display: none;
         }
         
         .swiper-work-directions {
