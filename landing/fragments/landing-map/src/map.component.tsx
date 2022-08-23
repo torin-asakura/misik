@@ -1,3 +1,5 @@
+import { MarkerCluster }     from '@atls-ui-parts/mapbox'
+
 import React                 from 'react'
 import { Map as MBGLMap }    from 'mapbox-gl'
 import { Marker }            from 'mapbox-gl'
@@ -10,8 +12,6 @@ import { useMemo }           from 'react'
 import { Box }               from '@ui/layout'
 import { useData }           from '@globals/data'
 import { extractObject }     from '@globals/data'
-
-import { MarkerCluster }     from './marker-cluster'
 
 const Map: FC = () => {
   const ref = useRef(null)

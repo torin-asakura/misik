@@ -150,6 +150,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@atls-ui-parts/mapbox@npm:^0.0.2":
+  version: 0.0.2
+  resolution: "@atls-ui-parts/mapbox@npm:0.0.2"
+  peerDependencies:
+    mapbox-gl: "*"
+  checksum: 42f84d408a2bbbedc65ca19060238666e1eeba5c614394f349aa1d4cb8ad8c06322257919d0581ffc9a9644b56f93247f5f687e55de036d01ab5386c448d25a4
+  languageName: node
+  linkType: hard
+
 "@atls-ui-parts/styles@npm:0.0.1":
   version: 0.0.1
   resolution: "@atls-ui-parts/styles@npm:0.0.1"
@@ -1965,6 +1974,7 @@ __metadata:
   resolution: "@landing/map-fragment@workspace:landing/fragments/landing-map"
   dependencies:
     "@apollo/client": ^3.6.9
+    "@atls-ui-parts/mapbox": ^0.0.2
     "@emotion/css": ^11.10.0
     "@emotion/react": ^11.9.3
     "@emotion/styled": ^11.9.3
