@@ -84,12 +84,14 @@ const Form: FC = () => {
 
   return (
     <>
-      <ReCaptcha
-        ref={recaptchaRef as any}
-        sitekey={sitekey}
-        size='invisible'
-        onChange={submitForm}
-      />
+      <Condition match={sitekey}>
+        <ReCaptcha
+          ref={recaptchaRef as any}
+          sitekey={sitekey}
+          size='invisible'
+          onChange={submitForm}
+        />
+      </Condition>
       <Drawer
         active={privacyPolicy}
         onClose={() => setPrivacyPolicy(false)}
