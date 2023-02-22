@@ -1,6 +1,9 @@
 import React           from 'react'
+import ReCaptcha       from 'react-google-recaptcha'
 import { FC }          from 'react'
 import { useState }    from 'react'
+import { useCallback } from 'react'
+import { useRef }      from 'react'
 
 import { Button }      from '@ui/button'
 import { Condition }   from '@ui/condition'
@@ -20,6 +23,8 @@ import { messages }    from '@globals/messages'
 import { useForms }    from './data'
 import { useSubmit }   from './data'
 
+const sitekey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''
+
 const Form: FC = () => {
   const [language] = useLanguage()
   const [name, setName] = useState<string>('')
@@ -33,6 +38,8 @@ const Form: FC = () => {
   const [submit] = useSubmit()
   const [success, setSuccess] = useState<boolean | null>(null)
   const [privacyPolicy, setPrivacyPolicy] = useState<boolean>(false)
+
+  const recaptchaRef = useRef()
 
   if (success !== null) {
     setTimeout(() => {
@@ -66,8 +73,23 @@ const Form: FC = () => {
     }
   }
 
+  const executeCaptcha = useCallback(
+    (event) => {
+      event.preventDefault()
+      // @ts-ignore
+      recaptchaRef?.current?.execute()
+    },
+    [recaptchaRef]
+  )
+
   return (
     <>
+      <ReCaptcha
+        ref={recaptchaRef as any}
+        sitekey={sitekey}
+        size='invisible'
+        onChange={submitForm}
+      />
       <Drawer
         active={privacyPolicy}
         onClose={() => setPrivacyPolicy(false)}
@@ -130,7 +152,7 @@ const Form: FC = () => {
               px={0}
               success={success}
               failure={success === false}
-              onClick={submitForm}
+              onClick={executeCaptcha}
             >
               <Condition match={success}>{messages.sent[language]}</Condition>
               <Condition match={success === false}>{messages.notSent[language]}</Condition>
