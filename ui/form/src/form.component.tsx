@@ -1,7 +1,8 @@
 import React           from 'react'
 import { FC }          from 'react'
-import { useState }    from 'react'
+import { useState, useRef }    from 'react'
 
+import ReCAPTCHA from "react-google-recaptcha"
 import { Button }      from '@ui/button'
 import { Condition }   from '@ui/condition'
 import { Drawer }      from '@ui/drawer'
@@ -21,6 +22,8 @@ import { useForms }    from './data'
 import { useSubmit }   from './data'
 
 const Form: FC = () => {
+  const recaptchaRef = useRef()
+console.log(recaptchaRef)
   const [language] = useLanguage()
   const [name, setName] = useState<string>('')
   const [phone, setPhone] = useState<string>('')
@@ -66,6 +69,20 @@ const Form: FC = () => {
     }
   }
 
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    recaptchaRef.current.execute()
+  }
+
+  const onReCAPTCHAChange = (captchaCode) => {
+    if(!captchaCode) {
+      return
+    }
+
+    console.log('ready')
+    recaptchaRef.current.reset()
+  }
+
   return (
     <>
       <Drawer
@@ -80,6 +97,13 @@ const Form: FC = () => {
       />
       <Box width='100%' maxWidth={['100%', '100%', 859]} height='100%'>
         <Column width='100%'>
+          <form onSubmit={handleSubmit}>
+            <ReCAPTCHA
+              ref={recaptchaRef}
+              size='invisible'
+              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+              onChange={onReCAPTCHAChange}
+            />
           <Layout maxHeight={[58, 58, 62]}>
             <Input
               value={name}
@@ -131,12 +155,14 @@ const Form: FC = () => {
               success={success}
               failure={success === false}
               onClick={submitForm}
+              type='submit'
             >
               <Condition match={success}>{messages.sent[language]}</Condition>
               <Condition match={success === false}>{messages.notSent[language]}</Condition>
               <Condition match={success === null}>{messages.send[language]}</Condition>
             </Button>
           </Layout>
+          </form>
           <Layout flexBasis={[24, 24, 32]} />
           <Row justifyContent='center'>
             <Layout width={[335, 335, '100%']}>
