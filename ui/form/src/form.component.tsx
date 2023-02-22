@@ -1,29 +1,31 @@
-import React           from 'react'
-import { FC }          from 'react'
-import { useState, useRef }    from 'react'
+import React                from 'react'
+import ReCAPTCHA            from 'react-google-recaptcha'
+import { FC }               from 'react'
+import { useRef }           from 'react'
 
-import ReCAPTCHA from "react-google-recaptcha"
-import { Button }      from '@ui/button'
-import { Condition }   from '@ui/condition'
-import { Drawer }      from '@ui/drawer'
-import { Input }       from '@ui/input'
-import { Layer }       from '@ui/layer'
-import { Box }         from '@ui/layout'
-import { Column }      from '@ui/layout'
-import { Row }         from '@ui/layout'
-import { Layout }      from '@ui/layout'
-import { NextLink }    from '@ui/link'
-import { Space }       from '@ui/text'
-import { Text }        from '@ui/text'
-import { useLanguage } from '@globals/language'
-import { messages }    from '@globals/messages'
+import { useState } from 'react'
 
-import { useForms }    from './data'
-import { useSubmit }   from './data'
+import { Button }           from '@ui/button'
+import { Condition }        from '@ui/condition'
+import { Drawer }           from '@ui/drawer'
+import { Input }            from '@ui/input'
+import { Layer }            from '@ui/layer'
+import { Box }              from '@ui/layout'
+import { Column }           from '@ui/layout'
+import { Row }              from '@ui/layout'
+import { Layout }           from '@ui/layout'
+import { NextLink }         from '@ui/link'
+import { Space }            from '@ui/text'
+import { Text }             from '@ui/text'
+import { useLanguage }      from '@globals/language'
+import { messages }         from '@globals/messages'
+
+import { useForms }         from './data'
+import { useSubmit }        from './data'
 
 const Form: FC = () => {
   const recaptchaRef = useRef()
-console.log(recaptchaRef)
+  console.log(recaptchaRef)
   const [language] = useLanguage()
   const [name, setName] = useState<string>('')
   const [phone, setPhone] = useState<string>('')
@@ -75,7 +77,7 @@ console.log(recaptchaRef)
   }
 
   const onReCAPTCHAChange = (captchaCode) => {
-    if(!captchaCode) {
+    if (!captchaCode) {
       return
     }
 
@@ -104,64 +106,64 @@ console.log(recaptchaRef)
               sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
               onChange={onReCAPTCHAChange}
             />
-          <Layout maxHeight={[58, 58, 62]}>
-            <Input
-              value={name}
-              onChange={setName}
-              error={nameError}
-              placeholder={`${forms[language] && forms[language][0]?.label}${
-                forms[language] && forms[language][0]?.required ? '*' : ''
-              }`}
-            />
-          </Layout>
-          <Layout flexBasis={32} />
-          <Layout maxHeight={[58, 58, 62]}>
-            <Input
-              value={phone}
-              onChange={setPhone}
-              error={phoneError}
-              placeholder={`${forms[language] && forms[language][1]?.label}${
-                forms[language] && forms[language][1]?.required ? '*' : ''
-              }`}
-            />
-          </Layout>
-          <Layout flexBasis={32} />
-          <Layout maxHeight={[58, 58, 62]}>
-            <Input
-              value={email}
-              onChange={setEmail}
-              error={emailError}
-              placeholder={`${forms[language] && forms[language][2]?.label}${
-                forms[language] && forms[language][2]?.required ? '*' : ''
-              }`}
-            />
-          </Layout>
-          <Layout flexBasis={32} />
-          <Layout maxHeight={[58, 58, 62]}>
-            <Input
-              value={comment}
-              onChange={setComment}
-              placeholder={`${forms[language] && forms[language][3]?.label}${
-                forms[language] && forms[language][3]?.required ? '*' : ''
-              }`}
-            />
-          </Layout>
-          <Layout flexBasis={[28, 28, 40]} />
-          <Layout>
-            <Button
-              width='100%'
-              height={[48, 48, 52]}
-              px={0}
-              success={success}
-              failure={success === false}
-              onClick={submitForm}
-              type='submit'
-            >
-              <Condition match={success}>{messages.sent[language]}</Condition>
-              <Condition match={success === false}>{messages.notSent[language]}</Condition>
-              <Condition match={success === null}>{messages.send[language]}</Condition>
-            </Button>
-          </Layout>
+            <Layout maxHeight={[58, 58, 62]}>
+              <Input
+                value={name}
+                onChange={setName}
+                error={nameError}
+                placeholder={`${forms[language] && forms[language][0]?.label}${
+                  forms[language] && forms[language][0]?.required ? '*' : ''
+                }`}
+              />
+            </Layout>
+            <Layout flexBasis={32} />
+            <Layout maxHeight={[58, 58, 62]}>
+              <Input
+                value={phone}
+                onChange={setPhone}
+                error={phoneError}
+                placeholder={`${forms[language] && forms[language][1]?.label}${
+                  forms[language] && forms[language][1]?.required ? '*' : ''
+                }`}
+              />
+            </Layout>
+            <Layout flexBasis={32} />
+            <Layout maxHeight={[58, 58, 62]}>
+              <Input
+                value={email}
+                onChange={setEmail}
+                error={emailError}
+                placeholder={`${forms[language] && forms[language][2]?.label}${
+                  forms[language] && forms[language][2]?.required ? '*' : ''
+                }`}
+              />
+            </Layout>
+            <Layout flexBasis={32} />
+            <Layout maxHeight={[58, 58, 62]}>
+              <Input
+                value={comment}
+                onChange={setComment}
+                placeholder={`${forms[language] && forms[language][3]?.label}${
+                  forms[language] && forms[language][3]?.required ? '*' : ''
+                }`}
+              />
+            </Layout>
+            <Layout flexBasis={[28, 28, 40]} />
+            <Layout>
+              <Button
+                width='100%'
+                height={[48, 48, 52]}
+                px={0}
+                success={success}
+                failure={success === false}
+                onClick={submitForm}
+                type='submit'
+              >
+                <Condition match={success}>{messages.sent[language]}</Condition>
+                <Condition match={success === false}>{messages.notSent[language]}</Condition>
+                <Condition match={success === null}>{messages.send[language]}</Condition>
+              </Button>
+            </Layout>
           </form>
           <Layout flexBasis={[24, 24, 32]} />
           <Row justifyContent='center'>
