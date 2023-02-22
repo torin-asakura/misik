@@ -76,7 +76,7 @@ const Form: FC = () => {
   const executeCaptcha = useCallback(
     (event) => {
       event.preventDefault()
-      recaptchaRef.current.execute()
+      recaptchaRef!.current!.execute()
     },
     [recaptchaRef]
   )
