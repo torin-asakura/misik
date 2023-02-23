@@ -84,14 +84,6 @@ const Form: FC = () => {
 
   return (
     <>
-      <Condition match={sitekey}>
-        <ReCaptcha
-          ref={recaptchaRef as any}
-          sitekey={sitekey}
-          onChange={submitForm}
-          size='invisible'
-        />
-      </Condition>
       <Drawer
         active={privacyPolicy}
         onClose={() => setPrivacyPolicy(false)}
@@ -161,6 +153,17 @@ const Form: FC = () => {
               <Condition match={success === null}>{messages.send[language]}</Condition>
             </Button>
           </Layout>
+          <Condition match={sitekey}>
+            <Layout flexBasis={16} />
+            <Layout justifyContent='center'>
+            <ReCaptcha
+              ref={recaptchaRef as any}
+              sitekey={sitekey}
+              onChange={submitForm}
+              size='normal'
+            />
+            </Layout>
+          </Condition>
           <Layout flexBasis={[24, 24, 32]} />
           <Row justifyContent='center'>
             <Layout width={[335, 335, '100%']}>
