@@ -23,7 +23,7 @@ import { messages }    from '@globals/messages'
 import { useForms }    from './data'
 import { useSubmit }   from './data'
 
-const sitekey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''
+const sitekey = process.env.RECAPTCHA_SITEKEY || ''
 
 const Form: FC = () => {
   const [language] = useLanguage()
@@ -87,7 +87,7 @@ const Form: FC = () => {
       <Condition match={sitekey}>
         <ReCaptcha
           ref={recaptchaRef as any}
-          sitekey={sitekey}          
+          sitekey={sitekey}
           onChange={submitForm}
         />
       </Condition>
