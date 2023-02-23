@@ -89,6 +89,7 @@ const Form: FC = () => {
           ref={recaptchaRef as any}
           sitekey={sitekey}
           onChange={submitForm}
+          size='invisible'
         />
       </Condition>
       <Drawer
