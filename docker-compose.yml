@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   yarn:
-    image: node:16
+    image: node:16.13
     working_dir: /workspace
     volumes:
       - ./:/workspace
@@ -43,28 +43,6 @@ services:
       - 3000:3000
     env_file:
       - ./.env
-
-  landing-build:
-    image: node:16
-    working_dir: /workspace
-    volumes:
-      - ./:/workspace
-    entrypoint: yarn workspace @landing/app build
-    environment:
-      - WP_ENDPOINT=https://wp.misik.pro/graphql
-    ports:
-      - 3000:3000
-
-  landing-start:
-    image: node:16
-    working_dir: /workspace
-    volumes:
-      - ./:/workspace
-    entrypoint: yarn workspace @landing/app start
-    environment:
-      - WP_ENDPOINT=https://wp.misik.pro/graphql
-    ports:
-      - 3000:3000
 
 volumes:
   wordpress:
