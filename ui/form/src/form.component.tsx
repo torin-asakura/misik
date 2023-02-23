@@ -23,7 +23,7 @@ import { messages }    from '@globals/messages'
 import { useForms }    from './data'
 import { useSubmit }   from './data'
 
-const sitekey = process.env.RECAPTCHA_SITEKEY || ''
+const sitekey = '6Ld4naMkAAAAAFSlucEvWcw3KCxEPYYfZNXdDnjW'
 
 const Form: FC = () => {
   const [language] = useLanguage()
