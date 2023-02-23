@@ -87,8 +87,7 @@ const Form: FC = () => {
       <Condition match={sitekey}>
         <ReCaptcha
           ref={recaptchaRef as any}
-          sitekey={sitekey}
-          size='invisible'
+          sitekey={sitekey}          
           onChange={submitForm}
         />
       </Condition>
