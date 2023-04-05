@@ -1,29 +1,28 @@
-import React           from 'react'
-import ReCaptcha       from 'react-google-recaptcha'
-import { FC }          from 'react'
-import { useState }    from 'react'
-import { useCallback } from 'react'
-import { useRef }      from 'react'
+import React                       from 'react'
+import { FC }                      from 'react'
+import { GoogleReCaptcha }         from 'react-google-recaptcha-v3'
+import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3'
+import { useState }                from 'react'
 
-import { Button }      from '@ui/button'
-import { Condition }   from '@ui/condition'
-import { Drawer }      from '@ui/drawer'
-import { Input }       from '@ui/input'
-import { Layer }       from '@ui/layer'
-import { Box }         from '@ui/layout'
-import { Column }      from '@ui/layout'
-import { Row }         from '@ui/layout'
-import { Layout }      from '@ui/layout'
-import { NextLink }    from '@ui/link'
-import { Space }       from '@ui/text'
-import { Text }        from '@ui/text'
-import { useLanguage } from '@globals/language'
-import { messages }    from '@globals/messages'
+import { Button }                  from '@ui/button'
+import { Condition }               from '@ui/condition'
+import { Drawer }                  from '@ui/drawer'
+import { Input }                   from '@ui/input'
+import { Layer }                   from '@ui/layer'
+import { Box }                     from '@ui/layout'
+import { Column }                  from '@ui/layout'
+import { Row }                     from '@ui/layout'
+import { Layout }                  from '@ui/layout'
+import { NextLink }                from '@ui/link'
+import { Space }                   from '@ui/text'
+import { Text }                    from '@ui/text'
+import { useLanguage }             from '@globals/language'
+import { messages }                from '@globals/messages'
 
-import { useForms }    from './data'
-import { useSubmit }   from './data'
+import { useForms }                from './data'
+import { useSubmit }               from './data'
 
-const sitekey = '6Ld4naMkAAAAAFSlucEvWcw3KCxEPYYfZNXdDnjW'
+const sitekey = '6LdShlslAAAAABOs_yonZGSN8Kc8LYjEf-op7cbt'
 
 const Form: FC = () => {
   const [language] = useLanguage()
@@ -38,8 +37,7 @@ const Form: FC = () => {
   const [submit] = useSubmit()
   const [success, setSuccess] = useState<boolean | null>(null)
   const [privacyPolicy, setPrivacyPolicy] = useState<boolean>(false)
-
-  const recaptchaRef = useRef()
+  const [verify, setVerify] = useState(false)
 
   if (success !== null) {
     setTimeout(() => {
@@ -47,8 +45,8 @@ const Form: FC = () => {
     }, 2000)
   }
 
-  const submitForm = () => {
-    if (name && phone && email) {
+  const sendForm = () => {
+    if (verify && name && phone && email) {
       setNameError(false)
       setPhoneError(false)
       setEmailError(false)
@@ -60,7 +58,14 @@ const Form: FC = () => {
           comment,
         },
       }).then(({ data }) => {
-        if (data.submitForm) setSuccess(data.submitForm.success)
+        if (data.submitForm) {
+          setVerify(false)
+          setName('')
+          setPhone('')
+          setEmail('')
+          setComment('')
+          setSuccess(data.submitForm.success)
+        }
       })
     } else {
       if (!name) setNameError(true)
@@ -73,17 +78,18 @@ const Form: FC = () => {
     }
   }
 
-  const executeCaptcha = useCallback(
-    (event) => {
-      event.preventDefault()
-      // @ts-ignore
-      recaptchaRef?.current?.execute()
-    },
-    [recaptchaRef]
-  )
+  const onVerify = () => {
+    setVerify(true)
+  }
 
   return (
-    <>
+    <GoogleReCaptchaProvider
+      reCaptchaKey={sitekey}
+      container={{
+        element: 'containerCaptcha',
+        parameters: {},
+      }}
+    >
       <Drawer
         active={privacyPolicy}
         onClose={() => setPrivacyPolicy(false)}
@@ -146,7 +152,7 @@ const Form: FC = () => {
               px={0}
               success={success}
               failure={success === false}
-              onClick={executeCaptcha}
+              onClick={sendForm}
             >
               <Condition match={success}>{messages.sent[language]}</Condition>
               <Condition match={success === false}>{messages.notSent[language]}</Condition>
@@ -156,12 +162,8 @@ const Form: FC = () => {
           <Condition match={sitekey}>
             <Layout flexBasis={16} />
             <Layout justifyContent='center'>
-            <ReCaptcha
-              ref={recaptchaRef as any}
-              sitekey={sitekey}
-              onChange={submitForm}
-              size='normal'
-            />
+              <Row id='containerCaptcha' />
+              <GoogleReCaptcha onVerify={onVerify} />
             </Layout>
           </Condition>
           <Layout flexBasis={[24, 24, 32]} />
@@ -193,7 +195,7 @@ const Form: FC = () => {
           </Row>
         </Column>
       </Box>
-    </>
+    </GoogleReCaptchaProvider>
   )
 }
 
