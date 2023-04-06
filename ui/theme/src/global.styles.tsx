@@ -187,6 +187,10 @@ export const GlobalStyles = () => {
             stroke-dashoffset: 0;
           }
         }
+        
+        .grecaptcha-badge {
+          display: none;
+        }
       `}
     />
   )
