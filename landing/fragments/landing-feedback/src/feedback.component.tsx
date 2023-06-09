@@ -52,7 +52,7 @@ const Feedback: FC<FeedbackProps> = forwardRef((
         justifyContent='center'
       >
         <Layout flexBasis={[20, 20, 397]} flexShrink={[0, 0, 1]} />
-        <Layout width='100%' height='100%' maxWidth={1243}>
+        <Layout height='100%' width={['100%', '100%', 1243]} flexShrink={[5, 5, 0]}>
           <Column width='100%'>
             <Layout flexBasis={[48, 48, 160]} />
             <Layout flexDirection={['column', 'column', 'row']} width='100%'>

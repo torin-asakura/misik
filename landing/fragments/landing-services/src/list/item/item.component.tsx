@@ -104,7 +104,7 @@ const Item: FC<ItemProps> = ({ image, title, content, link, reverse = false }) =
                 >
                   {title}
                 </Text>
-                <Layout flexBasis={16} flexShrink={0}  />
+                <Layout flexBasis={16} flexShrink={0} />
                 {content.split('|n|').map((piece, index) => (
                   <>
                     <Text
