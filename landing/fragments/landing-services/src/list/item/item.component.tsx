@@ -104,7 +104,7 @@ const Item: FC<ItemProps> = ({ image, title, content, link, reverse = false }) =
                 >
                   {title}
                 </Text>
-                <Layout flexBasis={16} />
+                <Layout flexBasis={16} flexShrink={0} />
                 {content.split('|n|').map((piece, index) => (
                   <>
                     <Text
@@ -114,8 +114,9 @@ const Item: FC<ItemProps> = ({ image, title, content, link, reverse = false }) =
                     >
                       {piece}
                     </Text>
-                    <Layout flexBasis={16} />
+                    <Layout flexBasis={16} flexShrink={0} />
                     <Condition match={index === content.split('|n|').length - 1}>
+                      <Layout flexBasis={16} flexShrink={0} />
                       <Layout flexGrow={1} />
                     </Condition>
                   </>

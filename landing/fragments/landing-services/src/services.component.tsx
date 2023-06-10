@@ -30,7 +30,7 @@ const Services = forwardRef(({ data }: any, ref: any) => {
   return (
     <Box width='100%' backgroundColor='background.beige' justifyContent='center' ref={ref}>
       <Layout flexBasis={[20, 20, 397]} flexShrink={[0, 0, 1]} />
-      <Layout width='100%' maxWidth={1243}>
+      <Layout width={['100%', '100%', 1243]} flexShrink={[5, 5, 0]}>
         <Column fill>
           <Layout flexBasis={[64, 64, 160]} />
           <Layout width={['100%', '100%', 242]}>
