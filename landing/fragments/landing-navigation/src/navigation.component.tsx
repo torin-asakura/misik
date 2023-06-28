@@ -4,6 +4,7 @@ import { useState }               from 'react'
 import { useEffect }              from 'react'
 
 import { Button }                 from '@ui/button'
+import { Condition }              from '@ui/condition'
 import { Drawer }                 from '@ui/drawer'
 import { DrawerMobileNavigation } from '@ui/drawer'
 import { Layer }                  from '@ui/layer'
@@ -11,6 +12,7 @@ import { Box }                    from '@ui/layout'
 import { Layout }                 from '@ui/layout'
 import { Row }                    from '@ui/layout'
 import { NextLink }               from '@ui/link'
+import { Link }                   from '@ui/link'
 import { Logo }                   from '@ui/logo'
 import { AnimateOnLoad }          from '@ui/preloader'
 import { useLocomotiveScroll }    from '@forks/react-locomotive-scroll'
@@ -99,12 +101,19 @@ const Navigation: FC = () => {
             </Layout>
             <Layout flexGrow={1} flexBasis={[0, 0, 168]} flexShrink={0} />
             <Row alignItems='center' justifyContent='flex-start' display={['none', 'none', 'flex']}>
-              {navigation[language]?.reverse().map(({ title, content }) => (
+              {navigation[language]?.reverse().map(({ title, elementsMenu, content }) => (
                 <>
                   <Layout>
-                    <NextLink path={content} fontSize='semiRegular'>
-                      {title}
-                    </NextLink>
+                    <Condition match={elementsMenu?.externalLink !== null}>
+                      <Link href={elementsMenu.externalLink} fontSize='semiRegular'>
+                        {title}
+                      </Link>
+                    </Condition>
+                    <Condition match={elementsMenu?.externalLink === null}>
+                      <NextLink path={content} fontSize='semiRegular'>
+                        {title}
+                      </NextLink>
+                    </Condition>
                   </Layout>
                   <Layout flexBasis={40} />
                 </>

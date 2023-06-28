@@ -5,6 +5,9 @@ const GET_NAVIGATION = gql`
     navigationItems {
       nodes {
         title
+        elementsMenu {
+          externalLink
+        }
         content
         language {
           code
