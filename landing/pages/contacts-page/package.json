@@ -19,6 +19,7 @@
     "@apollo/client": "^3.6.9",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
+    "@types/react": "^17",
     "@types/react-helmet": "^6",
     "@types/styled-system": "^5",
     "@ui/preloader": "workspace:0.0.1",
