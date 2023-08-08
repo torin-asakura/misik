@@ -1,16 +1,49 @@
 import { useQuery }  from '@apollo/client'
+import { Language }  from '@globals/language';
 
 import { GET_FORMS } from './forms.query'
-import { filter }    from './filter'
 
-const useForms = () => {
-  const { data } = useQuery(GET_FORMS)
-
-  if (data) {
-    return filter(data.forms.nodes)
-  }
-
-  return []
+export interface FormFieldNode {
+  type: string;
+  label: string;
+  required: boolean;
 }
 
-export { useForms }
+interface FormsData {
+  forms: {
+    nodes: Array<{
+      title: string;
+      fields: {
+        nodes: FormFieldNode[];
+      };
+    }>;
+  };
+}
+
+type ParsedFormsData = Record<Language, FormFieldNode[]>;
+
+const useForms = (): [never[] | ParsedFormsData, boolean] => {
+  const { data, loading, error } = useQuery<FormsData>(GET_FORMS);
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  if (!data) {
+    return [[], loading];
+  }
+
+  const getParsedFormFields = (lang: string) => {
+    return data.forms.nodes.find((form) => form.title === `contact_${lang}`)?.fields.nodes || [];
+  };
+
+  return [
+    {
+      RU: getParsedFormFields('ru'),
+      EN: getParsedFormFields('en'),
+    },
+    loading,
+  ];
+};
+
+export { useForms };

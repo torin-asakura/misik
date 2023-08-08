@@ -1,6 +1,7 @@
 import React                  from 'react'
 import { FC }                 from 'react'
 import { useState }           from 'react'
+import { useEffect }          from 'react'
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 
 import { Button }             from '@ui/button'
@@ -18,162 +19,152 @@ import { Text }               from '@ui/text'
 import { useLanguage }        from '@globals/language'
 import { messages }           from '@globals/messages'
 
+import { FormFieldNode }      from '../data'
 import { useForms }           from '../data'
 import { useSubmit }          from '../data'
 
+type FormFields = 'firstname' | 'phone' | 'email' | 'textbox';
+
+const defaultFormFields: Record<FormFields, string> = {
+  firstname: '',
+  phone: '',
+  email: '',
+  textbox: '',
+};
+
 const FormContent: FC = () => {
-  const [language] = useLanguage()
-  const [name, setName] = useState<string>('')
-  const [phone, setPhone] = useState<string>('')
-  const [email, setEmail] = useState<string>('')
-  const [comment, setComment] = useState<string>('')
-  const [nameError, setNameError] = useState<boolean>(false)
-  const [phoneError, setPhoneError] = useState<boolean>(false)
-  const [emailError, setEmailError] = useState<boolean>(false)
-  const forms = useForms()
-  const [submit] = useSubmit()
-  const [success, setSuccess] = useState<boolean | null>(null)
-  const [privacyPolicy, setPrivacyPolicy] = useState<boolean>(false)
+  const [formFieldsValues, setFormFieldsValues] = useState(defaultFormFields);
+  const [formErrorsFields, setFormErrorsFields] = useState<string[]>([]);
+  const [formStatus, setFormStatus] = useState<'send' | 'sent' | 'notSent'>('send');
+  const [isPrivacyPolicyOpen, setIsPrivacyPolicyOpen] = useState(false);
 
-  const { executeRecaptcha } = useGoogleReCaptcha()
-  const [verify, setVerify] = useState<string | null>(null)
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
-  const sendForm = async () => {
-    if (!executeRecaptcha) return
+  const [language] = useLanguage();
+  const [fields] = useForms();
+  const [submit] = useSubmit();
 
-    const token = await executeRecaptcha('submit')
-    setVerify(token)
-
-    if (verify && name && phone && email) {
-      setNameError(false)
-      setPhoneError(false)
-      setEmailError(false)
-      submit({
-        variables: {
-          name,
-          phone,
-          email,
-          comment,
-        },
-      }).then(({ data }) => {
-        if (data.submitForm) {
-          setVerify(null)
-          setName('')
-          setPhone('')
-          setEmail('')
-          setComment('')
-          setSuccess(data.submitForm.success)
-        }
-      })
-    } else {
-      if (!name) setNameError(true)
-      else setNameError(false)
-      if (!phone) setPhoneError(true)
-      else setPhoneError(false)
-      if (!email) setEmailError(true)
-      else setEmailError(false)
-      setSuccess(false)
+  useEffect(() => {
+    if (formStatus !== 'send') {
+      setTimeout(() => setFormStatus('send'), 2000);
     }
-  }
+  }, [formStatus]);
 
-  if (success !== null) {
-    setTimeout(() => {
-      setSuccess(null)
-    }, 2000)
-  }
+  const handleSendForm = async () => {
+    try {
+      if (!executeRecaptcha || Array.isArray(fields)) {
+        return;
+      }
+
+      let emptyFields: string[] = [];
+
+      for (const key in formFieldsValues) {
+        const isRequired = fields[language].find((field) => field.type === key)?.required || false;
+
+        if (isRequired && formFieldsValues[key] === '') {
+          emptyFields.push(key);
+        }
+      }
+
+      if (emptyFields.length !== 0) {
+        setFormErrorsFields(emptyFields);
+        setFormStatus('notSent');
+
+        return;
+      }
+
+      const token = await executeRecaptcha('submit');
+
+      if (token === '') {
+        setFormStatus('notSent');
+
+        return;
+      }
+
+      const { data } = await submit({ variables: formFieldsValues });
+
+      if (!data?.submitForm.success) {
+        setFormStatus('notSent');
+
+        return;
+      }
+
+      setFormStatus('sent');
+      setFormFieldsValues(defaultFormFields);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleChangeField = (value: string, field: string) => {
+    setFormFieldsValues((prev) => ({ ...prev, [field]: value }));
+  };
+
+  const handleClosePrivacyPolicy = () => {
+    setIsPrivacyPolicyOpen(false);
+  };
 
   return (
     <>
       <Drawer
-        active={privacyPolicy}
-        onClose={() => setPrivacyPolicy(false)}
-        display='privacy-policy'
+        active={isPrivacyPolicyOpen}
+        onClose={handleClosePrivacyPolicy}
+        display="privacy-policy"
       />
       <Layer
-        visible={privacyPolicy}
-        onClose={() => setPrivacyPolicy(false)}
-        display='privacy-policy'
+        visible={isPrivacyPolicyOpen}
+        onClose={handleClosePrivacyPolicy}
+        display="privacy-policy"
       />
-      <Box width='100%' maxWidth={['100%', '100%', 859]} height='100%'>
-        <Column width='100%'>
-          <Layout maxHeight={[58, 58, 62]}>
-            <Input
-              value={name}
-              onChange={setName}
-              error={nameError}
-              placeholder={`${forms[language] && forms[language][0]?.label}${
-                forms[language] && forms[language][0]?.required ? '*' : ''
-              }`}
-            />
-          </Layout>
-          <Layout flexBasis={32} />
-          <Layout maxHeight={[58, 58, 62]}>
-            <Input
-              value={phone}
-              onChange={setPhone}
-              error={phoneError}
-              placeholder={`${forms[language] && forms[language][1]?.label}${
-                forms[language] && forms[language][1]?.required ? '*' : ''
-              }`}
-            />
-          </Layout>
-          <Layout flexBasis={32} />
-          <Layout maxHeight={[58, 58, 62]}>
-            <Input
-              value={email}
-              onChange={setEmail}
-              error={emailError}
-              placeholder={`${forms[language] && forms[language][2]?.label}${
-                forms[language] && forms[language][2]?.required ? '*' : ''
-              }`}
-            />
-          </Layout>
-          <Layout flexBasis={32} />
-          <Layout maxHeight={[58, 58, 62]}>
-            <Input
-              value={comment}
-              onChange={setComment}
-              placeholder={`${forms[language] && forms[language][3]?.label}${
-                forms[language] && forms[language][3]?.required ? '*' : ''
-              }`}
-            />
-          </Layout>
-          <Layout flexBasis={[28, 28, 40]} />
+      <Box width="100%" maxWidth={['100%', '100%', 859]} height="100%">
+        <Column width="100%">
+          <Condition match={!Array.isArray(fields)}>
+            {fields[language]?.map((field: FormFieldNode) => (
+              <Condition match={formFieldsValues[field.type] !== undefined} key={field.type}>
+                <Layout maxHeight={[58, 58, 62]}>
+                  <Input
+                    value={formFieldsValues[field.type]}
+                    onChange={(value) => handleChangeField(value, field.type)}
+                    error={formErrorsFields.includes(field.type)}
+                    placeholder={`${field.label}${field.required ? '*' : ''}`}
+                  />
+                </Layout>
+                <Layout flexBasis={32} />
+              </Condition>
+            ))}
+          </Condition>
           <Layout>
             <Button
-              width='100%'
+              width="100%"
               height={[48, 48, 52]}
               px={0}
-              success={success}
-              failure={success === false}
-              onClick={sendForm}
-            >
-              <Condition match={success}>{messages.sent[language]}</Condition>
-              <Condition match={success === false}>{messages.notSent[language]}</Condition>
-              <Condition match={success === null}>{messages.send[language]}</Condition>
+              success={formStatus === 'sent'}
+              failure={formStatus === 'notSent'}
+              onClick={handleSendForm}>
+              <Condition match={formStatus === 'send'}>{messages.send[language]}</Condition>
+              <Condition match={formStatus === 'sent'}>{messages.sent[language]}</Condition>
+              <Condition match={formStatus === 'notSent'}>{messages.notSent[language]}</Condition>
             </Button>
           </Layout>
           <Layout flexBasis={[24, 24, 32]} />
-          <Row justifyContent='center'>
+          <Row justifyContent="center">
             <Layout width={[335, 335, '100%']}>
               <NextLink
-                fontSize='atomic'
-                textAlign='center'
-                width='100%'
-                whiteSpace='normal'
-                color='text.secondary'
-                display='flex'
-                onClick={() => setPrivacyPolicy(true)}
-              >
-                <Text color='text.secondary' display='inline' whiteSpace='normal' fontSize='atomic'>
+                fontSize="atomic"
+                textAlign="center"
+                width="100%"
+                whiteSpace="normal"
+                color="text.secondary"
+                display="flex"
+                onClick={() => setIsPrivacyPolicyOpen(true)}>
+                <Text color="text.secondary" display="inline" whiteSpace="normal" fontSize="atomic">
                   {messages.byClickingYouConfirm[language]}
                   <Space />
                   <Text
                     style={{ textDecoration: 'underline' }}
-                    display='inline'
-                    whiteSpace='normal'
-                    color='text.secondary'
-                  >
+                    display="inline"
+                    whiteSpace="normal"
+                    color="text.secondary">
                     {messages.privacyPolicy[language]}
                   </Text>
                 </Text>
@@ -183,7 +174,7 @@ const FormContent: FC = () => {
         </Column>
       </Box>
     </>
-  )
-}
+  );
+};
 
-export { FormContent }
+export { FormContent };

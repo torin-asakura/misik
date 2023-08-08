@@ -1,11 +1,33 @@
-import { useMutation } from '@apollo/client'
+import { useMutation }    from '@apollo/client'
+import { MutationTuple }  from '@apollo/client'
 
-import { SUBMIT_FORM } from './submit.mutation'
+import { SUBMIT_FORM }    from './submit.mutation'
 
-const useSubmit = () => {
-  const [submit, { data }] = useMutation(SUBMIT_FORM)
+interface FieldError {
+  fieldId: number;
+  message: string;
+  slug: string;
+}
 
-  return [submit, data]
+interface SubmitFormPayload {
+  submitForm: {
+    errors: FieldError[],
+    message: string,
+    success: boolean,
+  }
+}
+
+interface SubmitFormVariables {
+  firstname: string;
+  phone: string;
+  email: string;
+  textbox: string;
+} 
+
+const useSubmit = (): MutationTuple<SubmitFormPayload, SubmitFormVariables> => {
+  const [submit, result] = useMutation<SubmitFormPayload, SubmitFormVariables>(SUBMIT_FORM)
+
+  return [submit, result]
 }
 
 export { useSubmit }
