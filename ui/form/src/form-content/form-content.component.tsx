@@ -1,32 +1,31 @@
-import React                  from 'react'
-import { FC }                 from 'react'
-import { useState }           from 'react'
-import { useEffect }          from 'react'
-import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
+import React                   from 'react'
+import { FC }                  from 'react'
+import { useState }            from 'react'
+import { useEffect }           from 'react'
+import { useGoogleReCaptcha }  from 'react-google-recaptcha-v3'
 
-import { Button }             from '@ui/button'
-import { Condition }          from '@ui/condition'
-import { Drawer }             from '@ui/drawer'
-import { Input }              from '@ui/input'
-import { Layer }              from '@ui/layer'
-import { Box }                from '@ui/layout'
-import { Column }             from '@ui/layout'
-import { Row }                from '@ui/layout'
-import { Layout }             from '@ui/layout'
-import { NextLink }           from '@ui/link'
-import { Space }              from '@ui/text'
-import { Text }               from '@ui/text'
-import { useLanguage }        from '@globals/language'
-import { messages }           from '@globals/messages'
+import { Button }              from '@ui/button'
+import { Condition }           from '@ui/condition'
+import { Drawer }              from '@ui/drawer'
+import { Input }               from '@ui/input'
+import { Layer }               from '@ui/layer'
+import { Box }                 from '@ui/layout'
+import { Column }              from '@ui/layout'
+import { Row }                 from '@ui/layout'
+import { Layout }              from '@ui/layout'
+import { NextLink }            from '@ui/link'
+import { Space }               from '@ui/text'
+import { Text }                from '@ui/text'
+import { useLanguage }         from '@globals/language'
+import { messages }            from '@globals/messages'
 
-import { FormFieldNode }      from '../data'
-import { useForms }           from '../data'
-import { useSubmit }          from '../data'
-import { verifyRecaptcha }    from '../data'
+import { useForms }            from '../data'
+import { useSubmit }           from '../data'
+import { verifyRecaptcha }     from '../data'
+import { FormFieldNode }       from '../data'
+import { SubmitFormVariables } from '../data'
 
-type FormFields = 'firstname' | 'phone' | 'email' | 'textbox';
-
-const defaultFormFields: Record<FormFields, string> = {
+const defaultFormFields: SubmitFormVariables = {
   firstname: '',
   phone: '',
   email: '',

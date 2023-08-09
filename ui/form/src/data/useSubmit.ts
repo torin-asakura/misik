@@ -17,7 +17,7 @@ interface SubmitFormPayload {
   }
 }
 
-interface SubmitFormVariables {
+export interface SubmitFormVariables {
   firstname: string;
   phone: string;
   email: string;
