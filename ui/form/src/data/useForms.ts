@@ -33,9 +33,9 @@ const useForms = (): [never[] | ParsedFormsData, boolean] => {
     return [[], loading];
   }
 
-  const getParsedFormFields = (lang: string) => {
-    return data.forms.nodes.find((form) => form.title === `contact_${lang}`)?.fields.nodes || [];
-  };
+  const getParsedFormFields = (lang: string) =>
+    data.forms.nodes.find((form) => form.title === `contact_${lang}`)?.fields.nodes || [];
+
 
   return [
     {

@@ -14,8 +14,8 @@ type VerifyRecaptcha = (token: string) => Promise<ResponseData>;
 const verifyRecaptchaUrl = 'https://www.google.com/recaptcha/api/siteverify';
 const secretKey = '6LdShlslAAAAAB6HF39ig23TXk2P1lv1UrvyOUlp';
 
-export const verifyRecaptcha: VerifyRecaptcha = async (token) => {
-  return fetch(`${verifyRecaptchaUrl}?secret=${secretKey}&response=${token}`, {
+export const verifyRecaptcha: VerifyRecaptcha = async (token) =>
+  fetch(`${verifyRecaptchaUrl}?secret=${secretKey}&response=${token}`, {
     method: 'post',
   }).then((response) => response.json());
-};
+

@@ -56,15 +56,15 @@ const FormContent: FC = () => {
         return;
       }
 
-      let emptyFields: string[] = [];
+      const emptyFields: string[] = [];
 
-      for (const key in formFieldsValues) {
+      Object.keys(formFieldsValues).forEach((key) => {
         const isRequired = fields[language].find((field) => field.type === key)?.required || false;
 
         if (isRequired && formFieldsValues[key] === '') {
           emptyFields.push(key);
         }
-      }
+      });
 
       if (emptyFields.length !== 0) {
         setFormErrorsFields(emptyFields);
@@ -94,7 +94,7 @@ const FormContent: FC = () => {
       setFormStatus('sent');
       setFormFieldsValues(defaultFormFields);
     } catch (error) {
-      console.error(error);
+      throw Error(`form-content: ${error}`)
     }
   };
 
