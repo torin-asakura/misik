@@ -22,6 +22,7 @@ import { messages }           from '@globals/messages'
 import { FormFieldNode }      from '../data'
 import { useForms }           from '../data'
 import { useSubmit }          from '../data'
+import { verifyRecaptcha }    from '../data'
 
 type FormFields = 'firstname' | 'phone' | 'email' | 'textbox';
 
@@ -74,8 +75,10 @@ const FormContent: FC = () => {
       }
 
       const token = await executeRecaptcha('submit');
+      
+      const { success } = await verifyRecaptcha(token);
 
-      if (token === '') {
+      if (!token || !success) {
         setFormStatus('notSent');
 
         return;
