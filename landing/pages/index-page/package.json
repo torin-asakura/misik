@@ -24,7 +24,7 @@
     "@apollo/client": "^3.6.9",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
-    "@types/react": "^17",
+    "@types/react": "17.0.15",
     "@types/react-helmet": "^6",
     "@types/react-scroll": "^1",
     "@types/styled-system": "^5",
