@@ -30,96 +30,96 @@ const defaultFormFields: SubmitFormVariables = {
   phone: '',
   email: '',
   textbox: '',
-};
+}
 
 const FormContent: FC = () => {
-  const [formFieldsValues, setFormFieldsValues] = useState(defaultFormFields);
-  const [formErrorsFields, setFormErrorsFields] = useState<string[]>([]);
-  const [formStatus, setFormStatus] = useState<'send' | 'sent' | 'notSent'>('send');
-  const [isPrivacyPolicyOpen, setIsPrivacyPolicyOpen] = useState(false);
+  const [formFieldsValues, setFormFieldsValues] = useState(defaultFormFields)
+  const [formErrorsFields, setFormErrorsFields] = useState<string[]>([])
+  const [formStatus, setFormStatus] = useState<'send' | 'sent' | 'notSent'>('send')
+  const [isPrivacyPolicyOpen, setIsPrivacyPolicyOpen] = useState(false)
 
-  const { executeRecaptcha } = useGoogleReCaptcha();
+  const { executeRecaptcha } = useGoogleReCaptcha()
 
-  const [language] = useLanguage();
-  const [fields] = useForms();
-  const [submit] = useSubmit();
+  const [language] = useLanguage()
+  const [fields] = useForms()
+  const [submit] = useSubmit()
 
   useEffect(() => {
     if (formStatus !== 'send') {
-      setTimeout(() => setFormStatus('send'), 2000);
+      setTimeout(() => setFormStatus('send'), 2000)
     }
-  }, [formStatus]);
+  }, [formStatus])
 
   const handleSendForm = async () => {
     try {
       if (!executeRecaptcha || Array.isArray(fields)) {
-        return;
+        return
       }
 
-      const emptyFields: string[] = [];
+      const emptyFields: string[] = []
 
       Object.keys(formFieldsValues).forEach((key) => {
-        const isRequired = fields[language].find((field) => field.type === key)?.required || false;
+        const isRequired = fields[language].find((field) => field.type === key)?.required || false
 
         if (isRequired && formFieldsValues[key] === '') {
-          emptyFields.push(key);
+          emptyFields.push(key)
         }
-      });
+      })
 
       if (emptyFields.length !== 0) {
-        setFormErrorsFields(emptyFields);
-        setFormStatus('notSent');
+        setFormErrorsFields(emptyFields)
+        setFormStatus('notSent')
 
-        return;
+        return
       }
 
-      const token = await executeRecaptcha('submit');
-      
-      const { success } = await verifyRecaptcha(token);
+      const token = await executeRecaptcha('submit')
+
+      const { success } = await verifyRecaptcha(token)
 
       if (!token || !success) {
-        setFormStatus('notSent');
+        setFormStatus('notSent')
 
-        return;
+        return
       }
 
-      const { data } = await submit({ variables: formFieldsValues });
+      const { data } = await submit({ variables: formFieldsValues })
 
       if (!data?.submitForm.success) {
-        setFormStatus('notSent');
+        setFormStatus('notSent')
 
-        return;
+        return
       }
 
-      setFormStatus('sent');
-      setFormFieldsValues(defaultFormFields);
+      setFormStatus('sent')
+      setFormFieldsValues(defaultFormFields)
     } catch (error) {
       throw Error(`form-content: ${error}`)
     }
-  };
+  }
 
   const handleChangeField = (value: string, field: string) => {
-    setFormFieldsValues((prev) => ({ ...prev, [field]: value }));
-  };
+    setFormFieldsValues((prev) => ({ ...prev, [field]: value }))
+  }
 
   const handleClosePrivacyPolicy = () => {
-    setIsPrivacyPolicyOpen(false);
-  };
+    setIsPrivacyPolicyOpen(false)
+  }
 
   return (
     <>
       <Drawer
         active={isPrivacyPolicyOpen}
         onClose={handleClosePrivacyPolicy}
-        display="privacy-policy"
+        display='privacy-policy'
       />
       <Layer
         visible={isPrivacyPolicyOpen}
         onClose={handleClosePrivacyPolicy}
-        display="privacy-policy"
+        display='privacy-policy'
       />
-      <Box width="100%" maxWidth={['100%', '100%', 859]} height="100%">
-        <Column width="100%">
+      <Box width='100%' maxWidth={['100%', '100%', 859]} height='100%'>
+        <Column width='100%'>
           <Condition match={!Array.isArray(fields)}>
             {fields[language]?.map((field: FormFieldNode) => (
               <Condition match={formFieldsValues[field.type] !== undefined} key={field.type}>
@@ -137,36 +137,39 @@ const FormContent: FC = () => {
           </Condition>
           <Layout>
             <Button
-              width="100%"
+              width='100%'
               height={[48, 48, 52]}
               px={0}
               success={formStatus === 'sent'}
               failure={formStatus === 'notSent'}
-              onClick={handleSendForm}>
+              onClick={handleSendForm}
+            >
               <Condition match={formStatus === 'send'}>{messages.send[language]}</Condition>
               <Condition match={formStatus === 'sent'}>{messages.sent[language]}</Condition>
               <Condition match={formStatus === 'notSent'}>{messages.notSent[language]}</Condition>
             </Button>
           </Layout>
           <Layout flexBasis={[24, 24, 32]} />
-          <Row justifyContent="center">
+          <Row justifyContent='center'>
             <Layout width={[335, 335, '100%']}>
               <NextLink
-                fontSize="atomic"
-                textAlign="center"
-                width="100%"
-                whiteSpace="normal"
-                color="text.secondary"
-                display="flex"
-                onClick={() => setIsPrivacyPolicyOpen(true)}>
-                <Text color="text.secondary" display="inline" whiteSpace="normal" fontSize="atomic">
+                fontSize='atomic'
+                textAlign='center'
+                width='100%'
+                whiteSpace='normal'
+                color='text.secondary'
+                display='flex'
+                onClick={() => setIsPrivacyPolicyOpen(true)}
+              >
+                <Text color='text.secondary' display='inline' whiteSpace='normal' fontSize='atomic'>
                   {messages.byClickingYouConfirm[language]}
                   <Space />
                   <Text
                     style={{ textDecoration: 'underline' }}
-                    display="inline"
-                    whiteSpace="normal"
-                    color="text.secondary">
+                    display='inline'
+                    whiteSpace='normal'
+                    color='text.secondary'
+                  >
                     {messages.privacyPolicy[language]}
                   </Text>
                 </Text>
@@ -176,7 +179,7 @@ const FormContent: FC = () => {
         </Column>
       </Box>
     </>
-  );
-};
+  )
+}
 
-export { FormContent };
+export { FormContent }
