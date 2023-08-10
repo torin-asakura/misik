@@ -1,7 +1,7 @@
-import { useMutation }    from '@apollo/client'
-import { MutationTuple }  from '@apollo/client'
+import { useMutation } from '@apollo/client'
 
-import { SUBMIT_FORM }    from './submit.mutation'
+import { SUBMIT_FORM } from './submit.mutation'
+import { useVerify }   from './useVerify'
 
 interface FieldError {
   fieldId: number
@@ -24,10 +24,33 @@ export interface SubmitFormVariables {
   textbox: string
 }
 
-const useSubmit = (): MutationTuple<SubmitFormPayload, SubmitFormVariables> => {
-  const [submit, result] = useMutation<SubmitFormPayload, SubmitFormVariables>(SUBMIT_FORM)
+type SubmitForm = (variables: SubmitFormVariables) => Promise<boolean>
 
-  return [submit, result]
+const useSubmit = () => {
+  const [verify] = useVerify()
+  const [submit] = useMutation<SubmitFormPayload, SubmitFormVariables>(SUBMIT_FORM)
+
+  const submitForm: SubmitForm = async (variables) => {
+    try {
+      const isVerifySuccess = await verify('submit')
+
+      if (!isVerifySuccess) {
+        return false
+      }
+
+      const { data } = await submit({ variables })
+
+      if (!data) {
+        return false
+      }
+
+      return data.submitForm.success
+    } catch (error) {
+      throw Error(`submitForm: ${error}`)
+    }
+  }
+
+  return [submitForm]
 }
 
 export { useSubmit }
