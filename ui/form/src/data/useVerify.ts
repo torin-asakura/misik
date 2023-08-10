@@ -2,7 +2,7 @@ import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 
 import { verifyRecaptcha }    from './verifyRecaptcha.request'
 
-export const useVerify = () => {
+const useVerify = () => {
   const { executeRecaptcha } = useGoogleReCaptcha()
 
   const verify = async (action: string): Promise<boolean> => {
@@ -27,3 +27,5 @@ export const useVerify = () => {
 
   return [verify]
 }
+
+export { useVerify }

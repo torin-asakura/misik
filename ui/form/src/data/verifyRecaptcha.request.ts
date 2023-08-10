@@ -16,7 +16,9 @@ const verifyRecaptchaUrl = 'https://www.google.com/recaptcha/api/siteverify'
 /** @todo Move to env variables */
 const secretKey = '6LdShlslAAAAAB6HF39ig23TXk2P1lv1UrvyOUlp'
 
-export const verifyRecaptcha: VerifyRecaptcha = async (token) =>
+const verifyRecaptcha: VerifyRecaptcha = async (token) =>
   fetch(`${verifyRecaptchaUrl}?secret=${secretKey}&response=${token}`, {
     method: 'post',
   }).then((response) => response.json())
+
+export { verifyRecaptcha }
