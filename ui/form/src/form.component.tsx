@@ -4,6 +4,7 @@ import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3'
 
 import { FormContent }             from './form-content'
 
+/** @todo Move to env variables */
 const sitekey = '6LdShlslAAAAABOs_yonZGSN8Kc8LYjEf-op7cbt'
 
 const Form: FC = () => (

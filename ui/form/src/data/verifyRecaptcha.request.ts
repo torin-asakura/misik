@@ -1,4 +1,4 @@
-// * API docs https://developers.google.com/recaptcha/docs/verify
+/** @see https://developers.google.com/recaptcha/docs/verify */
 
 interface ResponseData {
   success: boolean;
@@ -12,6 +12,8 @@ interface ResponseData {
 type VerifyRecaptcha = (token: string) => Promise<ResponseData>;
 
 const verifyRecaptchaUrl = 'https://www.google.com/recaptcha/api/siteverify';
+
+/** @todo Move to env variables */
 const secretKey = '6LdShlslAAAAAB6HF39ig23TXk2P1lv1UrvyOUlp';
 
 export const verifyRecaptcha: VerifyRecaptcha = async (token) =>
