@@ -1,3 +1,4 @@
+export * from './data.interfaces'
 export * from './useForms'
 export * from './useSubmit'
 export * from './useVerify'

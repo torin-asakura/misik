@@ -1,30 +1,11 @@
-import { useQuery }  from '@apollo/client'
+import { useQuery }            from '@apollo/client'
 
-import { Language }  from '@globals/language'
+import { FormsResponse }       from './data.interfaces'
+import { ParsedFormsResponse } from './data.interfaces'
+import { GET_FORMS }           from './forms.query'
 
-import { GET_FORMS } from './forms.query'
-
-export interface FormFieldNode {
-  type: string
-  label: string
-  required: boolean
-}
-
-interface FormsData {
-  forms: {
-    nodes: Array<{
-      title: string
-      fields: {
-        nodes: FormFieldNode[]
-      }
-    }>
-  }
-}
-
-type ParsedFormsData = Record<Language, FormFieldNode[]>
-
-const useForms = (): [never[] | ParsedFormsData, boolean] => {
-  const { data, loading, error } = useQuery<FormsData>(GET_FORMS)
+const useForms = (): [never[] | ParsedFormsResponse, boolean] => {
+  const { data, loading, error } = useQuery<FormsResponse>(GET_FORMS)
 
   if (error) {
     throw new Error(error.message)
