@@ -13,14 +13,14 @@
     "styled-system": "^5.1.5"
   },
   "devDependencies": {
-    "@apollo/client": "^3.6.9",
-    "@emotion/react": "^11.4.1",
-    "@emotion/styled": "^11.3.0",
+    "@apollo/client": "3.6.9",
+    "@emotion/react": "11.9.3",
+    "@emotion/styled": "11.9.3",
     "@globals/data": "workspace:0.0.1",
     "@globals/language": "workspace:0.0.1",
-    "@types/react-dom": "^17",
-    "@types/styled-system": "^5.1.12",
-    "react": "^17.0.2",
+    "@types/react-dom": "17.0.9",
+    "@types/styled-system": "5.1.12",
+    "react": "17.0.2",
     "react-dom": "17.0.2"
   },
   "peerDependencies": {
