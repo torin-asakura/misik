@@ -24,7 +24,7 @@
     "@globals/data": "workspace:0.0.1",
     "@globals/language": "workspace:0.0.1",
     "@types/react": "17.0.15",
-    "@types/styled-system": "^5",
+    "@types/styled-system": "5.1.12",
     "@ui/preloader": "workspace:0.0.1",
     "@ui/spy-scroll": "workspace:0.0.1",
     "react": "17.0.2",
