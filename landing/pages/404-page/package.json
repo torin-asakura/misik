@@ -22,8 +22,10 @@
   "peerDependencies": {
     "@apollo/client": "*",
     "@emotion/styled": "*",
+    "graphql": "*",
     "next": "*",
     "react": "*",
+    "react-dom": "*",
     "react-helmet": "*"
   }
 }

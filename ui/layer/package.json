@@ -29,6 +29,7 @@
     "@apollo/client": "*",
     "@emotion/react": "*",
     "@emotion/styled": "*",
+    "graphql": "*",
     "react": "*",
     "react-dom": "*"
   }

@@ -39,6 +39,7 @@
     "@globals/language": "*",
     "@ui/preloader": "workspace:^",
     "@ui/spy-scroll": "*",
+    "graphql": "*",
     "next": "*",
     "react": "*",
     "react-dom": "*",

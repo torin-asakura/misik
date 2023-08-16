@@ -9,6 +9,7 @@
   },
   "peerDependencies": {
     "@apollo/client": "*",
-    "react": "*"
+    "react": "*",
+    "react-dom": "*"
   }
 }

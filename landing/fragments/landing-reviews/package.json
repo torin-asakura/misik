@@ -37,6 +37,7 @@
     "@globals/language": "*",
     "@globals/messages": "*",
     "@ui/spy-scroll": "*",
+    "graphql": "*",
     "next": "*",
     "react": "*",
     "react-dom": "*",

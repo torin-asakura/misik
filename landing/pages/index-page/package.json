@@ -39,6 +39,7 @@
     "@emotion/react": "*",
     "@emotion/styled": "*",
     "@ui/preloader": "workspace:^",
+    "graphql": "*",
     "next": "*",
     "react": "*",
     "react-dom": "*",

@@ -30,6 +30,7 @@
     "@emotion/styled": "*",
     "@globals/data": "*",
     "@globals/language": "*",
+    "graphql": "*",
     "next": "*",
     "react": "*",
     "react-dom": "*",

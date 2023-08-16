@@ -36,6 +36,7 @@
     "@apollo/client": "*",
     "@emotion/react": "*",
     "@emotion/styled": "*",
+    "graphql": "*",
     "next": "*",
     "react": "*",
     "react-dom": "*",

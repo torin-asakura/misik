@@ -27,6 +27,7 @@
     "@emotion/styled": "*",
     "@globals/data": "*",
     "@globals/language": "*",
+    "graphql": "*",
     "react": "*",
     "react-dom": "*",
     "styled-system": "*"
