@@ -1238,7 +1238,7 @@ __metadata:
     use-resize-observer: "npm:6.1.0"
   peerDependencies:
     locomotive-scroll: 4.1.4
-    react: 18.0.2
+    react: "*"
     react-dom: "*"
   languageName: unknown
   linkType: soft
@@ -1737,13 +1737,13 @@ __metadata:
     graphql: "npm:15.5.1"
     locomotive-scroll: "npm:4.1.4"
     mapbox-gl: "npm:2.6.1"
-    next: "npm:12.2.0"
+    next: "npm:12.1.0"
     react: "npm:17.0.2"
     react-dom: "npm:17.0.2"
     react-helmet: "npm:6.1.0"
     recompose: "npm:0.30.0"
     styled-system: "npm:5.1.5"
-    typescript: "npm:4.3.5"
+    typescript: "npm:4.4.4"
   languageName: unknown
   linkType: soft
 
@@ -3679,7 +3679,7 @@ __metadata:
     "@types/react-dom": "npm:17.0.9"
     "@types/styled-system": "npm:5.1.12"
     "@ui/text": "workspace:0.0.1"
-    next: "npm:12.2.0"
+    next: "npm:12.1.0"
     react: "npm:17.0.2"
     react-dom: "npm:17.0.2"
     styled-system: "npm:5.1.5"
@@ -10133,16 +10133,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:4.3.5":
-  version: 4.3.5
-  resolution: "typescript@npm:4.3.5"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 0e305c667d7908401480c61e04afc31419aef6d6cc484d5c10547691d30f373ea17de2d58692387991b0b5cfb0d105c14b8f4c4462e7172322759e532cc334e0
-  languageName: node
-  linkType: hard
-
 "typescript@npm:4.4.4":
   version: 4.4.4
   resolution: "typescript@npm:4.4.4"
@@ -10160,16 +10150,6 @@ __metadata:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 0cec8f1c0fb0c6a9b437ee4e17819510eb294aad85291e940188fc4542a5554ffe1f73e4bc396c77d0a4d7dd1c17fd795634d50938fc3558e34f32d8a682118b
-  languageName: node
-  linkType: hard
-
-"typescript@patch:typescript@npm%3A4.3.5#optional!builtin<compat/typescript>":
-  version: 4.3.5
-  resolution: "typescript@patch:typescript@npm%3A4.3.5#optional!builtin<compat/typescript>::version=4.3.5&hash=dba6d9"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 3b55553e48af8f9d7ddfef5a003d9a849bbbd1db2f53472bae9b99b33024f8c870822f2a9238f62b6711d21cf76bdd911420b1da11d080d6a932403ea29be24d
   languageName: node
   linkType: hard
 
