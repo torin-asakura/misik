@@ -13,25 +13,27 @@
     "@landing/navigation-fragment": "workspace:0.0.1",
     "@ui/layout": "workspace:0.0.1",
     "@ui/spy-scroll": "workspace:0.0.1",
-    "locomotive-scroll": "^4.1.4"
+    "locomotive-scroll": "4.1.4"
   },
   "devDependencies": {
-    "@apollo/client": "^3.6.9",
-    "@emotion/react": "^11.9.3",
-    "@emotion/styled": "^11.9.3",
-    "@types/react-helmet": "^6",
-    "@types/styled-system": "^5",
+    "@apollo/client": "3.6.9",
+    "@emotion/react": "11.9.3",
+    "@emotion/styled": "11.9.3",
+    "@types/react": "17.0.15",
+    "@types/react-helmet": "6.1.6",
+    "@types/styled-system": "5.1.12",
     "@ui/preloader": "workspace:0.0.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-helmet": "^6.1.0",
-    "styled-system": "^5.1.5"
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-helmet": "6.1.0",
+    "styled-system": "5.1.5"
   },
   "peerDependencies": {
     "@apollo/client": "*",
     "@emotion/react": "*",
     "@emotion/styled": "*",
     "@ui/preloader": "workspace:^",
+    "graphql": "*",
     "next": "*",
     "react": "*",
     "react-dom": "*",

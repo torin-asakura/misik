@@ -1,11 +1,35 @@
-import { useMutation } from '@apollo/client'
+import { useMutation }         from '@apollo/client'
 
-import { SUBMIT_FORM } from './submit.mutation'
+import { SubmitFormResponse }  from './data.interfaces'
+import { SubmitFormVariables } from './data.interfaces'
+import { SUBMIT_FORM }         from './submit.mutation'
+import { useVerify }           from './useVerify'
 
 const useSubmit = () => {
-  const [submit, { data }] = useMutation(SUBMIT_FORM)
+  const [verify] = useVerify()
+  const [submit] = useMutation<SubmitFormResponse, SubmitFormVariables>(SUBMIT_FORM)
 
-  return [submit, data]
+  const submitForm = async (variables: SubmitFormVariables): Promise<boolean> => {
+    try {
+      const isVerifySuccess = await verify('submit')
+
+      if (!isVerifySuccess) {
+        return false
+      }
+
+      const { data } = await submit({ variables })
+
+      if (!data) {
+        return false
+      }
+
+      return data.submitForm.success
+    } catch (error) {
+      throw Error(`submitForm: ${error}`)
+    }
+  }
+
+  return [submitForm]
 }
 
 export { useSubmit }
