@@ -26,6 +26,9 @@ import { useNavigation }          from './data'
 
 const Navigation: FC = () => {
   const navigation = useNavigation()
+
+  const relocationId = ['cG9zdDoxNzgwMA==', 'cG9zdDoxNzc5OQ==']
+
   const [language, setLanguage] = useLanguage()
   const { scroll } = useLocomotiveScroll()
   const [visible, setVisible] = useState<boolean>(false)
@@ -101,7 +104,7 @@ const Navigation: FC = () => {
             </Layout>
             <Layout flexGrow={1} flexBasis={[0, 0, 168]} flexShrink={0} />
             <Row alignItems='center' justifyContent='flex-start' display={['none', 'none', 'flex']}>
-              {navigation[language]?.reverse().map(({ title, elementsMenu, content }) => (
+              {navigation[language]?.filter(item => !relocationId.includes(item.id)).reverse().map(({ title, elementsMenu, content }) => (
                 <>
                   <Layout>
                     <Condition match={elementsMenu?.externalLink !== null}>

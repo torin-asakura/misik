@@ -4,6 +4,7 @@ const GET_NAVIGATION = gql`
   query GetNavigation {
     navigationItems {
       nodes {
+        id
         title
         elementsMenu {
           externalLink
