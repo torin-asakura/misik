@@ -6,6 +6,7 @@ const GET_SERVICES = gql`
   query GetMainServices {
     mainServices {
       nodes {
+        id
         contentAddons {
           image {
             altText
@@ -31,13 +32,17 @@ const runServicesQuery = async () => {
     query: GET_SERVICES,
   })
 
+  const relocationId = ['cG9zdDo2MDI=', 'cG9zdDo2MDM=']
+
+  const data = servicesData.mainServices.nodes.filter(node => relocationId[0] !== (node.id) && relocationId[1] !== node.id)
+
   if (servicesData) {
     return {
       services: {
-        RU: servicesData.mainServices.nodes.filter(
+        RU: data.filter(
           (servicesFragment) => servicesFragment.language.code === 'RU'
         ),
-        EN: servicesData.mainServices.nodes.filter(
+        EN: data.filter(
           (servicesFragment) => servicesFragment.language.code === 'EN'
         ),
       },
