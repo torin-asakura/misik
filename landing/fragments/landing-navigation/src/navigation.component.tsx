@@ -104,23 +104,26 @@ const Navigation: FC = () => {
             </Layout>
             <Layout flexGrow={1} flexBasis={[0, 0, 168]} flexShrink={0} />
             <Row alignItems='center' justifyContent='flex-start' display={['none', 'none', 'flex']}>
-              {navigation[language]?.filter(item => !relocationId.includes(item.id)).reverse().map(({ title, elementsMenu, content }) => (
-                <>
-                  <Layout>
-                    <Condition match={elementsMenu?.externalLink !== null}>
-                      <Link href={elementsMenu.externalLink} fontSize='semiRegular'>
-                        {title}
-                      </Link>
-                    </Condition>
-                    <Condition match={elementsMenu?.externalLink === null}>
-                      <NextLink path={content} fontSize='semiRegular'>
-                        {title}
-                      </NextLink>
-                    </Condition>
-                  </Layout>
-                  <Layout flexBasis={40} />
-                </>
-              ))}
+              {navigation[language]
+                ?.filter((item) => !relocationId.includes(item.id))
+                .reverse()
+                .map(({ title, elementsMenu, content }) => (
+                  <>
+                    <Layout>
+                      <Condition match={elementsMenu?.externalLink !== null}>
+                        <Link href={elementsMenu.externalLink} fontSize='semiRegular'>
+                          {title}
+                        </Link>
+                      </Condition>
+                      <Condition match={elementsMenu?.externalLink === null}>
+                        <NextLink path={content} fontSize='semiRegular'>
+                          {title}
+                        </NextLink>
+                      </Condition>
+                    </Layout>
+                    <Layout flexBasis={40} />
+                  </>
+                ))}
               <Layout flexBasis={40} />
             </Row>
             <Layout flexGrow={1} />
