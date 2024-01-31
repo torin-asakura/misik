@@ -1,3 +1,4 @@
+import RingBin  from './ring_data.bin'
 import RingGltf from './ring.gltf'
 
-export { RingGltf }
+export { RingBin, RingGltf }
