@@ -18,11 +18,11 @@ export const Loader: FC<PropsWithChildren<{}>> = ({ children }) => (
   <Suspense fallback={null}>{children}</Suspense>
 )
 
-// useGLTF.preload(CubeGltf)
-// useGLTF.preload(CylinderGltf)
-// useGLTF.preload(DiamondGltf)
-// useGLTF.preload(IsosphereGltf)
-// useGLTF.preload(PillGltf)
-// useGLTF.preload(PyramidGltf)
-// useGLTF.preload(RingGltf)
+useGLTF.preload(CubeGltf)
+useGLTF.preload(CylinderGltf)
+useGLTF.preload(DiamondGltf)
+useGLTF.preload(IsosphereGltf)
+useGLTF.preload(PillGltf)
+useGLTF.preload(PyramidGltf)
+useGLTF.preload(RingGltf)
 useGLTF.preload(SphereGltf)
