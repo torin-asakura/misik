@@ -13,7 +13,7 @@ export const CanvasInner = memo<CanvasInnerProps>(({ style, children }) => (
       borderTopLeftRadius: 40,
       borderTopRightRadius: 40,
     }}
-    camera={{ position: [10, 0, 0], fov: 50 }}
+    camera={{ position: [10, 0, 0], fov: 20 }}
   >
     <ambientLight color='#ffffff' intensity={0.3} />
     <directionalLight color='#ffffff' position={[20, 20, 0]} intensity={5.5} />
