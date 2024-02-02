@@ -21,11 +21,13 @@ export const SphereModel: FC<ModelProps> = (props) => {
   const { camera } = useThree()
 
   useEffect(() => {
-    camera.lookAt(new Vector3(1.669, 3.399, -5.613))
-
     actions['Key.004Action']?.setLoop(2201, Infinity)
     actions['Key.004Action']?.play()
   }, [actions])
+
+  useEffect(() => {
+    camera.lookAt(new Vector3(1.669, 3.399, -5.613))
+  }, [camera])
 
   return (
     <group ref={group} {...props} dispose={null}>

@@ -21,11 +21,13 @@ export const CylinderModel: FC<ModelProps> = (props) => {
   const { camera } = useThree()
 
   useEffect(() => {
-    camera.lookAt(new Vector3(0, -2.139, -5.333))
-
-    actions['a']?.setLoop(2201, Infinity)
-    actions['a']?.play()
+    actions.a?.setLoop(2201, Infinity)
+    actions.a?.play()
   }, [actions])
+
+  useEffect(() => {
+    camera.lookAt(new Vector3(0, -2.139, -5.333))
+  }, [camera])
 
   return (
     <group ref={group} {...props} dispose={null}>

@@ -21,13 +21,15 @@ export const RingModel: FC<ModelProps> = (props) => {
   const { camera } = useThree()
 
   useEffect(() => {
-    camera.lookAt(new Vector3(1.231, -2.188, -1.774))
-
-    actions['a']?.setLoop(2201, Infinity)
+    actions.a?.setLoop(2201, Infinity)
     actions['hyi.001']?.setLoop(2201, Infinity)
-    actions['a']?.play()
+    actions.a?.play()
     actions['hyi.001']?.play()
   }, [actions])
+
+  useEffect(() => {
+    camera.lookAt(new Vector3(1.231, -2.188, -1.774))
+  }, [camera])
 
   return (
     <group ref={group} {...props} dispose={null}>

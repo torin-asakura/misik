@@ -21,11 +21,13 @@ export const IsosphereModel: FC<ModelProps> = (props) => {
   const { camera } = useThree()
 
   useEffect(() => {
-    camera.lookAt(new Vector3(0, -2.133, 2.32))
-
-    actions['a']?.setLoop(2201, Infinity)
-    actions['a']?.play()
+    actions.a?.setLoop(2201, Infinity)
+    actions.a?.play()
   }, [actions])
+
+  useEffect(() => {
+    camera.lookAt(new Vector3(0, -2.133, 2.32))
+  }, [camera])
 
   return (
     <group ref={group} {...props} dispose={null}>

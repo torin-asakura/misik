@@ -21,13 +21,15 @@ export const CubeModel: FC<ModelProps> = (props) => {
   const { camera } = useThree()
 
   useEffect(() => {
-    camera.lookAt(new Vector3(1.375, 3.425, 1.811))
-
     actions['CubeAction.001']?.setLoop(2201, Infinity)
     actions['Key.008Action']?.setLoop(2201, Infinity)
     actions['CubeAction.001']?.play()
     actions['Key.008Action']?.play()
   }, [actions])
+
+  useEffect(() => {
+    camera.lookAt(new Vector3(1.375, 3.425, 1.811))
+  }, [camera])
 
   return (
     <group ref={group} {...props} dispose={null}>

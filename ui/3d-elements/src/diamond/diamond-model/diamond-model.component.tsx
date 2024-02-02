@@ -21,11 +21,13 @@ export const DiamondModel: FC<ModelProps> = (props) => {
   const { camera } = useThree()
 
   useEffect(() => {
-    camera.lookAt(new Vector3(0, -2, 5.7))
-
-    actions['a']?.setLoop(2201, Infinity)
-    actions['a']?.play()
+    actions.a?.setLoop(2201, Infinity)
+    actions.a?.play()
   }, [actions])
+
+  useEffect(() => {
+    camera.lookAt(new Vector3(0, -2, 5.7))
+  }, [camera])
 
   return (
     <group ref={group} {...props} dispose={null}>

@@ -21,11 +21,13 @@ export const PyramidModel: FC<ModelProps> = (props) => {
   const { camera } = useThree()
 
   useEffect(() => {
-    camera.lookAt(new Vector3(1.63, 3.386, -1.994))
-
     actions['Key.009Action']?.setLoop(2201, Infinity)
     actions['Key.009Action']?.play()
   }, [actions])
+
+  useEffect(() => {
+    camera.lookAt(new Vector3(1.63, 3.386, -1.994))
+  }, [camera])
 
   return (
     <group ref={group} {...props} dispose={null}>
