@@ -3502,31 +3502,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/stats.js@npm:*":
-  version: 0.17.3
-  resolution: "@types/stats.js@npm:0.17.3"
-  checksum: 9cb79a38347ad9b0adce20442699d66baf97b93702e1ff266086a325223d9cf4f73ff25783aca0200df4ef124c7d2650fbce57c5524bf5d6ef2b4303c57ae6f5
-  languageName: node
-  linkType: hard
-
 "@types/styled-system@npm:5.1.12":
   version: 5.1.12
   resolution: "@types/styled-system@npm:5.1.12"
   dependencies:
     csstype: "npm:^3.0.2"
   checksum: 5d16c7b1b2f2cdde2db1622e315894e62fcb0f541656b0e6491f6fdfbcb3c92b603185491319d02eadb6204ba808b802ea2ebf04e7bd92f3be139ed1e4a1b5f9
-  languageName: node
-  linkType: hard
-
-"@types/three@npm:0.159.0":
-  version: 0.159.0
-  resolution: "@types/three@npm:0.159.0"
-  dependencies:
-    "@types/stats.js": "npm:*"
-    "@types/webxr": "npm:*"
-    fflate: "npm:~0.6.10"
-    meshoptimizer: "npm:~0.18.1"
-  checksum: e652d06a7c591f321160291b198ee35118ea27946714ff34691fe2a1f842a9169f46ec573a4d26556d6fab12d8e1c72f107c3ece91f8b5dcf11fc87ba657881b
   languageName: node
   linkType: hard
 
@@ -3544,7 +3525,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/webxr@npm:*, @types/webxr@npm:^0.5.2":
+"@types/webxr@npm:^0.5.2":
   version: 0.5.11
   resolution: "@types/webxr@npm:0.5.11"
   checksum: 9f060645721915f9631ee9eca9a6c65944ff54cf4babda1c16a56003bd9f816c927e33fda2265cd9303ca06eb57af645a828b032a76d357966b21cbc36c45595
@@ -3582,8 +3563,8 @@ __metadata:
     "@react-three/fiber": "npm:7.0.29"
     "@types/react": "npm:17.0.73"
     "@types/react-dom": "npm:17.0.25"
-    "@types/three": "npm:0.159.0"
     "@ui/condition": "workspace:0.0.1"
+    "@ui/theme": "workspace:0.0.1"
     react: "npm:17.0.2"
     react-dom: "npm:17.0.2"
     three: "npm:0.159.0"
@@ -6356,7 +6337,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fflate@npm:^0.6.9, fflate@npm:~0.6.10":
+"fflate@npm:^0.6.9":
   version: 0.6.10
   resolution: "fflate@npm:0.6.10"
   checksum: 338ad53a5233d8b07cce428ca4e303d9fdcb953ef6fc573c7fc690aad455bc41d85a0643a916e104f01f94dffaf47fa8a19cca95d58b46b4fe807dae50a265a4
@@ -8145,13 +8126,6 @@ __metadata:
   peerDependencies:
     three: ">=0.137"
   checksum: 61a8393567d59ebd8cb1190a6275f0a70feca3f0ea326c94397252c551019bb27391badbec08f46036d0e9b3454e8c95d0b28a29c1bf52a6a71e8ecb8b795d38
-  languageName: node
-  linkType: hard
-
-"meshoptimizer@npm:~0.18.1":
-  version: 0.18.1
-  resolution: "meshoptimizer@npm:0.18.1"
-  checksum: 2f329b29b8ca55e32170ea359fe57db994da9d0be6ee862d530506dc3b9bc06f5878cd21c06a4fc5c4cda9db07b00882d261aa227378d3a3a664b23e2be1db7b
   languageName: node
   linkType: hard
 
