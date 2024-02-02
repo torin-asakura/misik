@@ -38,6 +38,8 @@ const colors = {
     white: 'rgb(255, 255, 255)',
     black: 'rgb(0, 0, 0)',
     accentBlack: 'rgb(18,18,19)',
+    radialGradientBlack:
+      'radial-gradient(246.26% 141.42% at 0% 0%, rgb(83, 83, 90) 0%, rgb(28, 28, 32) 59.72%)',
   },
   input: {
     background: 'transparent',
@@ -53,6 +55,10 @@ const colors = {
   },
   plast: {
     backdrop: 'rgba(105, 103, 102, 0.5)',
+  },
+  light: {
+    white: 'rgb(255, 255, 255)',
+    orange: 'rgb(255, 198, 100)',
   },
 }
 
