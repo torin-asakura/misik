@@ -29,7 +29,7 @@ export const PillModel: FC<ModelProps> = (props) => {
 
   return (
     <group ref={group} {...props} dispose={null}>
-      <group name='Scene'>
+      <group name='Scene' rotation={[0, Math.PI / 2, 0]}>
         <mesh
           name='Sphere001'
           geometry={nodes.Sphere001.geometry}

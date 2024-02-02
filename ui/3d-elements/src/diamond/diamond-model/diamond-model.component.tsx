@@ -21,7 +21,7 @@ export const DiamondModel: FC<ModelProps> = (props) => {
   const { camera } = useThree()
 
   useEffect(() => {
-    camera.lookAt(new Vector3(0, -1.7, 5.5))
+    camera.lookAt(new Vector3(0, -2, 5.7))
 
     actions['a']?.setLoop(2201, Infinity)
     actions['a']?.play()
