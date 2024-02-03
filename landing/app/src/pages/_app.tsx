@@ -14,7 +14,7 @@ const Bare = ({ Component, pageProps, props }) => {
   return (
     <ApolloProvider client={client}>
       <ThemeProvider>
-        <Component {...props} {...pageProps} />
+        <Component {...pageProps} {...props} />
       </ThemeProvider>
     </ApolloProvider>
   )

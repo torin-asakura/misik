@@ -34,17 +34,15 @@ const runServicesQuery = async () => {
 
   const relocationId = ['cG9zdDo2MDI=', 'cG9zdDo2MDM=']
 
-  const data = servicesData.mainServices.nodes.filter(node => relocationId[0] !== (node.id) && relocationId[1] !== node.id)
+  const data = servicesData.mainServices.nodes.filter(
+    (node) => relocationId[0] !== node.id && relocationId[1] !== node.id
+  )
 
   if (servicesData) {
     return {
       services: {
-        RU: data.filter(
-          (servicesFragment) => servicesFragment.language.code === 'RU'
-        ),
-        EN: data.filter(
-          (servicesFragment) => servicesFragment.language.code === 'EN'
-        ),
+        RU: data.filter((servicesFragment) => servicesFragment.language.code === 'RU'),
+        EN: data.filter((servicesFragment) => servicesFragment.language.code === 'EN'),
       },
     }
   }
