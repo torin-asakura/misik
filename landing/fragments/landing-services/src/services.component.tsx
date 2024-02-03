@@ -1,5 +1,3 @@
-/* eslint-disable no-shadow */
-
 import React               from 'react'
 import { forwardRef }      from 'react'
 
