@@ -2,7 +2,6 @@ import React                 from 'react'
 import { FC }                from 'react'
 
 import { Divider }           from '@ui/divider'
-import { Image }             from '@ui/image'
 import { Box }               from '@ui/layout'
 import { Column }            from '@ui/layout'
 import { Layout }            from '@ui/layout'
@@ -11,6 +10,7 @@ import { useLanguage }       from '@globals/language'
 
 import { Carousel }          from './carousel'
 import { useWorkDirections } from './data'
+import { elements }          from './work-directions.contants'
 
 const WorkDirections: FC = () => {
   const workDirections = useWorkDirections()
@@ -22,15 +22,11 @@ const WorkDirections: FC = () => {
         <Layout flexBasis={[40, 40, 80]} />
         <Box width='100%' overflow='hidden' justifyContent='center'>
           <Carousel>
-            {workDirections[language].map(({ title, featuredImage }) => (
-              <Layout maxWidth={200} maxHeight={220}>
+            {workDirections[language].map(({ title }) => (
+              <Layout key={title} maxWidth={200} maxHeight={220}>
                 <Column alignItems='center' itemScope itemType='https://schema.org/Thing'>
                   <Box width={200} height={140}>
-                    <Image
-                      contain
-                      src={featuredImage?.node?.sourceUrl}
-                      alt={featuredImage?.node?.altText}
-                    />
+                    {elements[language][title]}
                   </Box>
                   <Layout flexBasis={24} flexShrink={0} />
                   <Layout height={49}>

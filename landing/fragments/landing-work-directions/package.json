@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "main": "src/index.ts",
   "dependencies": {
+    "@ui/3d-elements": "workspace:0.0.1",
     "@ui/carousel": "workspace:0.0.1",
     "@ui/divider": "workspace:0.0.1",
     "@ui/image": "workspace:0.0.1",

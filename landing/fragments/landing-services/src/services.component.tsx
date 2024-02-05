@@ -49,11 +49,11 @@ const Services = forwardRef(({ data }: any, ref: any) => {
           <Row flexWrap={['wrap', 'wrap', 'nowrap']}>
             <Box height='min-content' width='100%'>
               <Column fill>
-                {leftSide?.map(({ title, content }) => (
-                  <Column fill>
+                {leftSide?.map(({ title: leftSideTitle, content }) => (
+                  <Column key={leftSideTitle} fill>
                     <Divider />
                     <Layout flexBasis={[28, 28, 40]} />
-                    <Accordeon title={title} content={content} />
+                    <Accordeon title={leftSideTitle} content={content} />
                     <Layout flexBasis={[28, 28, 40]} />
                   </Column>
                 ))}
@@ -63,11 +63,11 @@ const Services = forwardRef(({ data }: any, ref: any) => {
             <Layout flexBasis={40} flexShrink={0} />
             <Box height='min-content' width='100%'>
               <Column fill>
-                {rightSide?.map(({ title, content }) => (
-                  <Column fill>
+                {rightSide?.map(({ title: rightSideTitle, content }) => (
+                  <Column key={rightSideTitle} fill>
                     <Divider />
                     <Layout flexBasis={[28, 28, 40]} />
-                    <Accordeon title={title} content={content} />
+                    <Accordeon title={rightSideTitle} content={content} />
                     <Layout flexBasis={[28, 28, 40]} />
                   </Column>
                 ))}
