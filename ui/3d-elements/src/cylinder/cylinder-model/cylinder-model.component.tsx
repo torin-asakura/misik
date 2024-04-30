@@ -14,16 +14,20 @@ import { GLTFResult }    from './cylinder-model.interfaces'
 import { GLTFAction }    from './cylinder-model.interfaces'
 import { ModelProps }    from './cylinder-model.interfaces'
 
-export const CylinderModel: FC<ModelProps> = (props) => {
+export const CylinderModel: FC<ModelProps> = ({ showAnimation, ...props }) => {
   const group = useRef<Group>(null)
   const { nodes, materials, animations } = useGLTF(CylinderGltf, true) as unknown as GLTFResult
   const { actions } = useAnimations<GLTFAction>(animations, group)
   const { camera } = useThree()
 
   useEffect(() => {
-    actions.a?.setLoop(2201, Infinity)
+    if (!actions.a?.enabled) {
+      actions.a?.stop()
+    }
+
+    actions.a?.setLoop(2201, showAnimation ? Infinity : 1)
     actions.a?.play()
-  }, [actions])
+  }, [actions, showAnimation])
 
   useEffect(() => {
     camera.lookAt(new Vector3(0, -2.139, -5.333))

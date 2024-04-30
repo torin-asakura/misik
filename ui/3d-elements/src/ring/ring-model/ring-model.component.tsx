@@ -14,18 +14,23 @@ import { GLTFResult }    from './ring-model.interfaces'
 import { GLTFAction }    from './ring-model.interfaces'
 import { ModelProps }    from './ring-model.interfaces'
 
-export const RingModel: FC<ModelProps> = (props) => {
+export const RingModel: FC<ModelProps> = ({ showAnimation, ...props }) => {
   const group = useRef<Group>(null)
   const { nodes, materials, animations } = useGLTF(RingGltf, true) as unknown as GLTFResult
   const { actions } = useAnimations<GLTFAction>(animations, group)
   const { camera } = useThree()
 
   useEffect(() => {
-    actions.a?.setLoop(2201, Infinity)
-    actions['hyi.001']?.setLoop(2201, Infinity)
+    if (!actions.a?.enabled || !actions['hyi.001']?.enabled) {
+      actions.a?.stop()
+      actions['hyi.001']?.stop()
+    }
+
+    actions.a?.setLoop(2201, showAnimation ? Infinity : 1)
+    actions['hyi.001']?.setLoop(2201, showAnimation ? Infinity : 1)
     actions.a?.play()
     actions['hyi.001']?.play()
-  }, [actions])
+  }, [actions, showAnimation])
 
   useEffect(() => {
     camera.lookAt(new Vector3(1.231, -2.188, -1.774))

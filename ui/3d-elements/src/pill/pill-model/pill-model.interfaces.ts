@@ -1,10 +1,13 @@
+import { GroupProps }           from '@react-three/fiber'
+
 import { AnimationClip }        from 'three'
 import { Mesh }                 from 'three'
 import { MeshStandardMaterial } from 'three'
 import { GLTF }                 from 'three-stdlib'
 
-export type ModelProps = JSX.IntrinsicElements['group']
-
+export interface ModelProps extends GroupProps {
+  showAnimation?: boolean
+}
 export interface GLTFAction extends AnimationClip {
   name: 'a'
 }

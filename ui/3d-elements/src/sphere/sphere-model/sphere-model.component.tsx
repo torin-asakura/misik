@@ -14,16 +14,20 @@ import { GLTFResult }    from './sphere-model.interfaces'
 import { GLTFAction }    from './sphere-model.interfaces'
 import { ModelProps }    from './sphere-model.interfaces'
 
-export const SphereModel: FC<ModelProps> = (props) => {
+export const SphereModel: FC<ModelProps> = ({ showAnimation, ...props }) => {
   const group = useRef<Group>(null)
   const { nodes, materials, animations } = useGLTF(SphereGltf, true) as unknown as GLTFResult
   const { actions } = useAnimations<GLTFAction>(animations, group)
   const { camera } = useThree()
 
   useEffect(() => {
-    actions['Key.004Action']?.setLoop(2201, Infinity)
+    if (!actions['Key.004Action']?.enabled) {
+      actions['Key.004Action']?.stop()
+    }
+
+    actions['Key.004Action']?.setLoop(2201, showAnimation ? Infinity : 1)
     actions['Key.004Action']?.play()
-  }, [actions])
+  }, [actions, showAnimation])
 
   useEffect(() => {
     camera.lookAt(new Vector3(1.669, 3.399, -5.613))

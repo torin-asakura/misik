@@ -14,20 +14,20 @@ import { GLTFResult }    from './pill-model.interfaces'
 import { GLTFAction }    from './pill-model.interfaces'
 import { ModelProps }    from './pill-model.interfaces'
 
-export const PillModel: FC<ModelProps> = (props) => {
+export const PillModel: FC<ModelProps> = ({ showAnimation, ...props }) => {
   const group = useRef<Group>(null)
   const { nodes, materials, animations } = useGLTF(PillGltf, true) as unknown as GLTFResult
   const { actions } = useAnimations<GLTFAction>(animations, group)
   const { camera } = useThree()
 
   useEffect(() => {
-    actions.a?.setLoop(2201, Infinity)
-    actions.a?.play()
-  }, [actions])
+    if (!actions.a?.enabled) {
+      actions.a?.stop()
+    }
 
-  useEffect(() => {
-    camera.lookAt(new Vector3(0.06, 0.2, 0))
-  }, [camera])
+    actions.a?.setLoop(2201, showAnimation ? Infinity : 1)
+    actions.a?.play()
+  }, [actions, showAnimation])
 
   return (
     <group ref={group} {...props} dispose={null}>

@@ -14,16 +14,20 @@ import { GLTFResult }    from './diamond-model.interfaces'
 import { GLTFAction }    from './diamond-model.interfaces'
 import { ModelProps }    from './diamond-model.interfaces'
 
-export const DiamondModel: FC<ModelProps> = (props) => {
+export const DiamondModel: FC<ModelProps> = ({ showAnimation, ...props }) => {
   const group = useRef<Group>(null)
   const { nodes, materials, animations } = useGLTF(DiamondGltf, true) as unknown as GLTFResult
   const { actions } = useAnimations<GLTFAction>(animations, group)
   const { camera } = useThree()
 
   useEffect(() => {
-    actions.a?.setLoop(2201, Infinity)
+    if (!actions.a?.enabled) {
+      actions.a?.stop()
+    }
+
+    actions.a?.setLoop(2201, showAnimation ? Infinity : 1)
     actions.a?.play()
-  }, [actions])
+  }, [actions, showAnimation])
 
   useEffect(() => {
     camera.lookAt(new Vector3(0, -2, 5.7))
