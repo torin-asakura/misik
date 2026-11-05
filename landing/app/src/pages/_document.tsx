@@ -18,6 +18,10 @@ const withIcons = () => (TargetComponent) =>
     static async getInitialProps(context) {
       const props = await super.getInitialProps(context)
 
+      if (process.env.BUILD_WITHOUT_CMS === 'true') {
+        return props
+      }
+
       const faviconResponse = await client.query({
         query: gql`
           query GetFavicon {
