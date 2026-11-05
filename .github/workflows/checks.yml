@@ -8,10 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v6.0.2
 
       - name: Setup Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v6
         with:
           node-version: '16'
 
@@ -47,3 +47,4 @@ jobs:
         run: yarn checks release
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+          BUILD_WITHOUT_CMS: 'true'

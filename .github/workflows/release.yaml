@@ -44,6 +44,7 @@ jobs:
       - name: Release
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+          BUILD_WITHOUT_CMS: 'true'
         run: |
           if [ "$GITHUB_EVENT_NAME" = workflow_dispatch ]; then
             yarn workspace @landing/app image pack --publish --tag-policy hash-timestamp --registry ghcr.io/torin-asakura/misik-
