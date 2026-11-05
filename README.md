@@ -13,7 +13,8 @@ Merged pull requests retain changed-workspace publication. A manual Release
 dispatch on `master` publishes `@landing/app`, including when only release
 configuration has changed. Existing package access controls apply to pulls.
 
-Publication sets `BUILD_WITHOUT_CMS=true` only while building the frontend.
+Publication and its release-validation check set `BUILD_WITHOUT_CMS=true`
+only while building the frontend.
 This skips Document icon queries against the former WordPress service during
 static error-page generation; no replacement CMS or synthetic content is used.
 The flag is not a Next.js public/config env value. Without it, runtime keeps
